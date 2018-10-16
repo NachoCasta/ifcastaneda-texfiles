@@ -102,7 +102,7 @@
 \end{center}
 
 \begin{preguntas}
-\item Determinar si las siguientes integrales impropias convergen o divergen y calcularlas en caso de que converjan.
+\item Determinar si las siguientes impropias convergen o divergen y calcularlas en caso de que converjan.
 \begin{tasks}(3)
 \task $\displaystyle\int_{0}^{3}\dfrac{1}{x\ \sqrt[]{x}}dx$
 \task $\displaystyle\int_{e}^{\infty}\dfrac{1}{xlnx}dx$
@@ -180,38 +180,6 @@ En primer lugar,
 			$$V = \pi$$
 \end{enumerate}
 \end{solucion}
-\item Determinar el valor de la constante $C$ para la cual la integral
-	$$\displaystyle\int_{0}^{\infty} \left( \dfrac{x}{x^2+1} - \dfrac{C}{3x+1}\right)dx$$
-	converge. Evalúe la integral para este valor de $C$.
-\begin{solucion}
-Como habrán notado, al igual que los límites al infinito, en algunas integrales impropias podemos predecir si estas convergeran o divergeran por la diferencia de grados entre el numerador y el denominador. De esta forma, una integral como $\displaystyle\int_1^{\infty} \dfrac{x^2+1}{x^4}dx$ tendría la misma convergencia que $\displaystyle\int_1^{\infty} \dfrac{1}{x^2}dx$, ya que su diferencia de grados es 2. Esta última sabemos que converge, ya que es una integral $p$ con $p>1$. Vamos ahora al problema.\\
-		\\
-		En primer lugar, para ver como se comporta esta integral, juntemosla en una sola,
-		\small$$\displaystyle\int_{0}^{\infty} \left( \dfrac{x}{x^2+1} - \dfrac{C}{3x+1}\right)dx
-		= \displaystyle\int_{0}^{\infty} \dfrac{3x^2+x-Cx^2-C}{(x^2+1)(3x+1)}dx
-		= \displaystyle\int_{0}^{\infty} \dfrac{x^2(3-C) + x - C}{(x^2+1)(3x+1)}dx$$
-		Podemos ver que la diferencia de grado es $1$, por lo que se comportará igual a una integral $p$ con $p=1$, la cual diverge. Sin embargo, si $C=3$, el término $x^2$ se anula y la diferencia de grados es $2$, por lo que se comportará como la integral $p$ con $p=2>1$, la cual converge.
-		
-		De esta manera, la integral converge para $C=3$.
-		
-		Reemplazando, debemos ahora resolver
-		$$I = \displaystyle\int_{0}^{\infty} \left( \dfrac{x}{x^2+1} - \dfrac{3}{3x+1}\right)dx$$
-		Para resolver nos conviene dejarlas cada una por separado.
-		
-		En primer lugar,
-		$$\displaystyle\int \dfrac{x}{x^2+1}$$
-		Usamos $u = x^2+1 \ra du=2xdx$,
-		$$\displaystyle\int \dfrac{x}{x^2+1} = \int\dfrac{du}{2u} = \dfrac{1}{2}ln(u) = \dfrac{1}{2}ln(x^2+1) = ln(\sqrt[]{x^2+1})$$
-		En segundo lugar,
-		$$\int \dfrac{3}{3x+1}dx$$
-		Usamos $u=3x+1 \ra du = 3dx$,
-		$$\int \dfrac{3}{3x+1}dx = \int \dfrac{du}{u} = ln(u) = ln(3x+1)$$
-		Volviendo al problema original,
-		$$I = \lim\limits_{a\ra \infty} (ln(\sqrt[]{x^2+1})-ln(3x+1)) \ev_0^a$$
-		$$= \lim\limits_{a\ra \infty} ln \left( \dfrac{\sqrt[]{x^2+1}}{3x+1} \right) \ev_0^a$$
-		$$= \lim\limits_{a\ra \infty} ln \left( \dfrac{\sqrt[]{a^2+1}}{3a+1} \right) - ln(1)$$
-		$$I = ln\left(\dfrac{1}{3}\right) = -ln(3)$$
-\end{solucion}
 \item Determine si las siguientes series convergen o divergen.
 \begin{tasks}(3)
 \task $\sum\limits_{n=1}^{\infty}\dfrac{5n^3}{7n+n^3-1}$
@@ -270,6 +238,38 @@ Como habrán notado, al igual que los límites al infinito, en algunas integrale
 			$$\lim\limits_{n \ra \infty} ln(n+1) = ln(\infty) = \infty = \not \exists$$
 			Finalmente, la serie es divergente.
 \end{enumerate}
+\end{solucion}
+\item Determinar el valor de la constante $C$ para la cual la integral
+	$$\displaystyle\int_{0}^{\infty} \left( \dfrac{x}{x^2+1} - \dfrac{C}{3x+1}\right)dx$$
+	converge. Evalúe la integral para este valor de $C$.
+\begin{solucion}
+Como habrán notado, al igual que los límites al infinito, en algunas integrales impropias podemos predecir si estas convergeran o divergeran por la diferencia de grados entre el numerador y el denominador. De esta forma, una integral como $\displaystyle\int_1^{\infty} \dfrac{x^2+1}{x^4}dx$ tendría la misma convergencia que $\displaystyle\int_1^{\infty} \dfrac{1}{x^2}dx$, ya que su diferencia de grados es 2. Esta última sabemos que converge, ya que es una integral $p$ con $p>1$. Vamos ahora al problema.\\
+		\\
+		En primer lugar, para ver como se comporta esta integral, juntemosla en una sola,
+		\small$$\displaystyle\int_{0}^{\infty} \left( \dfrac{x}{x^2+1} - \dfrac{C}{3x+1}\right)dx
+		= \displaystyle\int_{0}^{\infty} \dfrac{3x^2+x-Cx^2-C}{(x^2+1)(3x+1)}dx
+		= \displaystyle\int_{0}^{\infty} \dfrac{x^2(3-C) + x - C}{(x^2+1)(3x+1)}dx$$
+		Podemos ver que la diferencia de grado es $1$, por lo que se comportará igual a una integral $p$ con $p=1$, la cual diverge. Sin embargo, si $C=3$, el término $x^2$ se anula y la diferencia de grados es $2$, por lo que se comportará como la integral $p$ con $p=2>1$, la cual converge.
+		
+		De esta manera, la integral converge para $C=3$.
+		
+		Reemplazando, debemos ahora resolver
+		$$I = \displaystyle\int_{0}^{\infty} \left( \dfrac{x}{x^2+1} - \dfrac{3}{3x+1}\right)dx$$
+		Para resolver nos conviene dejarlas cada una por separado.
+		
+		En primer lugar,
+		$$\displaystyle\int \dfrac{x}{x^2+1}$$
+		Usamos $u = x^2+1 \ra du=2xdx$,
+		$$\displaystyle\int \dfrac{x}{x^2+1} = \int\dfrac{du}{2u} = \dfrac{1}{2}ln(u) = \dfrac{1}{2}ln(x^2+1) = ln(\sqrt[]{x^2+1})$$
+		En segundo lugar,
+		$$\int \dfrac{3}{3x+1}dx$$
+		Usamos $u=3x+1 \ra du = 3dx$,
+		$$\int \dfrac{3}{3x+1}dx = \int \dfrac{du}{u} = ln(u) = ln(3x+1)$$
+		Volviendo al problema original,
+		$$I = \lim\limits_{a\ra \infty} (ln(\sqrt[]{x^2+1})-ln(3x+1)) \ev_0^a$$
+		$$= \lim\limits_{a\ra \infty} ln \left( \dfrac{\sqrt[]{x^2+1}}{3x+1} \right) \ev_0^a$$
+		$$= \lim\limits_{a\ra \infty} ln \left( \dfrac{\sqrt[]{a^2+1}}{3a+1} \right) - ln(1)$$
+		$$I = ln\left(\dfrac{1}{3}\right) = -ln(3)$$
 \end{solucion}
 \end{preguntas}
 \end{document}
