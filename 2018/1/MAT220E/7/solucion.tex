@@ -102,14 +102,14 @@
 \begin{solucion}
 
 \begin{enumerate}[a)]
-\item$\displaystyle\int_{0}^{3}\dfrac{1}{x\ \sqrt[]{x}}dx
+\item $\displaystyle\int_{0}^{3}\dfrac{1}{x\ \sqrt[]{x}}dx
 			= \lim\limits_{z\ra 0} \displaystyle\int_{z}^{3}\dfrac{1}{x^{3/2}}dx 
 			= \lim\limits_{z\ra 0} \dfrac{x^{-1/2}}{-\dfrac{1}{2}}\ev_z^3 
 			= \lim\limits_{z\ra 0} -2x^{-1/2} \ev_z^3$\\
 			$= \lim\limits_{z\ra 0} -2(3^{-1/2}-z^{-1/2})
 			 = -2\left(\dfrac{1}{3^{1/2}} - \cancelto{\infty}{\dfrac{1}{z^{1/2}}}\right) = \infty = \not \exists$\\
 			Luego, la integral diverge.
-\item$\displaystyle\int_{e}^{\infty}\dfrac{1}{xlnx}dx$\\
+\item $\displaystyle\int_{e}^{\infty}\dfrac{1}{xlnx}dx$\\
 			\\
 			Usamos la sustitución $u=ln(x) \ra du = \dfrac{dx}{x}$,
 			$$\displaystyle\int_{e}^{\infty}\dfrac{1}{xlnx}dx
@@ -118,7 +118,7 @@
 			= \lim\limits_{a\ra \infty} ln(ln(a)) - ln(1)$$
 			$$= ln(ln(\infty)) = ln(\infty) = \infty = \not \exists$$
 			Con lo que concluimos que la integral diverge
-\item$\displaystyle\int_{0}^{\infty}\dfrac{1}{\sqrt[]{x}(1+x)}dx$\\
+\item $\displaystyle\int_{0}^{\infty}\dfrac{1}{\sqrt[]{x}(1+x)}dx$\\
 			\\
 			Notemos que hay problemas en ambos límites de integración, por lo que debemos separar la integral en dos,
 			$$\displaystyle\int_{0}^{\infty}\dfrac{1}{\sqrt[]{x}(1+x)}dx = \displaystyle\int_{0}^{1}\dfrac{1}{\sqrt[]{x}(1+x)}dx + \displaystyle\int_{1}^{\infty}\dfrac{1}{\sqrt[]{x}(1+x)}dx$$
@@ -146,7 +146,7 @@
 En primer lugar,
 			$$f(x) = \dfrac{1}{x} \ra f'(x) = -\dfrac{1}{x^2}$$
 \begin{enumerate}[a)]
-\itemCalcular la superficie de la trompeta entre $1$ y $L$ con la siguiente formula:
+\item Calcular la superficie de la trompeta entre $1$ y $L$ con la siguiente formula:
 			$$ S = 2\pi \displaystyle\int_{1}^{L} f(x)\ \sqrt[]{1+[f'(x)]^2}dx, \quad con\ L \ra \infty$$
 			Usando la fórmula que nos dan,
 			$$S = 2\pi \displaystyle\int_{1}^{\infty} \dfrac{1}{x}\ \sqrt[]{1+\left(-\dfrac{1}{x^2}\right)^2}dx 
@@ -162,7 +162,7 @@ En primer lugar,
 			>  \infty$$
 			Finalmente,
 			$$S = \infty$$
-\itemCalcular el volumen de la trompeta entre $1$ y $L$ con la siguiente formula:
+\item Calcular el volumen de la trompeta entre $1$ y $L$ con la siguiente formula:
 			$$ V = \pi \displaystyle\int_{1}^{L} f(x)^2dx, \quad con\ L \ra \infty$$
 			Usando la fórmula dada,
 			$$V = \pi \displaystyle\int_{1}^{\infty} \left(\dfrac{1}{x}\right)^2dx
@@ -215,17 +215,17 @@ Como habrán notado, al igual que los límites al infinito, en algunas integrale
 \begin{solucion}
 
 \begin{enumerate}[a)]
-\item$\sum\limits_{n=1}^{\infty}\dfrac{5n^3}{7n+n^3-1}$\\
+\item $\sum\limits_{n=1}^{\infty}\dfrac{5n^3}{7n+n^3-1}$\\
 			\\
 			En primer lugar, veamos el límite de la sucesión, esto es
 			$$\lim\limits_{n\ra \infty} \dfrac{5n^3}{7n+n^3-1} = 5 \neq 0$$
 			Entonces, por la prueba de la divergencia, concluimos que la serie diverge.
-\item$\sum\limits_{n=1}^{\infty}\left(sen\left(\dfrac{n\pi}{2}\right)\right)^2$\\
+\item $\sum\limits_{n=1}^{\infty}\left(sen\left(\dfrac{n\pi}{2}\right)\right)^2$\\
 			\\
 			Veamos el límite de la sucesión
 			$$\lim\limits_{n\ra \infty} \left(sen\left(\dfrac{n\pi}{2}\right)\right)^2 \ra alternante \neq 0$$
 			Por la prueba de la divergencia, la serie diverge.
-\item$\sum\limits_{n=1}^{\infty}2^{2n}3^{1-n}$\\
+\item $\sum\limits_{n=1}^{\infty}2^{2n}3^{1-n}$\\
 			\\
 			Notemos que esta es una serie geométrica, por lo que debemos escribirla de la forma $\sum\limits_1^{\infty} Ar^n$ para saber como se comporta.
 			$$\sum\limits_{n=1}^{\infty}2^{2n}3^{1-n}
@@ -234,10 +234,10 @@ Como habrán notado, al igual que los límites al infinito, en algunas integrale
 			= \sum\limits_{n=1}^{\infty}4^{n}3\left(\dfrac{1}{3}\right)^n
 			= \sum\limits_{n=1}^{\infty}3\left(\dfrac{4}{3}\right)^n$$
 			Como $r = \dfrac{4}{3} \geq 1$, la serie diverge.
-\item$\sum\limits_{n=1}^{\infty}\dfrac{1}{n^4}$\\
+\item $\sum\limits_{n=1}^{\infty}\dfrac{1}{n^4}$\\
 			\\
 			Notemos que esta es una $serie-p$ con $p=4>1$, por lo que la serie es convergente.
-\item$\sum\limits_{n=20}^{\infty}\dfrac{1}{nln(n)ln(ln(n))}$\\
+\item $\sum\limits_{n=20}^{\infty}\dfrac{1}{nln(n)ln(ln(n))}$\\
 			\\
 			Sea
 			$$a_n = \dfrac{1}{nln(n)ln(ln(n))} \ra f(x) = \dfrac{1}{xln(x)ln(ln(x))}$$
@@ -248,7 +248,7 @@ Como habrán notado, al igual que los límites al infinito, en algunas integrale
 			= \int_{ln(ln(20))}^{\infty} \dfrac{du}{u} = ln(u) \ev_{ln(ln(20))}^{\infty}$$
 			$$ = ln(\infty) - ln(ln(ln(20))) = \infty = \not \exists$$
 			Finalmente, por el criterio de la integral, la serie converge.
-\item $\sum\limits_{n=1}^{\infty}ln\left(1+\dfrac{1}{n}\right)$\\
+\item  $\sum\limits_{n=1}^{\infty}ln\left(1+\dfrac{1}{n}\right)$\\
 			\\
 			Notemos que
 			$$\sum\limits_{n=1}^{\infty} ln\left(1+\dfrac{1}{n}\right)
