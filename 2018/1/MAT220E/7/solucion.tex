@@ -99,6 +99,42 @@
 \task $\displaystyle\int_{e}^{\infty}\dfrac{1}{xlnx}dx$
 \task $\displaystyle\int_{0}^{\infty}\dfrac{1}{\sqrt[]{x}(1+x)}dx$
 \end{tasks}
+\begin{solucion}
+
+\begin{enumerate}[a)]
+\item$\displaystyle\int_{0}^{3}\dfrac{1}{x\ \sqrt[]{x}}dx
+			= \lim\limits_{z\ra 0} \displaystyle\int_{z}^{3}\dfrac{1}{x^{3/2}}dx 
+			= \lim\limits_{z\ra 0} \dfrac{x^{-1/2}}{-\dfrac{1}{2}}\ev_z^3 
+			= \lim\limits_{z\ra 0} -2x^{-1/2} \ev_z^3$\\
+			$= \lim\limits_{z\ra 0} -2(3^{-1/2}-z^{-1/2})
+			 = -2\left(\dfrac{1}{3^{1/2}} - \cancelto{\infty}{\dfrac{1}{z^{1/2}}}\right) = \infty = \not \exists$\\
+			Luego, la integral diverge.
+\item$\displaystyle\int_{e}^{\infty}\dfrac{1}{xlnx}dx$\\
+			\\
+			Usamos la sustitución $u=ln(x) \ra du = \dfrac{dx}{x}$,
+			$$\displaystyle\int_{e}^{\infty}\dfrac{1}{xlnx}dx
+			= \lim\limits_{a\ra \infty} \int_1^{ln(a)} \dfrac{du}{u}
+			= \lim\limits_{a\ra \infty} ln(u) \ev_1^{ln(a)}
+			= \lim\limits_{a\ra \infty} ln(ln(a)) - ln(1)$$
+			$$= ln(ln(\infty)) = ln(\infty) = \infty = \not \exists$$
+			Con lo que concluimos que la integral diverge
+\item$\displaystyle\int_{0}^{\infty}\dfrac{1}{\sqrt[]{x}(1+x)}dx$\\
+			\\
+			Notemos que hay problemas en ambos límites de integración, por lo que debemos separar la integral en dos,
+			$$\displaystyle\int_{0}^{\infty}\dfrac{1}{\sqrt[]{x}(1+x)}dx = \displaystyle\int_{0}^{1}\dfrac{1}{\sqrt[]{x}(1+x)}dx + \displaystyle\int_{1}^{\infty}\dfrac{1}{\sqrt[]{x}(1+x)}dx$$
+			Calculemos primero la integral indefinida
+			$$\displaystyle\int \dfrac{1}{\sqrt[]{x}(1+x)}dx$$
+			Usando $u = \sqrt[]{x} \ra \dfrac{dx}{2\ \sqrt[]{x}}$,
+			$$\int \dfrac{2du}{1+u^2} = 2\int \dfrac{du}{1+u^2} = 2arctan(u) = 2arctan(\sqrt[]{x})$$
+			Luego,
+			$$\displaystyle\int_{0}^{1}\dfrac{1}{\sqrt[]{x}(1+x)}dx + \displaystyle\int_{1}^{\infty}\dfrac{1}{\sqrt[]{x}(1+x)}dx$$
+			$$= \lim\limits_{a\ra 0} 2arctan(\sqrt[]{x}) \ev_a^1 + \lim\limits_{a\ra \infty} 2arctan(\sqrt[]{x}) \ev_1^a$$
+			$$= \lim\limits_{a\ra 0} 2(arctan(1) -arctan(\sqrt[]{a}))  + \lim\limits_{a\ra \infty} 2(arctan(\sqrt[]{a}) - arctan(1)) \ev_1^a$$
+			$$= 2\left(\dfrac{\pi}{4} - 0\right) + 2\left(\dfrac{\pi}{2} - \dfrac{\pi}{4}\right)$$
+			$$= \pi$$
+			Por lo que la integral converge a $\pi$.
+\end{enumerate}
+\end{solucion}
 \item La Trompeta de Torricelli se consigue al rotar la curva $y=\dfrac{1}{x},\ x \geq 1$ en torno al eje $x$.
 \begin{enumerate}[a)]
 \item Calcular la superficie de la trompeta entre $1$ y $L$ con la siguiente formula:
@@ -106,9 +142,67 @@
 \item Calcular el volumen de la trompeta entre $1$ y $L$ con la siguiente formula:
 		$$ V = \pi \displaystyle\int_{1}^{L} f(x)^2dx, \quad con\ L \ra \infty$$
 \end{enumerate}
+\begin{solucion}
+En primer lugar,
+			$$f(x) = \dfrac{1}{x} \ra f'(x) = -\dfrac{1}{x^2}$$
+\begin{enumerate}[a)]
+\itemCalcular la superficie de la trompeta entre $1$ y $L$ con la siguiente formula:
+			$$ S = 2\pi \displaystyle\int_{1}^{L} f(x)\ \sqrt[]{1+[f'(x)]^2}dx, \quad con\ L \ra \infty$$
+			Usando la fórmula que nos dan,
+			$$S = 2\pi \displaystyle\int_{1}^{\infty} \dfrac{1}{x}\ \sqrt[]{1+\left(-\dfrac{1}{x^2}\right)^2}dx 
+			= 2\pi \displaystyle\int_{1}^{\infty} \dfrac{\sqrt[]{1+\frac{1}{x^4}}}{x}dx$$
+			Notemos que
+			$$\dfrac{\sqrt[]{1+\frac{1}{x^4}}}{x} > \dfrac{1}{x}$$
+			Luego,
+			$$2\pi \displaystyle\int_{1}^{\infty} \dfrac{\sqrt[]{1+\frac{1}{x^4}}}{x}dx
+			>  2\pi \displaystyle\int_{1}^{\infty} \dfrac{1}{x}dx$$
+			$$2\pi \displaystyle\int_{1}^{\infty} \dfrac{\sqrt[]{1+\frac{1}{x^4}}}{x}dx
+			>  2\pi ln(x) \ev_1^{\infty}$$
+			$$2\pi \displaystyle\int_{1}^{\infty} \dfrac{\sqrt[]{1+\frac{1}{x^4}}}{x}dx
+			>  \infty$$
+			Finalmente,
+			$$S = \infty$$
+\itemCalcular el volumen de la trompeta entre $1$ y $L$ con la siguiente formula:
+			$$ V = \pi \displaystyle\int_{1}^{L} f(x)^2dx, \quad con\ L \ra \infty$$
+			Usando la fórmula dada,
+			$$V = \pi \displaystyle\int_{1}^{\infty} \left(\dfrac{1}{x}\right)^2dx
+			=  \pi \displaystyle\int_{1}^{\infty} \dfrac{1}{x^2}dx
+			= \pi \left(-\dfrac{1}{x}\ev_1^{\infty}\right)$$
+			$$V = \pi$$
+\end{enumerate}
+\end{solucion}
 \item Determinar el valor de la constante $C$ para la cual la integral
 	$$\displaystyle\int_{0}^{\infty} \left( \dfrac{x}{x^2+1} - \dfrac{C}{3x+1}\right)dx$$
 	converge. Evalúe la integral para este valor de $C$.
+\begin{solucion}
+Como habrán notado, al igual que los límites al infinito, en algunas integrales impropias podemos predecir si estas convergeran o divergeran por la diferencia de grados entre el numerador y el denominador. De esta forma, una integral como $\displaystyle\int_1^{\infty} \dfrac{x^2+1}{x^4}dx$ tendría la misma convergencia que $\displaystyle\int_1^{\infty} \dfrac{1}{x^2}dx$, ya que su diferencia de grados es 2. Esta última sabemos que converge, ya que es una integral $p$ con $p>1$. Vamos ahora al problema.\\
+		\\
+		En primer lugar, para ver como se comporta esta integral, juntemosla en una sola,
+		\small$$\displaystyle\int_{0}^{\infty} \left( \dfrac{x}{x^2+1} - \dfrac{C}{3x+1}\right)dx
+		= \displaystyle\int_{0}^{\infty} \dfrac{3x^2+x-Cx^2-C}{(x^2+1)(3x+1)}dx
+		= \displaystyle\int_{0}^{\infty} \dfrac{x^2(3-C) + x - C}{(x^2+1)(3x+1)}dx$$
+		Podemos ver que la diferencia de grado es $1$, por lo que se comportará igual a una integral $p$ con $p=1$, la cual diverge. Sin embargo, si $C=3$, el término $x^2$ se anula y la diferencia de grados es $2$, por lo que se comportará como la integral $p$ con $p=2>1$, la cual converge.
+		
+		De esta manera, la integral converge para $C=3$.
+		
+		Reemplazando, debemos ahora resolver
+		$$I = \displaystyle\int_{0}^{\infty} \left( \dfrac{x}{x^2+1} - \dfrac{3}{3x+1}\right)dx$$
+		Para resolver nos conviene dejarlas cada una por separado.
+		
+		En primer lugar,
+		$$\displaystyle\int \dfrac{x}{x^2+1}$$
+		Usamos $u = x^2+1 \ra du=2xdx$,
+		$$\displaystyle\int \dfrac{x}{x^2+1} = \int\dfrac{du}{2u} = \dfrac{1}{2}ln(u) = \dfrac{1}{2}ln(x^2+1) = ln(\sqrt[]{x^2+1})$$
+		En segundo lugar,
+		$$\int \dfrac{3}{3x+1}dx$$
+		Usamos $u=3x+1 \ra du = 3dx$,
+		$$\int \dfrac{3}{3x+1}dx = \int \dfrac{du}{u} = ln(u) = ln(3x+1)$$
+		Volviendo al problema original,
+		$$I = \lim\limits_{a\ra \infty} (ln(\sqrt[]{x^2+1})-ln(3x+1)) \ev_0^a$$
+		$$= \lim\limits_{a\ra \infty} ln \left( \dfrac{\sqrt[]{x^2+1}}{3x+1} \right) \ev_0^a$$
+		$$= \lim\limits_{a\ra \infty} ln \left( \dfrac{\sqrt[]{a^2+1}}{3a+1} \right) - ln(1)$$
+		$$I = ln\left(\dfrac{1}{3}\right) = -ln(3)$$
+\end{solucion}
 \item Determine si las siguientes series convergen o divergen.
 \begin{tasks}(3)
 \task $\sum\limits_{n=1}^{\infty}\dfrac{5n^3}{7n+n^3-1}$
@@ -118,5 +212,55 @@
 \task $\sum\limits_{n=20}^{\infty}\dfrac{1}{nln(n)ln(ln(n))}$
 \task $\sum\limits_{n=1}^{\infty}ln\left(1+\dfrac{1}{n}\right)$
 \end{tasks}
+\begin{solucion}
+
+\begin{enumerate}[a)]
+\item$\sum\limits_{n=1}^{\infty}\dfrac{5n^3}{7n+n^3-1}$\\
+			\\
+			En primer lugar, veamos el límite de la sucesión, esto es
+			$$\lim\limits_{n\ra \infty} \dfrac{5n^3}{7n+n^3-1} = 5 \neq 0$$
+			Entonces, por la prueba de la divergencia, concluimos que la serie diverge.
+\item$\sum\limits_{n=1}^{\infty}\left(sen\left(\dfrac{n\pi}{2}\right)\right)^2$\\
+			\\
+			Veamos el límite de la sucesión
+			$$\lim\limits_{n\ra \infty} \left(sen\left(\dfrac{n\pi}{2}\right)\right)^2 \ra alternante \neq 0$$
+			Por la prueba de la divergencia, la serie diverge.
+\item$\sum\limits_{n=1}^{\infty}2^{2n}3^{1-n}$\\
+			\\
+			Notemos que esta es una serie geométrica, por lo que debemos escribirla de la forma $\sum\limits_1^{\infty} Ar^n$ para saber como se comporta.
+			$$\sum\limits_{n=1}^{\infty}2^{2n}3^{1-n}
+			= \sum\limits_{n=1}^{\infty}2^{2n}\left(\dfrac{1}{3}\right)^{n-1}
+			= \sum\limits_{n=1}^{\infty}2^{2n}3\left(\dfrac{1}{3}\right)^n
+			= \sum\limits_{n=1}^{\infty}4^{n}3\left(\dfrac{1}{3}\right)^n
+			= \sum\limits_{n=1}^{\infty}3\left(\dfrac{4}{3}\right)^n$$
+			Como $r = \dfrac{4}{3} \geq 1$, la serie diverge.
+\item$\sum\limits_{n=1}^{\infty}\dfrac{1}{n^4}$\\
+			\\
+			Notemos que esta es una $serie-p$ con $p=4>1$, por lo que la serie es convergente.
+\item$\sum\limits_{n=20}^{\infty}\dfrac{1}{nln(n)ln(ln(n))}$\\
+			\\
+			Sea
+			$$a_n = \dfrac{1}{nln(n)ln(ln(n))} \ra f(x) = \dfrac{1}{xln(x)ln(ln(x))}$$
+			Usando el criterio de la integral, $\displaystyle\int_{20}^{\infty}f(x)dx$ se comportará igual que $\sum\limits_{n=20}^{\infty} a_n$, por lo que debemos ver la convergencia de la integral en cuestión
+			$$\int_{20}^{\infty} \dfrac{1}{xln(x)ln(ln(x))} dx$$
+			Usando $u=ln(ln(x)) \ra du = \dfrac{dx}{xln(x)}$,
+			$$\int_{20}^{\infty} \dfrac{1}{xln(x)ln(ln(x))} dx
+			= \int_{ln(ln(20))}^{\infty} \dfrac{du}{u} = ln(u) \ev_{ln(ln(20))}^{\infty}$$
+			$$ = ln(\infty) - ln(ln(ln(20))) = \infty = \not \exists$$
+			Finalmente, por el criterio de la integral, la serie converge.
+\item $\sum\limits_{n=1}^{\infty}ln\left(1+\dfrac{1}{n}\right)$\\
+			\\
+			Notemos que
+			$$\sum\limits_{n=1}^{\infty} ln\left(1+\dfrac{1}{n}\right)
+			= \sum\limits_{n=1}^{\infty} ln\left(\dfrac{n+1}{n}\right)
+			= \sum\limits_{n=1}^{\infty} ln(n+1)-ln(n)$$
+			Es una serie telescopica. Expandiendo términos
+			$$= (ln(2)-ln(1)) + (ln(3)-ln(2)) + \dots + (ln(n) - ln(n-1)) + (ln(n+1) - ln(n))$$
+			$$= (\cancel{ln(2)}-ln(1)) + (\cancel{ln(3)}-\cancel{ln(2)}) + \cancel{\dots} + (\cancel{ln(n)} - \cancel{ln(n-1)}) + (ln(n+1) - \cancel{ln(n)})$$
+			$$= ln(n+1) - ln(1)$$
+			$$\lim\limits_{n \ra \infty} ln(n+1) = ln(\infty) = \infty = \not \exists$$
+			Finalmente, la serie es divergente.
+\end{enumerate}
+\end{solucion}
 \end{preguntas}
 \end{document}
