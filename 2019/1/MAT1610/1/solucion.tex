@@ -201,7 +201,16 @@ $$\lim\limits_{x \ra 1} \dfrac{(x^3+3x^2+4)(x-1)}{(x^3+x^2+x+3)(x-1)}
 \item Determina $a$ para que el siguiente límite exista:
 $$ \lim\limits_{x \ra 2} \dfrac{x^2+ax+6}{x^2-4} $$
 \begin{solucion}
-
+A simple vista podemos ver que el denominador se anula en $x=2$. La única forma para que el límite exista es que el numerador también se anule y que luego podamos solucionar eso con alguna de las técnicas vistas anteriormente.\\
+Por lo tanto, debemos buscar $a$, de manera que
+$$x^2+ax+6 = 0$$
+cuando $x=2$, es decir,
+$$4+2a+6 = 0 \ra 2a = -10 \ra a = -5$$
+Podemos verificar esto resolviendo el límite
+$$ \lim\limits_{x \ra 2} \dfrac{x^2-5x+6}{x^2-4}
+= \lim\limits_{x \ra 2} \dfrac{(x-2)(x-3)}{(x+2)(x-2)}
+= \lim\limits_{x \ra 2} \dfrac{x-3}{x+2}
+= -\dfrac{1}{4} $$
 \end{solucion}
 \item Aplicando la definición de límite, demostrar que
 $$\lim\limits_{x \ra 1} \dfrac{x+1}{2} = 2$$
