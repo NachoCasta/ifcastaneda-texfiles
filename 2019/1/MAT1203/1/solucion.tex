@@ -260,38 +260,8 @@
 \end{solucion}
 \item Verificar si los siguientes puntos son o no colineares entre si
 \begin{tasks}(2)
-\task $ 
-\begin{pmatrix}
-	3\\
-	2\\
-	5
-\end{pmatrix}; \quad
-\begin{pmatrix}
-	0\\
-	1/2\\
-	-1
-\end{pmatrix}; \quad
-\begin{pmatrix}
-	5\\
-	3\\
-	9
-\end{pmatrix}$
-\task $ 
-\begin{pmatrix}
-	1\\
-	1\\
-	4
-\end{pmatrix}; \quad
-\begin{pmatrix}
-	-2\\
-	-3\\
-	-8
-\end{pmatrix}; \quad
-\begin{pmatrix}
-	4\\
-	4\\
-	16
-\end{pmatrix}$
+\task $P(3,2,5), \ P(0, 1/2, -1), \ P(5, 3, 9)$
+\task $P(1,1,4), \ P(-2,-3.-8), \ P(4,4,16)$
 \end{tasks}
 \begin{solucion}
 
@@ -312,7 +282,7 @@
 			3\\
 			9
 			\end{pmatrix}$\\
-			En primer lugar, debemos encontrar dos vectores directores entre dos pares de vectores distintos
+			En primer lugar, debemos encontrar dos vectores directores entre dos pares de puntos distintos
 			$$d_1 = \begin{pmatrix}
 			3\\
 			2\\
@@ -624,20 +594,56 @@ De forma análoga, para que dos planos sean paralelos, basta con que sus vectore
 		Luego, el plano buscado es
 		$$\Pi: 2x - 5y + z = -1$$
 \end{solucion}
+\item 
+\begin{enumerate}[a)]
 \item Sean $a=\left(\begin{array}{r}
       1\\-1\\1
     \end{array}\right)$ y $b=\left(\begin{array}{r}
       0\\-1\\2
-    \end{array}\right)$
-\begin{enumerate}[a)]
-\item Calcule el vector\textbf{ $b-proy_a b$ }y verifique que este es ortogonal a $a$.
+    \end{array}\right)$, calcule el vector\textbf{ $b-proy_a b$ }y verifique que este es ortogonal a $a$.
 \item Demuestre que si $a$ y $b\in\R^3$ el vector $b-proy_a b$ es ortogonal a $a$.
 \end{enumerate}
 \begin{solucion}
 
 \begin{enumerate}[a)]
-\item 
-\item 
+\item La proyección de $b$ sobre $a$ corresponde a
+$$proy_{a}b = \dfrac{b \cdot a}{|a|^2}a =   \dfrac{\left(\begin{array}{r}
+	0\\-1\\2
+	\end{array}\right) \cdot\left(\begin{array}{r}
+		1\\-1\\1
+	\end{array}\right)}{\left(\begin{array}{r}
+		1\\-1\\1
+	\end{array}\right) \cdot \left(\begin{array}{r}
+		1\\-1\\1
+	\end{array}\right)}\left(\begin{array}{r}
+		1\\-1\\1
+	\end{array}\right) = \left(\begin{array}{r}
+1\\-1\\1
+\end{array}\right)$$
+Luego, 
+$$b-proy_a b = \left(\begin{array}{r}
+0\\-1\\2
+\end{array}\right) - \left(\begin{array}{r}
+1\\-1\\1
+\end{array}\right) = \left(\begin{array}{r}
+-1\\0\\1
+\end{array}\right)$$
+Podemos verificar que el resultado es perpendicular a $a$ utilizando el producto punto, esto es
+$$\left(\begin{array}{r}
+1\\-1\\1
+\end{array}\right) \cdot \left(\begin{array}{r}
+-1\\0\\1
+\end{array}\right) = 0$$
+\item Para demostrar esto, debemos demostrar que
+$$(b-proy_a b) \cdot a = 0 $$
+Desarrollando,
+$$\left(b-\dfrac{b \cdot a}{|a|^2}a\right) \cdot a = 0 $$
+$$b \cdot a -\dfrac{b \cdot a}{|a|^2}a \cdot a = 0 $$
+Sea $\alpha$ el ángulo que se genera entre $a$ y $b$, utilizando la definición del producto punto tenemos,
+$$|b||a|\cos\alpha -\dfrac{|b||a|\cos\alpha}{|a|^2}|a|^2  = 0 $$
+$$|b||a|\cos\alpha -|b||a|\cos\alpha  = 0 $$
+$$0 = 0$$
+$$\blacksquare$$
 \end{enumerate}
 \end{solucion}
 \end{preguntas}
