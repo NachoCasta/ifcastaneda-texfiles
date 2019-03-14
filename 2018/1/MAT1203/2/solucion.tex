@@ -51,7 +51,7 @@
 }
 
 \newcommand{\ayudantia}{{\sc Ayudantía 2}}
-\newcommand{\tituloayu}{Vectores y planos en el espacio.\\ Sistemas de ecuaciones lineales y formas escalonadas.}
+\newcommand{\tituloayu}{Vectores y planos en el espacio.\\Sistemas de ecuaciones lineales y formas escalonadas.}
 \newcommand{\fecha}{14 de marzo de 2018}
 \newcommand{\sigla}{MAT1203}
 \newcommand{\nombre}{Álgebra Lineal}
@@ -141,13 +141,6 @@ Sabemos que un plano se define de la forma
 		Finalmente, el plano es
 		$$\Pi:4x + y + 5z = 5$$
 \end{solucion}
-\item Dado $P_1(0,2,-3)$ y $P_2(1,0,3)$, determinar la recta que pasa por $P_1$ y $P_2$.
-\begin{solucion}
-Buscamos un vector director
-		$$\vec{d} = P_2 - P_1 = (1, -2, 0)$$
-		Luego, la recta que pasa por $P_1$ y $P_2$ esta definida por
-		$$<x,y,z> = (0, 2, -3) + \lambda (1,-2,0)$$
-\end{solucion}
 \item Encontrar las ecuaciones de dos planos diferentes cuya intersección sea la recta que pasa por el punto $P_1(1,3,-2)$ y $P_2(2,0,4)$.
 \begin{solucion}
 Para realizar esto, basta con utilizar dos trios de puntos que contengan a los dos puntos dados y buscar dos planos. La intersección entre estos planos será la recta que pasa por ambos puntos. Para esto, definiremos puntos arbitrarios.\\
@@ -214,30 +207,6 @@ Para realizar esto, basta con utilizar dos trios de puntos que contengan a los d
 		Finalmente, los planos buscados son:
 		$$\Pi_1: -6x + 4y + 3z = 0$$		
 		$$\Pi_2: -12x+2y+3z = -12$$
-\end{solucion}
-\item Encontrar un plano que sea perpendicular al plano cuya ecuación es $3x -7y +2z = 5$ y que pase por el punto $P(0,2,-1)$
-\begin{solucion}
-En primer lugar, debemos encontrar el vector normal del plano, que esta dado por los coeficientes de su ecuación, es decir
-		$$\vec{n} = \begin{pmatrix}
-		3\\-7\\2
-		\end{pmatrix}$$
-		Si los vectores normales de dos planos son perpendiculares entre si, los planos también lo serán, por lo que basta encontrar un vector perpendicular a $\vec{n}$ y utilizarlo como vector normal para nuestro nuevo plano. Para encontrar un vector perpendicular, realizaremos el producto cruz entre $\vec{n}$ y un vector arbitrario elegido por nosotros
-		$$\begin{pmatrix} 3 \\ -7 \\ 2 \end{pmatrix} \times \begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix} = \begin{pmatrix} -9 \\ -1 \\ 10 \end{pmatrix}$$
-		Para encontrar el plano asociado, basta que utilicemos los coeficientes del vector como coeficientes de la ecuación del plano
-		$$-9x -y +10z = D$$
-		Por último, para encontrar $D$, reemplazamos el punto que nos dan en la ecuación del plano
-		$$-2 -10 = D \ra D = -12$$
-		Finalmente,
-		$$\Pi: -9x -y +10z = -12$$
-\end{solucion}
-\item Determinar la ecuación de un plano que pase por $P(4,2,1)$ y que sea paralelo al plano de ecuación $2x-5y+z=6$
-\begin{solucion}
-De forma análoga, para que dos planos sean paralelos, basta con que sus vectores normales sean paralelos. Dicho de otra forma, lo que va a cambiar será el parametro $D$. Es decir, nuestro plano es
-		$$2x - 5y + z = D$$
-		Reemplazando con el punto,
-		$$8-10+1 = D \ra D = -1$$
-		Luego, el plano buscado es
-		$$\Pi: 2x - 5y + z = -1$$
 \end{solucion}
 \end{preguntas}
 \end{document}
