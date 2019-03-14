@@ -1,0 +1,243 @@
+\documentclass[12pt]{article}
+
+\usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[none]{hyphenat}
+\usepackage{parskip}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\usepackage{tasks}
+\usepackage{mdframed}
+\usepackage{xcolor}
+\usepackage{pgfplots}
+\usepackage[makeroom]{cancel}
+\usepackage{multicol}
+\usepackage[shortlabels]{enumitem}
+\usepackage{tabto}
+
+\setlength{\headheight}{10pt}
+\setlength{\headsep}{10pt}
+\pagestyle{fancy}
+\rhead{\ayudantia \ - \alumno}
+
+\newcommand*{\mybox}[2]{\colorbox{#1!30}{\parbox{.98\linewidth}{#2}}}
+
+\newenvironment{solucion}
+{\begin{mdframed}[backgroundcolor=black!10]
+		{\bf Solución:}\\
+	}
+	{
+	\end{mdframed}
+}
+
+\newenvironment{alternativas}[1]
+{\begin{multicols}{#1}
+		\begin{enumerate}[a)]
+		}
+		{
+		\end{enumerate}
+	\end{multicols}
+}
+
+\newenvironment{preguntas}
+{\begin{enumerate}\itemsep12pt
+	}
+	{
+	\end{enumerate}
+}
+
+\newcommand{\ayudantia}{{\sc Ayudantía 2}}
+\newcommand{\tituloayu}{Vectores y planos en el espacio.\\ Sistemas de ecuaciones lineales y formas escalonadas.}
+\newcommand{\fecha}{14 de marzo de 2018}
+\newcommand{\sigla}{MAT1203}
+\newcommand{\nombre}{Álgebra Lineal}
+\newcommand{\profesor}{Rodrigo Rubio Varas}
+\newcommand{\ano}{2018}
+\newcommand{\semestre}{1}
+\newcommand{\mail}{mat1203@ifcastaneda.cl}
+\newcommand{\alumno}{Ignacio Castañeda - \mail}
+
+\newcommand{\ev}{\Big|}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lra}{\leftrightarrow}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Exp}[1]{\mathcal{E}_{#1}}
+\newcommand{\List}[1]{\mathcal{L}_{#1}}
+\newcommand{\EN}{\Exp{\N}}
+\newcommand{\LN}{\List{\N}}
+\newcommand{\comment}[1]{}
+\newcommand{\lb}{\\~\\}
+\newcommand{\eop}{_{\square}}
+\newcommand{\hsig}{\hat{\sigma}}
+
+\begin{document}
+\thispagestyle{empty}
+
+\begin{minipage}{2cm}
+	\includegraphics[width=2cm]{../../../../img/logo.pdf}
+	\vspace{0.5cm}
+\end{minipage}
+\begin{minipage}{\linewidth}
+	\begin{tabular}{lrl}
+		{\scriptsize\sc Pontificia Universidad Catolica de Chile} & \hspace*{0.7in}Curso: &
+		\sigla  - \nombre\\
+		{\sc Facultad de Matemáticas}&
+		Profesor: & \profesor \\
+		{\sc Semestre \ano-\semestre} & Ayudante: & {Ignacio Castañeda}\\
+		& {Mail:} & \texttt{\mail}
+	\end{tabular}
+\end{minipage}
+
+\vspace{-10mm}
+\begin{center}
+	{\LARGE\bf \ayudantia}\\
+	\vspace{0.1cm}
+	{\tituloayu}\\
+	\vspace{0.1cm}
+	\fecha\\
+	\vspace{0.4cm}
+\end{center}
+
+\begin{preguntas}
+\item Determinar el plano que pasa por los puntos $P_1(4,-1,-2)$, $P_2(0,0,1)$ y $P_3(2,-3,0)$.
+\begin{solucion}
+Sabemos que un plano se define de la forma
+		$$Ax +By + Cz = D$$
+		Reemplazando esto con los tres puntos que tenemos, obtendremos el siguiente sistema de ecuaciones
+		$$
+		\begin{array}{rcrr}
+		4A-B-2C & = & D& \vline\\
+		C & = & D & \vline\\
+		2A-3B & = & D &\vline\\
+		\hline
+		\end{array}
+		$$
+		$$
+		\begin{array}{rcrr}
+		4A-B-2C & = & C& \vline\\
+		2A-3B & = & C &\vline\\
+		\hline
+		\end{array}
+		$$
+		$$
+		\begin{array}{rcrr}
+		4A-B-3C & = & 0& \vline\\
+		2A-3B -C& = & 0 &\vline\\
+		\hline
+		\end{array}
+		$$
+		$$(1) - 2(2)$$
+		$$5B - C = 0 \ra 5B = C$$
+		Como hay 4 variables y teníamos 3 ecuaciones, debemos elegir el valor de una de ellas de manera arbitraria.
+		$$C = 5$$
+		$$\ra D = 5$$
+		$$\ra B = 1$$
+		$$4A -1 -15 = 0 \ra 4A=16 \ra A=4$$
+		Finalmente, el plano es
+		$$\Pi:4x + y + 5z = 5$$
+\end{solucion}
+\item Dado $P_1(0,2,-3)$ y $P_2(1,0,3)$, determinar la recta que pasa por $P_1$ y $P_2$.
+\begin{solucion}
+Buscamos un vector director
+		$$\vec{d} = P_2 - P_1 = (1, -2, 0)$$
+		Luego, la recta que pasa por $P_1$ y $P_2$ esta definida por
+		$$<x,y,z> = (0, 2, -3) + \lambda (1,-2,0)$$
+\end{solucion}
+\item Encontrar las ecuaciones de dos planos diferentes cuya intersección sea la recta que pasa por el punto $P_1(1,3,-2)$ y $P_2(2,0,4)$.
+\begin{solucion}
+Para realizar esto, basta con utilizar dos trios de puntos que contengan a los dos puntos dados y buscar dos planos. La intersección entre estos planos será la recta que pasa por ambos puntos. Para esto, definiremos puntos arbitrarios.\\
+		Diremos que
+		$$P_3(0, 0, 0), \quad P_4(1,0,0)$$
+		Partamos usando los puntos $P_1$, $P_2$ y $P_3$. Sabemos que la ecuación del plano es de la forma
+		$$Ax + By + Cz = D$$
+		Reemplazando con estos tres puntos, obtenemos el siguiente sistema
+		$$
+		\begin{array}{rcrr}
+		A + 3B - 2C & = & D& \vline\\
+		2A + 4C & = & D & \vline\\
+		0 & = & D &\vline\\
+		\hline
+		\end{array}
+		$$
+		$$
+		\begin{array}{rcrr}
+		A + 3B - 2C & = & 0& \vline\\
+		2A + 4C & = & 0 & \vline\\
+		\hline
+		\end{array}
+		$$
+		$$(2) + 2(1)$$
+		$$4A + 6B = 0 \ra A = -\dfrac{6B}{4} \ra A = -\dfrac{3B}{2}$$
+		Le pondremos un valor arbitrario a $B$,
+		$$B = 4$$
+		$$\ra A = -6$$
+		$$\ra -12 + 4C = 0 \ra C = 3$$
+		Por ende,
+		$$\Pi_1: -6x + 4y + 3z = 0$$
+		Ahora realizamos lo mismo con los puntos $P_1$, $P_2$, $P_4$. Sea la ecuación del plano
+		$$Ax + By + Cz = D$$
+		Reemplazando con estos tres puntos, obtenemos el siguiente sistema
+		$$
+		\begin{array}{rcrr}
+		A + 3B - 2C & = & D& \vline\\
+		2A + 4C & = & D & \vline\\
+		A & = & D &\vline\\
+		\hline
+		\end{array}
+		$$
+		$$
+		\begin{array}{rcrr}
+		3B - 2C & = & 0& \vline\\
+		A + 4C & = & 0 & \vline\\
+		\hline
+		\end{array}
+		$$
+		$$
+		\begin{array}{rcrr}
+		3B & = & 2C& \vline\\
+		A & = & -4C & \vline\\
+		\hline
+		\end{array}
+		$$
+		Le daremos un valor arbitrario a $C$
+		$$C = 3$$
+		$$ \ra B = 2$$
+		$$ \ra A = -12 $$
+		$$ \ra D = -12 $$
+		Con lo que obtenemos el plano
+		$$\Pi_2: -12x+2y+3z = -12$$
+		Finalmente, los planos buscados son:
+		$$\Pi_1: -6x + 4y + 3z = 0$$		
+		$$\Pi_2: -12x+2y+3z = -12$$
+\end{solucion}
+\item Encontrar un plano que sea perpendicular al plano cuya ecuación es $3x -7y +2z = 5$ y que pase por el punto $P(0,2,-1)$
+\begin{solucion}
+En primer lugar, debemos encontrar el vector normal del plano, que esta dado por los coeficientes de su ecuación, es decir
+		$$\vec{n} = \begin{pmatrix}
+		3\\-7\\2
+		\end{pmatrix}$$
+		Si los vectores normales de dos planos son perpendiculares entre si, los planos también lo serán, por lo que basta encontrar un vector perpendicular a $\vec{n}$ y utilizarlo como vector normal para nuestro nuevo plano. Para encontrar un vector perpendicular, realizaremos el producto cruz entre $\vec{n}$ y un vector arbitrario elegido por nosotros
+		$$\begin{pmatrix} 3 \\ -7 \\ 2 \end{pmatrix} \times \begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix} = \begin{pmatrix} -9 \\ -1 \\ 10 \end{pmatrix}$$
+		Para encontrar el plano asociado, basta que utilicemos los coeficientes del vector como coeficientes de la ecuación del plano
+		$$-9x -y +10z = D$$
+		Por último, para encontrar $D$, reemplazamos el punto que nos dan en la ecuación del plano
+		$$-2 -10 = D \ra D = -12$$
+		Finalmente,
+		$$\Pi: -9x -y +10z = -12$$
+\end{solucion}
+\item Determinar la ecuación de un plano que pase por $P(4,2,1)$ y que sea paralelo al plano de ecuación $2x-5y+z=6$
+\begin{solucion}
+De forma análoga, para que dos planos sean paralelos, basta con que sus vectores normales sean paralelos. Dicho de otra forma, lo que va a cambiar será el parametro $D$. Es decir, nuestro plano es
+		$$2x - 5y + z = D$$
+		Reemplazando con el punto,
+		$$8-10+1 = D \ra D = -1$$
+		Luego, el plano buscado es
+		$$\Pi: 2x - 5y + z = -1$$
+\end{solucion}
+\end{preguntas}
+\end{document}
