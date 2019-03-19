@@ -114,21 +114,68 @@
 \task $\lim\limits_{x \ra \pi} \dfrac{(x - \pi)^2}{\sin ^2 x}$ 
 \end{tasks}
 \begin{solucion}
-
+Por lo general, para resolver límites que involucran funciones trigonométricas, debemos simplificar a modo de llegar a uno de los siguientes límites notables y luego reemplazar:
+	$$\lim\limits_{x \ra 0} \dfrac{\sin x}{x} = 1, \quad
+	\lim\limits_{x \ra 0} \dfrac{1-\cos x}{x} = 0, \quad
+	\lim\limits_{x \ra 0} \dfrac{1 - \cos x}{x^2} = \dfrac{1}{2}$$
 \begin{enumerate}[a)]
-\item 
-\item 
-\item 
-\item 
-\item 
-\item 
+\item $\lim\limits_{x \ra 0} \dfrac{\tan x}{x} = 
+\lim\limits_{x \ra 0} \dfrac{\sin x}{x \cos x} = 
+\lim\limits_{x \ra 0} \dfrac{1}{\cos x} = 1$ 
+\item $\lim\limits_{x \ra 0} \dfrac{\sin 3x}{5x} = 
+\lim\limits_{x \ra 0} \dfrac{\sin 3x}{5x} \cdot \dfrac{3}{3} =
+\lim\limits_{x \ra 0} \dfrac{\sin 3x}{3x} \cdot \dfrac{3}{5} = 
+\lim\limits_{x \ra 0} \dfrac{3}{5}$ 
+\item $\lim\limits_{x \ra 0} \dfrac{\tan x}{\sin 4x} =
+\lim\limits_{x \ra 0} \dfrac{\sin x}{\cos x} \cdot \dfrac{1}{\sin 4x} =
+\lim\limits_{x \ra 0} \dfrac{\sin x}{\cos x} \cdot \dfrac{1}{\sin 4x} \cdot \dfrac{4x}{4x}  =
+\lim\limits_{x \ra 0} \dfrac{\sin x}{x} \cdot \dfrac{4x}{\sin 4x} \cdot \dfrac{4}{\cos x} $ \\
+$=\lim\limits_{x \ra 0} \dfrac{4}{\cos x} = 4$
+\item $\lim\limits_{x \ra 0} \dfrac{1 - \sqrt[]{\cos x}}{x^2} =
+\lim\limits_{x \ra 0} \dfrac{1 - \sqrt[]{\cos x}}{x^2} \cdot \dfrac{1 + \sqrt[]{\cos x}}{1 + \sqrt[]{\cos x}} =
+\lim\limits_{x \ra 0} \dfrac{1 - \cos x}{x^2} \cdot \dfrac{1}{1 + \sqrt[]{\cos x}} = \dfrac{1}{4}$ 
+\item $\lim\limits_{x \ra \frac{\pi}{2}} \left(\dfrac{\pi}{2} - x \right) \tan x$\\
+\\
+En este caso utilizaremos el cambio de variable $u = \dfrac{\pi}{2} - x$, con lo que
+$$\lim\limits_{x \ra \frac{\pi}{2}} \left(\dfrac{\pi}{2} - x \right) \tan x =
+\lim\limits_{u \ra 0} u \tan \left(\dfrac{\pi}{2} - u \right) =
+\lim\limits_{u \ra 0} u \tan u =
+0$$
+\item $\lim\limits_{x \ra \pi} \dfrac{(x - \pi)^2}{\sin ^2 x}$ \\
+\\
+De manera análoga, usaremos el cambio de variable $u = \pi - x$, con lo que
+$$\lim\limits_{x \ra \pi} \dfrac{(x - \pi)^2}{\sin ^2 x} = 
+\lim\limits_{u \ra 0} \dfrac{u^2}{(\sin (\pi + u))^2} = 
+\lim\limits_{u \ra 0} \dfrac{u^2}{(-\sin u)^2} =  
+\lim\limits_{u \ra 0} \dfrac{1}{\left(\dfrac{\sin u}{u}\right)^2} = 1$$
 \end{enumerate}
 \end{solucion}
 \item Analice las discontinuidades de la función
 $$ f(x) = \dfrac{\sin(\pi(x+1))}{x-x^2} $$
 determinando si son removibles
 \begin{solucion}
-
+Factorizando, podemos ver que
+$$ f(x) = \dfrac{\sin(\pi(x+1))}{x(1-x)} $$
+es claro que las discontinuidades se producen en $x=0$ y $x=1$.\\
+Para ver si estas son removibles, debemos ver si el límite de la función existe en las discontinuidades.\\\\
+Comenzando por $x=0$,
+$$\lim\limits_{x \ra 0} \dfrac{\sin(\pi x+ \pi)}{x(1-x)}$$
+Usando la propiedad $\sin (\alpha + \beta) = \sin \alpha \cos \beta + \cos \alpha \sin \beta$,
+$$=\lim\limits_{x \ra 0} -\dfrac{\sin(\pi x)}{x(1-x)}$$
+Luego,
+$$=\lim\limits_{x \ra 0} -\dfrac{\sin(\pi x)}{\pi x} \cdot \dfrac{\pi}{1-x} = 
+-\pi$$
+Por lo tanto en $x=0$ hay una discontinuidad removible.\\
+\\
+Para $x=1$, usaremos el cambio de variable $u=1-x$, con lo que
+$$\lim\limits_{x \ra 1} \dfrac{\sin(\pi x+ \pi)}{x(1-x)} =
+\lim\limits_{u \ra 0} \dfrac{\sin(\pi (2-u))}{u(1-u)} =
+\lim\limits_{u \ra 0} \dfrac{\sin(2\pi - \pi u)}{u(1-u)}$$
+Utilizando la propiedad $\sin (\alpha - \beta) = \sin \alpha \cos \beta - \cos \alpha \sin \beta$,
+$$=\lim\limits_{x \ra 0} -\dfrac{\sin(\pi x)}{x(1-x)}$$
+Luego,
+$$=\lim\limits_{x \ra 0} -\dfrac{\sin(\pi x)}{\pi x} \cdot \dfrac{\pi}{1-x} = 
+-\pi$$
 \end{solucion}
 \item Sea 
 $$f(x) = \begin{cases}
@@ -139,10 +186,35 @@ ax+b & 2 < x < 3 \\
 Determina el valor de las constantes $a$ y $b$ para que la función $f(x)$ sea continua $\forall x \in \R$
 \begin{solucion}
 
+Para $x \neq 2$ y $x \neq 3$, la función es continua, ya que corresponde a una composición de funciones continuas.\\
+\\
+Para $x=2$, los límites laterales deben coincidir, por lo que
+$$\lim\limits_{x \ra 2} 3x-2 = \lim\limits_{x \ra 2} ax + b$$
+$$4 = 2a + b$$
+De manera análoga, en $x=3$,
+$$\lim\limits_{x \ra 3} ax + b = \lim\limits_{x \ra 3} 2b - 3ax$$
+$$3a + b = 2b - 9a \ra 12a - b = 0$$
+Resolviendo el sistema de ecuaciones
+$$
+\begin{array}{rcrr}
+2a+b & = & 4& \vline\\
+12a-b & = & 0& \vline\\
+\hline
+\end{array}
+$$
+Obtenemos
+$$a = \dfrac{2}{7}, \qquad b = \dfrac{24}{7}$$
 \end{solucion}
 \item Sean $f(x)$ y $g(x)$ funciones continuas en el intervalo $[0, 1]$, tal que $f(0)=0$, $f(1)=1$, $g(0)=1$ y $g(1)=0$, demuestre que existe algun $c \in [0,1]$ tal que $f(c) = g(c)$.
 \begin{solucion}
-
+Definamos una función auxiliar. Sea
+$$h(x) = f(x) - g(x)$$
+Notemos que, dado que $h(x)$ es una composición de funciones continuas, esta también es continua.\\
+Por lo tanto, demostrar que $f(c) = g(c)$ es equivalente a demostrar que $h(c)=0$.\\
+\\
+De la información que nos dan, podemos deducir que
+$$h(0) = f(0) - g(0) = -1, \qquad h(1) = f(1) - g(1) = 1$$
+Luego, por Teorema del Valor Intermedio (TVI), como $h(x)$ es una función continua en el intervalo $[0,1]$ y $-1 < 0 < 1$, $\exists c \in [0, 1]$ tal que $h(c) = 0$. En consecuencia, también existe $c \in [0, 1]$ tal que $f(c) = g(c)$.
 \end{solucion}
 \end{preguntas}
 \end{document}
