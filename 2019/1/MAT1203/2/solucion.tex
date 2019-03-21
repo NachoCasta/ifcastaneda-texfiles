@@ -627,5 +627,47 @@ Diremos que $b = \begin{pmatrix}
 	1
 	\end{pmatrix}\right\}$$
 \end{solucion}
+\item Sean los vectores 
+	$$
+	v_1 = \begin{pmatrix}
+	1\\
+	1\\
+	2
+	\end{pmatrix};\qquad
+	v_2 = \begin{pmatrix}
+	2\\
+	2\\
+	-3
+	\end{pmatrix}; \qquad
+	v_3 = \begin{pmatrix}
+	0\\
+	1\\
+	3
+	\end{pmatrix}$$
+	determinar si $Gen\{v_1, v_2, v_3\} = R^3$.
+\begin{solucion}
+Para ver si estos tres vectores generan $\R^3$, tiene que pasar que todos sean L.I. entre si. Una forma de ver esto, es formar una matriz con los vectores y ver la cantidad de pivotes que hay, es decir
+		$$\begin{bmatrix}
+			\\
+			v_1 & v_2 & v_3\\
+			&&
+		\end{bmatrix} \sim 
+		\begin{bmatrix}
+		1 & 2 & 0\\
+		1 & 2 & 1\\
+		2 & -3 & 3
+		\end{bmatrix} \sim
+		\begin{bmatrix}
+		1 & 2 & 0\\
+		0 & 0 & 1\\
+		0 & -7 & 3
+		\end{bmatrix} \sim
+		\begin{bmatrix}
+		1 & 2 & 0\\
+		0 & -7 & 3\\
+		0 & 0 & 1
+		\end{bmatrix}$$
+		Como la matriz tiene 3 pivotes, quiere decir que hay 3 vectores L.I., es decir, todos son linealmente independientes entre si, formando asi $\R^3$
+\end{solucion}
 \end{preguntas}
 \end{document}
