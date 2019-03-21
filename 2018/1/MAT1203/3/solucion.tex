@@ -146,5 +146,159 @@ Para ver si estos tres vectores generan $\R^3$, tiene que pasar que todos sean L
 		\end{bmatrix}$$
 		Como la matriz tiene 3 pivotes, quiere decir que hay 3 vectores L.I., es decir, todos son linealmente independientes entre si, formando asi $\R^3$
 \end{solucion}
+\item Sea la matriz $A=
+	\begin{bmatrix}
+	3 & 5 & -4\\
+	-3 & -2 & 4\\
+	6 & 1 & -8
+	\end{bmatrix}$
+\begin{enumerate}[a)]
+\item Determinar el conjunto solución de su sistema homogeneo.
+\item Describir todas las soluciones de $Ax=b$ con $b=
+		\begin{pmatrix}
+		7\\
+		-1\\
+		-4
+		\end{pmatrix}$ 
+\end{enumerate}
+\begin{solucion}
+
+\begin{enumerate}[a)]
+\item Determinar el conjunto solución de su sistema homogeneo.\\\\
+			El sistema homogeneo corresponde a la ecuación $Ax=\vec{0}$, por lo que nuestra matriz aumentada sería
+			$$\left[
+			\begin{array}{ccc|c}
+			3 & 5 & -4 & 0\\
+			-3 & -2 & 4 & 0\\
+			6 & 1 & -8 & 0
+			\end{array}
+			\right] \sim \left[
+			\begin{array}{ccc|c}
+			3 & 5 & -4 & 0\\
+			0 & 3 & 0 & 0\\
+			0 & -9 & 0 & 0
+			\end{array}
+			\right] \sim \left[
+			\begin{array}{ccc|c}
+			3 & 5 & -4 & 0\\
+			0 & 3 & 0 & 0\\
+			0 & 0 & 0 & 0
+			\end{array}
+			\right]$$
+			$$\sim \left[
+			\begin{array}{ccc|c}
+			1 & \frac{5}{3} & -\frac{4}{3} & 0\\
+			0 & 1 & 0 & 0\\
+			0 & 0 & 0 & 0
+			\end{array}
+			\right] \sim \left[
+			\begin{array}{ccc|c}
+			1 & 0 & -\frac{4}{3} & 0\\
+			0 & 1 & 0 & 0\\
+			0 & 0 & 0 & 0
+			\end{array}
+			\right]$$
+			Esto corresponde al sistema
+			$$\begin{array}{rcl}
+			x_1 - \frac{4}{3}x_3 & = & 0\\
+			x_2 & = & 0\\
+			0 & = & 0
+			\end{array} \ra \begin{array}{rcl}
+			x_1 & = & \frac{4}{3}x_3\\
+			x_2 & = & 0\\
+			x_3 & = & x_3
+			\end{array} \ra x = \begin{pmatrix}
+			\frac{4}{3}x_3\\
+			0\\
+			x_3
+			\end{pmatrix} = x_3\begin{pmatrix}
+			\frac{4}{3}\\
+			0\\
+			1
+			\end{pmatrix}$$
+			Luego, la solución del sistema homogeneo es
+			$$S = Gen\left\{\begin{pmatrix}
+			\frac{4}{3}\\
+			0\\
+			1
+			\end{pmatrix}\right\}$$
+\item Describir todas las soluciones de $Ax=b$ con $b=
+			\begin{pmatrix}
+			7\\
+			-1\\
+			-4
+			\end{pmatrix}$ \\\\
+			Para esto, hacemos lo mismo que en la parte a), pero aumentando la matriz por el vector $b$, es decir
+			$$\left[
+			\begin{array}{ccc|c}
+			3 & 5 & -4 & 7\\
+			-3 & -2 & 4 & -1\\
+			6 & 1 & -8 & -4
+			\end{array}
+			\right] \sim \left[
+			\begin{array}{ccc|c}
+			3 & 5 & -4 & 7\\
+			0 & 3 & 0 & 6\\
+			0 & -9 & 0 & -18
+			\end{array}
+			\right] \sim \left[
+			\begin{array}{ccc|c}
+			3 & 5 & -4 & 7\\
+			0 & 3 & 0 & 6\\
+			0 & 0 & 0 & 0
+			\end{array}
+			\right]$$
+			$$\sim \left[
+			\begin{array}{ccc|c}
+			1 & \frac{5}{3} & -\frac{4}{3} & \frac{7}{3}\\
+			0 & 1 & 0 & 2\\
+			0 & 0 & 0 & 0
+			\end{array}
+			\right] \sim \left[
+			\begin{array}{ccc|c}
+			1 & 0 & -\frac{4}{3} & -1\\
+			0 & 1 & 0 & 2\\
+			0 & 0 & 0 & 0
+			\end{array}
+			\right]$$
+			Esto corresponde al sistema
+			$$\begin{array}{rcl}
+			x_1 - \frac{4}{3}x_3 & = & -1\\
+			x_2 & = & 2\\
+			0 & = & 0
+			\end{array} \ra \begin{array}{rcl}
+			x_1 & = & -1 + \frac{4}{3}x_3\\
+			x_2 & = & 2\\
+			x_3 & = & x_3
+			\end{array}$$
+			$$ x = \begin{pmatrix}
+			-1 + \frac{4}{3}x_3\\
+			2\\
+			x_3
+			\end{pmatrix} = \begin{pmatrix}
+			-1\\2\\0
+			\end{pmatrix} + x_3\begin{pmatrix}
+			\frac{4}{3}\\
+			0\\
+			1
+			\end{pmatrix}$$
+			Luego, la solución del sistema $Ax = b$ es
+			$$S = \begin{pmatrix}
+			-1\\2\\0
+			\end{pmatrix} + Gen\left\{\begin{pmatrix}
+			\frac{4}{3}\\
+			0\\
+			1
+			\end{pmatrix}\right\}$$
+			Finalmente, podriamos amplificar el vector del generado por 3, para que quede más bonito, con lo que
+			$$S = \begin{pmatrix}
+			-1\\2\\0
+			\end{pmatrix} + Gen\left\{\begin{pmatrix}
+			4\\
+			0\\
+			3
+			\end{pmatrix}\right\}$$
+\end{enumerate}
+\end{solucion}
 \end{preguntas}
 \end{document}
