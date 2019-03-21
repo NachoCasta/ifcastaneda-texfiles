@@ -17,7 +17,7 @@
 \usepackage[makeroom]{cancel}
 \usepackage{multicol}
 \usepackage[shortlabels]{enumitem}
-\usepackage{tabto}
+\usepackage{stackrel}
 
 \setlength{\headheight}{10pt}
 \setlength{\headsep}{10pt}
@@ -74,6 +74,10 @@
 \newcommand{\lb}{\\~\\}
 \newcommand{\eop}{_{\square}}
 \newcommand{\hsig}{\hat{\sigma}}
+\newcommand{\widesim}[2][1.5]{
+	\mathrel{\overset{#2}{\scalebox{#1}[1]{$\sim$}}}
+}
+\newcommand{\wsim}{\widesim{}}
 
 \begin{document}
 \thispagestyle{empty}
@@ -239,24 +243,6 @@ En primer lugar, escribiremos el sistema en notación matricial
 			Como tiene 3 pivotes y 3 filas, el sistema posee solución única
 \end{enumerate}
 \end{solucion}
-\item Considere el siguiente sistema de ecuaciones, donde $a$ es una constante.
-  $$\begin{array}{llll}
-   x_1&+x_2&+x_3&=1 \\
-    x_1&+x_2&+ax_3&=1 \\
-     ax_1&+ax_2&+x_3&=a\\
-      x_1&-ax_2&+ax_3&=0  
-  \end{array}$$
-\begin{enumerate}[a)]
-\item Determine valores de $a$ para los cuales el sistema es inconsistente.
-\item Determine valores de $a$ para los cuales el sistema es consistente, y encuentre la solución.
-\end{enumerate}
-\begin{solucion}
-
-\begin{enumerate}[a)]
-\item 
-\item 
-\end{enumerate}
-\end{solucion}
 \item Sea la matriz $A=
 	\begin{bmatrix}
 	3 & 5 & -4\\
@@ -411,6 +397,24 @@ En primer lugar, escribiremos el sistema en notación matricial
 			\end{pmatrix}\right\}$$
 \end{enumerate}
 \end{solucion}
+\item Considere el siguiente sistema de ecuaciones, donde $a$ es una constante.
+  $$\begin{array}{llll}
+   x_1&+x_2&+x_3&=1 \\
+    x_1&+x_2&+ax_3&=1 \\
+     ax_1&+ax_2&+x_3&=a\\
+      x_1&-ax_2&+ax_3&=0  
+  \end{array}$$
+\begin{enumerate}[a)]
+\item Determine valores de $a$ para los cuales el sistema es inconsistente.
+\item Determine valores de $a$ para los cuales el sistema es consistente, y encuentre la solución.
+\end{enumerate}
+\begin{solucion}
+
+\begin{enumerate}[a)]
+\item 
+\item 
+\end{enumerate}
+\end{solucion}
 \item Sea la matriz $A=
 	\begin{bmatrix}
 	1 & 3 & 4\\
@@ -529,7 +533,54 @@ $$v_1=\left(\begin{array}{r}
 \end{array}\right)$$
 ¿Para qué valor(es) de $h$ $Gen\{v_1, v_2, v_3\}=Gen\{v_1,v_2\}$ ?
 \begin{solucion}
-
+Para que $Gen\{v_1, v_2, v_3\}=Gen\{v_1,v_2\}$, debe ocurrir que estos generados tengan la misma cantidad de vectores L.I. o dicho de otra forma, al poner estos vectores en una matriz y escalonarla, las matrices deben tener la misma cantidad de pivotes.\\
+	\\
+	Comencemos por $Gen\{v_1,v_2\}$, dado que $h$ no influye en este generado.
+	$$\begin{bmatrix}
+	\\
+	v_1 & v_2\\
+	&&
+	\end{bmatrix} \sim 
+	\begin{bmatrix}
+	1 & -2\\
+	0 & 1\\
+	-2 & 7
+	\end{bmatrix} \sim 
+	\begin{bmatrix}
+	1 & -2\\
+	0 & 1\\
+	0 & 3
+	\end{bmatrix} \sim 
+	\begin{bmatrix}
+	1 & -2\\
+	0 & 1\\
+	0 & 0
+	\end{bmatrix}$$
+	Notemos que esta matriz tiene 2 pivotes, por lo que debemos elegir $h$, de tal manera que $Gen\{v_1, v_2, v_3\}$ también tenga 2 pivotes.\\
+	\\
+	Procedamos ahora con $Gen\{v_1, v_2, v_3\}$,
+	$$\begin{bmatrix}
+	\\
+	v_1 & v_2 & v_3\\
+	&&
+	\end{bmatrix} \sim 
+	\begin{bmatrix}
+	1 & -2 & h\\
+	0 & 1 & 0\\
+	-2 & 7 & -2
+	\end{bmatrix} \sim 
+	\begin{bmatrix}
+	1 & -2 & h\\
+	0 & 1 & 0\\
+	0 & 3 & 2h-2
+	\end{bmatrix} \sim 
+	\begin{bmatrix}
+	1 & -2 & h\\
+	0 & 1 & 0\\
+	0 & 0 & 2h-2
+	\end{bmatrix}$$
+	Luego, para que la matriz tenga 2 pivotes, debe ocurrir que
+	$$2h-2 = 0 \ra h = 1$$
 \end{solucion}
 \end{preguntas}
 \end{document}
