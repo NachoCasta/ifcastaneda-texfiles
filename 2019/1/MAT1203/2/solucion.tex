@@ -409,10 +409,89 @@ En primer lugar, escribiremos el sistema en notación matricial
 \item Determine valores de $a$ para los cuales el sistema es consistente, y encuentre la solución.
 \end{enumerate}
 \begin{solucion}
-
+En primer lugar, escribamos el sistema en su forma matricial, esto es
+	$$\begin{bmatrix}
+	1 & 1 & 1 & 1\\
+	1 & 1 & a & 1\\
+	a & a & 1 & a\\
+	1 &-a & a & 0
+	\end{bmatrix}$$
+	Ahora, lo que debemos hacer es pivotear la matriz intentando evitar dividir por $a$. En el caso de que sea estrictamente necesario hacerlo, debemos ver el caso donde $a=0$ por separado y luego continuar.
+	$$\begin{bmatrix}
+	1 & 1 & 1 & 1\\
+	1 & 1 & a & 1\\
+	a & a & 1 & a\\
+	1 &-a & a & 0
+	\end{bmatrix} 
+	\stackbin[F_4 - F_1]{F_2 - F_1}{\stackbin[]{F_3 - aF_1}{\wsim}}
+	\begin{bmatrix}
+	1 & 1 & 1 & 1\\
+	0 & 0 & a-1 & 0\\
+	0 & 0 & 1-a & 0\\
+	0 &-1-a & a-1 & -1
+	\end{bmatrix} 
+	\stackbin[]{F_2 \lra F_4}{\wsim}
+	\begin{bmatrix}
+	1 & 1 & 1 & 1\\
+	0 &-1-a & a-1 & -1\\
+	0 & 0 & 1-a & 0\\
+	0 & 0 & a-1 & 0
+	\end{bmatrix}$$
+	$
+	\stackbin[]{F_4 + F_3}{\wsim}
+	\begin{bmatrix}
+	1 & 1 & 1 & 1\\
+	0 &-1-a & a-1 & -1\\
+	0 & 0 & 1-a & 0\\
+	0 & 0 & 0 & 0
+	\end{bmatrix}
+	\stackbin[]{F_2 + F_3}{\wsim}
+	\begin{bmatrix}
+	1 & 1 & 1 & 1\\
+	0 &-1-a & 0 & -1\\
+	0 & 0 & 1-a & 0\\
+	0 & 0 & 0 & 0
+	\end{bmatrix}$
 \begin{enumerate}[a)]
 \item 
-\item 
+En la tercera fila no existe ningún valor de $a$ para el cual el sistema es inconsistente, por lo que esta no nos restringe $a$.
+Sin embargo, en la segunda fila, si podemos elegir un valor de $a$ para que el sistema sea inconsistente. Esto es,
+$$-1-a = 0 \ra a = -1$$
+\item Para el resto de valores de $a$, el sistema es consistente, es decir, para
+$$a \neq -1$$
+Luego, teniendo la matriz en su forma escalonada, obtener la solución del sistema es sencillo.\\
+Veamos primero el caso donde $a=1$,
+$$\begin{bmatrix}
+1 & 1 & 1 & 1\\
+0 &-2 & 0 & -1\\
+0 & 0 & 0 & 0\\
+0 & 0 & 0 & 0
+\end{bmatrix} \sim
+\begin{bmatrix}
+1 & 1 & 1 & 1\\
+0 & 1 & 0 & \frac{1}{2}\\
+0 & 0 & 0 & 0\\
+0 & 0 & 0 & 0
+\end{bmatrix} \sim
+\begin{bmatrix}
+1 & 0 & 1 & \frac{1}{2}\\
+0 & 1 & 0 & \frac{1}{2}\\
+0 & 0 & 0 & 0\\
+0 & 0 & 0 & 0
+\end{bmatrix} $$
+
+$$\begin{array}{rcl}
+x_1 & = & -x_3 + \dfrac{1}{2}\\
+x_2 & = & \dfrac{1}{2}\\
+x_3 & = & 0 
+\end{array} \ra 
+x = \begin{pmatrix}
+\frac{1}{2} \\
+\frac{1}{2} \\
+0
+\end{pmatrix} + \left<\begin{pmatrix}
+-1\\0\\1
+\end{pmatrix}\right>$$
 \end{enumerate}
 \end{solucion}
 \item Sea la matriz $A=
