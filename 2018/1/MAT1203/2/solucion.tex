@@ -389,5 +389,52 @@ De forma análoga, para que dos planos sean paralelos, basta con que sus vectore
 			$
 \end{enumerate}
 \end{solucion}
+\item Determinar si el siguiente sistema es consistente o no
+	$$
+	\begin{array}{rcr}
+	x_1 -6x_2& = & 5\\
+	x_2-4x_3+x_4& = & 0\\
+	-x_1+6x_2+x_3+5x_4& = & 3\\
+	-x_2+5x_3+4x_4 & = & 0
+	\end{array}
+	$$
+\begin{solucion}
+En primer lugar, escribiremos el sistema en notación matricial
+		$$
+		\left[
+		\begin{array}{cccc|c}
+		1 & -6 & 0 & 0 & 5\\
+		0 & 1 & -4 & 1 & 0\\
+		-1& 6 & 1 & 5 & 3 \\
+		0 & -1 & 5 & 4 &0
+		\end{array}
+		\right]$$
+		A continuación, utilizando operaciones de fila, llevaremos esta matriz a su forma escalonada
+		$$\left[
+		\begin{array}{cccc|c}
+			1 & -6 & 0 & 0 & 5\\
+			0 & 1 & -4 & 1 & 0\\
+			-1& 6 & 1 & 5 & 3 \\
+			0 & -1 & 5 & 4 &0
+		\end{array}
+		\right] \stackbin[F_4+F_2]{F_3 +F_1}{\wsim}
+		\left[
+		\begin{array}{cccc|c}
+		1 & -6 & 0 & 0 & 5\\
+		0 & 1 & -4 & 1 & 0\\
+		0 & 0 & 1 & 5 & 8 \\
+		0 & 0 & 1 & 5 & 0
+		\end{array}
+		\right] \stackbin[]{F_4-F_3}{\wsim}
+		\left[
+		\begin{array}{cccc|c}
+		1 & -6 & 0 & 0 & 5\\
+		0 & 1 & -4 & 1 & 0\\
+		0 & 0 & 1 & 5 & 8 \\
+		0 & 0 & 0 & 0 & -8
+		\end{array}
+		\right] $$
+		Aqui podemos apreciar que en el la última fila, todas las variables tienen coeficiente sero y la columna de coeficientes aumentados tiene valor, lo que no es posible, ya que esto significaría que se cumple la igualdad $0 = -8$, lo que no es cierto. Dicho esto, el sistema no es consistente.
+\end{solucion}
 \end{preguntas}
 \end{document}
