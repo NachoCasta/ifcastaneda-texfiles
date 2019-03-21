@@ -561,87 +561,71 @@ En primer lugar, escribiremos el sistema en notación matricial
 			\end{pmatrix}\right\}$$
 \end{enumerate}
 \end{solucion}
-\item Describa todas las soluciones del siguiente sistema de ecuaciones y comparelas con las de su sistema homogeneo
-	$$
-	\begin{array}{rcr}
-	x_1 +2x_2-3x_3& = & 5\\
-	2x_1 + x_2 - 3x_3& = & 13\\
-	-x_1 + x_2 & = & -8
-	\end{array}$$
+\item Sea la matriz $A=
+	\begin{bmatrix}
+	1 & 3 & 4\\
+	-4 & 2 & -6\\
+	-3 & -2 & -7
+	\end{bmatrix}
+	$ y $b$ un vector en $R^3$. ¿La ecuación $Ax=b$ es consistente para todo $b$?
 \begin{solucion}
-La matriz aumentada asociada es
-		$$\left[
-		\begin{array}{ccc|c}
-		1 & 2 & -3 & 5\\
-		2 & 1 & -3 & 13\\
-		-1 & 1 & 0 & -8
-		\end{array}
-		\right] \sim \left[
-		\begin{array}{ccc|c}
-		1 & 2 & -3 & 5\\
-		0 & -3 & 3 & 3\\
-		0 & 3 & -3 & -3
-		\end{array}
-		\right] \sim \left[
-		\begin{array}{ccc|c}
-		1 & 2 & -3 & 5\\
-		0 & -3 & 3 & 3\\
-		0 & 0 & 0 & 0
-		\end{array}
-		\right]$$
-		$$ \sim \left[
-		\begin{array}{ccc|c}
-		1 & 2 & -3 & 5\\
-		0 & 1 & -1 & -1\\
-		0 & 0 & 0 & 0
-		\end{array}
-		\right]  \sim \left[
-		\begin{array}{ccc|c}
-		1 & 0 & -1 & 7\\
-		0 & 1 & -1 & -1\\
-		0 & 0 & 0 & 0
-		\end{array}
-		\right] $$
-		Esto corresponde al sistema
-		$$\begin{array}{rcl}
-		x_1 - x_3 & = & 7\\
-		x_2 - x_3 & = & -1\\
-		0 & = & 0
-		\end{array} \ra \begin{array}{rcl}
-		x_1 & = & x_3 + 7\\
-		x_2 & = & x_3 - 1\\
-		x_3 & = & x_3
-		\end{array} $$
-		Luego,
-		$$x = \begin{pmatrix}
-		x_3 + 7\\
-		x_3 - 1\\
-		x_3
-		\end{pmatrix} = \begin{pmatrix}
-		7\\
-		- 1\\
-		0
-		\end{pmatrix} + x_3 \begin{pmatrix}
-		1\\
-		1\\
-		1
-		\end{pmatrix}$$
-		Por último, la solución es
-		$$S = \begin{pmatrix}
-		7\\
-		- 1\\
-		0
-		\end{pmatrix} + Gen\left\{\begin{pmatrix}
-		1\\
-		1\\
-		1
-		\end{pmatrix}\right\}$$
-		Notemos que la solución del sistema homogeneo será lo mismo pero quitando el vector que no forma parte del generado, es decir
-		$$S_H = Gen\left\{\begin{pmatrix}
-		1\\
-		1\\
-		1
-		\end{pmatrix}\right\}$$
+Diremos que $b = \begin{pmatrix}
+	b_1 \\ b_2 \\ b_3
+	\end{pmatrix}$. Luego, el sistema $Ax = b$ se puede representar como
+	$$\left[
+	\begin{array}{ccc|c}
+	1 & 3 & 4 &b_1\\
+	-4 & 2 & -6 & b_2\\
+	-3 & -2 & -7 & b_3
+	\end{array}
+	\right] \sim \left[
+	\begin{array}{ccc|c}
+	1 & 3 & 4 &b_1\\
+	0 & 14 & 10 & b_2 + 4b_1\\
+	0 & 7 & 5 & b_3 + 3b_1
+	\end{array}
+	\right]$$
+	$$ \sim \left[
+	\begin{array}{ccc|c}
+	1 & 3 & 4 &b_1\\
+	0 & 14 & 10 & b_2 + 4b_1\\
+	0 & 0 & 0 & b_3 + 3b_1 - \frac{1}{2}(b_2+4b_1)
+	\end{array}
+	\right] \sim \left[
+	\begin{array}{ccc|c}
+	1 & 3 & 4 &b_1\\
+	0 & 14 & 10 & b_2 + 4b_1\\
+	0 & 0 & 0 & b_1 - \frac{1}{2}b_2 + 4b_3
+	\end{array}
+	\right] $$
+	Luego, el sistema será consistente para $b_1 - \dfrac{1}{2}b_2 + b_3 = 0$. Esto se puede representar como
+	$$\begin{array}{rcl}
+	b_1 & = & \frac{1}{2}b_2 - b_3\\
+	b_2 & = & b_2 \\
+	b_3 & = & b_3
+	\end{array} \ra b = \begin{pmatrix}
+	\frac{1}{2}b_2 - b_3 \\
+	b_2\\
+	b_3 
+	\end{pmatrix} = b_2\begin{pmatrix}
+	\frac{1}{2} \\
+	1\\
+	0 
+	\end{pmatrix} +  b_3\begin{pmatrix}
+	-1 \\
+	0\\
+	1 
+	\end{pmatrix} $$
+	Finalmente,
+	$$b = Gen \left\{ \begin{pmatrix}
+	\frac{1}{2} \\
+	1\\
+	0 
+	\end{pmatrix}, \begin{pmatrix}
+	-1 \\
+	0\\
+	1
+	\end{pmatrix}\right\}$$
 \end{solucion}
 \end{preguntas}
 \end{document}
