@@ -17,7 +17,7 @@
 \usepackage[makeroom]{cancel}
 \usepackage{multicol}
 \usepackage[shortlabels]{enumitem}
-\usepackage{tabto}
+\usepackage{stackrel}
 
 \setlength{\headheight}{10pt}
 \setlength{\headsep}{10pt}
@@ -74,6 +74,10 @@
 \newcommand{\lb}{\\~\\}
 \newcommand{\eop}{_{\square}}
 \newcommand{\hsig}{\hat{\sigma}}
+\newcommand{\widesim}[2][1.5]{
+	\mathrel{\overset{#2}{\scalebox{#1}[1]{$\sim$}}}
+}
+\newcommand{\wsim}{\widesim{}}
 
 \begin{document}
 \thispagestyle{empty}
@@ -130,17 +134,6 @@
 		\end{bmatrix}
 		$
 \end{tasks}
-\item Considere el siguiente sistema de ecuaciones, donde $a$ es una constante.
-  $$\begin{array}{llll}
-   x_1&+x_2&+x_3&=1 \\
-    x_1&+x_2&+ax_3&=1 \\
-     ax_1&+ax_2&+x_3&=a\\
-      x_1&-ax_2&+ax_3&=0  
-  \end{array}$$
-\begin{enumerate}[a)]
-\item Determine valores de $a$ para los cuales el sistema es inconsistente.
-\item Determine valores de $a$ para los cuales el sistema es consistente, y encuentre la solución.
-\end{enumerate}
 \item Sea la matriz $A=
 	\begin{bmatrix}
 	3 & 5 & -4\\
@@ -155,6 +148,17 @@
 		-1\\
 		-4
 		\end{pmatrix}$ 
+\end{enumerate}
+\item Considere el siguiente sistema de ecuaciones, donde $a$ es una constante.
+  $$\begin{array}{llll}
+   x_1&+x_2&+x_3&=1 \\
+    x_1&+x_2&+ax_3&=1 \\
+     ax_1&+ax_2&+x_3&=a\\
+      x_1&-ax_2&+ax_3&=0  
+  \end{array}$$
+\begin{enumerate}[a)]
+\item Determine valores de $a$ para los cuales el sistema es inconsistente.
+\item Determine valores de $a$ para los cuales el sistema es consistente, y encuentre la solución.
 \end{enumerate}
 \item Sea la matriz $A=
 	\begin{bmatrix}
