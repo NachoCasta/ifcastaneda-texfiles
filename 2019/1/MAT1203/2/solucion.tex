@@ -104,5 +104,290 @@
 \end{center}
 
 \begin{preguntas}
+\item Escribe los siguientes sistemas de ecuaciones en notación matricial.
+\begin{tasks}(2)
+\task $
+		\begin{array}{rcr}
+		x_1 -x_2 + 3x_3 & = & 2\\
+		3x_2 - 2x_3 & = & 0\\
+		4x_1 +2x_2 & = & -1
+		\end{array}
+		$
+\task $
+		\begin{array}{rcr}
+		3x_1 & = & 1\\
+		x_1-x_2& = & 3\\
+		-2x_1+x_2 & = & -8\\
+		x_2 & = & 0
+		\end{array}
+		$
+\task $
+		\begin{array}{rcr}
+		2x_2 -x_3 +2x_4& = & 5\\
+		x_1+x_2 - x_3 & = & 2\\
+		-4x_1 +x_3-x_4& = & -4
+		\end{array}
+		$
+\task $
+		\begin{array}{rcr}
+		x_1 +x_2-3x_3& = & 0\\
+		x_2+4x_4& = & -1\\
+		x_1-2x_2+x_3-5x_4 & = & 2\\
+		x_3-x_4 & = & 5
+		\end{array}
+		$
+\end{tasks}
+\begin{solucion}
+
+\begin{enumerate}[a)]
+\item $
+			\begin{array}{rcr}
+			x_1 -x_2 + 3x_3 & = & 2\\
+			3x_2 - 2x_3 & = & 0\\
+			4x_1 +2x_2 & = & -1
+			\end{array}
+			\Longrightarrow 
+			\left[
+			\begin{array}{ccc|c}
+				1 & -1 & 3 & 2\\
+				0 & 3 & -2 & 0\\
+				4 & 2 & 0 & 1
+			\end{array}
+			\right]
+			$
+\item $
+			\begin{array}{rcr}
+			3x_1 & = & 1\\
+			x_1-x_2& = & 3\\
+			-2x_1+x_2 & = & -8\\
+			x_2 & = & 0
+			\end{array}
+			\Longrightarrow 
+			\left[
+			\begin{array}{cc|c}
+			3 & 0 & 1\\
+			1 &-1 & 3\\
+			-2 & 1 & -8\\
+			0 & 1 & 0
+			\end{array}
+			\right]
+			$
+\item $
+			\begin{array}{rcr}
+			2x_2 -x_3 +2x_4& = & 5\\
+			x_1+x_2 - x_3 & = & 2\\
+			-4x_1 +x_3-x_4& = & -4
+			\end{array}
+			\Longrightarrow 
+			\left[
+			\begin{array}{cccc|c}
+			0 &2 &-1&2&5\\
+			1 &1 & -1 & 0 &2\\
+			-4 &0 & 1 & -1 &-4
+			\end{array}
+			\right]
+			$
+\item $
+			\begin{array}{rcr}
+			x_1 +x_2-3x_3& = & 0\\
+			x_2+4x_4& = & -1\\
+			x_1-2x_2+x_3-5x_4 & = & 2\\
+			x_3-x_4 & = & 5
+			\end{array}
+			\Longrightarrow 
+			\left[
+			\begin{array}{cccc|c}
+			1 & 1 & -3 & 0 & 0\\
+			0 & 1 & 0 & 4 & -1\\
+			1 & -2 & 1 & -5 & 2\\
+			0 & 0 & 1 & -1 & 5
+			\end{array}
+			\right]
+			$
+\end{enumerate}
+\end{solucion}
+\item Dadas las siguientes matrices aumentadas, escribir el sistema de ecuaciones asociado.
+\begin{tasks}(2)
+\task $
+		\begin{bmatrix}
+		-4 & 2 & 1 &  0\\
+		2  & 1 & 2 & -1\\
+		-3 & 5 &-6& -2
+		\end{bmatrix}
+		$
+\task $
+		\begin{bmatrix}
+		2 & 1 & -3 & 0\\
+		1  & -2 & 0 & 12\\
+		4 & 2 &1& 8
+		\end{bmatrix}
+		$
+\end{tasks}
+\begin{solucion}
+
+\begin{enumerate}[a)]
+\item $
+			\begin{bmatrix}
+			-4 & 2 & 1 &  0\\
+			2  & 1 & 2 & -1\\
+			-3 & 5 &-6& -2
+			\end{bmatrix}
+			\Longrightarrow
+			\begin{array}{rcr}
+			-4x_1 + 2x_2 + x_3& = & 0\\
+			2x_1 + x_2 + 2x_3& = & -1\\
+			-3x_1 + 5x_2 - 6x_3 & = & -2
+			\end{array}
+			$
+\item $
+			\begin{bmatrix}
+			2 & 1 & -3 & 0\\
+			1  & -2 & 0 & 12\\
+			4 & 2 &1& 8
+			\end{bmatrix}
+			\Longrightarrow
+			\begin{array}{rcr}
+			2x_1 + x_2 - 3x_3& = & 0\\
+			x_1-2x_2& = & 12\\
+			4x_1+2x_2+x_3 & = & 8
+			\end{array}
+			$
+\end{enumerate}
+\end{solucion}
+\item Determinar si el siguiente sistema es consistente o no
+	$$
+	\begin{array}{rcr}
+	x_1 -6x_2& = & 5\\
+	x_2-4x_3+x_4& = & 0\\
+	-x_1+6x_2+x_3+5x_4& = & 3\\
+	-x_2+5x_3+4x_4 & = & 0
+	\end{array}
+	$$
+\begin{solucion}
+En primer lugar, escribiremos el sistema en notación matricial
+		$$
+		\left[
+		\begin{array}{cccc|c}
+		1 & -6 & 0 & 0 & 5\\
+		0 & 1 & -4 & 1 & 0\\
+		-1& 6 & 1 & 5 & 3 \\
+		0 & -1 & 5 & 4 &0
+		\end{array}
+		\right]$$
+		A continuación, utilizando operaciones de fila, llevaremos esta matriz a su forma escalonada
+		$$\left[
+		\begin{array}{cccc|c}
+			1 & -6 & 0 & 0 & 5\\
+			0 & 1 & -4 & 1 & 0\\
+			-1& 6 & 1 & 5 & 3 \\
+			0 & -1 & 5 & 4 &0
+		\end{array}
+		\right] \stackbin[F_4+F_2]{F_3 +F_1}{\wsim}
+		\left[
+		\begin{array}{cccc|c}
+		1 & -6 & 0 & 0 & 5\\
+		0 & 1 & -4 & 1 & 0\\
+		0 & 0 & 1 & 5 & 8 \\
+		0 & 0 & 1 & 5 & 0
+		\end{array}
+		\right] \stackbin[]{F_4-F_3}{\wsim}
+		\left[
+		\begin{array}{cccc|c}
+		1 & -6 & 0 & 0 & 5\\
+		0 & 1 & -4 & 1 & 0\\
+		0 & 0 & 1 & 5 & 8 \\
+		0 & 0 & 0 & 0 & -8
+		\end{array}
+		\right] $$
+		Aqui podemos apreciar que en el la última fila, todas las variables tienen coeficiente cero y la columna de coeficientes aumentados tiene valor, lo que no es posible, ya que esto significaría que se cumple la igualdad $0 = -8$, lo que no es cierto. Dicho esto, el sistema no es consistente.
+\end{solucion}
+\item Lleve las siguientes matrices a su forma escalonada reducida y determine la existencia y unicidad de las soluciones del sistema.
+\begin{tasks}(2)
+\task $
+		\begin{bmatrix}
+		1 & 2 & 4 & 8\\
+		2 & 4 & 6 & 8\\
+		3 & 6 & 9 & 12
+		\end{bmatrix}
+		$
+\task $
+		\begin{bmatrix}
+		1 & 2 & 4 & 5\\
+		2 & 4 & 5& 4\\
+		4 & 5 & 4 & 2
+		\end{bmatrix}
+		$
+\end{tasks}
+\begin{solucion}
+
+\begin{enumerate}[a)]
+\item $
+			\begin{bmatrix}
+			1 & 2 & 4 & 8\\
+			2 & 4 & 6 & 8\\
+			3 & 6 & 9 & 12
+			\end{bmatrix}
+			\stackbin[F_3 - 3F_1]{F_2-2F_1}{\wsim}
+			\begin{bmatrix}
+			1 & 2 & 4 & 8\\
+			0 & 0 & -2 & -8\\
+			0 & 0 & -3 & -12
+			\end{bmatrix}
+			\stackbin[F_3 \leftarrow -\frac{1}{3}F_3]{F_2 \leftarrow -\frac{1}{2}F_2}{\wsim}
+			\begin{bmatrix}
+			1 & 2 & 4 & 8\\
+			0 & 0 & 1 & 4\\
+			0 & 0 & 1 & 4
+			\end{bmatrix}$\\\\
+			$
+			\stackbin[]{F_3- F_2}{\wsim}
+			\begin{bmatrix}
+			1 & 2 & 4 & 8\\
+			0 & 0 & 1 & 4\\
+			0 & 0 & 0 & 0
+			\end{bmatrix}
+			\stackbin[]{F_1- 4F_2}{\wsim}
+			\begin{bmatrix}
+			1 & 2 & 0 & -8\\
+			0 & 0 & 1 & 4\\
+			0 & 0 & 0 & 0
+			\end{bmatrix}
+			$\\\\
+			Como hay una variable libre (2 pivotes y 3 filas), existen infinitas soluciones.
+\item $
+			\begin{bmatrix}
+			1 & 2 & 4 & 5\\
+			2 & 4 & 5& 4\\
+			4 & 5 & 4 & 2
+			\end{bmatrix}
+			\stackbin[F_3 - 4F_1]{F_2 - 2F_1}{\wsim}
+			\begin{bmatrix}
+			1 & 2 & 4 & 5\\
+			0 & 0 & -3& -6\\
+			0 & -3 & -12 & -18
+			\end{bmatrix}
+			\stackbin[F_3 \leftarrow -\frac{1}{3} F_2]{F_2 \leftarrow -\frac{1}{3}F_3}{\wsim}
+			\begin{bmatrix}
+			1 & 2 & 4 & 5\\
+			0 & 1 & 4& 6\\
+			0 & 0 & 1 & 2
+			\end{bmatrix}
+			$\\\\
+			$
+			\stackbin[F_2 - 4F_3]{F_1 - 4F_3}{\wsim}
+			\begin{bmatrix}
+			1 & 2 & 0 & -3\\
+			0 & 1 & 0& -2\\
+			0 & 0 & 1 & 2
+			\end{bmatrix}
+			\stackbin[]{F_1 - 2F_2}{\wsim}
+			\begin{bmatrix}
+			1 & 0 & 0 & 1\\
+			0 & 1 & 0& -2\\
+			0 & 0 & 1 & 2
+			\end{bmatrix}$\\\\
+			Como tiene 3 pivotes y 3 filas, el sistema posee solución única
+\end{enumerate}
+\end{solucion}
 \end{preguntas}
 \end{document}
