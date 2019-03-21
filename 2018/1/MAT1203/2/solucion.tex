@@ -434,7 +434,141 @@ En primer lugar, escribiremos el sistema en notación matricial
 		0 & 0 & 0 & 0 & -8
 		\end{array}
 		\right] $$
-		Aqui podemos apreciar que en el la última fila, todas las variables tienen coeficiente sero y la columna de coeficientes aumentados tiene valor, lo que no es posible, ya que esto significaría que se cumple la igualdad $0 = -8$, lo que no es cierto. Dicho esto, el sistema no es consistente.
+		Aqui podemos apreciar que en el la última fila, todas las variables tienen coeficiente cero y la columna de coeficientes aumentados tiene valor, lo que no es posible, ya que esto significaría que se cumple la igualdad $0 = -8$, lo que no es cierto. Dicho esto, el sistema no es consistente.
+\end{solucion}
+\item En las siguientes matrices aumentadas, determinar los valores de $h$ para que el sistema sea consistente.
+\begin{tasks}(2)
+\task $
+		\begin{bmatrix}
+		1 & h & 4\\
+		3 & 6 & 8
+		\end{bmatrix}
+		$
+\task $
+		\begin{bmatrix}
+		-4 & 12 & h\\
+		2 & -6 & -3
+		\end{bmatrix}
+		$
+\end{tasks}
+\begin{solucion}
+
+\begin{enumerate}[a)]
+\item $
+			\begin{bmatrix}
+			1 & h & 4\\
+			3 & 6 & 8
+			\end{bmatrix}
+			\wsim
+			\begin{bmatrix}
+			1 & h & 4\\
+			0 & 6-3h & -4
+			\end{bmatrix}
+			$\\\\
+		    Para que el sistema sea consistente, $6 - 3h$ no puede ser $0$, es decir
+			$$6 - 3h \neq 0 \ra h \neq 2$$
+\item $
+			\begin{bmatrix}
+			-4 & 12 & h\\
+			2 & -6 & -3
+			\end{bmatrix}
+			\wsim
+			\begin{bmatrix}
+			-4 & 12 & h\\
+			0 & 0 & -3 - \frac{h}{2}
+			\end{bmatrix}
+			$\\\\
+			En este caso, el último coeficiente debe ser 0, para que el sistema sea consistente,
+			$$-3 - \dfrac{h}{2} = 0 \ra 3 = -\dfrac{h}{2} \ra 6 = -h \ra h = -6$$
+\end{enumerate}
+\end{solucion}
+\item Lleve las siguientes matrices a su forma escalonada reducida y determine la existencia y unicidad de las soluciones del sistema.
+\begin{tasks}(2)
+\task $
+		\begin{bmatrix}
+		1 & 2 & 4 & 8\\
+		2 & 4 & 6 & 8\\
+		3 & 6 & 9 & 12
+		\end{bmatrix}
+		$
+\task $
+		\begin{bmatrix}
+		1 & 2 & 4 & 5\\
+		2 & 4 & 5& 4\\
+		4 & 5 & 4 & 2
+		\end{bmatrix}
+		$
+\end{tasks}
+\begin{solucion}
+
+\begin{enumerate}[a)]
+\item $
+			\begin{bmatrix}
+			1 & 2 & 4 & 8\\
+			2 & 4 & 6 & 8\\
+			3 & 6 & 9 & 12
+			\end{bmatrix}
+			\stackbin[F_3 - 3F_1]{F_2-2F_1}{\wsim}
+			\begin{bmatrix}
+			1 & 2 & 4 & 8\\
+			0 & 0 & -2 & -8\\
+			0 & 0 & -3 & -12
+			\end{bmatrix}
+			\stackbin[F_3 \leftarrow -\frac{1}{3}F_3]{F_2 \leftarrow -\frac{1}{2}F_2}{\wsim}
+			\begin{bmatrix}
+			1 & 2 & 4 & 8\\
+			0 & 0 & 1 & 4\\
+			0 & 0 & 1 & 4
+			\end{bmatrix}$\\\\
+			$
+			\stackbin[]{F_3- F_2}{\wsim}
+			\begin{bmatrix}
+			1 & 2 & 4 & 8\\
+			0 & 0 & 1 & 4\\
+			0 & 0 & 0 & 0
+			\end{bmatrix}
+			\stackbin[]{F_1- 4F_2}{\wsim}
+			\begin{bmatrix}
+			1 & 2 & 0 & -8\\
+			0 & 0 & 1 & 4\\
+			0 & 0 & 0 & 0
+			\end{bmatrix}
+			$\\\\
+			Como hay una variable libre (2 pivotes y 3 filas), existen infinitas soluciones.
+\item $
+			\begin{bmatrix}
+			1 & 2 & 4 & 5\\
+			2 & 4 & 5& 4\\
+			4 & 5 & 4 & 2
+			\end{bmatrix}
+			\stackbin[F_3 - 4F_1]{F_2 - 2F_1}{\wsim}
+			\begin{bmatrix}
+			1 & 2 & 4 & 5\\
+			0 & 0 & -3& -6\\
+			0 & -3 & -12 & -18
+			\end{bmatrix}
+			\stackbin[F_3 \leftarrow -\frac{1}{3} F_2]{F_2 \leftarrow -\frac{1}{3}F_3}{\wsim}
+			\begin{bmatrix}
+			1 & 2 & 4 & 5\\
+			0 & 1 & 4& 6\\
+			0 & 0 & 1 & 2
+			\end{bmatrix}
+			$\\\\
+			$
+			\stackbin[F_2 - 4F_3]{F_1 - 4F_3}{\wsim}
+			\begin{bmatrix}
+			1 & 2 & 0 & -3\\
+			0 & 1 & 0& -2\\
+			0 & 0 & 1 & 2
+			\end{bmatrix}
+			\stackbin[]{F_1 - 2F_2}{\wsim}
+			\begin{bmatrix}
+			1 & 0 & 0 & 1\\
+			0 & 1 & 0& -2\\
+			0 & 0 & 1 & 2
+			\end{bmatrix}$\\\\
+			Como tiene 3 pivotes y 3 filas, el sistema posee solución única
+\end{enumerate}
 \end{solucion}
 \end{preguntas}
 \end{document}
