@@ -17,7 +17,7 @@
 \usepackage[makeroom]{cancel}
 \usepackage{multicol}
 \usepackage[shortlabels]{enumitem}
-\usepackage{tabto}
+\usepackage{stackrel}
 
 \setlength{\headheight}{10pt}
 \setlength{\headsep}{10pt}
@@ -74,6 +74,10 @@
 \newcommand{\lb}{\\~\\}
 \newcommand{\eop}{_{\square}}
 \newcommand{\hsig}{\hat{\sigma}}
+\newcommand{\widesim}[2][1.5]{
+	\mathrel{\overset{#2}{\scalebox{#1}[1]{$\sim$}}}
+}
+\newcommand{\wsim}{\widesim{}}
 
 \begin{document}
 \thispagestyle{empty}
@@ -213,7 +217,7 @@ $$ \lim\limits_{x \ra 2} \dfrac{x^2-5x+6}{x^2-4}
 = -\dfrac{1}{4} $$
 \end{solucion}
 \item Aplicando la definición de límite, demostrar que
-$$\lim\limits_{x \ra 1} \dfrac{x+1}{2} = 2$$
+$$\lim\limits_{x \ra 1} \dfrac{x+3}{2} = 2$$
 \begin{solucion}
 Para demostrar el límite por definición, debemos demostrar que
 $$\left| \dfrac{x+3}{2} - 2 \right| < \epsilon \ra |x-1| < \delta$$
