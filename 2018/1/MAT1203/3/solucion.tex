@@ -300,5 +300,71 @@ Para ver si estos tres vectores generan $\R^3$, tiene que pasar que todos sean L
 			\end{pmatrix}\right\}$$
 \end{enumerate}
 \end{solucion}
+\item Sea la matriz $A=
+	\begin{bmatrix}
+	1 & 3 & 4\\
+	-4 & 2 & -6\\
+	-3 & -2 & -7
+	\end{bmatrix}
+	$ y $b$ un vector en $R^3$. ¿La ecuación $Ax=b$ es consistente para todo $b$?
+\begin{solucion}
+Diremos que $b = \begin{pmatrix}
+	b_1 \\ b_2 \\ b_3
+	\end{pmatrix}$. Luego, el sistema $Ax = b$ se puede representar como
+	$$\left[
+	\begin{array}{ccc|c}
+	1 & 3 & 4 &b_1\\
+	-4 & 2 & -6 & b_2\\
+	-3 & -2 & -7 & b_3
+	\end{array}
+	\right] \sim \left[
+	\begin{array}{ccc|c}
+	1 & 3 & 4 &b_1\\
+	0 & 14 & 10 & b_2 + 4b_1\\
+	0 & 7 & 5 & b_3 + 3b_1
+	\end{array}
+	\right]$$
+	$$ \sim \left[
+	\begin{array}{ccc|c}
+	1 & 3 & 4 &b_1\\
+	0 & 14 & 10 & b_2 + 4b_1\\
+	0 & 0 & 0 & b_3 + 3b_1 - \frac{1}{2}(b_2+4b_1)
+	\end{array}
+	\right] \sim \left[
+	\begin{array}{ccc|c}
+	1 & 3 & 4 &b_1\\
+	0 & 14 & 10 & b_2 + 4b_1\\
+	0 & 0 & 0 & b_1 - \frac{1}{2}b_2 + 4b_3
+	\end{array}
+	\right] $$
+	Luego, el sistema será consistente para $b_1 - \dfrac{1}{2}b_2 + b_3 = 0$. Esto se puede representar como
+	$$\begin{array}{rcl}
+	b_1 & = & \frac{1}{2}b_2 - b_3\\
+	b_2 & = & b_2 \\
+	b_3 & = & b_3
+	\end{array} \ra b = \begin{pmatrix}
+	\frac{1}{2}b_2 - b_3 \\
+	b_2\\
+	b_3 
+	\end{pmatrix} = b_2\begin{pmatrix}
+	\frac{1}{2} \\
+	1\\
+	0 
+	\end{pmatrix} +  b_3\begin{pmatrix}
+	-1 \\
+	0\\
+	1 
+	\end{pmatrix} $$
+	Finalmente,
+	$$b = Gen \left\{ \begin{pmatrix}
+	\frac{1}{2} \\
+	1\\
+	0 
+	\end{pmatrix}, \begin{pmatrix}
+	-1 \\
+	0\\
+	1
+	\end{pmatrix}\right\}$$
+\end{solucion}
 \end{preguntas}
 \end{document}
