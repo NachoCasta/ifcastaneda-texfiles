@@ -198,8 +198,33 @@ Entonces, podemos escribir el límite como
 $$\lim\limits_{x \ra 1} \dfrac{(x^3+3x^2+4)(x-1)}{(x^3+x^2+x+3)(x-1)}
 = \lim\limits_{x \ra 1} \dfrac{(x^3+3x^2+4)}{(x^3+x^2+x+3)}
 = \dfrac{8}{6} = \dfrac{4}{3}$$
-\item 
-\item 
+\item $\lim\limits_{x \ra 0} \dfrac{|x|(|x|-x)}{x^2}$\\
+\\
+Dado que el límite posee valores absolutos y estamos buscando el límite justo en el punto donde la definición del valor absoluto cambia, debemos evaluar el límite desde ambos lados.\\\\
+Recordemos que
+$$|x| = \begin{cases}
+x & x \geq 0 \\
+-x & x < 0
+\end{cases}
+$$
+Entonces el límite por el lado izquierdo es
+$$\lim\limits_{x \ra 0-} \dfrac{|x|(|x|-x)}{x^2} =
+\lim\limits_{x \ra 0-} \dfrac{x(x-x)}{x^2} =
+\lim\limits_{x \ra 0-} \dfrac{0}{x} =
+\lim\limits_{x \ra 0-} 0 =
+0$$
+Notemos que este límite es 0, dado que los $x$ se anulan entre si \textbf{antes} de evaluar el límite.\\\\
+Luego, por el lado derecho,
+$$\lim\limits_{x \ra 0+} \dfrac{|x|(|x|-x)}{x^2} =
+\lim\limits_{x \ra 0+} \dfrac{-x(-x-x)}{x^2} =
+\lim\limits_{x \ra 0+} \dfrac{2x^2}{x^2} =
+2 $$
+Como los límites laterales no coinciden, el límite no existe.
+\item $\lim\limits_{x \ra 2}\left(\dfrac{1}{x}-\dfrac{1}{|x|}\right)$\\
+\\
+Un error común aquí sería hacer el límite por ambos lados cambiando el signo. Sin embargo, notemos que estamos buscando el límite en torno a $x=2$. A ambos lados de $x=2$, el valor absoluto seguira utilizando la misma definición, por lo que basta con evaluar inmediatamente. Con esto,
+$$\lim\limits_{x \ra 2}\left(\dfrac{1}{x}-\dfrac{1}{|x|}\right) = 
+\dfrac{1}{2}-\dfrac{1}{|2|} = 0$$
 \end{enumerate}
 \end{solucion}
 \item Determina $a$ para que el siguiente límite exista:
@@ -235,6 +260,16 @@ $$ \lim\limits_{x \ra 0} x^2e^{\sin{\frac{1}{x}}} $$
 \textit{\textbf{Hint:} Utilice el teorema del sandwich}
 \begin{solucion}
 
+Cuando $x$ tiende a $0$, la función $\sin \frac{1}{x}$ oscilará infinitamente entre 1 y -1. Sabiendo esto, intentemos acotar nuestra función,
+$$ -1 \leq \sin \dfrac{1}{x} \leq 1$$
+$$ e^{-1} \leq e^{\sin \frac{1}{x}} \leq e$$
+$$ x^2e^{-1} \leq x^2e^{\sin \frac{1}{x}} \leq x^2e$$
+$$ \lim\limits_{x \ra 0} x^2e^{-1} \leq 
+\lim\limits_{x \ra 0} x^2e^{\sin \frac{1}{x}} \leq
+\lim\limits_{x \ra 0} x^2e$$
+$$0 \leq \lim\limits_{x \ra 0} x^2e^{\sin \frac{1}{x}} \leq 0$$
+Por lo tanto, por el teorema del sandwich, concluimos que
+$$ \lim\limits_{x \ra 0} x^2e^{\sin{\frac{1}{x}}} = 0 $$
 \end{solucion}
 \end{preguntas}
 \end{document}
