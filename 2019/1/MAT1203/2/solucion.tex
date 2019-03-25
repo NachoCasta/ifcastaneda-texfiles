@@ -479,7 +479,7 @@ $$\begin{bmatrix}
 0 & 0 & 0 & 0\\
 0 & 0 & 0 & 0
 \end{bmatrix} $$
-
+Luego,
 $$\begin{array}{rcl}
 x_1 & = & -x_3 + \dfrac{1}{2}\\
 x_2 & = & \dfrac{1}{2}\\
@@ -492,6 +492,39 @@ x = \begin{pmatrix}
 \end{pmatrix} + \left<\begin{pmatrix}
 -1\\0\\1
 \end{pmatrix}\right>$$
+Si es que $a \neq 1$, entonces
+$$\begin{bmatrix}
+1 & 1 & 1 & 1\\
+0 &-1-a & 0 & -1\\
+0 & 0 & 1-a & 0\\
+0 & 0 & 0 & 0
+\end{bmatrix}
+\stackbin[F_3 \leftarrow \frac{1}{1-a}F_3]{F_2 \leftarrow \frac{1}{-1-a}F_2}{\wsim}
+\begin{bmatrix}
+1 & 1 & 1 & 1\\
+0 & 1 & 0 & \frac{1}{1+a}\\
+0 & 0 & 1 & 0\\
+0 & 0 & 0 & 0
+\end{bmatrix}
+\stackbin[F_1-F_3]{F_1 - F_2}{\wsim}
+\begin{bmatrix}
+1 & 0 & 0 & \frac{a}{1+a}\\
+0 & 1 & 0 & \frac{1}{1+a}\\
+0 & 0 & 1 & 0\\
+0 & 0 & 0 & 0
+\end{bmatrix}$$
+Luego,
+$$\begin{array}{rcl}
+x_1 & = & \dfrac{a}{1+a}\\
+x_2 & = & \dfrac{1}{1+a}\\
+x_3 & = & 0 
+\end{array} \ra 
+x = \begin{pmatrix}
+\frac{a}{1+a} \\
+\frac{1}{1+a} \\
+0
+\end{pmatrix}$$
+Notemos que esta última corresponde siempre a una solución única pero que depende de $a$.
 \end{enumerate}
 \end{solucion}
 \item Sea la matriz $A=
