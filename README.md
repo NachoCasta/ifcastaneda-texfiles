@@ -5,16 +5,16 @@ Repositorio usado para almacenar archivos .tex para generar PDF's con la API lat
 ```
 .
 +-- Año
-|	+-- Semestre
-|	|	+-- Sigla
-|	|	|	+-- 1
-|	|	|		+-- enunciado.tex
-|	|	|		+-- solucion.tex
-|	|	|	+-- ...
-|	|	+-- ...
-|	+-- ...
+|   +-- Semestre
+|   |   +-- Sigla
+|   |   |   +-- 1
+|   |   |   |   +-- enunciado.tex
+|   |   |   |   +-- solucion.tex
+|   |   |   +-- ...
+|   |   +-- ...
+|   +-- ...
 +-- ...
 +-- img
-| 	+-- logo.pdf
+|   +-- logo.pdf
 +-- README.md
 ```
