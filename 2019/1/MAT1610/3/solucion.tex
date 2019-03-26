@@ -124,8 +124,19 @@ Luego, por Teorema del Valor Intermedio, como $f(x)$ es un función continua en 
 \begin{solucion}
 
 \begin{enumerate}[a)]
-\item 
-\item 
+\item En primer lugar, veamos las asíntotas verticales. Todas las discontinuidades de la función serán los candidatos a asíntotas verticales.\\
+\\
+En este caso, esto corresponde solo a $x=-2$. Veamos si el límite existe en $x=-2$
+$$\lim\limits_{x\ra -2} \dfrac{9-x^2}{x+2} = \dfrac{5}{0} = \infty = \not \exists$$
+Como el límite no existe, entonces la función no posee asíntota vertical.\\
+\\
+Ahora, veamos las asíntotas horizontales
+\item En primer lugar, veamos las asíntotas verticales. Notemos que
+$$f(x) = \dfrac{x^2-5x+6}{x^2+2x-8} = \dfrac{(x-2)(x-3)}{(x+4)(x-2)}$$
+Luego, nuestros candidatos son $x=2$ y $x=-4$
+$$\lim\limits_{x\ra 2} \dfrac{(x-2)(x-3)}{(x+4)(x-2)} = \lim\limits_{x\ra 2} \dfrac{x-3}{x+4} = -\dfrac{1}{6}$$ 
+$$\lim\limits_{x\ra -4} \dfrac{(x-2)(x-3)}{(x+4)(x-2)} = \lim\limits_{x\ra -4} \dfrac{x-3}{x+4} = -\dfrac{1}{0} = -\infty = \not\exists$$ 
+Por lo tanto, la función posee una asíntota vertical en $x=-4$
 \end{enumerate}
 \end{solucion}
 \item Encuentra la función $g(x)$ que es tangente a la función $f(x) = x^2 + 1$ en el punto $x = 3$.
@@ -152,10 +163,19 @@ $$g(x) = 6x - 8$$
 \task $f(x) = 2x^2-3$
 \end{tasks}
 \begin{solucion}
-
+Recordemos que 
+	$$f'(x) = \lim\limits_{h \ra 0} \dfrac{f(x+h) - f(x)}{h}$$
 \begin{enumerate}[a)]
-\item 
-\item 
+\item $$f'(x) = \lim\limits_{h \ra 0} \dfrac{(x+h+5) - (x+5)}{h} =
+ \lim\limits_{h \ra 0} \dfrac{x+h+5 -x-5}{h} =
+ \lim\limits_{h \ra 0} \dfrac{h}{h} = 1$$
+\item $$f'(x) = \lim\limits_{h \ra 0} \dfrac{(2(x+h)^2-3) - (2x^2-3)}{h} =
+\lim\limits_{h \ra 0} \dfrac{2(x^2+2xh+h^2)-3-2x^2+3}{h}$$
+$$=
+\lim\limits_{h \ra 0} \dfrac{2x^2+4xh+2h^2 - 3 -2x^2+3}{h} =
+\lim\limits_{h \ra 0} \dfrac{h(4x+2h)}{h} = 
+\lim\limits_{h \ra 0} 4x+2h =
+4x$$
 \end{enumerate}
 \end{solucion}
 \item Sea $f:[a,b] \ra \R$ una función derivable en $(a,b)$ y sea $x_0 \in (a,b)$ fijo, se define
