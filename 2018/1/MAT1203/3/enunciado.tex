@@ -17,7 +17,7 @@
 \usepackage[makeroom]{cancel}
 \usepackage{multicol}
 \usepackage[shortlabels]{enumitem}
-\usepackage{tabto}
+\usepackage{stackrel}
 
 \setlength{\headheight}{10pt}
 \setlength{\headsep}{10pt}
@@ -74,6 +74,10 @@
 \newcommand{\lb}{\\~\\}
 \newcommand{\eop}{_{\square}}
 \newcommand{\hsig}{\hat{\sigma}}
+\newcommand{\widesim}[2][1.5]{
+	\mathrel{\overset{#2}{\scalebox{#1}[1]{$\sim$}}}
+}
+\newcommand{\wsim}{\widesim{}}
 
 \begin{document}
 \thispagestyle{empty}
@@ -151,5 +155,18 @@
 	2x_1 + x_2 - 3x_3& = & 13\\
 	-x_1 + x_2 & = & -8
 	\end{array}$$
+\item Sean $\{u, v, w\}$ un conjunto de vectores linealmente independientes. Demuestre que el conjunto $\{u+v, u+2w, v+3u+w\}$ es linealmente independiente.
+\item Sea $L: P_2(\R) \ra \R^2$ una transformación lineal tal que
+	$$L(1+x) = \begin{pmatrix}
+	1\\
+	1
+	\end{pmatrix}, \quad L(1+x+x^2) = \begin{pmatrix}
+	1\\
+	-1
+	\end{pmatrix}\ y \ L(1+2x) = \begin{pmatrix}
+	1\\
+	2
+	\end{pmatrix}$$
+	determine $L(a+bx+cx^2)$ para todo $a,b,c \in \R$.
 \end{preguntas}
 \end{document}
