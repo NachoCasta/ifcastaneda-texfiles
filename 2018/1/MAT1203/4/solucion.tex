@@ -275,5 +275,81 @@ En primer lugar, escribimos el plano en su forma paramétrica
 		1 \\ 2
 		\end{bmatrix} \right\}$$
 \end{solucion}
+\item Determine si las siguientes afirmaciones son verdaderas o falsas.
+\begin{enumerate}[a)]
+\item Para todo $u, v \in \R^n$ se tiene que $||u+v|| < ||u||+||v||$
+\item Si $u \in Gen\{v_1, v_2\}$ entonces $Gen\{u, v_1\} \subset Gen\{u, v_2\}$
+\item Sea $A$ una matriz de $n \times m$ tal que $n < m $, entonces las columnas de A son L.D.
+\item Si $A$ es una matriz de $2 \times 3$ tal que $Ax = \begin{pmatrix}
+		1\\
+		1
+		\end{pmatrix}$ y $ Ax = \begin{pmatrix}
+		1\\
+		2
+		\end{pmatrix}$ tienen solución, entonces las filas de $A$ son L.I.
+\end{enumerate}
+\begin{solucion}
+
+\begin{enumerate}[a)]
+\item Para todo $u, v \in \R^n$ se tiene que $||u+v|| < ||u||+||v||$\\\\
+			Tomemos $u = v = \vec{0}$. Luego,
+			$$||\vec{0} + \vec{0}|| < ||\vec{0}|| + ||\vec{0}||$$
+			$$0 < 0$$
+			Lo que es falso. Finalmente, la afirmación es FALSA
+\item Si $u \in Gen\{v_1, v_2\}$ entonces $Gen\{u, v_1\} \subset Gen\{u, v_2\}$\\\\
+			Tomemos
+			$$u = \begin{pmatrix}
+			0 \\ 0 
+			\end{pmatrix}, \quad v_1 = \begin{pmatrix}
+			1 \\ 0 
+			\end{pmatrix}, \quad v_2 = \begin{pmatrix}
+			0 \\ 1
+			\end{pmatrix}$$
+			Aqui se cumple que $u \in Gen\{v_1, v_2\}$. Sin embargo,
+			$$Gen\left\{\begin{pmatrix}
+			0 \\ 0 
+			\end{pmatrix}, \begin{pmatrix}
+			1 \\ 0 
+			\end{pmatrix}\right\} \subset Gen\left\{\begin{pmatrix}
+			0 \\ 0 
+			\end{pmatrix}, \begin{pmatrix}
+			0 \\ 1
+			\end{pmatrix}\right\}$$
+			$$Gen\left\{\begin{pmatrix}
+			1 \\ 0 
+			\end{pmatrix}\right\} \subset Gen\left\{\begin{pmatrix}
+			0 \\ 1
+			\end{pmatrix}\right\}$$
+			Lo que claramente no es cierto. Luego, la afirmación es FALSA
+\item Sea $A$ una matriz de $n \times m$ tal que $n < m $, entonces las columnas de A son L.D.\\\\
+			Esto significa que la matriz esta compuesta por $m$ vectores en $\R^n$. Dicho esto, notemos que pueden haber a lo mas $n$ vectores L.I. (máximo $n$ pivotes) Como $m>n$, deben haber vectores L.D., por lo que la afirmación es VERDADERA.
+\item Si $A$ es una matriz de $2 \times 3$ tal que $Ax = \begin{pmatrix}
+			1\\
+			1
+			\end{pmatrix}$ y $ Ax = \begin{pmatrix}
+			1\\
+			2
+			\end{pmatrix}$ tienen solución, entonces las filas de $A$ son L.I.\\\\
+			Asumiendo que ambos sistemas tienen solución, digamos que las filas de $A$ no serán L.I., es decir, una será múltiplo de la otra. Esto se puede expresar como
+			$$A = \begin{bmatrix}
+			a_{11} & a_{12} & a_{13} \\
+			a_{21} & a_{22} & a_{23}
+			\end{bmatrix} = \begin{bmatrix}
+			a_{11} & a_{12} & a_{13} \\
+			\lambda a_{11} & \lambda a_{12} & \lambda a_{13}
+			\end{bmatrix}$$
+			Resolvamos ahora el sistema $Ax = \begin{pmatrix}
+			b_1 \\ b_2
+			\end{pmatrix}$
+			$$\begin{array}{lcl}
+			a_{11}x_1 + a_{12}x_2 + a_{13}x_3 & = & b_1 \\
+			a_{21}x_1 + a_{22}x_2 + a_{23}x_3 & = & b_2			
+			\end{array} \ra \begin{array}{lcl}
+			a_{11}x_1 + a_{12}x_2 + a_{13}x_3 & = & b_1 \\
+			\lambda a_{11}x_1 + \lambda a_{12}x_2 + \lambda a_{13}x_3 & = & \lambda b_1			
+			\end{array}$$
+			Aqui podemos ver que a lo más uno de los dos sistemas puede tener solución, lo que contradice nuestra hipotesis inicial. Por esto, las filas de $A$ deben ser L.I. Con esto concluimos que la afirmación es VERDADERA
+\end{enumerate}
+\end{solucion}
 \end{preguntas}
 \end{document}
