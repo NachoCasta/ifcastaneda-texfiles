@@ -17,7 +17,7 @@
 \usepackage[makeroom]{cancel}
 \usepackage{multicol}
 \usepackage[shortlabels]{enumitem}
-\usepackage{tabto}
+\usepackage{stackrel}
 
 \setlength{\headheight}{10pt}
 \setlength{\headsep}{10pt}
@@ -51,14 +51,15 @@
 }
 
 \newcommand{\ayudantia}{{\sc Ayudantía 4}}
-\newcommand{\tituloayu}{hola}
-\newcommand{\fecha}{2018-10-15}
-\newcommand{\alumno}{Ignacio Castañeda - ifcastaneda@uc.cl}
+\newcommand{\tituloayu}{Transformaciones lineales y aplicaciones de sistemas lineales}
+\newcommand{\fecha}{28 de marzo de 2018}
 \newcommand{\sigla}{MAT1203}
 \newcommand{\nombre}{Álgebra Lineal}
 \newcommand{\profesor}{Rodrigo Rubio Varas}
 \newcommand{\ano}{2018}
 \newcommand{\semestre}{1}
+\newcommand{\mail}{mat1203@ifcastaneda.cl}
+\newcommand{\alumno}{Ignacio Castañeda - \mail}
 
 \newcommand{\ev}{\Big|}
 \newcommand{\ra}{\rightarrow}
@@ -73,6 +74,10 @@
 \newcommand{\lb}{\\~\\}
 \newcommand{\eop}{_{\square}}
 \newcommand{\hsig}{\hat{\sigma}}
+\newcommand{\widesim}[2][1.5]{
+	\mathrel{\overset{#2}{\scalebox{#1}[1]{$\sim$}}}
+}
+\newcommand{\wsim}{\widesim{}}
 
 \begin{document}
 \thispagestyle{empty}
@@ -84,15 +89,24 @@
 \begin{minipage}{\linewidth}
 	\begin{tabular}{lrl}
 		{\scriptsize\sc Pontificia Universidad Catolica de Chile} & \hspace*{0.7in}Curso: &
-		\sigla - \nombre\\
+		\sigla  - \nombre\\
 		{\sc Facultad de Matemáticas}&
 		Profesor: & \profesor \\
 		{\sc Semestre \ano-\semestre} & Ayudante: & {Ignacio Castañeda}\\
-		& {Mail:} & \texttt{ifcastaneda@uc.cl}
+		& {Mail:} & \texttt{\mail}
 	\end{tabular}
 \end{minipage}
 
+\vspace{-10mm}
+\begin{center}
+	{\LARGE\bf \ayudantia}\\
+	\vspace{0.1cm}
+	{\tituloayu}\\
+	\vspace{0.1cm}
+	\fecha\\
+	\vspace{0.4cm}
+\end{center}
+
 \begin{preguntas}
-\item Determinar si las siguientes integrales impropias convergen o divergen y calcularlas en caso de que converjan.
 \end{preguntas}
 \end{document}
