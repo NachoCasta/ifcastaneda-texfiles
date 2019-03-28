@@ -1,0 +1,369 @@
+\documentclass[12pt]{article}
+
+\usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[none]{hyphenat}
+\usepackage{parskip}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\usepackage{tasks}
+\usepackage{mdframed}
+\usepackage{xcolor}
+\usepackage{pgfplots}
+\usepackage[makeroom]{cancel}
+\usepackage{multicol}
+\usepackage[shortlabels]{enumitem}
+\usepackage{stackrel}
+
+\setlength{\headheight}{10pt}
+\setlength{\headsep}{10pt}
+\pagestyle{fancy}
+\rhead{\ayudantia \ - \alumno}
+
+\newcommand*{\mybox}[2]{\colorbox{#1!30}{\parbox{.98\linewidth}{#2}}}
+
+\newenvironment{solucion}
+{\begin{mdframed}[backgroundcolor=black!10]
+		{\bf Solución:}\\
+	}
+	{
+	\end{mdframed}
+}
+
+\newenvironment{alternativas}[1]
+{\begin{multicols}{#1}
+		\begin{enumerate}[a)]
+		}
+		{
+		\end{enumerate}
+	\end{multicols}
+}
+
+\newenvironment{preguntas}
+{\begin{enumerate}\itemsep12pt
+	}
+	{
+	\end{enumerate}
+}
+
+\newcommand{\ayudantia}{{\sc Ayudantía 3}}
+\newcommand{\tituloayu}{Independencia lineal y transformaciones lineales}
+\newcommand{\fecha}{28 de marzo de 2019}
+\newcommand{\sigla}{MAT1203}
+\newcommand{\nombre}{Álgebra Lineal}
+\newcommand{\profesor}{Camilo Perez}
+\newcommand{\ano}{2019}
+\newcommand{\semestre}{1}
+\newcommand{\mail}{mat1203@ifcastaneda.cl}
+\newcommand{\alumno}{Ignacio Castañeda - \mail}
+
+\newcommand{\ev}{\Big|}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lra}{\leftrightarrow}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Exp}[1]{\mathcal{E}_{#1}}
+\newcommand{\List}[1]{\mathcal{L}_{#1}}
+\newcommand{\EN}{\Exp{\N}}
+\newcommand{\LN}{\List{\N}}
+\newcommand{\comment}[1]{}
+\newcommand{\lb}{\\~\\}
+\newcommand{\eop}{_{\square}}
+\newcommand{\hsig}{\hat{\sigma}}
+\newcommand{\widesim}[2][1.5]{
+	\mathrel{\overset{#2}{\scalebox{#1}[1]{$\sim$}}}
+}
+\newcommand{\wsim}{\widesim{}}
+
+\begin{document}
+\thispagestyle{empty}
+
+\begin{minipage}{2cm}
+	\includegraphics[width=2cm]{../../../../img/logo.pdf}
+	\vspace{0.5cm}
+\end{minipage}
+\begin{minipage}{\linewidth}
+	\begin{tabular}{lrl}
+		{\scriptsize\sc Pontificia Universidad Catolica de Chile} & \hspace*{0.7in}Curso: &
+		\sigla  - \nombre\\
+		{\sc Facultad de Matemáticas}&
+		Profesor: & \profesor \\
+		{\sc Semestre \ano-\semestre} & Ayudante: & {Ignacio Castañeda}\\
+		& {Mail:} & \texttt{\mail}
+	\end{tabular}
+\end{minipage}
+
+\vspace{-10mm}
+\begin{center}
+	{\LARGE\bf \ayudantia}\\
+	\vspace{0.1cm}
+	{\tituloayu}\\
+	\vspace{0.1cm}
+	\fecha\\
+	\vspace{0.4cm}
+\end{center}
+
+\begin{preguntas}
+\item Sean $\{u, v, w\}$ un conjunto de vectores linealmente independientes. Demuestre que el conjunto $\{u+v, u+2w, v+3u+w\}$ es linealmente independiente.
+\begin{solucion}
+$$P.D. \quad \{y, v, w\}\quad L.I. \ra \{u+v, u+2w, v+3u+w\}\quad L.I.$$
+		Para que $\{u+v, u+2w, v+3u+w\}$ sea L.I., tiene que cumplirse que el sistema
+		$$\alpha(u+v) + \beta(u+2w) + \gamma(v+3u+w) = 0$$
+		tenga solucion única $\begin{pmatrix}
+		\alpha\\ \beta \\ \gamma
+		\end{pmatrix} = \begin{pmatrix} 0\\0\\0\end{pmatrix}$\\
+		Trabajemos entonces con el sistema
+		$$\alpha(u+v) + \beta(u+2w) + \gamma(v+3u+w) = 0$$
+		$$\alpha u+ \alpha v + \beta u+2\beta w + \gamma v+3\gamma u+\gamma w = 0$$
+		$$(\alpha + \beta + 3 \gamma)u + (\alpha + \gamma)v + (2\beta + \gamma)w = 0$$
+		Recordemos que ${u, v, w}$ es L.I, por lo que debe cumplirse que
+		$$\begin{array}{rcl}
+		\alpha + \beta + 3 \gamma & = & 0\\
+		\alpha + \gamma & = & 0\\
+		2\beta + \gamma & = & 0
+		\end{array}$$
+		Este sistema lo podemos expresar de forma matricial,
+		$$\begin{bmatrix}
+		1 & 1 & 3\\
+		1 & 0 & 1 \\
+		0 & 2 & 1
+		\end{bmatrix} \stackrel{F.E.}{\sim} \begin{bmatrix}
+		1 & 0 & 1\\
+		0 & 1 & -2\\
+		0 & 0 & 1
+		\end{bmatrix}$$
+		Cuya solución es
+		$$\begin{array}{rcl}
+		\alpha & = & 0\\
+		\beta & = & 0\\
+		\gamma & = & 0
+		\end{array}$$
+		$$q.e.d$$
+	
+\end{solucion}
+\item Sea $L: P_2(\R) \ra \R^2$ una transformación lineal tal que
+	$$L(1+x) = \begin{pmatrix}
+	1\\
+	1
+	\end{pmatrix}, \quad L(1+x+x^2) = \begin{pmatrix}
+	1\\
+	-1
+	\end{pmatrix}\ y \ L(1+2x) = \begin{pmatrix}
+	1\\
+	2
+	\end{pmatrix}$$
+	determine $L(a+bx+cx^2)$ para todo $a,b,c \in \R$.
+\begin{solucion}
+Recordemos la siguientes propiedades de las transformaciones lineales
+		$$L(v_1) + L(v_2) = L(v_1 + v_2), \quad \alpha L(v) = L(\alpha v)$$
+		Debemos buscar 
+		$$L(1), \quad L(x), \quad L(x^2)$$
+		Para esto, debemos jugar con la información que nos dan hasta encontrar cada uno de ellos.
+		\begin{center}\rule{14.5cm}{0.1pt}\end{center}
+		$$L(1+x+x^2) - L(1+x) = \begin{pmatrix}
+		1\\-1
+		\end{pmatrix} - \begin{pmatrix}
+		1\\1
+		\end{pmatrix}$$
+		$$L(x^2) = \begin{pmatrix}
+		0\\-2
+		\end{pmatrix}$$
+		
+		\begin{center}\rule{14.5cm}{0.1pt}\end{center}
+		$$L(1+2x) - L(1+x) = \begin{pmatrix}
+		1\\2
+		\end{pmatrix} - \begin{pmatrix}
+		1\\1
+		\end{pmatrix}$$
+		$$L(x) = \begin{pmatrix}
+		0\\1
+		\end{pmatrix}$$
+		
+		\begin{center}\rule{14.5cm}{0.1pt}\end{center}
+		$$L(1+x) - L(x) = \begin{pmatrix}
+		1\\1
+		\end{pmatrix} - \begin{pmatrix}
+		0\\1
+		\end{pmatrix}$$
+		$$L(x) = \begin{pmatrix}
+		1\\0
+		\end{pmatrix}$$
+		
+		Luego, 
+		$$L(a+bx+cx^2) = aL(1) + bL(x) + cL(x^2)$$
+		$$L(a+bx+cx^2) = aL\begin{pmatrix}1\\0\end{pmatrix} + b\begin{pmatrix}0\\1\end{pmatrix} + c\begin{pmatrix}0\\-2\end{pmatrix}$$
+		$$L(a+bx+cx^2) = \begin{pmatrix}a\\b-2c\end{pmatrix}$$
+\end{solucion}
+\item Sea $T$ una transformación lineal tal que
+	$$T\begin{bmatrix}2 \\ 1\end{bmatrix} = \begin{bmatrix}1 \\ 0 \\ 1 \\ 0\end{bmatrix} 
+	\quad y \quad
+	T \begin{bmatrix}3 \\ 1\end{bmatrix}  =\begin{bmatrix}0 \\ 1 \\ 0 \\ 1\end{bmatrix}$$
+	Determine la matriz que representa a $T$
+\begin{solucion}
+Estamos buscando la matriz $\begin{bmatrix}
+		T\begin{bmatrix}
+		1 \\ 0
+		\end{bmatrix}
+		&
+		
+		T\begin{bmatrix}
+		0 \\ 1
+		\end{bmatrix}
+		\end{bmatrix}$.\\
+		Entonces, lo que necesitamos es buscar $T\begin{bmatrix}
+		1 \\ 0
+		\end{bmatrix}$ y $T\begin{bmatrix}
+			0 \\ 1
+		\end{bmatrix}$ y para ello, debemos escribir cada uno como una combinación lineal de $T\begin{bmatrix}
+		2 \\ 1
+		\end{bmatrix}$ y $T\begin{bmatrix}
+		3 \\ 1
+		\end{bmatrix}$, es decir
+		$$\begin{bmatrix}
+		1 \\ 0
+		\end{bmatrix} = \alpha \begin{bmatrix}
+		2 \\ 1
+		\end{bmatrix} +  \beta \begin{bmatrix}
+		3 \\ 1
+		\end{bmatrix} \quad y \quad
+		\begin{bmatrix}
+		0 \\ 1
+		\end{bmatrix} = \gamma \begin{bmatrix}
+		2 \\ 1
+		\end{bmatrix} +  \delta \begin{bmatrix}
+		3 \\ 1
+		\end{bmatrix}$$
+		O sea, debemos resolver los sistemas
+		$$\begin{array}{rcl}
+		2\alpha + 3\beta & = & 1\\
+		\alpha + \beta & = & 0
+		\end{array} \qquad \qquad \qquad
+		\begin{array}{rcl}
+		2\gamma + 3\delta & = & 0\\
+		\gamma + \delta & = & 1
+		\end{array}$$
+		La solución de estos sistemas es
+		$$\alpha = -1, \quad \beta = 1, \quad \gamma = 3, \quad \delta = -2$$
+		Por lo que
+		$$\begin{bmatrix}
+		1 \\ 0
+		\end{bmatrix} = \begin{bmatrix}
+		3 \\ 1
+		\end{bmatrix}- \begin{bmatrix}
+		2 \\ 1
+		\end{bmatrix}  \quad y \quad
+		\begin{bmatrix}
+		0 \\ 1
+		\end{bmatrix} = 3 \begin{bmatrix}
+		2 \\ 1
+		\end{bmatrix} - 2 \begin{bmatrix}
+		3 \\ 1
+		\end{bmatrix}$$
+		Luego,
+		$$T\begin{bmatrix}
+		1 \\ 0
+		\end{bmatrix} = T\begin{bmatrix}
+		3 \\ 1
+		\end{bmatrix}- T\begin{bmatrix}
+		2 \\ 1
+		\end{bmatrix} = \begin{bmatrix}0 \\ 1 \\ 0 \\ 1\end{bmatrix} - \begin{bmatrix}1 \\0 \\ 1 \\ 0\end{bmatrix} = \begin{bmatrix}-1 \\ 1 \\ -1 \\ 1\end{bmatrix}$$
+		y
+		$$T\begin{bmatrix}
+		0 \\ 1
+		\end{bmatrix} = 3 T\begin{bmatrix}
+		2 \\ 1
+		\end{bmatrix} - 2 T\begin{bmatrix}
+		3 \\ 1
+		\end{bmatrix} = 3 \begin{bmatrix}1 \\ 0 \\ 1 \\ 0\end{bmatrix} - 2 \begin{bmatrix}0 \\ 1 \\ 0 \\ 1\end{bmatrix} = \begin{bmatrix}3 \\ -2 \\ 3 \\ -2\end{bmatrix}$$
+		Finalmente, la matriz que representa $T$ es
+		$$\begin{bmatrix}
+		T\begin{bmatrix}
+		1 \\ 0
+		\end{bmatrix}
+		&
+		
+		T\begin{bmatrix}
+		0 \\ 1
+		\end{bmatrix}
+		\end{bmatrix} =
+		\begin{bmatrix}
+		-1 & 3 \\
+		1 & -2 \\
+		-1 & 3 \\
+		1 & -2
+		\end{bmatrix}$$
+\end{solucion}
+\item Sea la transformación lineal $T$, dada por la matriz
+	$$T = \begin{bmatrix}
+	1 & 2 & -1\\
+	2 & 4 & -2
+	\end{bmatrix}$$
+	Determine la imagen del plano de ecuación $x_1 + x_3 = 1$ por T.
+\begin{solucion}
+En primer lugar, escribimos el plano en su forma paramétrica
+		$$\begin{array}{rcl}
+		x_1 & = &1-x_3\\
+		x_2 & = &x_2\\
+		x_3 & = &x_3
+		\end{array}$$
+		Vemos entonces que 3 puntos arbitrarios pertenecienctes al plano son
+		$$P_1(1,0,0), \quad P_2(1,1,0), \quad P_3(0,0,1) $$
+		Luego, dos vectores directores que definen al plano son
+		$$\vec{d_1} = \vec{P_1P_2} = (0,1,0), \quad =\vec{d_2} = \vec{P_1P_3} = (-1,0,1)$$
+		Con esto, podemos expresar el plano en su forma vectorial
+		$$\vec{P}= \vec{P_1} + \alpha \vec{d_1}  + \beta \vec{d_2}$$
+		Para encontrar la imagen del plano por $T$, basta con hacer
+		$$T\vec{P}= T\vec{P_1} + \alpha T\vec{d_1}  + \beta T\vec{d_2}$$
+		Como
+		$$T\vec{P_1} = \begin{bmatrix}
+		1 & 2 & -1\\
+		2 & 4 & -2
+		\end{bmatrix} \begin{bmatrix}
+		1 \\ 0 \\ 0
+		\end{bmatrix} = \begin{bmatrix}
+		1 \\ 2
+		\end{bmatrix}$$
+		$$T\vec{d_1} = \begin{bmatrix}
+		1 & 2 & -1\\
+		2 & 4 & -2
+		\end{bmatrix} \begin{bmatrix}
+		0 \\ 1 \\ 0
+		\end{bmatrix} = \begin{bmatrix}
+		2 \\ 4
+		\end{bmatrix}$$
+		$$T\vec{d_2} = \begin{bmatrix}
+		1 & 2 & -1\\
+		2 & 4 & -2
+		\end{bmatrix} \begin{bmatrix}
+		-1 \\ 0 \\ 1
+		\end{bmatrix} = \begin{bmatrix}
+		-2 \\ -4
+		\end{bmatrix}$$
+		Tenemos que
+		$$TP =  \begin{bmatrix}
+		1 \\ 2
+		\end{bmatrix} + \alpha  \begin{bmatrix}
+		2 \\ 4
+		\end{bmatrix} + 
+		\beta  \begin{bmatrix}
+		-2 \\ -4
+		\end{bmatrix} =  \begin{bmatrix}
+		1 + 2\alpha  - 2\beta \\
+		2 + 4\alpha - 5\beta
+		\end{bmatrix} = 
+		(1+2\alpha - 2\beta)  \begin{bmatrix}
+		1 \\ 2
+		\end{bmatrix}$$
+		En otras palabras, la imagen del plano por la traslación $T$ corresponde a los ponderados de $\begin{bmatrix}
+			1 \\ 2
+		\end{bmatrix}$, es decir
+		$$T\vec{P} = Gen\left\{ \begin{bmatrix}
+		1 \\ 2
+		\end{bmatrix} \right\}$$
+\end{solucion}
+\end{preguntas}
+\end{document}
