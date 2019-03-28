@@ -17,7 +17,7 @@
 \usepackage[makeroom]{cancel}
 \usepackage{multicol}
 \usepackage[shortlabels]{enumitem}
-\usepackage{tabto}
+\usepackage{stackrel}
 
 \setlength{\headheight}{10pt}
 \setlength{\headsep}{10pt}
@@ -74,6 +74,10 @@
 \newcommand{\lb}{\\~\\}
 \newcommand{\eop}{_{\square}}
 \newcommand{\hsig}{\hat{\sigma}}
+\newcommand{\widesim}[2][1.5]{
+	\mathrel{\overset{#2}{\scalebox{#1}[1]{$\sim$}}}
+}
+\newcommand{\wsim}{\widesim{}}
 
 \begin{document}
 \thispagestyle{empty}
@@ -447,6 +451,96 @@ La matriz aumentada asociada es
 		1\\
 		1
 		\end{pmatrix}\right\}$$
+\end{solucion}
+\item Sean $\{u, v, w\}$ un conjunto de vectores linealmente independientes. Demuestre que el conjunto $\{u+v, u+2w, v+3u+w\}$ es linealmente independiente.
+\begin{solucion}
+$$P.D. \quad \{y, v, w\}\quad L.I. \ra \{u+v, u+2w, v+3u+w\}\quad L.I.$$
+		Para que $\{u+v, u+2w, v+3u+w\}$ sea L.I., tiene que cumplirse que el sistema
+		$$\alpha(u+v) + \beta(u+2w) + \gamma(v+3u+w) = 0$$
+		tenga solucion única $\begin{pmatrix}
+		\alpha\\ \beta \\ \gamma
+		\end{pmatrix} = \begin{pmatrix} 0\\0\\0\end{pmatrix}$\\
+		Trabajemos entonces con el sistema
+		$$\alpha(u+v) + \beta(u+2w) + \gamma(v+3u+w) = 0$$
+		$$\alpha u+ \alpha v + \beta u+2\beta w + \gamma v+3\gamma u+\gamma w = 0$$
+		$$(\alpha + \beta + 3 \gamma)u + (\alpha + \gamma)v + (2\beta + \gamma)w = 0$$
+		Recordemos que ${u, v, w}$ es L.I, por lo que debe cumplirse que
+		$$\begin{array}{rcl}
+		\alpha + \beta + 3 \gamma & = & 0\\
+		\alpha + \gamma & = & 0\\
+		2\beta + \gamma & = & 0
+		\end{array}$$
+		Este sistema lo podemos expresar de forma matricial,
+		$$\begin{bmatrix}
+		1 & 1 & 3\\
+		1 & 0 & 1 \\
+		0 & 2 & 1
+		\end{bmatrix} \stackrel{F.E.}{\sim} \begin{bmatrix}
+		1 & 0 & 1\\
+		0 & 1 & -2\\
+		0 & 0 & 1
+		\end{bmatrix}$$
+		Cuya solución es
+		$$\begin{array}{rcl}
+		\alpha & = & 0\\
+		\beta & = & 0\\
+		\gamma & = & 0
+		\end{array}$$
+		$$q.e.d$$
+	
+\end{solucion}
+\item Sea $L: P_2(\R) \ra \R^2$ una transformación lineal tal que
+	$$L(1+x) = \begin{pmatrix}
+	1\\
+	1
+	\end{pmatrix}, \quad L(1+x+x^2) = \begin{pmatrix}
+	1\\
+	-1
+	\end{pmatrix}\ y \ L(1+2x) = \begin{pmatrix}
+	1\\
+	2
+	\end{pmatrix}$$
+	determine $L(a+bx+cx^2)$ para todo $a,b,c \in \R$.
+\begin{solucion}
+Recordemos la siguientes propiedades de las transformaciones lineales
+		$$L(v_1) + L(v_2) = L(v_1 + v_2), \quad \alpha L(v) = L(\alpha v)$$
+		Debemos buscar 
+		$$L(1), \quad L(x), \quad L(x^2)$$
+		Para esto, debemos jugar con la información que nos dan hasta encontrar cada uno de ellos.
+		\begin{center}\rule{14.5cm}{0.1pt}\end{center}
+		$$L(1+x+x^2) - L(1+x) = \begin{pmatrix}
+		1\\-1
+		\end{pmatrix} - \begin{pmatrix}
+		1\\1
+		\end{pmatrix}$$
+		$$L(x^2) = \begin{pmatrix}
+		0\\-2
+		\end{pmatrix}$$
+		
+		\begin{center}\rule{14.5cm}{0.1pt}\end{center}
+		$$L(1+2x) - L(1+x) = \begin{pmatrix}
+		1\\2
+		\end{pmatrix} - \begin{pmatrix}
+		1\\1
+		\end{pmatrix}$$
+		$$L(x) = \begin{pmatrix}
+		0\\1
+		\end{pmatrix}$$
+		
+		\begin{center}\rule{14.5cm}{0.1pt}\end{center}
+		$$L(1+x) - L(x) = \begin{pmatrix}
+		1\\1
+		\end{pmatrix} - \begin{pmatrix}
+		0\\1
+		\end{pmatrix}$$
+		$$L(x) = \begin{pmatrix}
+		1\\0
+		\end{pmatrix}$$
+		
+		Luego, 
+		$$L(a+bx+cx^2) = aL(1) + bL(x) + cL(x^2)$$
+		$$L(a+bx+cx^2) = aL\begin{pmatrix}1\\0\end{pmatrix} + b\begin{pmatrix}0\\1\end{pmatrix} + c\begin{pmatrix}0\\-2\end{pmatrix}$$
+		$$L(a+bx+cx^2) = \begin{pmatrix}a\\b-2c\end{pmatrix}$$
 \end{solucion}
 \end{preguntas}
 \end{document}
