@@ -249,7 +249,32 @@ $$A = \begin{bmatrix}
 \end{solucion}
 \item Sea $A$ una matriz de $n\times m$ con columnas LI. Demuestre que si $P=A(A^tA)^{-1}A^{t}$, entonces $P^2=P$ y $P=P^t$.
 \begin{solucion}
-
+	Recordemos que
+	$$(AB)^t = B^tA^t \qquad y \qquad (AB)^{-1} = B^{-1}A^{-1}$$
+	En primer lugar, demostremos que 
+	$$P^2 = P \ra P = P^2$$
+	Reemplazamos con $P=A(A^tA)^{-1}A^{t}$, es decir
+	$$\begin{array}{rcl}
+	P & = & P^2 \\
+	  & = & (A(A^tA)^{-1}A^{t})(A(A^tA)^{-1}A^{t}) \\
+	  & = & A(A^tA)^{-1}A^{t}A(A^tA)^{-1}A^{t} \\
+	  & = & A(A^tA)^{-1}(A^{t}A)(A^tA)^{-1}A^{t} \\
+	  & = & A(A^tA)^{-1}A^{t} \\
+	P & = & P
+	\end{array}$$
+	$$\blacksquare$$
+	Ahora, demostremos que $P = P^t$, esto es,
+	$$\begin{array}{rcl}
+	P & = & P^t \\
+	  & = & (A(A^tA)^{-1}A^{t})^t \\
+	  & = & ((A(A^tA)^{-1})A^{t})^t \\
+	  & = & A(A(A^tA)^{-1})^t \\
+	  & = & A(A^tA)^{-t}A^t \\
+	  & = & A((A^tA)^t)^{-1}A^t \\
+	  & = & A(A^tA)^{-1}A^t \\
+	P & = & P
+	\end{array}$$
+	$$\blacksquare$$
 \end{solucion}
 \item Sea $A$ una matriz de $3\times 3$ tal que
       $$A\left(\begin{array}{r}
@@ -266,11 +291,76 @@ $$A = \begin{bmatrix}
   0\\1\\1
 \end{array}\right).$$ Calcule $A^{-1}$.
 \begin{solucion}
-
+Recordemos que para $A_{m \times n}$ y $v_1, v_2 \in \R^{n}$, siempre se cumple que
+$$Av1 + Av2 = A(v_1 + v_2)$$
+y recordemos también que al multiplicar dos matrices, se esta multiplicando la primera matriz con las columnas de la segunda para generar la matriz resultante, es decir, siendo $B = [v_1\ v_2\ \dots\ v_n]$,
+$$AB = A[v_1\ v_2\ \dots\ v_n] = [Av_1\ Av_2\ \dots\ Av_n]$$
+Procedamos con el ejercicio.\\
+\\
+Llamemos $v_1, v_2, v_3$ a todos los vectores que son multiplicados por $A$ en el enunciado, respectivamente y $u_1, u_2, u_3$ a sus respectivos resultados.\\
+\\
+Para obtener la inversa de $A$, debemos encontrar una matriz que al multiplicarla por $A$ nos de la matriz identidad.\\
+\\
+Busquemos entonces una forma de construir las columnas de la matriz identidad (vectores canónicos) con una combinación lineal de los vectores $u_i$. Si tuvieramos vectores más complejos, tendríamos que resolver el sistema $\alpha u_1 + \beta u_2 + \gamma u_3 = e_i$ para $i = \{1, 2, 3\}$. Sin embargo, dado que estos vectores son bastante simples, podemos hacerlo de manera analitica, esto es,
+$$e_1 = u_1, \quad e_2 = , u_3-u_2+u_1, \quad e_3 = u_2 - u_1$$
+Luego,
+$$I = [u_1\quad u_3-u_2+u_1\quad u_2-u_1]$$
+Utilizando las propiedades mencionadas al principio,
+$$I = [Av_1\quad A(v_3-v_2+v_1)\quad A(v_2-v_1)]$$
+$$I = A[v_1\quad v_3-v_2+v_1\quad v_2-v_1]$$
+$$A^{-1} = [v_1\quad v_3-v_2+v_1\quad v_2-v_1]$$
+Por lo tanto, la inversa de $A$ corresponde a
+$$A^{-1} = 
+\begin{bmatrix}
+1 &-1 & 0 \\
+0 & 3 & 0 \\
+1 &-2 &-1 
+\end{bmatrix}$$
 \end{solucion}
 \item Demuestre que $T(x_1,x_2, x_3)=(x_1,x_1+x_2, x_1+x_2+x_3)$ es invertible y encuentre una f\'ormula para $T^{-1}$.
 \begin{solucion}
-
+En primer lugar determinemos la matriz de la transformación lineal $T$.\\
+Sea $Ax = T(x)$,
+$$A = \begin{bmatrix}
+1 & 0 & 0 \\
+1 & 1 & 0 \\
+1 & 1 & 1
+\end{bmatrix}$$
+Notemos que la matriz esta escalonada "al revés". En otras palabras, $A^t$ estaría escalonada y es evidente que tiene 3 pivotes, por lo que $A$ igual tiene 3 pivotes. Al tener igual cantidad de pivotes que de columnas, la matriz $A$ es invertible.\\
+\\
+Ahora, busquemos $A^-1$, esto es
+$$\left[
+\begin{array}{cccc|ccc}
+1 & 0 & 0 & 1 & 0 & 0 \\
+1 & 1 & 0 & 0 & 1 & 0 \\
+1 & 1 & 1 & 0 & 0 & 1
+\end{array}
+\right] \sim 
+\left[
+\begin{array}{ccc|ccc}
+1 & 0 & 0 & 1 & 0 & 0 \\
+0 & 1 & 0 & -1 & 1 & 0 \\
+0 & 1 & 1 & -1 & 0 & 1
+\end{array}
+\right] \sim 
+\left[
+\begin{array}{ccc|ccc}
+1 & 0 & 0 & 1 & 0 & 0 \\
+0 & 1 & 0 & -1 & 1 & 0 \\
+0 & 0 & 1 & -1 & -1 & 1
+\end{array}
+\right]
+$$
+Es decir,
+$$A^{-1} = 
+\begin{bmatrix}
+ 1 & 0 & 0 \\
+-1 & 1 & 0 \\
+-1 & -1 & 1
+\end{bmatrix}
+$$
+Finalmente, podemos escribir $T^{-1}(x)$ como
+$$T^{-1}(x) = (x_1, -x_1 + x_2, -x_1-x_2+x_3)$$
 \end{solucion}
 \end{preguntas}
 \end{document}
