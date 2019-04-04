@@ -245,7 +245,37 @@ $$A = \begin{bmatrix}
 2 & 0 & 1
 \end{bmatrix}$$
 \begin{solucion}
-
+Para obtener $A^{-1}$, ampliamos con la matriz identidad y pivoteamos hasta obtener la matriz identidad al lado izquierdo. Luego, la matriz resultante en el lado derecho será la inversa.\\
+\\
+Procedamos,
+$$\left[
+\begin{array}{ccc|ccc}
+1 &-1 & 0 & 1 & 0 & 0 \\
+0 & 1 & 0 & 0 & 1 & 0 \\
+2 & 0 & 1 & 0 & 0 & 1
+\end{array}
+\right] \sim
+\left[
+\begin{array}{ccc|ccc}
+1 &-1 & 0 & 1 & 0 & 0 \\
+0 & 1 & 0 & 0 & 1 & 0 \\
+0 & 0 & 1 &-2 & 0 & 1
+\end{array}
+\right] \sim
+\left[
+\begin{array}{ccc|ccc}
+1 & 0 & 0 & 1 &-1 & 0 \\
+0 & 1 & 0 & 0 & 1 & 0 \\
+0 & 0 & 1 &-2 & 0 & 1
+\end{array}
+\right]
+$$
+Finalmente,
+$$A^{-1} = \begin{bmatrix}
+ 1 &-1 & 0 \\
+ 0 & 1 & 0 \\
+-2 & 0 & 1
+\end{bmatrix}$$
 \end{solucion}
 \item Sea $A$ una matriz de $n\times m$ con columnas LI. Demuestre que si $P=A(A^tA)^{-1}A^{t}$, entonces $P^2=P$ y $P=P^t$.
 \begin{solucion}
