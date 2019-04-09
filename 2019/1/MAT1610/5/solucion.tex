@@ -177,10 +177,32 @@ $$
 \task $f(x) = (x^2+3)^{5x-1}$
 \end{tasks}
 \begin{solucion}
-
+Para calcular estas derivadas, usaremos la técnica de derivación logarítmica. Esta consiste en aplicar logaritmo natural a ambos lados de la función, derivar implícitamente y despejar $y'$, obteniendo así la derivada de la función.
 \begin{enumerate}[a)]
-\item 
-\item 
+\item $f(x) = x^{\sin x}$\\
+\\
+Podemos expresar esta función como
+$$y = x^{\sin x}$$
+Aplicamos logaritmo,
+$$\ln y = \ln(x^{\sin x})$$
+$$\ln y = \sin x\ \ln x$$
+Derivamos implícitamente,
+$$\dfrac{y'}{y} = \cos x \ln x + \dfrac{\sin x}{\ln x}$$
+$$y' = y(\cos x \ln x + \dfrac{\sin x}{\ln x})$$
+Finalmente, reemplazamos con $y = x^{\sin x}$,
+$$y' = x^{\sin x}(\cos x \ln x + \dfrac{\sin x}{\ln x})$$
+\item $f(x) = (x^2+3)^{5x-1}$\\
+\\
+Igual que antes, escribimos la función como
+$$y = (x^2+3)^{5x-1}$$
+Aplicamos logaritmo
+$$\ln y = \ln((x^2+3)^{5x-1})$$
+$$\ln y = (5x-1)\ln(x^2+3)$$
+Derivamos implícitamente,
+$$\dfrac{y'}{y} = 5\ln(x^2+3) + \dfrac{(5x-1)2x}{x^2+3}$$
+$$y' = y(5\ln(x^2+3) + \dfrac{(5x-1)2x}{x^2+3})$$
+Finalmente,
+$$y' = (x^2+3)^{5x-1}(5\ln(x^2+3) + \dfrac{(5x-1)2x}{x^2+3})$$
 \end{enumerate}
 \end{solucion}
 \item Dada la función invertible $f(x) = x^3 + 3x + 6$, calcular $(f^{-1})'(6)$
@@ -199,11 +221,37 @@ $$
 \end{tabular}
 $$
 \begin{solucion}
-
+En primer lugar,
+$$(f \circ f)'(3) = (f(f(3)))' = f'(f(3))\cdot f'(3) = f'(2) \cdot f'(3) = 3 \cdot 2 = 6$$
+En segundo lugar,	
+$$(g^{-1} \circ f)'(2) = (g^{-1}(f(2)))' = (g^{-1})'(f(2)) \cdot f'(2) = (g^{-1})'(1)\cdot 3 = 3\dfrac{1}{g'(g^{-1}(1))}$$
+Para obtener $g^{-1}(1)$ miramos la tabla y vemos que valor de $x$ hace que $g(x) = 1$. Esto corresponde a $x=4$, por lo que
+$$(g^{-1} \circ f)'(2) = 3\dfrac{1}{g'(4)} = \dfrac{3}{2}$$
 \end{solucion}
 \item En un estanque de forma cónica, con radio basal 5 $m$ y altura 10 $m$, con el vértice hacia abajo, se hace entrar agua a razón de 9 $m^3/min$. ¿Cuán rápido varía el nivel del agua cuando esta tiene una profundidad de 6 metros?
 \begin{solucion}
-
+Acorde al enunciado, lo que tenemos es
+\begin{center}
+\includegraphics[]{cono.png}
+\end{center}
+Los datos que tenemos son los siguientes:\\
+En primer lugar, sabemos que el agua varía 9 $m^3/min$, es decir $\dfrac{dV}{dt} = 9$\\
+Lo que debemos determinar es $\dfrac{dh}{dt}$ cuando $h=6$\\
+\\
+Recordemos que el volumen de un cono se define como
+$$V = \dfrac{\pi r^2 h}{3}$$
+Además, sabemos por las dimensiones del cono, que
+$$\dfrac{r}{h} = \dfrac{5}{10}$$
+Por lo que 
+$$r = \dfrac{h}{2}$$
+Luego,
+$$V = \dfrac{\pi h^3}{12}$$
+Derivando esto implícitamente en función de $t$ (notar que ambas variables habrá que derivarlas en otra variable), tenemos
+$$\dfrac{dV}{dt} = \dfrac{\pi}{12}3h^2\dfrac{dh}{dt}$$
+Despejando $\dfrac{dh}{dt}$,
+$$\dfrac{dh}{dt} = \dfrac{4}{\pi h^2} \cdot \dfrac{dV}{dt}$$
+Finalmente, reemplazamos con $\dfrac{dV}{dt} = 9$ y $h = 6$, obteniendo
+$$\dfrac{dh}{dt} = \dfrac{4}{36\pi}\cdot 9 = \dfrac{1}{\pi} m/min$$
 \end{solucion}
 \end{preguntas}
 \end{document}
