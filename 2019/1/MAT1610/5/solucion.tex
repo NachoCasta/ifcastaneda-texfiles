@@ -114,17 +114,62 @@
 \task $x^2y-xy^2+y^2=4$
 \end{tasks}
 \begin{solucion}
-
+Para responder estas preguntas, debemos mirar la derivación de la siguiente forma. Si tenemos por ejemplo 
+$$f(x) = x^2$$
+y queremos derivar esta función, debemos aplicar la regla de la cadena, por lo que
+$$f'(x) = 2x \cdot x' = 2x \cdot 1 = 2x$$
+Esto ocurre porque estamos derivando en función de $x$, por lo que $$\dfrac{\delta}{\delta x} x = 1$$
+Sin embargo, si estuvieramos derivando otra variable que no sea $x$ en función de $x$, la derivada no es necesariamente $1$, por lo que habría que dejarlo expresa, por ejemplo
+$$\dfrac{\delta}{\delta x} y = y'$$
+En resumen, cuando estemos derivando algo que tenga un $y$ (o algo que no se este derivando en función de su misma variable), cuando hayamos terminado de derivar aplicamos el último paso de la regla de la cadena (que usualmente omitimos porque la derivada de $x$ es 1) y lo dejamos expresado como $y'$
 \begin{enumerate}[a)]
-\item 
-\item 
+\item $x^2+y^2-7=0$\\
+\\
+Derivamos toda la igualdad en función de $x$, esto es
+$$2x + 2yy' = 0 $$
+Y luego, despejamos $y'$
+$$y' = -\dfrac{x}{y}$$
+\item $x^2y-xy^2+y^2=4$\\
+\\
+Derivamos en función de $x$,
+$$(x^2y)'-(xy^2)'+(y^2)'=0$$
+$$2xy + x^2y'-y^2 - 2yy'x+2yy'=0$$
+Dejamos todo lo que tenga $y'$ a un lado,
+$$x^2y' - 2yy'x+2yy'= -2xy +y^2$$
+$$y'(x^2 - 2yx+2y)= -2xy +y^2$$
+Finalmente,
+$$y'= \dfrac{-2xy +y^2}{x^2 - 2yx+2y}$$
 \end{enumerate}
 \end{solucion}
 \item Sea
 $$-x^2+xy+y^2=1$$
 Encuentre el valor de $y''$ cuando $(x,y)=(1,1)$
 \begin{solucion}
+Derivando implícitamente la ecuación, obtenemos
+$$-2x + y + xy' + 2yy' = 0$$
+Luego,
+$$xy' + 2yy' = 2x-y$$
+$$y' = \dfrac{2x-y}{x+2y}$$
+Esto solo será válido cuando $x+2y\neq 0$.\\
 
+Ahora debemos derivar nuevamente para obtener la segunda derivada implícita. Es recomendable hacer esto en la igualdad antes de despejar $y'$, ya que de esa manera no tendrémos que aplicar la regla de la división. \\
+
+Entonces, tomamos
+$$xy' + 2yy' = 2x-y$$
+Y derivamos implícitamente,
+$$y' + xy'' + 2y'^2+2yy'' = 2 - y'$$
+Luego, despejamos $y''$,
+$$xy''+2yy'' = 2 - y' - y' - 2y'^2$$
+$$y''(x+2y) = 2 - 2y' - 2y'^2$$
+$$y'' = \dfrac{2 - 2y' - 2y'^2}{x+2y}$$
+Ahora, notemos que
+$$y'(1,1) = \dfrac{2-1}{1+2} = \dfrac{1}{3}$$
+Luego,
+$$y''(1,1) = \dfrac{2-2\dfrac{1}{3} - 2\left(\dfrac{1}{3}\right)^2}{1+2} 
+= \dfrac{2-\dfrac{2}{3}-\dfrac{2}{9}}{3}
+= \dfrac{2-\dfrac{2}{3}-\dfrac{2}{9}}{3}
+= \dfrac{10}{27}
+$$
 \end{solucion}
 \item Encuentre las derivadas de las siguientes funciones
 \begin{tasks}(2)
