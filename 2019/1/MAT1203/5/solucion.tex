@@ -324,7 +324,97 @@ $$A = \begin{bmatrix}
 \end{bmatrix}$$
 Demuestre que la imagen del plano $\mathbb{P}$ bajo la transformación $T$ es una recta en $\R^4$.
 \begin{solucion}
+Despejando $x_2$ en la ecuación del plano, obtenemos $x_2 = x_1 + 1$.\\
 
+Reemplazando en la transformación lineal,
+{\small $$T(x) = T(x_1, x_2, x_3) = T(x_1, x_1+1, x_3) = \begin{bmatrix}
+1 & 0 & 3\\
+-1 & 1 & 0 \\
+0 & 1 & 3\\
+0 & -2 & -6
+\end{bmatrix}
+\begin{pmatrix}
+x_1 \\
+x_1+1\\
+x_3
+\end{pmatrix} = 
+\begin{pmatrix}
+x_1 +3x_3\\
+1\\
+1+x_1+3x_3\\
+-2-2x_1-6x_3
+\end{pmatrix}$$}
+Esto lo podemos descomponer en
+$$T(x) = 
+\begin{pmatrix}
+x_1 +3x_3\\
+1\\
+1+x_1+3x_3\\
+-2-2x_1-6x_3
+\end{pmatrix} =
+\begin{pmatrix}
+0\\
+1\\
+1\\
+-2
+\end{pmatrix} +
+x_1 \begin{pmatrix}
+1\\
+0\\
+1\\
+-2
+\end{pmatrix} +
+x_3 \begin{pmatrix}
+3\\
+0\\
+3\\
+-6
+\end{pmatrix}
+$$
+Notemos ahora que el vector asociado a $x_3$ es el triple del vector asociado a $x_1$, por lo que podemos factorizarlo de la siguiente forma
+$$T(x) = 
+\begin{pmatrix}
+0\\
+1\\
+1\\
+-2
+\end{pmatrix} +
+x_1 \begin{pmatrix}
+1\\
+0\\
+1\\
+-2
+\end{pmatrix} +
+3x_3 \begin{pmatrix}
+1\\
+0\\
+1\\
+-2
+\end{pmatrix} = 
+\begin{pmatrix}
+0\\
+1\\
+1\\
+-2
+\end{pmatrix} +
+(x_1 + 3x_3) \begin{pmatrix}
+1\\
+0\\
+1\\
+-2
+\end{pmatrix}
+$$
+{\small Esto corresponde a la ecuación de una recta con dirección $\begin{pmatrix}
+1\\
+0\\
+1\\
+-2
+\end{pmatrix}$ y que pasa por $\begin{pmatrix}
+0\\
+1\\
+1\\
+-2
+\end{pmatrix}$.}
 \end{solucion}
 \end{preguntas}
 \end{document}
