@@ -108,6 +108,51 @@
 \end{center}
 
 \begin{preguntas}
+\item Demuestre que el conjunto $\{u, v, w\}$ es L.I. si y solo si el conjunto $\{u+v, u+w, v+w\}$ es L.I.
+\begin{solucion}
+Como nos dicen si y solo si, debemos demostrar en ambas direcciones
+		$$(\Longrightarrow)$$
+		Digamos que $\{u, v, w\}$ es L.I.\\
+		\\
+		P.D. $\{u+v, u+w, v+w\}$ es L.I.\\
+		\\
+		Para que $\{u+v, u+w, v+w\}$ sea L.I., el sistema
+		$$\alpha (u+v) + \beta (u+w) + \gamma (v+w) = 0$$
+		debe tener solución única $\alpha = 0$, $\beta = 0$, $\gamma = 0$
+		Reordenando,
+		$$\alpha (u+v) + \beta (u+w) + \gamma (v+w) = 0$$
+		$$(\alpha + \beta) u + (\alpha + \gamma) v + (\beta + \gamma) w = 0$$
+		Como sabemos que el conjunto $\{u, v, w\}$ es L.I., entonces tenemos que
+		$$\begin{array}{rl}
+		\alpha + \beta & = 0\\
+		\alpha + \gamma & = 0\\
+		\beta + \gamma & = 0
+		\end{array}$$
+		Este sistema tiene por solución
+		$$\alpha = 0, \quad \beta = 0, \quad \gamma = 0$$
+		Con lo que demostramos que $\{u+v, u+w, v+w\}$ es L.I.
+		$$(\Longleftarrow)$$
+		Digamos que $\{u+v, u+w, v+w\}$ es L.I.\\
+		\\
+		P.D. $\{u, v, w\}$ es L.I.\\
+		\\
+		Para que $\{u, v, w\}$ sea L.I., el sistema
+		$$c_1u + c_2v + c_3w$$
+		debe tener solución única $c_1 = 0$, $c_2 = 0$, $c_3 = 0$\\
+		\\
+		Como $\{u+v, u+w, v+w\}$ es L.I., sabemos que el sistema
+		$$\alpha (u+v) + \beta (u+w) + \gamma (v+w) = 0$$
+		tiene solución única $\alpha = 0$, $\beta = 0$, $\gamma = 0$
+		Reordenando,
+		$$\alpha (u+v) + \beta (u+w) + \gamma (v+w) = 0$$
+		$$(\alpha + \beta) u + (\alpha + \gamma) v + (\beta + \gamma) w = 0$$
+		Con lo que tenemos que
+		$$c_1 = \alpha + \beta = 0, \quad c_2 = \alpha + \gamma = 0, \quad c_3 = \beta + \gamma = 0$$
+		es la única solución del sistema. \\
+		\\
+		Luego, $\{u, v, w\}$ es L.I.
+		$$q.e.d$$
+\end{solucion}
 \item Determinar las condiciones en $a$ para que la matriz
 	$$A = \begin{bmatrix}
 	a & 2a & 0 & 0 \\
