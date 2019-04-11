@@ -155,7 +155,48 @@ Como nos dicen si y solo si, debemos demostrar en ambas direcciones
 \end{solucion}
 \item Sea $A$ una matriz de $4 \times 4$ tal que $A=\begin{bmatrix}a_1 & 2a_1 & a_2 & a_1-a_2\end{bmatrix}$ con $a_1, a_2 \in \R^4$ vectores linealmente independientes, y sea $B$ una matriz inyectiva de $4 \times 2$ tal que $A \cdot B = 0$. Determine una matriz con las características de $B$.
 \begin{solucion}
+Del enunciado sabemos que $B$ es inyectiva, por lo que todas sus columnas deben ser $L.I.$\\
 
+Además, sabemos que $A\cdot B= 0$. En otras palabras, esto significa que ambas columnas de $B$ deben combinar linealmente las columnas de $A$ de tal forma que se anulen entre si y a la vez ambas columnas de $B$ deben ser $L.I.$\\
+
+Busquemos en primer lugar, un vector que anule las columnas de $A$. Sea
+$$b = \begin{pmatrix}
+b_1 \\ b_2 \\ b_3 \\ b_4
+\end{pmatrix}$$
+Debemos encontrar
+$$Ab = 0$$
+Esto es,
+$$a_1b_1 + 2a_1 b_2 + a_2b_3 + (a_1-a_2)b_4 = 0$$
+Reordenando,
+$$(b_1 + 2b_2 + b_4)a_1 + (b_3 - b_4)a_2 = 0$$
+Como $a_1$ y $a_2$ son $L.I.$, la única forma de solucionar esto es
+$$\begin{array}{rcl}
+b_1 + 2b_2 + b_4 & = & 0\\
+b_3 - b_4 & = & 0
+\end{array} 
+\Longrightarrow
+\begin{array}{rcl}
+b_1 & = & -2b_2 - b_3\\
+b_2 & = & b_2\\
+b_3 & = & b_3\\
+b_4 & = & b_3
+\end{array}
+\Longrightarrow
+b = b_2\begin{pmatrix}
+-2 \\ 1 \\ 0 \\ 0
+\end{pmatrix} 
++
+b_3\begin{pmatrix}
+-1 \\ 0 \\ 1 \\ 1
+\end{pmatrix}
+$$
+Luego, todos los vectores de esta forma cumplirán con $Ab = 0$. Como necesitamos dos vectores $L.I.$ que cumplan con esto, basta con tomar los dos vectores generadores de $b$ como las columnas de $B$, es decir
+$$B = \begin{bmatrix}
+-2 & -1\\
+1 & 0\\
+0 & 1 \\
+0 & 1
+\end{bmatrix}$$
 \end{solucion}
 \item Determinar las condiciones en $a$ para que la matriz
 	$$A = \begin{bmatrix}
@@ -196,7 +237,11 @@ Recordemos que el que una matriz sea invertible es equivalente a que esta tenga 
 \end{solucion}
 \item Sea $T: \R^7 \ra \R^9$ una transformación lineal. Suponga que el conjunto $\{u,v\}$ es linealmente independiente en $\R^7$ pero $\{T(u), T(v)\}$ es linealmente dependiente. Demuestre que la ecuación $T(x)=0$ admite soluciones no triviales.
 \begin{solucion}
-
+Como el conjunto $\{T(u), T(v)\}$ es $LD$, existen $\alpha, \beta \neq 0$, tales que 
+$$\alpha T(u) + \beta T(v) = 0$$
+Usando la propiedad de linealidad para las transformaciones lineales, también tenemos que
+$$ T(\alpha u +\beta v) = 0$$
+Por otro lado, como $\{u, v\}$ es $LI$ y $\alpha, \beta \neq 0$, el vector $\alpha u +\beta v$ no puede ser cero. Por ende, se concluye que $\alpha u +\beta v$ es una solución no trivial de $T(x) = 0$.
 \end{solucion}
 \item Determine si las siguientes afirmaciones son verdaderas o falsas. En caso de ser verdaderas demuéstrelas y si son falsas de un contraejemplo.
 \begin{enumerate}[a)]
@@ -209,9 +254,65 @@ entonces $c_{23} = -\dfrac{56}{9}$
 \begin{solucion}
 
 \begin{enumerate}[a)]
-\item 
-\item 
-\item 
+\item \textbf{Falso.}\\
+\\
+Un contraejemplo sería
+$\left\{ 
+\begin{pmatrix}
+	1 \\ 0 \\ 0
+\end{pmatrix},
+\begin{pmatrix}
+	0 \\ 1 \\ 0
+\end{pmatrix},
+\begin{pmatrix}
+	1 \\ 1 \\ 0
+\end{pmatrix}
+\right\}$.\\
+Como
+$
+\begin{pmatrix}
+1 \\ 1 \\ 0
+\end{pmatrix}
+=
+\begin{pmatrix}
+1 \\ 0 \\ 0
+\end{pmatrix}
++
+\begin{pmatrix}
+0 \\ 1 \\ 0
+\end{pmatrix}$ el conjunto claramente es $LD$.\\
+Sin embargo,
+$\left\{ 
+\begin{pmatrix}
+1 \\ 0 \\ 0
+\end{pmatrix},
+\begin{pmatrix}
+0 \\ 1 \\ 0
+\end{pmatrix}
+\right\}$ 
+es $LI$, lo que contradice el enunciado.
+\item  \textbf{Falso.}\\
+\\
+Un contraejemplo es tomar la matriz cero, ya que la imagen de cualquier conjunto por esta matriz es 0.
+\item  \textbf{Verdadero.}\\
+\\
+$c_{23}$ corresponde al coeficiente de la matriz $C$ resultante del producto punto entre la segunda fila de la matriz $A$ y la tercera columna de la matriz $B$.\\
+
+Luego,
+$$c_{23} = \begin{pmatrix}
+(-2)^{2+1}\\ (-2)^{2+2}
+\end{pmatrix} \cdot
+\begin{pmatrix}
+(-3)^{1-3}\\ (-3)^{2-3}
+\end{pmatrix} = 
+\begin{pmatrix}
+-8\\ 16
+\end{pmatrix} \cdot
+\begin{pmatrix}
+\frac{1}{9}\\ -\frac{1}{3}
+\end{pmatrix}=
+-8 \cdot \dfrac{1}{9} + 16 \cdot -\dfrac{1}{3} = -\dfrac{56}{9}
+$$
 \end{enumerate}
 \end{solucion}
 \item Sea $\mathbb{P} \subset \R^3$ el plano de ecuación $x_1-x_2+1=0$ y sea $T:\R^3 \ra \R^4$ la transformación dada por $T(x) = Ax$, donde
