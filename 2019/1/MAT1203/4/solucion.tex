@@ -343,8 +343,8 @@ Por lo tanto, la inversa de $A$ corresponde a
 $$A^{-1} = 
 \begin{bmatrix}
 1 &-1 & 0 \\
-0 & 3 & 0 \\
-1 &-2 &-1 
+0 & 3 & -2 \\
+1 &-2 &3 
 \end{bmatrix}$$
 \end{solucion}
 \item Demuestre que $T(x_1,x_2, x_3)=(x_1,x_1+x_2, x_1+x_2+x_3)$ es invertible y encuentre una f\'ormula para $T^{-1}$.
@@ -360,7 +360,7 @@ Notemos que la matriz esta escalonada "al revés". En otras palabras, $A^t$ esta
 \\
 Ahora, busquemos $A^-1$, esto es
 $$\left[
-\begin{array}{cccc|ccc}
+\begin{array}{ccc|ccc}
 1 & 0 & 0 & 1 & 0 & 0 \\
 1 & 1 & 0 & 0 & 1 & 0 \\
 1 & 1 & 1 & 0 & 0 & 1
@@ -377,7 +377,7 @@ $$\left[
 \begin{array}{ccc|ccc}
 1 & 0 & 0 & 1 & 0 & 0 \\
 0 & 1 & 0 & -1 & 1 & 0 \\
-0 & 0 & 1 & -1 & -1 & 1
+0 & 0 & 1 & 0 & -1 & 1
 \end{array}
 \right]
 $$
@@ -386,11 +386,11 @@ $$A^{-1} =
 \begin{bmatrix}
  1 & 0 & 0 \\
 -1 & 1 & 0 \\
--1 & -1 & 1
+0 & -1 & 1
 \end{bmatrix}
 $$
 Finalmente, podemos escribir $T^{-1}(x)$ como
-$$T^{-1}(x) = (x_1, -x_1 + x_2, -x_1-x_2+x_3)$$
+$$T^{-1}(x) = (x_1, -x_1 + x_2, -x_2+x_3)$$
 \end{solucion}
 \end{preguntas}
 \end{document}
