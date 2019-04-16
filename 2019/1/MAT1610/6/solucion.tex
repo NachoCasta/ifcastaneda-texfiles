@@ -111,8 +111,6 @@
 \item Para cada una de las siguientes funciones, encontrar sus máximos y mínimos locales, en caso de haber
 \begin{tasks}(2)
 \task $f(x) = x^4 - 8x^2 + 3$
-\task $f(x) = \dfrac{x^2-x-2}{x^2-6x+9}$
-\task $f(x) = e^x(2x^2+x-8)$
 \task $f(x)=x+ln(x^2-1)$
 \end{tasks}
 \begin{solucion}
@@ -120,15 +118,25 @@
 \begin{enumerate}[a)]
 \item 
 \item 
-\item 
-\item 
 \end{enumerate}
 \end{solucion}
-\item Encuentre los máximos y mínimos de la función
+\item Encuentre los máximos y mínimos globales de la función
 $$f(x) = \dfrac{|x|}{1+x^2}$$
 en el intervalo $x \in [-3,2]$
 \begin{solucion}
+Notemos que podemos escribir $f(x)$ como
+$$f(x)= \begin{cases}
+\dfrac{x}{1+x^2} & x \geq 0\\\\
+\dfrac{-x}{1+x^2} & x < 0
+\end{cases}$$
+Esta función no es derivable en $x=0$, sin embargo, podemos derivar a ambos lados y luego ver que ocurre. Entonces, derivando ambos lados por separado, tenemos que
+$$x > 0 \ra f'(x) = \dfrac{(1+x^2) - 2x^2}{(1+x^2)^2} = \dfrac{1-x^2}{(1+x^2)^2} = \dfrac{(1+x)(1-x)}{(1+x^2)^2}$$
+$$x < 0 \ra f'(x) = \dfrac{-(1+x^2) + 2x^2}{(1+x^2)^2} = \dfrac{x^2-1}{(1+x^2)^2} = \dfrac{(x+1)(x-1)}{(1+x^2)^2}$$
+De aquí, obtenemos los puntos $x=1$ y $x=-1$ como puntos críticos. Además, debemos agregar a los puntos críticos, los bordes de nuestro intervalo y el punto donde la función no es derivable, es decir, $x=-3$, $x=2$ y $x=0$.\\
 
+Ahora, evaluamos en cada uno de ellos, obteniendo
+$$f(-3) = \dfrac{3}{10},\ f(-1) = \dfrac{1}{2}, \ f(0) = 0, \ f(1) = \dfrac{1}{2}, \ f(2) = \dfrac{2}{5}$$
+Finalmente, el máximo es $\dfrac{1}{2}$ y el mínimo es $0$.
 \end{solucion}
 \item Estudiar, según el valor de la constante $k$, los puntos críticos y los puntos de inflexión de la función
 $$f(x) = x^3-3kx^2+12x$$
