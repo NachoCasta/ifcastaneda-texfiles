@@ -141,7 +141,24 @@ Finalmente, el máximo es $\dfrac{1}{2}$ y el mínimo es $0$.
 \item Estudiar, según el valor de la constante $k$, los puntos críticos y los puntos de inflexión de la función
 $$f(x) = x^3-3kx^2+12x$$
 \begin{solucion}
+En primer lugar, calculemos las derivadas de $f$, esto es
+$$f'(x) = 3x^2 - 6kx + 12$$
+$$f''(x) = 6x - 6k$$
+Para buscar los puntos críticos, igualamos la primera derivada a 0, con lo que
+$$3x^2 - 6kx + 12 = 0 \ra x^2 - 2kx + 4= 0 \ra x = \dfrac{2k \pm \sqrt[]{4k^2-16}}{2} \ra x = k \pm \sqrt[]{k^2-4}$$
+Con respecto a los puntos de inflexión, igualando la segunda derivada a 0 podemos ver que
+$$6x- 6k = 0 \ra x = k,$$
+por lo que siempre habrá un punto de inflexión en $x=k$\\
 
+Luego, tendremos los siguientes escenarios.\\
+
+Para $k \in (-2,2)$, no habrá ningún punto crítico, ya que la ecuación anterior no tiene solución.\\
+
+Para $k = 2$, habrá un punto crítico en $x=k$. Además, este punto crítico será un punto de inflexión.\\
+
+Para $k\in (-\infty, -2) \cup (2, \infty)$, habrán dos puntos críticos en 
+$$x = k + \sqrt[]{k^2-4} \qquad y \qquad x = k - \sqrt[]{k^2-4}$$
+Notemos además que para $x < k \ra f''(x) < 0$ y para $x > k \ra f''(x) > 0$, por lo que el punto crítico $x = k + \sqrt[]{k^2-4} > k$ corresponderá a un mínimo y $x = k - \sqrt[]{k^2-4} < k$ corresponderá a un máximo.
 \end{solucion}
 \item Probar que la ecuación $1+2x+3x^2+4x^3=0$ tiene solución única.
 \begin{solucion}
@@ -156,7 +173,7 @@ $$\exists c \in (-1,1) \text{ tal que } f(c) = 0$$
 Para demostrar que la ecuación no tiene más de una solución, lo haremos por contradicción. Digamos que la ecuación tiene 2 soluciones, $x_1$ y $x_2$ con $x_1 < x_2$.\\
 
 Luego, $f(x_1) = 0$ y $f(x_2) = 0$. Entonces, por TVM
-$$\exists c \in [x_1, x_2] \text{ tal que } f'(c) = \dfrac{f(x_2) - f(x_1)}{x_2-x_1} = 0$$
+$$\exists c \in (x_1, x_2) \text{ tal que } f'(c) = \dfrac{f(x_2) - f(x_1)}{x_2-x_1} = 0$$
 Sin embargo, notemos que
 $$f'(x) = 12x^2 + 6x + 2$$
 Corresponde a una ecuación de segundo grado con determinante 
@@ -174,7 +191,6 @@ La función $f$ es derivable en el intervalo $[x, 2x]$ para $x \geq 0$. Luego, p
 $$\exists c \in (x,2x) \text{ tal que } f'(c) = \dfrac{f(2x)-f(x)}{2x-x} = \dfrac{2f(x)-f(x)}{x} = \dfrac{f(x)}{x}$$
 Por lo tanto,
 $$\forall x \in (0, \infty) \exists c > 0 \left(f'(x) = \dfrac{f(x)}{x}\right)$$
-\end{solucion}
 \end{solucion}
 \item Si $f$ es una función dos veces derivable en $[a,b]$ tal que $f(a)=f(b)=0$ y $f(c) > 0$ con $a < c < b$, demuestre que
 $$\exists \alpha \in (a,b) (f''(\alpha) < 0)$$
