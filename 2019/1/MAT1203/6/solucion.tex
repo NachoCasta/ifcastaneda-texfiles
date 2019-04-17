@@ -108,5 +108,72 @@
 \end{center}
 
 \begin{preguntas}
+\item Encuentre una factorziación $A = LU$ de
+	$$A = \begin{bmatrix}
+	2 & 4 & -1 & 5 & -2 \\
+	-4 & -5 & 3 & -8 & 1 \\
+	2 & -5 & -4 & 1 & 8 \\
+	-6 & 0 & 7 & -3 & 1
+	\end{bmatrix}$$
+\begin{solucion}
+Procedemos a llevar la matriz a su forma escalonada, deteniendonos luego de cada generación de un pivote y teniendo cuidado de no ponderar filas
+		$$\begin{bmatrix}
+		2 & 4 & -1 & 5 & -2 \\
+		-4 & -5 & 3 & -8 & 1 \\
+		2 & -5 & -4 & 1 & 8 \\
+		-6 & 0 & 7 & -3 & 1
+		\end{bmatrix}$$
+		Antes de hacer nada, podemos ver nuestro primer pivote, por lo que todos los coeficientes abajo que hay desde el pivote (incluido) hacia abajo, serán la primera columna que utilizaremos luego para construir $L$, es decir $\begin{bmatrix} 2\\-4\\2\\-6\end{bmatrix}$
+		
+		Procedemos entonces con el pivoteo,
+		$$\sim \begin{bmatrix}
+		2 & 4 & -1 & 5 & -2 \\
+		0 & 3 & 1 & 2 & -3 \\
+		0 & -9 & -3 & -4 & 10 \\
+		0 & 12 & 4 & 12 & -5
+		\end{bmatrix}$$
+		Vemos aquí que el nuevo pivote generado es $3$, por lo que la segunda columna que usaremos para construir $L$ será
+		$\begin{pmatrix}
+		0\\3\\-9\\12
+		\end{pmatrix}$. El primer coeficiente es 0, ya que consideramos solo los numeros abajo del pivote (incluyendo al pivote). Seguimos pivoteando,
+		$$\sim \begin{bmatrix}
+		2 & 4 & -1 & 5 & -2 \\
+		0 & 3 & 1 & 2 & -3 \\
+		0 & 0 & 0 & 2 & 1 \\
+		0 & 0 & 0 & 4 & 7
+		\end{bmatrix}$$
+		Luego, la tercera columna que usaremos será
+		$\begin{pmatrix}
+		0\\0\\2\\4
+		\end{pmatrix}$. Continuamos,
+		$$\sim \begin{bmatrix}
+		2 & 4 & -1 & 5 & -2 \\
+		0 & 3 & 1 & 2 & -3 \\
+		0 & 0 & 0 & 2 & 1 \\
+		0 & 0 & 0 & 0 & 5
+		\end{bmatrix} = U$$
+		Por lo que la última columna que necesitamos es $\begin{pmatrix}0\\0\\0\\5
+		\end{pmatrix}$. Además, esta última matriz (la forma escalonada de $A$), corresponde a $U$.
+		
+		Procedamos a construir $L$. Lo que haremos será dividir cada vector seleccionado anteriormente por el coeficiente que está más arriba (pivote) y usar cada vector resultante como una columna de $L$. De esta manera,
+		$$ L = \begin{bmatrix}
+		1 & 0 & 0 & 0 \\
+		-2 & 1 & 0 & 0 \\
+		1 & -3 & 1 & 0 \\
+		3 & 4 & 2 & 1
+		\end{bmatrix}$$
+		Finalmente,
+		$$A = \begin{bmatrix}
+		1 & 0 & 0 & 0 \\
+		-2 & 1 & 0 & 0 \\
+		1 & -3 & 1 & 0 \\
+		3 & 4 & 2 & 1
+		\end{bmatrix} \begin{bmatrix}
+		2 & 4 & -1 & 5 & -2 \\
+		0 & 3 & 1 & 2 & -3 \\
+		0 & 0 & 0 & 2 & 1 \\
+		0 & 0 & 0 & 0 & 5
+		\end{bmatrix}$$
+\end{solucion}
 \end{preguntas}
 \end{document}
