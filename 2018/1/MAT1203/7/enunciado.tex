@@ -1,0 +1,162 @@
+\documentclass[12pt]{article}
+
+\usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[none]{hyphenat}
+\usepackage{parskip}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\usepackage{tasks}
+\usepackage{mdframed}
+\usepackage{xcolor}
+\usepackage{pgfplots}
+\usepackage[makeroom]{cancel}
+\usepackage{multicol}
+\usepackage[shortlabels]{enumitem}
+\usepackage{stackrel}
+
+\setlength{\headheight}{10pt}
+\setlength{\headsep}{10pt}
+\pagestyle{fancy}
+\rhead{\ayudantia \ - \alumno}
+
+\newcommand*{\mybox}[2]{\colorbox{#1!30}{\parbox{.98\linewidth}{#2}}}
+
+\newenvironment{solucion}
+{\begin{mdframed}[backgroundcolor=black!10]
+		{\bf Solución:}\\
+	}
+	{
+	\end{mdframed}
+}
+
+\newenvironment{alternativas}[1]
+{\begin{multicols}{#1}
+		\begin{enumerate}[a)]
+		}
+		{
+		\end{enumerate}
+	\end{multicols}
+}
+
+\newenvironment{preguntas}
+{\begin{enumerate}\itemsep12pt
+	}
+	{
+	\end{enumerate}
+}
+
+\newcommand{\ayudantia}{{\sc Ayudantía 7}}
+\newcommand{\tituloayu}{Descomposiciones, determinantes y espacios vectoriales}
+\newcommand{\fecha}{25 de abril de 2018}
+\newcommand{\sigla}{MAT1203}
+\newcommand{\nombre}{Álgebra Lineal}
+\newcommand{\profesor}{Rodrigo Rubio Varas}
+\newcommand{\ano}{2018}
+\newcommand{\semestre}{1}
+\newcommand{\mail}{mat1203@ifcastaneda.cl}
+\newcommand{\alumno}{Ignacio Castañeda - \mail}
+
+\newcommand{\ev}{\Big|}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lra}{\leftrightarrow}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Exp}[1]{\mathcal{E}_{#1}}
+\newcommand{\List}[1]{\mathcal{L}_{#1}}
+\newcommand{\EN}{\Exp{\N}}
+\newcommand{\LN}{\List{\N}}
+\newcommand{\comment}[1]{}
+\newcommand{\lb}{\\~\\}
+\newcommand{\eop}{_{\square}}
+\newcommand{\hsig}{\hat{\sigma}}
+\newcommand{\widesim}[2][1.5]{
+	\mathrel{\overset{#2}{\scalebox{#1}[1]{$\sim$}}}
+}
+\newcommand{\wsim}{\widesim{}}
+
+\begin{document}
+\thispagestyle{empty}
+
+\begin{minipage}{2cm}
+	\includegraphics[width=2cm]{../../../../img/logo.pdf}
+	\vspace{0.5cm}
+\end{minipage}
+\begin{minipage}{\linewidth}
+	\begin{tabular}{lrl}
+		{\scriptsize\sc Pontificia Universidad Catolica de Chile} & \hspace*{0.7in}Curso: &
+		\sigla  - \nombre\\
+		{\sc Facultad de Matemáticas}&
+		Profesor: & \profesor \\
+		{\sc Semestre \ano-\semestre} & Ayudante: & {Ignacio Castañeda}\\
+		& {Mail:} & \texttt{\mail}
+	\end{tabular}
+\end{minipage}
+
+\vspace{-10mm}
+\begin{center}
+	{\LARGE\bf \ayudantia}\\
+	\vspace{0.1cm}
+	{\tituloayu}\\
+	\vspace{0.1cm}
+	\fecha\\
+	\vspace{0.4cm}
+\end{center}
+
+\begin{preguntas}
+\item Encuentre una factorziación $A = LU$ de
+	$$A = \begin{bmatrix}
+	2 & 4 & -1 & 5 & -2 \\
+	-4 & -5 & 3 & -8 & 1 \\
+	2 & -5 & -4 & 1 & 8 \\
+	-6 & 0 & 7 & -3 & 1
+	\end{bmatrix}$$
+\item Sea una descomposción $PA = LU$ donde
+	$$P = \begin{bmatrix}
+	0 & 0 & 1\\
+	0 & 1 & 0\\
+	1 & 0 & 0
+	\end{bmatrix}, \quad
+	L = \begin{bmatrix}
+	1 & 0 & 0\\
+	-1 & 1 & 0\\
+	0 & 1 & 1
+	\end{bmatrix}, \quad
+	U = \begin{bmatrix}
+	2 & 1 & 0\\
+	0 & 1 & 1\\
+	0 & 0 & -1
+	\end{bmatrix}$$
+	determine usando directamente esta factorización la tercera fila de $A^{-1}$.
+\item Sea $A$ una matriz de $n \times n$ definida por
+	$$a_{i,j} = 
+	\begin{cases}
+	3 \quad si\ i\leq j \\
+	1 \quad si\ i > j
+	\end{cases}$$
+	Calcule $det(A)$.
+\item Sea $A$ una matriz de $4\times 4$, tal que $det(A) = \alpha \neq 0$
+\begin{enumerate}[a)]
+\item Calcule  $det(5A)+det(3A^{-1})$ en terminos de $\alpha$.
+\item Se sabe que $det(Adj(A))=8$. Calcule $\alpha$.
+\end{enumerate}
+\item Sea $V = \mathbb{P}_2$ el espacio vectorial de los polinomios con coeficientes reales de grado menor o igual a 2. Demuestre que el conjunto
+	$$U=\{p(x) \in V : p(1) + p(0) = p(-1)\}$$
+	Demuestre que $U$ es subespacio de $V$.
+\item La matriz $A = \begin{bmatrix}
+	1 & 3 & 4 & -1 & 2\\
+	2 & 6 & 6 & 0 & -3\\
+	3 & 9 & 3 & 6 & -3\\
+	3 & 9 & 0 & 9 & 0
+	\end{bmatrix}$ es equivalente por filas a $B = \begin{bmatrix}
+	1 & 3 & 4 & -1 & 2\\
+	0 & 0 & 1 & -1 & 1\\
+	0 & 0 & 0 & 0 & -8\\
+	0 & 0 & 0 & 0 & 0
+	\end{bmatrix}$. Sin calcular bases, determine las dimensiones de Nul $A$, Col $A$, Col $A^T$ y Nul $A^T$.
+\end{preguntas}
+\end{document}
