@@ -175,5 +175,114 @@ Procedemos a llevar la matriz a su forma escalonada, deteniendonos luego de cada
 		0 & 0 & 0 & 0 & 5
 		\end{bmatrix}$$
 \end{solucion}
+\item Sea una descomposción $PA = LU$ donde
+	$$P = \begin{bmatrix}
+	0 & 0 & 1\\
+	0 & 1 & 0\\
+	1 & 0 & 0
+	\end{bmatrix}, \quad
+	L = \begin{bmatrix}
+	1 & 0 & 0\\
+	-1 & 1 & 0\\
+	0 & 1 & 1
+	\end{bmatrix}, \quad
+	U = \begin{bmatrix}
+	2 & 1 & 0\\
+	0 & 1 & 1\\
+	0 & 0 & -1
+	\end{bmatrix}$$
+	determine usando directamente esta factorización la tercera fila de $A^{-1}$.
+\begin{solucion}
+La tercera fila de $A^{-1}$ es la tercera columna transpuesta de $(A^T)^{-1}$, es decir, corresponde a la solución de
+		$$A^Tx = e_3$$
+		Tenemos que
+		$$PA = LU$$
+		Transponiendo a ambos lados,
+		$$(PA)^T = (LU)^T$$
+		$$A^TP^T = U^TL^T$$
+		$$A^T = U^TL^TP$$
+		Entonces,
+		$$A^Tx = e_3 \ra U^TL^TPx = e_3$$
+		Digamos que
+		$$L^TPx = y \ra U^Ty = e_3 \ra \begin{bmatrix}
+		2 & 0 & 0\\
+		1 & 1 & 0\\
+		0 & 1 & -1
+		\end{bmatrix}y = \begin{pmatrix}
+		0 \\ 0 \\ 1
+		\end{pmatrix} \ra y = \begin{pmatrix}
+		0 \\ 0 \\ -1
+		\end{pmatrix}$$
+		Digamos ahora que
+		$$Px = z \ra U^Ty = e_3 \ra \begin{bmatrix}
+		1 & -1 & 0\\
+		0 & 1 & 1\\
+		0 & 0 & 1
+		\end{bmatrix}z = \begin{pmatrix}
+		0 \\ 0 \\ -1
+		\end{pmatrix} \ra y = \begin{pmatrix}
+		1 \\ 1 \\ -1
+		\end{pmatrix}$$
+		Por último
+		$$Px = z \ra \begin{bmatrix}
+		2 & 1 & 0\\
+		0 & 1 & 1\\
+		0 & 0 & -1
+		\end{bmatrix}z = \begin{pmatrix}
+		1 \\ 1 \\ -1
+		\end{pmatrix} \ra y = \begin{pmatrix}
+		-1 \\ 1 \\ 1
+		\end{pmatrix}$$
+		En conclusión, la tercera fila de $A^{-1}$ es $\begin{pmatrix}
+		-1 \\ 1 \\ 1
+		\end{pmatrix}$
+\end{solucion}
+\item Sea $A$ una matriz de $n \times n$ definida por
+	$$a_{i,j} = 
+	\begin{cases}
+	3 \quad si\ i\leq j \\
+	1 \quad si\ i > j
+	\end{cases}$$
+	Calcule $det(A)$.
+\begin{solucion}
+En primer lugar, veamos como es $A$,
+		$$A = \begin{bmatrix}
+		3 & 3 & 3 & \dots & 3 & 3 \\ 
+		1 & 3 & 3 & \dots & 3 & 3 \\ 
+		1 & 1 & 3 & \dots & 3 & 3 \\ 
+		\vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\ 
+		1 & 1 & 1 & \dots & 3 & 3 \\ 
+		1 & 1 & 1 & \dots & 1 & 3
+		\end{bmatrix}$$
+		Ahora, busquemos su determinante,
+		$$det(A) = \left|\begin{bmatrix}
+		3 & 3 & 3 & \dots & 3 & 3 \\ 
+		1 & 3 & 3 & \dots & 3 & 3 \\ 
+		1 & 1 & 3 & \dots & 3 & 3 \\ 
+		\vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\ 
+		1 & 1 & 1 & \dots & 3 & 3 \\ 
+		1 & 1 & 1 & \dots & 1 & 3
+		\end{bmatrix}\right|$$
+		En primer lugar, ponderemos la primera fila por $\dfrac{1}{3}$. Al hacer esto, debemos multiplicar por 3 afuera para mantener el valor del determinante igual.
+		$$det(A) = 3 \left|\begin{bmatrix}
+		1 & 1 & 1 & \dots & 1 & 1 \\ 
+		1 & 3 & 3 & \dots & 3 & 3 \\ 
+		1 & 1 & 3 & \dots & 3 & 3 \\ 
+		\vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\ 
+		1 & 1 & 1 & \dots & 3 & 3 \\ 
+		1 & 1 & 1 & \dots & 1 & 3
+		\end{bmatrix}\right|$$
+		Ahora, a todas las filas (menos a la primera) le restaremos la primera fila
+		$$det(A) = 3 \left|\begin{bmatrix}
+		1 & 1 & 1 & \dots & 1 & 1 \\ 
+		0 & 2 & 2 & \dots & 2 & 2 \\ 
+		0 & 0 & 2 & \dots & 2 & 2 \\ 
+		\vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\ 
+		0 & 0 & 0 & \dots & 2 & 2 \\ 
+		0 & 0 & 0 & \dots & 0 & 2
+		\end{bmatrix}\right|$$
+		Notemos ahora que la diagonal está compuesta de un 1 y luego puros 2, por lo que
+		$$det(A) = 3 \cdot 2^{n-1}$$
+\end{solucion}
 \end{preguntas}
 \end{document}
