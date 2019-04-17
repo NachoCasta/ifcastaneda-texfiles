@@ -175,6 +175,91 @@ Procedemos a llevar la matriz a su forma escalonada, deteniendonos luego de cada
 		0 & 0 & 0 & 0 & 5
 		\end{bmatrix}$$
 \end{solucion}
+\item Sea $A = \begin{bmatrix}
+	1 & 2 & 3\\
+	2 & 8 & 4 \\
+	3 & 4 & 11\end{bmatrix}$. Calcule la factorización $A=LDL^T$ de la matriz $A$ y en base a esto encuentre una matriz $R$ tal que $A = RR^T$.
+\begin{solucion}
+Procedemos a pivotear la matriz para llevarla a su forma escalonada, preocupandonos de no ponderar filas y deteniendonos cada vez que se forme un pivote.
+		$$A = \begin{bmatrix}
+		1 & 2 & 3\\
+		2 & 8 & 4 \\
+		3 & 4 & 11\end{bmatrix}$$
+		Aquí ya tenemos un pivote, que es la primera columna, es decir $\begin{bmatrix} 1 \\ 2 \\ 3 \end{bmatrix}$.
+		$$\sim \begin{bmatrix}
+		1 & 2 & 3\\
+		0 & 4 & -2 \\
+		0 & -2 & 2\end{bmatrix}$$
+		El segundo pivote está en la segunda columna. Tomamos solo los valores bajo el pivote (incluyendolo). Esto es $\begin{bmatrix}0 \\ 4 \\ -2\end{bmatrix}$.
+		$$\sim \begin{bmatrix}
+		1 & 2 & 3\\
+		0 & 4 & -2 \\
+		0 & 0 & 1\end{bmatrix} = U$$
+		El último pivote está en la tercera columna, que corresponderá a $\begin{bmatrix}0 \\ 0 \\ 1\end{bmatrix}$.
+		
+		Ahora, procedemos a dividir cada columna extraida por el pivote correspondiente (coeficiente de más arriba) y luego formar la matriz $L$, esto es
+		$$L = \begin{bmatrix}
+		1 & 0 & 0\\
+		2 & 1 & 0\\
+		3 & -\frac{1}{2} & 1
+		\end{bmatrix}$$
+		La matriz $D$ corresponde a la diagonal de $U$, por lo que
+		$$D =\begin{bmatrix}
+		1 & 0 & 0\\
+		0 & 4 & 0 \\
+		0 & 0 & 1\end{bmatrix}$$
+		Luego,
+		$$A = LDL^T = \begin{bmatrix}
+		1 & 0 & 0\\
+		2 & 1 & 0\\
+		3 & -\frac{1}{2} & 1
+		\end{bmatrix}
+		\begin{bmatrix}
+		1 & 0 & 0\\
+		0 & 4 & 0 \\
+		0 & 0 & 1\end{bmatrix}
+		\begin{bmatrix}
+		1 & 2 & 3\\
+		0 & 1 & -\frac{1}{2}\\
+		0 & 0 & 1
+		\end{bmatrix}$$
+		Notemos ahora que, al ser $D$ una matriz diagonal, es facil calcular $\sqrt[]{D}$. Esto es
+		$$\sqrt[]{D} = 
+		\begin{bmatrix}
+		1 & 0 & 0\\
+		0 & 2 & 0 \\
+		0 & 0 & 1
+		\end{bmatrix}$$
+		Ahora,
+		$$A = LDL^T = (L\ \sqrt[]{D})(\ \sqrt[]{D}L^T) = (L\ \sqrt[]{D})(L\ \sqrt[]{D}^T)^T $$
+		Pero la matriz transpuesta de una matriz diagonal es igual a la matriz en cuestión, por lo que
+		$$A = (L\ \sqrt[]{D})(L\ \sqrt[]{D})^T \ra R = L\ \sqrt[]{D}$$
+		$$R = \begin{bmatrix}
+		1 & 0 & 0\\
+		2 & 1 & 0\\
+		3 & -\frac{1}{2} & 1
+		\end{bmatrix}
+		\begin{bmatrix}
+		1 & 0 & 0\\
+		0 & 2 & 0 \\
+		0 & 0 & 1
+		\end{bmatrix} = \begin{bmatrix}
+		1 & 0 & 0\\
+		2 & 2 & 0\\
+		3 & -1 & 1
+		\end{bmatrix}$$
+		Finalmente,
+		$$A = \begin{bmatrix}
+		1 & 0 & 0\\
+		2 & 2 & 0\\
+		3 & -1& 1
+		\end{bmatrix}
+		\begin{bmatrix}
+		1 & 2 & 3\\
+		0 & 2 & -1\\
+		0 & 0 & 1
+		\end{bmatrix}$$
+\end{solucion}
 \item Sea una descomposción $PA = LU$ donde
 	$$P = \begin{bmatrix}
 	0 & 0 & 1\\
