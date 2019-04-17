@@ -1,0 +1,382 @@
+\documentclass[12pt]{article}
+
+\usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[none]{hyphenat}
+\usepackage{parskip}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\usepackage{tasks}
+\usepackage{mdframed}
+\usepackage{xcolor}
+\usepackage{pgfplots}
+\usepackage[makeroom]{cancel}
+\usepackage{multicol}
+\usepackage[shortlabels]{enumitem}
+\usepackage{stackrel}
+
+\setlength{\headheight}{10pt}
+\setlength{\headsep}{10pt}
+\pagestyle{fancy}
+\rhead{\ayudantia \ - \alumno}
+
+\newcommand*{\mybox}[2]{\colorbox{#1!30}{\parbox{.98\linewidth}{#2}}}
+
+\newenvironment{solucion}
+{\begin{mdframed}[backgroundcolor=black!10]
+		{\bf Solución:}\\
+	}
+	{
+	\end{mdframed}
+}
+
+\newenvironment{alternativas}[1]
+{\begin{multicols}{#1}
+		\begin{enumerate}[a)]
+		}
+		{
+		\end{enumerate}
+	\end{multicols}
+}
+
+\newenvironment{preguntas}
+{\begin{enumerate}\itemsep12pt
+	}
+	{
+	\end{enumerate}
+}
+
+\newcommand{\ayudantia}{{\sc Ayudantía 7}}
+\newcommand{\tituloayu}{Descomposiciones, determinantes y espacios vectoriales}
+\newcommand{\fecha}{25 de abril de 2018}
+\newcommand{\sigla}{MAT1203}
+\newcommand{\nombre}{Álgebra Lineal}
+\newcommand{\profesor}{Rodrigo Rubio Varas}
+\newcommand{\ano}{2018}
+\newcommand{\semestre}{1}
+\newcommand{\mail}{mat1203@ifcastaneda.cl}
+\newcommand{\alumno}{Ignacio Castañeda - \mail}
+
+\newcommand{\ev}{\Big|}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lra}{\leftrightarrow}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Exp}[1]{\mathcal{E}_{#1}}
+\newcommand{\List}[1]{\mathcal{L}_{#1}}
+\newcommand{\EN}{\Exp{\N}}
+\newcommand{\LN}{\List{\N}}
+\newcommand{\comment}[1]{}
+\newcommand{\lb}{\\~\\}
+\newcommand{\eop}{_{\square}}
+\newcommand{\hsig}{\hat{\sigma}}
+\newcommand{\widesim}[2][1.5]{
+	\mathrel{\overset{#2}{\scalebox{#1}[1]{$\sim$}}}
+}
+\newcommand{\wsim}{\widesim{}}
+
+\begin{document}
+\thispagestyle{empty}
+
+\begin{minipage}{2cm}
+	\includegraphics[width=2cm]{../../../../img/logo.pdf}
+	\vspace{0.5cm}
+\end{minipage}
+\begin{minipage}{\linewidth}
+	\begin{tabular}{lrl}
+		{\scriptsize\sc Pontificia Universidad Catolica de Chile} & \hspace*{0.7in}Curso: &
+		\sigla  - \nombre\\
+		{\sc Facultad de Matemáticas}&
+		Profesor: & \profesor \\
+		{\sc Semestre \ano-\semestre} & Ayudante: & {Ignacio Castañeda}\\
+		& {Mail:} & \texttt{\mail}
+	\end{tabular}
+\end{minipage}
+
+\vspace{-10mm}
+\begin{center}
+	{\LARGE\bf \ayudantia}\\
+	\vspace{0.1cm}
+	{\tituloayu}\\
+	\vspace{0.1cm}
+	\fecha\\
+	\vspace{0.4cm}
+\end{center}
+
+\begin{preguntas}
+\item Encuentre una factorziación $A = LU$ de
+	$$A = \begin{bmatrix}
+	2 & 4 & -1 & 5 & -2 \\
+	-4 & -5 & 3 & -8 & 1 \\
+	2 & -5 & -4 & 1 & 8 \\
+	-6 & 0 & 7 & -3 & 1
+	\end{bmatrix}$$
+\begin{solucion}
+Procedemos a llevar la matriz a su forma escalonada, deteniendonos luego de cada generación de un pivote y teniendo cuidado de no ponderar filas
+		$$\begin{bmatrix}
+		2 & 4 & -1 & 5 & -2 \\
+		-4 & -5 & 3 & -8 & 1 \\
+		2 & -5 & -4 & 1 & 8 \\
+		-6 & 0 & 7 & -3 & 1
+		\end{bmatrix}$$
+		Antes de hacer nada, podemos ver nuestro primer pivote, por lo que todos los coeficientes abajo que hay desde el pivote (incluido) hacia abajo, serán la primera columna que utilizaremos luego para construir $L$, es decir $\begin{bmatrix} 2\\-4\\2\\-6\end{bmatrix}$
+		
+		Procedemos entonces con el pivoteo,
+		$$\sim \begin{bmatrix}
+		2 & 4 & -1 & 5 & -2 \\
+		0 & 3 & 1 & 2 & -3 \\
+		0 & -9 & -3 & -4 & 10 \\
+		0 & 12 & 4 & 12 & -5
+		\end{bmatrix}$$
+		Vemos aquí que el nuevo pivote generado es $3$, por lo que la segunda columna que usaremos para construir $L$ será
+		$\begin{pmatrix}
+		0\\3\\-9\\12
+		\end{pmatrix}$. El primer coeficiente es 0, ya que consideramos solo los numeros abajo del pivote (incluyendo al pivote). Seguimos pivoteando,
+		$$\sim \begin{bmatrix}
+		2 & 4 & -1 & 5 & -2 \\
+		0 & 3 & 1 & 2 & -3 \\
+		0 & 0 & 0 & 2 & 1 \\
+		0 & 0 & 0 & 4 & 7
+		\end{bmatrix}$$
+		Luego, la tercera columna que usaremos será
+		$\begin{pmatrix}
+		0\\0\\2\\4
+		\end{pmatrix}$. Continuamos,
+		$$\sim \begin{bmatrix}
+		2 & 4 & -1 & 5 & -2 \\
+		0 & 3 & 1 & 2 & -3 \\
+		0 & 0 & 0 & 2 & 1 \\
+		0 & 0 & 0 & 0 & 5
+		\end{bmatrix} = U$$
+		Por lo que la última columna que necesitamos es $\begin{pmatrix}0\\0\\0\\5
+		\end{pmatrix}$. Además, esta última matriz (la forma escalonada de $A$), corresponde a $U$.
+		
+		Procedamos a construir $L$. Lo que haremos será dividir cada vector seleccionado anteriormente por el coeficiente que está más arriba (pivote) y usar cada vector resultante como una columna de $L$. De esta manera,
+		$$ L = \begin{bmatrix}
+		1 & 0 & 0 & 0 \\
+		-2 & 1 & 0 & 0 \\
+		1 & -3 & 1 & 0 \\
+		3 & 4 & 2 & 1
+		\end{bmatrix}$$
+		Finalmente,
+		$$A = \begin{bmatrix}
+		1 & 0 & 0 & 0 \\
+		-2 & 1 & 0 & 0 \\
+		1 & -3 & 1 & 0 \\
+		3 & 4 & 2 & 1
+		\end{bmatrix} \begin{bmatrix}
+		2 & 4 & -1 & 5 & -2 \\
+		0 & 3 & 1 & 2 & -3 \\
+		0 & 0 & 0 & 2 & 1 \\
+		0 & 0 & 0 & 0 & 5
+		\end{bmatrix}$$
+\end{solucion}
+\item Sea una descomposción $PA = LU$ donde
+	$$P = \begin{bmatrix}
+	0 & 0 & 1\\
+	0 & 1 & 0\\
+	1 & 0 & 0
+	\end{bmatrix}, \quad
+	L = \begin{bmatrix}
+	1 & 0 & 0\\
+	-1 & 1 & 0\\
+	0 & 1 & 1
+	\end{bmatrix}, \quad
+	U = \begin{bmatrix}
+	2 & 1 & 0\\
+	0 & 1 & 1\\
+	0 & 0 & -1
+	\end{bmatrix}$$
+	determine usando directamente esta factorización la tercera fila de $A^{-1}$.
+\begin{solucion}
+La tercera fila de $A^{-1}$ es la tercera columna transpuesta de $(A^T)^{-1}$, es decir, corresponde a la solución de
+		$$A^Tx = e_3$$
+		Tenemos que
+		$$PA = LU$$
+		Transponiendo a ambos lados,
+		$$(PA)^T = (LU)^T$$
+		$$A^TP^T = U^TL^T$$
+		$$A^T = U^TL^TP$$
+		Entonces,
+		$$A^Tx = e_3 \ra U^TL^TPx = e_3$$
+		Digamos que
+		$$L^TPx = y \ra U^Ty = e_3 \ra \begin{bmatrix}
+		2 & 0 & 0\\
+		1 & 1 & 0\\
+		0 & 1 & -1
+		\end{bmatrix}y = \begin{pmatrix}
+		0 \\ 0 \\ 1
+		\end{pmatrix} \ra y = \begin{pmatrix}
+		0 \\ 0 \\ -1
+		\end{pmatrix}$$
+		Digamos ahora que
+		$$Px = z \ra U^Ty = e_3 \ra \begin{bmatrix}
+		1 & -1 & 0\\
+		0 & 1 & 1\\
+		0 & 0 & 1
+		\end{bmatrix}z = \begin{pmatrix}
+		0 \\ 0 \\ -1
+		\end{pmatrix} \ra y = \begin{pmatrix}
+		1 \\ 1 \\ -1
+		\end{pmatrix}$$
+		Por último
+		$$Px = z \ra \begin{bmatrix}
+		2 & 1 & 0\\
+		0 & 1 & 1\\
+		0 & 0 & -1
+		\end{bmatrix}z = \begin{pmatrix}
+		1 \\ 1 \\ -1
+		\end{pmatrix} \ra y = \begin{pmatrix}
+		-1 \\ 1 \\ 1
+		\end{pmatrix}$$
+		En conclusión, la tercera fila de $A^{-1}$ es $\begin{pmatrix}
+		-1 \\ 1 \\ 1
+		\end{pmatrix}$
+\end{solucion}
+\item Sea $A$ una matriz de $n \times n$ definida por
+	$$a_{i,j} = 
+	\begin{cases}
+	3 \quad si\ i\leq j \\
+	1 \quad si\ i > j
+	\end{cases}$$
+	Calcule $det(A)$.
+\begin{solucion}
+En primer lugar, veamos como es $A$,
+		$$A = \begin{bmatrix}
+		3 & 3 & 3 & \dots & 3 & 3 \\ 
+		1 & 3 & 3 & \dots & 3 & 3 \\ 
+		1 & 1 & 3 & \dots & 3 & 3 \\ 
+		\vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\ 
+		1 & 1 & 1 & \dots & 3 & 3 \\ 
+		1 & 1 & 1 & \dots & 1 & 3
+		\end{bmatrix}$$
+		Ahora, busquemos su determinante,
+		$$det(A) = \left|\begin{bmatrix}
+		3 & 3 & 3 & \dots & 3 & 3 \\ 
+		1 & 3 & 3 & \dots & 3 & 3 \\ 
+		1 & 1 & 3 & \dots & 3 & 3 \\ 
+		\vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\ 
+		1 & 1 & 1 & \dots & 3 & 3 \\ 
+		1 & 1 & 1 & \dots & 1 & 3
+		\end{bmatrix}\right|$$
+		En primer lugar, ponderemos la primera fila por $\dfrac{1}{3}$. Al hacer esto, debemos multiplicar por 3 afuera para mantener el valor del determinante igual.
+		$$det(A) = 3 \left|\begin{bmatrix}
+		1 & 1 & 1 & \dots & 1 & 1 \\ 
+		1 & 3 & 3 & \dots & 3 & 3 \\ 
+		1 & 1 & 3 & \dots & 3 & 3 \\ 
+		\vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\ 
+		1 & 1 & 1 & \dots & 3 & 3 \\ 
+		1 & 1 & 1 & \dots & 1 & 3
+		\end{bmatrix}\right|$$
+		Ahora, a todas las filas (menos a la primera) le restaremos la primera fila
+		$$det(A) = 3 \left|\begin{bmatrix}
+		1 & 1 & 1 & \dots & 1 & 1 \\ 
+		0 & 2 & 2 & \dots & 2 & 2 \\ 
+		0 & 0 & 2 & \dots & 2 & 2 \\ 
+		\vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\ 
+		0 & 0 & 0 & \dots & 2 & 2 \\ 
+		0 & 0 & 0 & \dots & 0 & 2
+		\end{bmatrix}\right|$$
+		Notemos ahora que la diagonal está compuesta de un 1 y luego puros 2, por lo que
+		$$det(A) = 3 \cdot 2^{n-1}$$
+\end{solucion}
+\item Sea $A$ una matriz de $4\times 4$, tal que $det(A) = \alpha \neq 0$
+\begin{enumerate}[a)]
+\item Calcule  $det(5A)+det(3A^{-1})$ en terminos de $\alpha$.
+\item Se sabe que $det(Adj(A))=8$. Calcule $\alpha$.
+\end{enumerate}
+\begin{solucion}
+
+\begin{enumerate}[a)]
+\item Calcule  $det(5A)+det(3A^{-1})$ en terminos de $\alpha$.
+			
+			En primer lugar,
+			$$det(5A) = 5^4det(a) = 5^4\alpha = 625 \alpha$$
+			En segundo lugar,
+			$$det(3A^{-1}) = 3^4det(A^{-1}) = 3^4 \dfrac{1}{\alpha} = \dfrac{81}{\alpha}$$
+			Finalmente,
+			$$det(5A)+det(3A^{-1}) = 625 \alpha + \dfrac{81}{\alpha}$$
+\item Se sabe que $det(Adj(A))=8)$. Calcule $\alpha$.
+			
+			Recordemos que
+			$$A\ Adj(A) = det(A) I$$
+			Apliquemos $det$ a ambos lados de la igualdad,
+			$$det(A\ Adj(A)) = det(det(A) I)$$
+			$$det(A)\ det(Adj(A)) = det(A)^4\ det(I)$$
+			$$det(Adj(A)) = det(A)^3$$
+			$$det(A) = \sqrt[3]{det(Adj(A))}$$
+			$$det(A) = \sqrt[3]{8}$$
+			$$det(A) = 2$$
+\end{enumerate}
+\end{solucion}
+\item Sea $V = \mathbb{P}_2$ el espacio vectorial de los polinomios con coeficientes reales de grado menor o igual a 2. Demuestre que el conjunto
+	$$U=\{p(x) \in V : p(1) + p(0) = p(-1)\}$$
+	Demuestre que $U$ es subespacio de $V$.
+\begin{solucion}
+Para demostrar que $U$ es un subespacio vectorial, debemos ver que sea no vacío, cerrado en la suma y cerrado en la multiplicación.
+		
+		No vacío:
+		
+		Sea el polinomio $p(x) = 0$, vemos que
+		$$p(1) + p(0) =p(-1)$$
+		$$0 = 0$$
+		Por lo que $p(x) \in U$, asi que no es vacío.
+		
+		Suma:
+		
+		Sean $p, q \in U$,
+		
+		P.D.
+		$$ \begin{array}{rcl}
+		(p+q)(1) + (p+q)(0) &= &(p+q)(-1)\\
+		p(1) + q(1)+ p(0)+q(0) &= &(p+q)(-1)\\
+		p(1) + p(0)+ q(1) + q(0) &= &(p+q)(-1)\\
+		p(-1)+ q(-1) &= &(p+q)(-1)\\
+		(p+q)(-1) &= &(p+q)(-1)
+		\end{array}$$
+		Por lo que es cerrado en la suma
+		
+		Multiplicación:
+		
+		Sea $p \in U$ y $\alpha \in \R$,
+		P.D.
+		$$ \begin{array}{rcl}
+		(\alpha p)(1) + (\alpha p)(0) = (\alpha p)(-1) \\
+		\alpha p(1) + \alpha p(0) = (\alpha p)(-1) \\
+		\alpha ( p(1) +  p(0)) = (\alpha p)(-1) \\
+		\alpha p(-1) = (\alpha p)(-1)\\
+		(\alpha  p)(-1) = (\alpha p)(-1)
+		\end{array}$$
+		 
+		Por lo que es cerrado en la multiplicación
+		
+		Entonces, tenemos que $U$ es un subespacio de $V$.
+		$$\blacksquare$$
+\end{solucion}
+\item La matriz $A = \begin{bmatrix}
+	1 & 3 & 4 & -1 & 2\\
+	2 & 6 & 6 & 0 & -3\\
+	3 & 9 & 3 & 6 & -3\\
+	3 & 9 & 0 & 9 & 0
+	\end{bmatrix}$ es equivalente por filas a $B = \begin{bmatrix}
+	1 & 3 & 4 & -1 & 2\\
+	0 & 0 & 1 & -1 & 1\\
+	0 & 0 & 0 & 0 & -8\\
+	0 & 0 & 0 & 0 & 0
+	\end{bmatrix}$. Sin calcular bases, determine las dimensiones de Nul $A$, Col $A$, Col $A^T$ y Nul $A^T$.
+\begin{solucion}
+$B$ tiene 2 filas $L.D.$, es decir, 2 variables libres, por lo que $A$ también. Por esto,
+		$$dim(Nul\ A) = 2$$
+		Como $B$ tiene 3 pivotes, entonces $A$ también. Luego,
+		$$dim(Col\ A) = 3$$
+		Además, $B$ tiene 3 filas no nulas (pivotes), por lo que $A$ también. Estas filas serán el espacio fila de $A$ ($Fil\ A$), cuya dimensión es equivalente al espacio columna de $A^T$, por lo que
+		$$dim(Col\ A^T) = dim(Fil\ A) = 3$$
+		Por lo anterior, como $A^T$ tendrá 3 columnas pivotes, tendrá una variable libre, lo que implica
+		$$dim(Nul\ A^T) = 1$$
+\end{solucion}
+\end{preguntas}
+\end{document}
