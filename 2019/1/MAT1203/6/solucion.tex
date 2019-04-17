@@ -373,7 +373,31 @@ En primer lugar, veamos como es $A$,
 $A=[v_1-v_3+v_4 \;\;\;\;-v_2-v_3 \;\;\;\; v_3-v_1
 \;\;\;\;v_1+v_2+2v_4 ]\in M_4 (\R)$
 \begin{solucion}
+En primer lugar, notemos que no sabemos nada de los vectores dados, es decir, estos podrían perfectamente ser $LD$. Por ende, existen dos posibles respuestas a esta pregunta: el determinante es 0 o no hay suficiente información para saber.\\
 
+Para que el determinante sea 0, las columnas de $A$ deben ser $LD$, es decir, debe existir $\alpha_1, \alpha_2, \alpha_3, \alpha_4 \in \R$ no todos iguales a 0, tal que
+$$\alpha_1(v_1-v_3+v_4) + \alpha_2(-v_2-v_3) +\alpha_3(v_3-v_1) + \alpha_4(v_1+v_2+2v_4) = 0$$
+Una forma sencilla de demostrar que existe alguna combinación de valores no triviales que cumpla con esto, es buscar una en particular. Para esto diremos de manera arbitraria que $\alpha_4 = -1$ y buscaremos los otros. Con esto, obtenemos
+$$\alpha_1(v_1-v_3+v_4) + \alpha_2(-v_2-v_3) +\alpha_3(v_3-v_1) =v_1+v_2+2v_4$$
+Notemos que esto equivale a encontrar una combinación lineal de las 3 primeras columnas para formar la cuarta. Reordenando,
+$$(\alpha_1 - \alpha_3)v_1 -\alpha_2 v_2 + (-\alpha_1 - \alpha_2 + \alpha_3)v_3 + \alpha_1 v_4 =v_1+v_2+2v_4$$
+De aquí, obtenemos el sistema
+$$\begin{array}{rcl}
+\alpha_1 - \alpha_3 & = & 1\\
+-\alpha_2 & = & 1\\
+-\alpha_1 - \alpha_2 + \alpha_3 & = & 0\\
+\alpha_1 & = & 2
+\end{array} \ra
+\begin{array}{rcl}
+\alpha_1 & = & 2\\
+\alpha_2 & = & -1\\
+\alpha_3 & = & 1\\
+\alpha_4 & = & -1
+\end{array}
+$$
+Que corresponde a una solución no trivial, por lo que las columnas de $A$ son $LD$.\\
+
+En conclusión, el determinante de $A$ es 0.
 \end{solucion}
 \item Sea $A \in M_4 (\R)$ tal que $|A|=5$, encuentre
 \begin{tasks}(4)
@@ -385,10 +409,10 @@ $A=[v_1-v_3+v_4 \;\;\;\;-v_2-v_3 \;\;\;\; v_3-v_1
 \begin{solucion}
 
 \begin{enumerate}[a)]
-\item 
-\item 
-\item 
-\item 
+\item $|2^3A| = (2^3)^4|A| = 2^{12}\cdot 5$
+\item $|A^5| = |AAAAA| = |A||A||A||A||A| = |A|^5 = 5^5$
+\item $|-A| = (-1)^4|A| = |A| = 5$
+\item $||A|A^{-1}| = |5A^{-1}| = 5^4|A^{-1}| = 5^4\dfrac{1}{|A|} = \dfrac{5^4}{5} = 5^3 = 125$
 \end{enumerate}
 \end{solucion}
 \end{preguntas}
