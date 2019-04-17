@@ -108,5 +108,258 @@
 \end{center}
 
 \begin{preguntas}
+\item Determine si el siguiente sistema de ecuaciones posee solución única, infinitas soluciones o no tiene solución
+	$$
+	\begin{array}{rcr}
+	x+y-z& = & 1\\
+	3x+2y+z& = & 1\\
+	5x+3y+4z& = & 2\\
+	-2x -y +5z & = & 6
+	\end{array}$$
+\begin{solucion}
+Busquemos la forma escalonada de la matriz aumentada correspondiente al sistema
+		$$
+		\left[
+		\begin{array}{ccc|c}
+		1 & 1 & -1 & 1\\
+		3 & 2 & 1 & 1\\
+		5 & 3 & 4 & 2\\
+		-2 & -1 & 5 & 6
+		\end{array}
+		\right] \wsim 
+		\left[
+		\begin{array}{ccc|c}
+		1 & 1 & -1 & 1\\
+		0 & -1 & 4 & 2\\
+		0 & 0 & 1 & 1\\
+		0 & 0 & 0 & -1
+		\end{array}
+		\right]$$
+		Podemos ver que la última linea equivale a $0 = -1$, por lo que el sistema es inconsistente, es decir, no tiene solución.
+\end{solucion}
+\item Determine condiciones sobre $\alpha$ y $\beta$ de modo que \\
+	$\begin{pmatrix}
+	\alpha-\beta\\
+	\alpha + \beta\\
+	2\alpha - \beta
+	\end{pmatrix}$ pertenezca a $Gen\left\{\begin{pmatrix}
+	-1\\
+	-1\\
+	1
+	\end{pmatrix}\, \begin{pmatrix}
+	1\\
+	2\\
+	1
+	\end{pmatrix}, \begin{pmatrix}
+	1\\
+	3\\
+	3
+	\end{pmatrix}\right\}$
+\begin{solucion}
+Lo que debemos ver es para que valores de $\alpha$ y $\beta$, existe una combinación lineal de los vectores del generado que genera el vector dado. Esto equivale a ver para que valores de $\alpha$ y $\beta$, el siguiente sistema es consistente:
+		$$
+		\left[
+		\begin{array}{ccc|c}
+		-1 & 1 & 1 & \alpha - \beta\\
+		-1 & 2 & 3 & \alpha + \beta\\
+		1 & 1 & 3 & 2\alpha - \beta
+		\end{array}
+		\right] \stackbin[F_3+F_1]{F_2-F_1}{\wsim}
+		\left[
+		\begin{array}{ccc|c}
+		-1 & 1 & 1 & \alpha - \beta\\
+		0 & 1 & 2 & 2\beta\\
+		0 & 0 & 0 & 3\alpha - 6\beta
+		\end{array}	\right]$$
+		Como la última fila se anula, el sistema será consistente cuando
+		$$3\alpha - 6\beta = 0$$
+		Es decir, la condición para $\alpha$ y $\beta$, tal que 
+		$$\begin{pmatrix}
+		\alpha-\beta\\
+		\alpha + \beta\\
+		2\alpha - \beta
+		\end{pmatrix} \in Gen\left\{\begin{pmatrix}
+		-1\\
+		-1\\
+		1
+		\end{pmatrix}\, \begin{pmatrix}
+		1\\
+		2\\
+		1
+		\end{pmatrix}, \begin{pmatrix}
+		1\\
+		3\\
+		3
+		\end{pmatrix}\right\}$$
+		es $\alpha = 2\beta$
+\end{solucion}
+\item Determine todas las matrices $A$ tales que
+	$$ A\begin{bmatrix}
+	3\\
+	2
+	\end{bmatrix}=\begin{bmatrix}
+	2\\
+	1
+	\end{bmatrix}$$
+\begin{solucion}
+En primer lugar, notemos que dada las dimensiones de los vectores, la matriz $A$ es de $2 \times 2$. Luego,
+		$$A = \begin{bmatrix}
+		\alpha & \beta \\
+		\gamma &\delta
+		\end{bmatrix}$$
+		Reemplazando,
+		$$A\begin{bmatrix}
+		3\\
+		2
+		\end{bmatrix}=\begin{bmatrix}
+		2\\
+		1
+		\end{bmatrix} \Longrightarrow 
+		\begin{bmatrix}
+		\alpha & \beta \\
+		\gamma &\delta
+		\end{bmatrix}
+		\begin{bmatrix}
+			3\\
+			2
+		\end{bmatrix}=\begin{bmatrix}
+			2\\
+			1
+		\end{bmatrix} \Longrightarrow
+		\begin{array}{rc}
+		3\alpha + 2\beta & = 2\\
+		3\gamma + 2 \delta & = 1
+		\end{array} \Longrightarrow
+		\begin{array}{rc}
+		3\alpha & = 2 - 2\beta\\
+		3\gamma & = 1 - 2 \delta
+		\end{array}$$
+		Con lo que
+		$$\alpha = \dfrac{2}{3} - \dfrac{2\beta}{3}$$
+		$$\gamma = \dfrac{1}{3} - \dfrac{2\delta}{3}$$
+		Finalmente,
+		$$A = \begin{bmatrix}
+		\frac{2}{3} - \frac{2\beta}{3} & \beta \\
+		\frac{1}{3} - \frac{2\delta}{3} &\delta
+		\end{bmatrix}$$
+\end{solucion}
+\item Sea $T: \R^2 \ra \R^3$ la transformación lineal definida por
+	$$ T\left(\begin{bmatrix}
+	x_1\\
+	x_2
+	\end{bmatrix}\right) = \begin{bmatrix}
+	5x_1 - 3x_2\\
+	4x_1 -x_2\\
+	2x_1 +3x_2
+	\end{bmatrix}$$
+	encuentre $x = \begin{bmatrix}
+	x_1\\
+	x_2
+	\end{bmatrix}$ tal que $T(x) = \begin{bmatrix}
+	13\\
+	9\\
+	1
+	\end{bmatrix}$
+\begin{solucion}
+Notemos que la matriz de la transformación es
+		$$ A = \begin{bmatrix}
+		5 &- 3\\
+		4& -1\\
+		2& 3
+		\end{bmatrix}$$
+		Por que debemos resolver el sistema
+		$$ \begin{bmatrix}
+		5 &- 3\\
+		4& -1\\
+		2& 3
+		\end{bmatrix}\begin{bmatrix}
+		x_1\\
+		x_2
+		\end{bmatrix} = \begin{bmatrix}
+		13\\
+		9\\
+		1
+		\end{bmatrix}$$
+		Viendolo en forma matricial,
+		$$\left[
+		\begin{array}{cc|c}
+		5 &- 3 & 13\\
+		4 & -1 & 9\\
+		2 & 3 & 1
+		\end{array}
+		\right] \stackrel{F.E.R}{\wsim} \left[
+		\begin{array}{cc|c}
+		1 & 0 & 2\\
+		0 & 1 & -1\\
+		0 & 0 & 0
+		\end{array}
+		\right]$$
+		Por lo que
+		$$x_1 = 2, \quad x_2 = -1$$
+		Finalmente,
+		$$x = \begin{bmatrix}
+		2 \\ -1
+		\end{bmatrix}$$
+\end{solucion}
+\item Sea $A$ y $B$ dos matrices de $m\times n$ y $n \times p$, respectivamente. Demuestre que si las columnas de $B$ son linealmente dependientes, entonces también lo son las columnas de $AB$.
+\begin{solucion}
+P.D. que si $B$ es $L.D.$, $AB$ también lo es\\
+		\\
+		Si las columnas de $B$ son $L.D.$, entonces
+		$$\exists u \neq \vec{0}\ ( Bu = \vec{0})$$
+		Luego,
+		$$(AB)u = A(Bu) = A\vec{0} = \vec{0}$$
+		$$(AB)u = \vec{0}$$
+		Recordemos que $u \neq \vec{0}$, por lo que hay una combinación lineal no trivial de las columnas de $AB$ que da $\vec{0}$. Entonces, las columnas de $AB$ son $L.D.$
+\end{solucion}
+\item En cada caso, determine si la afirmación es verdadera o falsa y justifique su respuesta.
+\begin{enumerate}[a)]
+\item Si el conjunto $\{v_1, v_2, v_3, v_4\}$ es L.I., entonces $\{v_1, v_2, v_3\}$ también lo es.
+\item Si $A$ es una matriz de $3\times 5$ y $T$ es la transformación lineal definida por $T(x) = Ax$, entonces $T$ tiene dominio $\R^3$.
+\item Un sistema con más ecuaciones que incógnitas es siempre consistente.
+\end{enumerate}
+\begin{solucion}
+
+\begin{enumerate}[a)]
+\item Si el conjunto $\{v_1, v_2, v_3, v_4\}$ es L.I., entonces $\{v_1, v_2, v_3\}$ también lo es.\\
+			\\
+			Digamos que $\{v_1, v_2, v_3, v_4\}$ es L.I. y que $\{v_1, v_2, v_3\}$ es L.D.\\
+			Entonces, $\exists$ una combinación lineal no trivial tal que 
+			$$\alpha_1 v_1 + \alpha_2 v_2 + \alpha_4 v_4 = 0$$
+			Definamos ahora $alpha_3 = 0$ y agreguemos a la ecuación anterior $alpha_3 v_3$ (esto será $\vec{0}$ asi que no afecta).\\
+			$$\alpha_1 v_1 + \alpha_2 v_2 + \alpha_3 v_3 + \alpha_4 v_4 = 0$$
+			Luego, esta también será una combinación lineal no trivial de $\{v_1, v_2, v_3, v_4\}$.\\
+			Pero $\{v_1, v_2, v_3, v_4\}$ es L.I., por lo que esto contradice nuestro supuesto.
+			
+			
+			Finalmente, $\{v_1, v_2, v_4\}$ es L.I., por lo que la afirmación es {\bf Verdadera}.
+\item Si $A$ es una matriz de $3\times 5$ y $T$ es la transformación lineal definida por $T(x) = Ax$, entonces $T$ tiene dominio $\R^3$.\\
+			\\
+			$x$ debe tener tantas filas como columnas tiene $A$, es decir 5, por lo que el dominio de $T$ es $\R^5$.
+			
+			Entonces, la afirmación es {\bf Falsa}.
+\item Un sistema con más ecuaciones que incógnitas es siempre consistente.\\
+			\\
+			Intentemos buscar un caso donde no se cumpla esto.
+			$$\begin{array}{rcl}
+			x + y & = & 1 \\
+			y & = & 1 \\
+			y & = & 2
+			\end{array} \Longrightarrow
+			\begin{bmatrix}
+			1 & 1 & 1\\
+			0 & 1 & 1\\
+			0 & 1 & 2
+			\end{bmatrix} \wsim 
+			\begin{bmatrix}
+			1 & 1 & 1\\
+			0 & 1 & 1\\
+			0 & 0 & 1
+			\end{bmatrix}$$
+			Este sistema es claramente inconsistente.
+			
+			Entonces, la afirmación es {\bf Falsa}.
+\end{enumerate}
+\end{solucion}
 \end{preguntas}
 \end{document}
