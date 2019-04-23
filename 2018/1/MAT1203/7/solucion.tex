@@ -18,11 +18,15 @@
 \usepackage{multicol}
 \usepackage[shortlabels]{enumitem}
 \usepackage{stackrel}
+\usepackage{tkz-tab}
+\usepackage{xpatch}
+\xpatchcmd{\tkzTabLine}{$0$}{$\bullet$}{}{}
 
 \setlength{\headheight}{10pt}
 \setlength{\headsep}{10pt}
 \pagestyle{fancy}
 \rhead{\ayudantia \ - \alumno}
+\tikzset{t style/.style={style=solid}}
 
 \newcommand*{\mybox}[2]{\colorbox{#1!30}{\parbox{.98\linewidth}{#2}}}
 
@@ -78,6 +82,7 @@
 	\mathrel{\overset{#2}{\scalebox{#1}[1]{$\sim$}}}
 }
 \newcommand{\wsim}{\widesim{}}
+\newcommand{\lh}{\stackrel{L'H}{=}}
 
 \begin{document}
 \thispagestyle{empty}
@@ -300,7 +305,7 @@ En primer lugar, veamos como es $A$,
 			$$det(3A^{-1}) = 3^4det(A^{-1}) = 3^4 \dfrac{1}{\alpha} = \dfrac{81}{\alpha}$$
 			Finalmente,
 			$$det(5A)+det(3A^{-1}) = 625 \alpha + \dfrac{81}{\alpha}$$
-\item Se sabe que $det(Adj(A))=8)$. Calcule $\alpha$.
+\item Se sabe que $det(Adj(A))=8$. Calcule $\alpha$.
 			
 			Recordemos que
 			$$A\ Adj(A) = det(A) I$$
