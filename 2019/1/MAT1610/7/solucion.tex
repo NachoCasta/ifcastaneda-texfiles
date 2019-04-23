@@ -117,9 +117,60 @@
 \begin{solucion}
 
 \begin{enumerate}[a)]
-\item 
-\item 
-\item 
+\item $\lim\limits_{x\ra 0}\dfrac{(\arcsin x)^2}{1-cos(3x)}$\\
+\\
+Notemos que al evaluar, este límite es de la forma $\dfrac{0}{0}$, por lo que podemos aplicar L'Hopital, esto es
+{\footnotesize$$\lim\limits_{x\ra 0}\dfrac{(\arcsin x)^2}{1-cos(3x)} 
+\stackrel{L'H}{=} \lim\limits_{x\ra 0}\dfrac{((\arcsin x)^2)'}{(1-cos(3x))'} 
+= \lim\limits_{x\ra 0}\dfrac{2(\arcsin x)\dfrac{1}{\sqrt[]{1-x^2}}}{3\sin(3x)}
+= \lim\limits_{x\ra 0}\dfrac{2(\arcsin x)}{3\ \sqrt[]{1-x^2}\sin(3x)} $$}\\
+Notemos que al evaluar este último, seguimos obteniendo $\dfrac{0}{0}$, por lo que debemos aplicar L'Hopital nuevamente,
+{\scriptsize$$\lim\limits_{x\ra 0}\dfrac{2(\arcsin x)}{3\ \sqrt[]{1-x^2}\sin(3x)}
+\stackrel{L'H}{=} \lim\limits_{x\ra 0}\dfrac{(2(\arcsin x))'}{(3\ \sqrt[]{1-x^2}\sin(3x))'}
+=\lim\limits_{x\ra 0}\dfrac{\dfrac{2}{\sqrt[]{1-x^2}}}{3\dfrac{1}{2\ \sqrt[]{1-x^2}}\cdot(-2x)\sin(3x) + 3\ \sqrt[]{1-x^2}\cos(3x)} $$}\\
+Evaluando esto, tenemos que
+$$\lim\limits_{x\ra 0}\dfrac{(\arcsin x)^2}{1-cos(3x)} = \dfrac{2}{9}$$
+\item $\lim\limits_{x\ra 0} x^{\frac{1}{\ln (e^x-1)}}$\\
+\\
+En primer lugar, notemos que
+$$\lim\limits_{x\ra 0} x^{\frac{1}{\ln (e^x-1)}} = 
+\lim\limits_{x\ra 0} e^{\ln(x^{\frac{1}{\ln (e^x-1)}})} = 
+\lim\limits_{x\ra 0} e^{\frac{ln(x)}{\ln (e^x-1)}} = 
+e^{\lim\limits_{x\ra 0}\frac{ln(x)}{\ln (e^x-1)}}$$
+Por lo tanto, lo que haremos será resolver el límite del exponente y luego elevar $e$ con el resultado obtenido para finalmente obtener el límite pedido.\\
+
+Es decir, debemos resolver
+$$\lim\limits_{x\ra 0}\frac{ln(x)}{\ln (e^x-1)}$$
+Notemos que al evaluar, obtenemos $\dfrac{\infty}{\infty}$, por lo que podemos aplicar L'Hopital, esto es
+$$\lim\limits_{x\ra 0}\frac{ln(x)}{\ln (e^x-1)} \stackrel{L'H}{=}
+\lim\limits_{x\ra 0}\frac{\dfrac{1}{x}}{\dfrac{e^x}{e^x-1}} =
+\lim\limits_{x\ra 0}\frac{e^x-1}{xe^x}  \stackrel{L'H}{=} 
+\lim\limits_{x\ra 0}\frac{e^x}{e^x + xe^x} = 1$$
+No olvidemos que esto corresponde al exponente del límite pedido, por lo que 
+$$\lim\limits_{x\ra 0} x^{\frac{1}{\ln (e^x-1)}} = e^1 = e$$
+\item $\lim\limits_{x\ra \infty} \left(1+\dfrac{a}{x}\right)^{bx}$\\
+\\
+De forma similar, al ejercicio anterior, tenemos que
+$$\lim\limits_{x\ra \infty} \left(1+\dfrac{a}{x}\right)^{bx} =
+\lim\limits_{x\ra \infty} e^{\ln\left(\left(1+\frac{a}{x}\right)^{bx}\right)} =
+\lim\limits_{x\ra \infty} e^{bx\ln\left(1+\frac{a}{x}\right)} =
+e^{\lim\limits_{x\ra \infty} bx\ln\left(1+\frac{a}{x}\right)}$$
+Luego, debemos resolver
+$$\lim\limits_{x\ra \infty} bx\ln\left(1+\dfrac{a}{x}\right)$$
+Notemos que este límite es de la forma $\infty \cdot 0$.\\
+
+Reordenando,
+$$\lim\limits_{x\ra \infty} bx\ln\left(1+\dfrac{a}{x}\right) =
+\lim\limits_{x\ra \infty} \dfrac{\ln\left(1+\dfrac{a}{x}\right)}{\dfrac{1}{bx}} = \dfrac{0}{0} $$
+Luego,
+{\scriptsize$$\stackrel{L'H}{=} \lim\limits_{x\ra \infty}  \dfrac{\dfrac{-\frac{a}{x^2}}{1+\frac{a}{x}}}{-\dfrac{b}{(bx)^2}} =
+\lim\limits_{x\ra \infty} \dfrac{\dfrac{\frac{a}{x^2}}{\frac{a+x}{x}}}{\dfrac{1}{bx^2}} =
+\lim\limits_{x\ra \infty} \dfrac{\dfrac{ax}{x^2(a+x)}}{\dfrac{1}{bx^2}} =
+\lim\limits_{x\ra \infty} \dfrac{abx^3}{x^2(a+x)} =
+\lim\limits_{x\ra \infty} \dfrac{abx}{a+x} \stackrel{L'H}{=} 
+\lim\limits_{x\ra \infty} ab = ab$$}\\
+Finalmente,
+$$\lim\limits_{x\ra \infty} \left(1+\dfrac{a}{x}\right)^{bx} = e^{ab}$$
 \end{enumerate}
 \end{solucion}
 \item Considere la función $f(x) = x + 1 - \dfrac{2}{x} - 3\dfrac{ln(x)}{x}$ definida en $(0, \infty)$.
