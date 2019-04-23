@@ -18,11 +18,15 @@
 \usepackage{multicol}
 \usepackage[shortlabels]{enumitem}
 \usepackage{stackrel}
+\usepackage{tkz-tab}
+\usepackage{xpatch}
+\xpatchcmd{\tkzTabLine}{$0$}{$\bullet$}{}{}
 
 \setlength{\headheight}{10pt}
 \setlength{\headsep}{10pt}
 \pagestyle{fancy}
 \rhead{\ayudantia \ - \alumno}
+\tikzset{t style/.style={style=solid}}
 
 \newcommand*{\mybox}[2]{\colorbox{#1!30}{\parbox{.98\linewidth}{#2}}}
 
@@ -78,6 +82,7 @@
 	\mathrel{\overset{#2}{\scalebox{#1}[1]{$\sim$}}}
 }
 \newcommand{\wsim}{\widesim{}}
+\newcommand{\lh}{\stackrel{L'H}{=}}
 
 \begin{document}
 \thispagestyle{empty}
