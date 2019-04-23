@@ -18,11 +18,15 @@
 \usepackage{multicol}
 \usepackage[shortlabels]{enumitem}
 \usepackage{stackrel}
+\usepackage{tkz-tab}
+\usepackage{xpatch}
+\xpatchcmd{\tkzTabLine}{$0$}{$\bullet$}{}{}
 
 \setlength{\headheight}{10pt}
 \setlength{\headsep}{10pt}
 \pagestyle{fancy}
 \rhead{\ayudantia \ - \alumno}
+\tikzset{t style/.style={style=solid}}
 
 \newcommand*{\mybox}[2]{\colorbox{#1!30}{\parbox{.98\linewidth}{#2}}}
 
@@ -78,6 +82,7 @@
 	\mathrel{\overset{#2}{\scalebox{#1}[1]{$\sim$}}}
 }
 \newcommand{\wsim}{\widesim{}}
+\newcommand{\lh}{\stackrel{L'H}{=}}
 
 \begin{document}
 \thispagestyle{empty}
@@ -181,7 +186,29 @@ $$\lim\limits_{x\ra \infty} \left(1+\dfrac{a}{x}\right)^{bx} = e^{ab}$$
 \begin{solucion}
 
 \begin{enumerate}[a)]
-\item 
+\item Los candidatos a asíntotas horizontales son los puntos donde la función se indefine. En este caso, solo tenemos $x=0$. Para comprobar, buscamos
+{\small$$\lim\limits_{x \ra 0+} f(x) =
+x + 1 - \dfrac{2}{x} - 3\dfrac{ln(x)}{x} = 
+\lim\limits_{x \ra 0+} f(x) = 
+\dfrac{x^2+x - 2 - 3ln(x)}{x} = 
+\dfrac{\infty}{0} = 
+\infty
+$$}\\
+Es decir, la recta $x=1$ es una asíntota vertical de $f$.\\
+
+Para ver la existencia de asíntotas horizontales, buscamos
+$$
+\lim\limits_{x \ra \infty} f(x) =
+\lim\limits_{x \ra \infty} x + 1 - \dfrac{2}{x} - 3\dfrac{ln(x)}{x}$$
+Notemos que
+$$\lim\limits_{x \ra \infty} 3\dfrac{ln(x)}{x} \stackrel{L'H}{=}
+\dfrac{3}{x} = 0
+$$
+Por lo que
+$$
+\lim\limits_{x \ra \infty} f(x) =
+\lim\limits_{x \ra \infty} x + 1 - \dfrac{2}{x} - 3\dfrac{ln(x)}{x} = \infty$$
+Por ende, no existen asíntotas horizontales.
 \item 
 \end{enumerate}
 \end{solucion}
@@ -189,7 +216,84 @@ $$\lim\limits_{x\ra \infty} \left(1+\dfrac{a}{x}\right)^{bx} = e^{ab}$$
 $$y = 4\arctan x - \dfrac{x^3}{3} - x$$
 indicando su dominio, asíntotas horizontales y verticales, intervalos de crecimiento y decrecimiento, máximos y mínimos, sentido de la concavidad y puntos de inflexión.
 \begin{solucion}
+Para graficar la curva, es necesario encontrar primero todo lo pedido en el enunciado, por lo que haremos eso primero.\\
 
+En primer lugar, notemos que la función no se indefine para ningún valor de $x$ y ninguna de las funciones que la componen tiene restricciones de dominio, por lo que el dominio de la función es $x \in \R$.\\
+
+Al no indefinirse para ningún $x$, tampoco tendrá asíntotas verticales.\\
+
+Para ver si tiene asíntotas horizontales, haremos
+$$\lim\limits_{x\ra \infty}  4\arctan x - \dfrac{x^3}{3} - x = -\infty, \qquad \lim\limits_{x\ra -\infty}  4\arctan x - \dfrac{x^3}{3} - x = \infty$$
+De aquí concluimos que tampoco posee asíntotas horizontales, sin embargo esto igual nos da información acerca de como se ve la función.\\
+
+Ahora, debemos encontrar los intervalos de crecimiento y decrecimiento. Para esto, calculemos la derivada,
+$$f'(x) = \dfrac{4}{1+x^2} - x^2 - 1$$
+Buscamos los puntos críticos,
+$$f'(x) = 0$$
+$$\dfrac{4}{1+x^2} - x^2 - 1 = 0$$
+$$\dfrac{4-x^2(1+x^2) -(1+x^2)}{1+x^2} = 0$$
+$$4-x^2(1+x^2) -(1+x^2) = 0$$
+$$-x^4 - 2x^2 +3 = 0$$
+$$-(x^4 + 2x^2 -3) = 0$$
+$$-(x^2 + 3)(x^2 -1) = 0$$
+$$-(x^2 + 3)(x+1)(x-1) = 0$$
+Por lo que los puntos críticos son
+$$x=-1, \qquad x=1$$
+Para ver los signos de la derivada, podemos hacer una tabla de signos:
+$$
+\begin{tikzpicture}
+\tkzTabInit[lgt=2,espcl=2,deltacl=0]
+{ /.8, $-(x^2+3)$ /.8, $x+1$ /.8, $x-1$ /.8, /.8}
+{,$-1$,$1$,} % four main references
+\tkzTabLine {,-,t,-,t,-,} % seven denotations
+\tkzTabLine {,-,z,+,t,+,}
+\tkzTabLine {,-,t,-,z,+,}
+\tkzTabLine {,-,z,+,z,-,}
+\end{tikzpicture}
+$$
+Por lo tanto tenemos:
+\begin{itemize}
+	\item Intervalo de crecimiento: $(-1, 1)$
+	\item Intervalo de decrecimiento: $(-\infty, -1) \cup (1, \infty)$
+\end{itemize}
+Analicemos ahora la segunda derivada, esta es
+$$f''(x) = 
+\dfrac{-8x}{(1+x^2)^2} - 2x = 
+\dfrac{-8x - 2x(1+x^2)^2}{(1+x^2)^2} = 
+\dfrac{-2x(x^4+2x^2+5)}{(1+x^2)^2}$$
+Luego, 
+$$f''(x) = \dfrac{-2x(x^4+2x^2+5)}{(1+x^2)^2} = 0 \ra x = 0$$
+Notemos también que para $x < 0 \ra f''(x) > 0$ y $x > 0 \ra f''(x) < 0$, por lo que:
+\begin{itemize}
+	\item Intervalo de concavidad positiva: $(-\infty, 0)$
+	\item Intervalo de concavidad negativa: $(0, \infty)$
+\end{itemize}
+Con esto, podemos tambier clasificar los puntos criticos, dandonos cuenta que
+$$f(-1) = -\pi + \dfrac{4}{3} \ra \text{mínimo local}, \qquad f(-1) = \pi - \dfrac{4}{3} \ra \text{maximo local}$$
+Además, en el punto $x=0$ tenemos un punto de inflexión.\\
+
+Finalmente, teniendo toda esta información, podemos trazar la gráfica de la función, que viene dada por
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[ 
+width=320pt,compat=1.5.1,grid style={ultra thin},every axis plot post/.append style={thick},
+x tick label style={font=\tiny},y tick label style={font=\tiny},
+scale only axis,grid=major,axis lines=middle,
+xlabel={$x$},
+ylabel={$y$},
+xmin=-3,
+xmax=3,
+domain=-5:5,
+ymin=-3,
+ymax=3,
+xtick={-5, -4,...,5},
+ytick={-5, -4,...,5},
+legend style={at={(0.5,-0.05)},anchor=north,nodes={right}},
+] 
+\addplot[mark=none,color=blue, samples=500]{4*rad(atan(x)) - x^3/3 - x}; 
+\end{axis}
+\end{tikzpicture}
+\end{center}
 \end{solucion}
 \end{preguntas}
 \end{document}
