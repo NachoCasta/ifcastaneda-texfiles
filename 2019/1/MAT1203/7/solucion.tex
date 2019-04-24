@@ -113,5 +113,49 @@
 \end{center}
 
 \begin{preguntas}
+\item Sea $V = \mathbb{P}_2$ el espacio vectorial de los polinomios con coeficientes reales de grado menor o igual a 2. Demuestre que el conjunto
+	$$U=\{p(x) \in V : p(1) + p(0) = p(-1)\}$$
+	Demuestre que $U$ es subespacio de $V$.
+\begin{solucion}
+Para demostrar que $U$ es un subespacio vectorial, debemos ver que sea no vacío, cerrado en la suma y cerrado en la multiplicación.
+		
+		No vacío:
+		
+		Sea el polinomio $p(x) = 0$, vemos que
+		$$p(1) + p(0) =p(-1)$$
+		$$0 = 0$$
+		Por lo que $p(x) \in U$, asi que no es vacío.
+		
+		Suma:
+		
+		Sean $p, q \in U$,
+		
+		P.D.
+		$$ \begin{array}{rcl}
+		(p+q)(1) + (p+q)(0) &= &(p+q)(-1)\\
+		p(1) + q(1)+ p(0)+q(0) &= &(p+q)(-1)\\
+		p(1) + p(0)+ q(1) + q(0) &= &(p+q)(-1)\\
+		p(-1)+ q(-1) &= &(p+q)(-1)\\
+		(p+q)(-1) &= &(p+q)(-1)
+		\end{array}$$
+		Por lo que es cerrado en la suma
+		
+		Multiplicación:
+		
+		Sea $p \in U$ y $\alpha \in \R$,
+		P.D.
+		$$ \begin{array}{rcl}
+		(\alpha p)(1) + (\alpha p)(0) = (\alpha p)(-1) \\
+		\alpha p(1) + \alpha p(0) = (\alpha p)(-1) \\
+		\alpha ( p(1) +  p(0)) = (\alpha p)(-1) \\
+		\alpha p(-1) = (\alpha p)(-1)\\
+		(\alpha  p)(-1) = (\alpha p)(-1)
+		\end{array}$$
+		 
+		Por lo que es cerrado en la multiplicación
+		
+		Entonces, tenemos que $U$ es un subespacio de $V$.
+		$$\blacksquare$$
+\end{solucion}
 \end{preguntas}
 \end{document}
