@@ -186,7 +186,7 @@ $$\lim\limits_{x\ra \infty} \left(1+\dfrac{a}{x}\right)^{bx} = e^{ab}$$
 \begin{solucion}
 
 \begin{enumerate}[a)]
-\item Los candidatos a asíntotas horizontales son los puntos donde la función se indefine. En este caso, solo tenemos $x=0$. Para comprobar, buscamos
+\item Los candidatos a asíntotas verticales son los puntos donde la función se indefine. En este caso, solo tenemos $x=0$. Para comprobar, buscamos
 {\small$$\lim\limits_{x \ra 0+} f(x) =
 x + 1 - \dfrac{2}{x} - 3\dfrac{ln(x)}{x} = 
 \lim\limits_{x \ra 0+} f(x) = 
@@ -209,7 +209,23 @@ $$
 \lim\limits_{x \ra \infty} f(x) =
 \lim\limits_{x \ra \infty} x + 1 - \dfrac{2}{x} - 3\dfrac{ln(x)}{x} = \infty$$
 Por ende, no existen asíntotas horizontales.
-\item 
+\item Para determinar los intervalos de crecimiento, debemos analizar la derivada de la función, esta es
+$$f'(x) = 
+1 + \dfrac{2}{x^2} - \dfrac{3\dfrac{x}{x} - 3ln(x)}{x^2} = 
+1 + \dfrac{-1 + 3ln(x)}{x^2} = \dfrac{x^2-1+3ln(x)}{x^2}$$
+De manera analítica, notamos que $f'(1) = 0$, siendo $x=1$ el único 0 de la función, por lo que debemos analizar que ocurre a ambos lados de $x=1$.\\
+
+Por un lado, si $x < 1$, notemos que $f'(x) < 0$. Por el contrario, si $x > 1$, $f'(x) > 0$.\\
+
+Por ende, los intervalos de crecimiento y decrecimiento corresponden a $(0, 1)$ y $(1, \infty)$, respectivamente.\\
+
+Para ver que ocurre con la concavidad, derivamos denuevo, esto es
+$$f''(x) = 
+\dfrac{\frac{3x^2}{x} - 6x(-1 + 3ln(x))}{x^4} =
+\dfrac{5-6ln(x)}{x^3}$$
+Para buscar donde cambia de signo, hacemos
+$$f''(x) = 0 \ra \dfrac{5-6ln(x)}{x^3} = 0 \ra 5 - 6ln(x) = 0 \ra ln(x) = \dfrac{5}{6} \ra x = e^{5/6}$$
+Finalmente, notamos que $x < e^{5/6} \ra f''(x) >0$ y $x > e^{5/6} \ra f''(x) < 0$, por lo que la función tiene concavidad positiva (convexa) en $x\in (0, e^{5/6})$ y concavidad negativa (concava) en $x \in (e^{5/6}, \infty)$.
 \end{enumerate}
 \end{solucion}
 \item Grafique la curva
