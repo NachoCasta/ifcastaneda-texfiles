@@ -18,11 +18,15 @@
 \usepackage{multicol}
 \usepackage[shortlabels]{enumitem}
 \usepackage{stackrel}
+\usepackage{tkz-tab}
+\usepackage{xpatch}
+\xpatchcmd{\tkzTabLine}{$0$}{$\bullet$}{}{}
 
 \setlength{\headheight}{10pt}
 \setlength{\headsep}{10pt}
 \pagestyle{fancy}
 \rhead{\ayudantia \ - \alumno}
+\tikzset{t style/.style={style=solid}}
 
 \newcommand*{\mybox}[2]{\colorbox{#1!30}{\parbox{.98\linewidth}{#2}}}
 
@@ -78,6 +82,7 @@
 	\mathrel{\overset{#2}{\scalebox{#1}[1]{$\sim$}}}
 }
 \newcommand{\wsim}{\widesim{}}
+\newcommand{\lh}{\stackrel{L'H}{=}}
 
 \begin{document}
 \thispagestyle{empty}
@@ -108,6 +113,71 @@
 \end{center}
 
 \begin{preguntas}
+\item Sea $P$ el paralelepípedo con un vertice en el origen y vertices adyacentes en $(1,4,0)$, $(-2,-5,2)$, $(-1,2,-1)$
+\begin{enumerate}[a)]
+\item Determinar el volumen de $P$.
+\item Se define $T: \R^3 \ra \R^3$ como la transformación lineal definida por $$T(x,y,z)=(x+y,y+zx-z)$$
+		Calcule el volumen de $T(P)$.
+\end{enumerate}
+\begin{solucion}
+
+\begin{enumerate}[a)]
+\item Determinar el volumen de $P$.\\
+			\\
+			Los vectores de las aristas son 
+			$$v_1 = \begin{pmatrix}
+			1 \\ 4 \\ 0
+			\end{pmatrix}, \quad
+			v_2 = \begin{pmatrix}
+			-2 \\ -5 \\ 2
+			\end{pmatrix}, \quad
+			v_3 = \begin{pmatrix}
+			-1 \\ 2 \\ -1
+			\end{pmatrix}$$
+			Podemos representar a $P$ en forma matricial de la siguiente forma:
+			$$A_P = \begin{bmatrix}
+			1 & -2 & -1 \\
+			4 & -5 & 2 \\
+			0 & 2 & -1
+			\end{bmatrix}$$
+			Luego, el volumen de $P$ se calcula como $|det(A_P)|$, esto es
+			$$\left| det \left(\begin{bmatrix}
+			1 & -2 & -1 \\
+			4 & -5 & 2 \\
+			0 & 2 & -1
+			\end{bmatrix}\right)\right| =| 0 -2(2+4) - 1(-5+8)| = |-12 - 3| =| -15| = 15$$
+			Por lo que el volumen de $P$ es $15$.
+\item Se define $T: \R^3 \ra \R^3$ como la transformación lineal definida por $$T(x,y,z)=(x+y,y+z,x-z)$$
+			Calcule el volumen de $T(P)$.\\
+			\\
+			En primer lugar, encontremos la matriz de la transformación lineal
+			$$T(x,y,z)=(x+y,y+z,x-z) = \begin{pmatrix}
+			x+y \\ 
+			y+z \\ 
+			x-z
+			\end{pmatrix} = \begin{bmatrix}
+			1 & 1 & 0 \\
+			0 & 1 & 1 \\
+			1 & 0 & -1 
+			\end{bmatrix} \begin{pmatrix}
+			x \\ y \\ z
+			\end{pmatrix}$$
+			Por lo que
+			$$A_T = \begin{bmatrix}
+			1 & 1 & 0 \\
+			0 & 1 & 1 \\
+			1 & 0 & -1 
+			\end{bmatrix}$$
+			Luego, el volumen de $T(P)$ será $|det(A_P)| \cdot |det(A_T)|$
+			$$|det(A_T)| = \left| det \left(\begin{bmatrix}
+			1 & 1 & 0 \\
+			0 & 1 & 1 \\
+			1 & 0 & -1 
+			\end{bmatrix}\right)\right| = |1(-1-0) - (0 - 1)| = |1-1| = 0$$
+			Finalmente,
+			$$V(T(P)) = |det(A_P)| \cdot |det(A_T)| = 15 \cdot 0 = 0$$
+\end{enumerate}
+\end{solucion}
 \item Sea $A = \begin{bmatrix}
 	1 & 2 & 3\\
 	2 & 8 & 4 \\
