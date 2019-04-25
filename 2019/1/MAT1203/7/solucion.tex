@@ -209,7 +209,29 @@
 \end{solucion}
 \item Determine la segunda columna de la inversa de $A = \left[ \begin{array}{rrr} 2&1&0\\ 0&1&2\\ 1&2&0 \end{array} \right]$ utilizando el metodo de cramer.
 \begin{solucion}
+El metodo de cramer dice que para resolver un sistema $Ax = b$, se puede hacer lo siguiente:\\
 
+Sea $A_1$ la matriz $A$ con la columna $i$ reemplazada por el vector $b$, se cumple que
+$$x_i = \dfrac{|A_i|}{|A|}$$
+Como lo que queremos obtener es la segunda columna de la inversa de $A$, el sistema que debemos resolver es
+$$Ax = e_2$$
+Para aplicar cramer, en primer lugar calculemos el determinante de $A$, esto es
+$$|A| = \left|  \left[ \begin{array}{rrr} 2&1&0\\ 0&1&2\\ 1&2&0 \end{array} \right] \right| = 2\cdot (-4) - (-2) = -6$$
+Luego,
+$$x_1 = 
+\dfrac{\left|  \left[ \begin{array}{rrr} 0&1&0\\ 1&1&2\\ 0&2&0 \end{array} \right] \right|}{|A|} = 
+\dfrac{0}{-6} = 0$$
+$$x_2 = 
+\dfrac{\left|  \left[ \begin{array}{rrr} 2&0&0\\ 0&1&2\\ 1&0&0 \end{array} \right] \right|}{|A|} = 
+\dfrac{0}{-6} = 0$$
+$$x_3 = 
+\dfrac{\left|  \left[ \begin{array}{rrr} 2&1&0\\ 0&1&1\\ 1&2&0 \end{array} \right] \right|}{|A|} = 
+\dfrac{2\cdot 1 - (-1)}{-6} = \dfrac{1}{2}$$
+Finalmente,
+$$x = \begin{pmatrix}
+0 \\ 0 \\ \frac{1}{2}
+\end{pmatrix}$$
+Que corresponde a la segunda columna de la inversa de $A$.
 \end{solucion}
 \item Sea $V = \mathbb{P}_2$ el espacio vectorial de los polinomios con coeficientes reales de grado menor o igual a 2. Demuestre que el conjunto
 	$$U=\{p(x) \in V : p(1) + p(0) = p(-1)\}$$
