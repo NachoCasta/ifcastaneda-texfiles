@@ -18,11 +18,15 @@
 \usepackage{multicol}
 \usepackage[shortlabels]{enumitem}
 \usepackage{stackrel}
+\usepackage{tkz-tab}
+\usepackage{xpatch}
+\xpatchcmd{\tkzTabLine}{$0$}{$\bullet$}{}{}
 
 \setlength{\headheight}{10pt}
 \setlength{\headsep}{10pt}
 \pagestyle{fancy}
 \rhead{\ayudantia \ - \alumno}
+\tikzset{t style/.style={style=solid}}
 
 \newcommand*{\mybox}[2]{\colorbox{#1!30}{\parbox{.98\linewidth}{#2}}}
 
@@ -78,6 +82,7 @@
 	\mathrel{\overset{#2}{\scalebox{#1}[1]{$\sim$}}}
 }
 \newcommand{\wsim}{\widesim{}}
+\newcommand{\lh}{\stackrel{L'H}{=}}
 
 \begin{document}
 \thispagestyle{empty}
@@ -154,7 +159,7 @@ Luego, tendremos los siguientes escenarios.\\
 
 Para $k \in (-2,2)$, no habrá ningún punto crítico, ya que la ecuación anterior no tiene solución.\\
 
-Para $k = 2$, habrá un punto crítico en $x=k$. Además, este punto crítico será un punto de inflexión.\\
+Para $k = 2 y k = -2$, habrá un punto crítico en $x=k$. Además, este punto crítico será un punto de inflexión.\\
 
 Para $k\in (-\infty, -2) \cup (2, \infty)$, habrán dos puntos críticos en 
 $$x = k + \sqrt[]{k^2-4} \qquad y \qquad x = k - \sqrt[]{k^2-4}$$
@@ -169,7 +174,7 @@ $$f(x) = 1+2x+3x^2+4x^3$$
 Al evaluar, podemos ver que
 $$f(0) = 1, \qquad f(-1) = -2$$
 Notemos que $f$ es una función continua en todos los reales. Luego, por TVI, 
-$$\exists c \in (-1,1) \text{ tal que } f(c) = 0$$
+$$\exists c \in (-1,0) \text{ tal que } f(c) = 0$$
 Para demostrar que la ecuación no tiene más de una solución, lo haremos por contradicción. Digamos que la ecuación tiene 2 soluciones, $x_1$ y $x_2$ con $x_1 < x_2$.\\
 
 Luego, $f(x_1) = 0$ y $f(x_2) = 0$. Entonces, por TVM
