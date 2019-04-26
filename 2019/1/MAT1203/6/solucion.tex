@@ -18,11 +18,15 @@
 \usepackage{multicol}
 \usepackage[shortlabels]{enumitem}
 \usepackage{stackrel}
+\usepackage{tkz-tab}
+\usepackage{xpatch}
+\xpatchcmd{\tkzTabLine}{$0$}{$\bullet$}{}{}
 
 \setlength{\headheight}{10pt}
 \setlength{\headsep}{10pt}
 \pagestyle{fancy}
 \rhead{\ayudantia \ - \alumno}
+\tikzset{t style/.style={style=solid}}
 
 \newcommand*{\mybox}[2]{\colorbox{#1!30}{\parbox{.98\linewidth}{#2}}}
 
@@ -78,6 +82,7 @@
 	\mathrel{\overset{#2}{\scalebox{#1}[1]{$\sim$}}}
 }
 \newcommand{\wsim}{\widesim{}}
+\newcommand{\lh}{\stackrel{L'H}{=}}
 
 \begin{document}
 \thispagestyle{empty}
@@ -299,13 +304,13 @@ La tercera fila de $A^{-1}$ es la tercera columna transpuesta de $(A^T)^{-1}$, e
 		0 \\ 0 \\ -1
 		\end{pmatrix}$$
 		Digamos ahora que
-		$$Px = z \ra U^Ty = e_3 \ra \begin{bmatrix}
+		$$Px = z \ra L^Tz = y \ra \begin{bmatrix}
 		1 & -1 & 0\\
 		0 & 1 & 1\\
 		0 & 0 & 1
 		\end{bmatrix}z = \begin{pmatrix}
 		0 \\ 0 \\ -1
-		\end{pmatrix} \ra y = \begin{pmatrix}
+		\end{pmatrix} \ra z = \begin{pmatrix}
 		1 \\ 1 \\ -1
 		\end{pmatrix}$$
 		Por último
@@ -313,9 +318,9 @@ La tercera fila de $A^{-1}$ es la tercera columna transpuesta de $(A^T)^{-1}$, e
 		2 & 1 & 0\\
 		0 & 1 & 1\\
 		0 & 0 & -1
-		\end{bmatrix}z = \begin{pmatrix}
+		\end{bmatrix}x = \begin{pmatrix}
 		1 \\ 1 \\ -1
-		\end{pmatrix} \ra y = \begin{pmatrix}
+		\end{pmatrix} \ra x = \begin{pmatrix}
 		-1 \\ 1 \\ 1
 		\end{pmatrix}$$
 		En conclusión, la tercera fila de $A^{-1}$ es $\begin{pmatrix}
