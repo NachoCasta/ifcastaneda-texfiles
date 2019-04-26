@@ -18,11 +18,15 @@
 \usepackage{multicol}
 \usepackage[shortlabels]{enumitem}
 \usepackage{stackrel}
+\usepackage{tkz-tab}
+\usepackage{xpatch}
+\xpatchcmd{\tkzTabLine}{$0$}{$\bullet$}{}{}
 
 \setlength{\headheight}{10pt}
 \setlength{\headsep}{10pt}
 \pagestyle{fancy}
 \rhead{\ayudantia \ - \alumno}
+\tikzset{t style/.style={style=solid}}
 
 \newcommand*{\mybox}[2]{\colorbox{#1!30}{\parbox{.98\linewidth}{#2}}}
 
@@ -78,6 +82,7 @@
 	\mathrel{\overset{#2}{\scalebox{#1}[1]{$\sim$}}}
 }
 \newcommand{\wsim}{\widesim{}}
+\newcommand{\lh}{\stackrel{L'H}{=}}
 
 \begin{document}
 \thispagestyle{empty}
@@ -207,7 +212,18 @@ $$y' = (x^2+3)^{5x-1}(5\ln(x^2+3) + \dfrac{(5x-1)2x}{x^2+3})$$
 \end{solucion}
 \item Dada la función invertible $f(x) = x^3 + 3x + 6$, calcular $(f^{-1})'(6)$
 \begin{solucion}
+Recordemos que 
+$$(f^{-1})'(x) = \dfrac{1}{f'(f^{-1}(x))}$$
+Luego,
+$$(f^{-1})'(6) = \dfrac{1}{f'(f^{-1}(6))}$$
+Para obtener $f^{-1}(6)$ debemos preguntarnos: ¿Que $x$ hace que $f(x) = 6$? Analíticamente podemos ver que $f(0) = 6$, por lo que $f^{-1}(6) = 0$.\\
 
+Entonces, 
+$$(f^{-1})'(6) = \dfrac{1}{f'(0)}$$
+Derivando,
+$$f'(x) = 3x^2+3 \ra f'(0) = 3$$
+Finalmente,
+$$(f^{-1})'(6) = \dfrac{1}{3}$$
 \end{solucion}
 \item Sean $f$ y $g$ funciones derivables e invertibles. La tabla adjunta muestra los valores de $f$, $g$ y sus derivadas sobre algunos valores. Calcule $(f \circ f)'(3)$ y $(g^{-1} \circ f)'(2)$
 $$
