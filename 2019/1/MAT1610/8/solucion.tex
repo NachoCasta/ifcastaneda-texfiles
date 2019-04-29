@@ -115,19 +115,53 @@
 \begin{preguntas}
 \item Sea $f(x) = ln(x^2+3^x)$. Determine $f'(0) + f''(0)$.
 \begin{solucion}
-
+Derivando, usando la regla de la cadena, tenemos
+$$f'(x) = \dfrac{1}{x^2+3^x}(2x + \ln(3)3^x) = \dfrac{2x + \ln(3)3^x}{x^2+3^x}$$
+Derivando nuevamente, usando la regla de la división,
+$$f''(x) = \dfrac{(2x + \ln(3)3^x)'(x^2+3^x) - (x^2+3^x)'(2x + \ln(3)3^x)}{(x^2+3^x)^2}$$
+$$f''(x) = \dfrac{(2 + \ln^2(3)3^x)(x^2+3^x) - (2x + \ln(3)3^x)^2}{(x^2+3^x)^2}$$
+Evaluando en $x=0$,
+$$f'(0) = \dfrac{0 + \ln(3)}{0+1} = \ln(3)$$
+$$f''(0) = \dfrac{(2+\ln^2(3))(0+1) - (0+\ln(3))^2}{(0+1)^2} = 2$$
+Finalmente,
+$$f'(0) + f''(0) = \ln(3) + 2$$
 \end{solucion}
-\item Determine todos los puntos de la curva $x^2y + e^y = e$ cuya tangente es horizontal.
+\item Determine todos los puntos de la curva $x^2y^2 + e^{3y} = e$ cuya tangente es horizontal.
 \begin{solucion}
+Derivando implícitamente, tenemos que
+$$2xy^2 + 2x^2yy' + 2e^{2y}y' = 0$$
+Despejando,
+$$2x^2yy' + 2e^{2y}y' = -2xy^2$$
+$$y'(2x^2y + 2e^{2y}) = -2xy$$
+$$y' = \dfrac{-xy}{x^2y + e^{2y}}$$
+Luego, los puntos donde la tangente es horizontal corresponden a
+$$y'= 0 \ra \dfrac{-xy}{x^2y + e^{2y}} = 0 \ra -xy = 0 \ra x = 0 \vee y = 0$$
+Sin embargo, notemos que al reemplazar $y=0$ en la ecuación de la curva, obtenemos
+$$1 = e$$
+Por lo que no existe ningún punto en la curva donde $y=0$.\\
 
+Entonces, los puntos donde la tangente es horizontal es solo con $x=0$. Reemplazando esto en la curva, obtenemos
+$$e^{3y} = e \ra y = \dfrac{1}{3}$$
+Con lo que concluimos que el único punto con tangente horizontal es $(0,\frac{1}{3})$.
 \end{solucion}
-\item Sea $f$ una función derivable en un intervalo $(a,b)$ tal que $f'(x) = 1+(f(x))^2$ para todo $x \in (a,b)$. Demuestre que $f$ es invertible y determine $(f^{-1})'(x)$.
+\item Sea $f$ una función derivable en un intervalo $(a,b)$ tal que $f'(x) = \dfrac{e^{f(x)}}{1+(f(x))^2}$ para todo $x \in (a,b)$. Demuestre que $f$ es invertible y determine $(f^{-1})'(x)$.
 \begin{solucion}
+Notemos que en $(a,b)$,
+$$f'(x) = \dfrac{e^{f(x)}}{1+(f(x))^2} > 0$$
+Al ser la derivada positiva, esto signifíca que la función es siempre creciente en este intervalo, lo que a su vez implica que es inyectiva y por lo tanto invertible.\\
 
+Luego,
+$$(f^{-1})'(x) = 
+\dfrac{1}{f'(f^{-1}(x))} = 
+\dfrac{1}{\dfrac{e^{f(f^{-1}(x))}}{1+(f(f^{-1}(x)))^2}}$$
+Notemos que 
+$$f(f^{-1}(x)) = x$$
+Finalmente,
+$$(f^{-1})'(x) = \dfrac{1}{\dfrac{e^x}{1+x^2}} = \dfrac{1+x^2}{e^x}$$
 \end{solucion}
-\item Si $a$ y $b$ son números positivos, encuentre el máximo de la función 
-$$f(x) = x^a(1-x)^b$$
-en el intervalo $[0,1]$.
+\item Determine el máximo y mínimo absoluto de la función 
+$$f(x) = 2\cos (x) + \sin (2x)$$
+en el intervalo $[0, 2\pi]$.
 \begin{solucion}
 
 \end{solucion}
