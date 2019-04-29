@@ -167,7 +167,26 @@ en el intervalo $[0, 2\pi]$.
 \end{solucion}
 \item Demuestre que la ecuación $\sin (x) = 2x-1$ tiene exáctamente una raíz real.
 \begin{solucion}
+Para demostrar esto debemos hacer dos cosas. En primer lugar, debemos demostrar que la ecuación tiene alguna solución (TVI) y en segundo lugar, debemos demostrar que esta no tiene más de una solución (TVM).\\
 
+Para demostrar que la ecuación tiene alguna solución, definimos la función auxiliar
+$$f(x) = \sin x - 2x + 1$$
+Al evaluar, podemos ver que
+$$f(0) = 1, \qquad f(2) = \sin 2 - 3 < 0$$
+Notemos que $f$ es una función continua en todos los reales. Luego, por TVI, 
+$$\exists c \in (0,2) \text{ tal que } f(c) = 0$$
+Para demostrar que la ecuación no tiene más de una solución, lo haremos por contradicción. Digamos que la ecuación tiene 2 soluciones, $x_1$ y $x_2$ con $x_1 < x_2$.\\
+
+Luego, $f(x_1) = 0$ y $f(x_2) = 0$. Notemos que $f$ es derivable en todos los reales. Entonces, por TVM
+$$\exists c \in (x_1, x_2) \text{ tal que } f'(c) = \dfrac{f(x_2) - f(x_1)}{x_2-x_1} = 0$$
+Sin embargo, notemos que
+$$f'(x) = \cos x - 2 = 0 \ra \cos x = 2$$
+Lo que no se cumple para ningún $x$, por lo que no existe ningún $c$ donde $f'(c) = 0$.\\
+
+Esto es una contradicción con nuestra suposición anterior, por lo que la ecuación no puede tener dos soluciones.\\
+
+En conclusión, la ecuación tiene solución única. 
+$$\blacksquare$$
 \end{solucion}
 \item Determine las asíntotas de la función $f(x) = xe^{1/x}$.
 \begin{solucion}
