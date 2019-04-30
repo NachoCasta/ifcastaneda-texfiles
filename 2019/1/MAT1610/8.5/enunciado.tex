@@ -1,0 +1,195 @@
+\documentclass[12pt]{article}
+
+\usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[none]{hyphenat}
+\usepackage{parskip}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\usepackage{tasks}
+\usepackage{mdframed}
+\usepackage{xcolor}
+\usepackage{pgfplots}
+\usepackage[makeroom]{cancel}
+\usepackage{multicol}
+\usepackage[shortlabels]{enumitem}
+\usepackage{stackrel}
+\usepackage{tkz-tab}
+\usepackage{xpatch}
+\xpatchcmd{\tkzTabLine}{$0$}{$\bullet$}{}{}
+
+\setlength{\headheight}{10pt}
+\setlength{\headsep}{10pt}
+\pagestyle{fancy}
+\rhead{\ayudantia \ - \alumno}
+\tikzset{t style/.style={style=solid}}
+
+\newcommand*{\mybox}[2]{\colorbox{#1!30}{\parbox{.98\linewidth}{#2}}}
+
+\newenvironment{solucion}
+{\begin{mdframed}[backgroundcolor=black!10]
+		{\bf Solución:}\\
+	}
+	{
+	\end{mdframed}
+}
+
+\newenvironment{alternativas}[1]
+{\begin{multicols}{#1}
+		\begin{enumerate}[a)]
+		}
+		{
+		\end{enumerate}
+	\end{multicols}
+}
+
+\newenvironment{preguntas}
+{\begin{enumerate}\itemsep12pt
+	}
+	{
+	\end{enumerate}
+}
+
+\newcommand{\ayudantia}{{\sc Ayudantía 8.5}}
+\newcommand{\tituloayu}{Compilado I2}
+\newcommand{\fecha}{1 de mayo de 2019}
+\newcommand{\sigla}{MAT1610}
+\newcommand{\nombre}{Cálculo I}
+\newcommand{\profesor}{Amal Taarabt}
+\newcommand{\ano}{2019}
+\newcommand{\semestre}{1}
+\newcommand{\mail}{mat1610@ifcastaneda.cl}
+\newcommand{\alumno}{Ignacio Castañeda - \mail}
+
+\newcommand{\ev}{\Big|}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lra}{\leftrightarrow}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Exp}[1]{\mathcal{E}_{#1}}
+\newcommand{\List}[1]{\mathcal{L}_{#1}}
+\newcommand{\EN}{\Exp{\N}}
+\newcommand{\LN}{\List{\N}}
+\newcommand{\comment}[1]{}
+\newcommand{\lb}{\\~\\}
+\newcommand{\eop}{_{\square}}
+\newcommand{\hsig}{\hat{\sigma}}
+\newcommand{\widesim}[2][1.5]{
+	\mathrel{\overset{#2}{\scalebox{#1}[1]{$\sim$}}}
+}
+\newcommand{\wsim}{\widesim{}}
+\newcommand{\lh}{\stackrel{L'H}{=}}
+
+\begin{document}
+\thispagestyle{empty}
+
+\begin{minipage}{2cm}
+	\includegraphics[width=2cm]{../../../../img/logo.pdf}
+	\vspace{0.5cm}
+\end{minipage}
+\begin{minipage}{\linewidth}
+	\begin{tabular}{lrl}
+		{\scriptsize\sc Pontificia Universidad Catolica de Chile} & \hspace*{0.7in}Curso: &
+		\sigla  - \nombre\\
+		{\sc Facultad de Matemáticas}&
+		Profesor: & \profesor \\
+		{\sc Semestre \ano-\semestre} & Ayudante: & {Ignacio Castañeda}\\
+		& {Mail:} & \texttt{\mail}
+	\end{tabular}
+\end{minipage}
+
+\vspace{-10mm}
+\begin{center}
+	{\LARGE\bf \ayudantia}\\
+	\vspace{0.1cm}
+	{\tituloayu}\\
+	\vspace{0.1cm}
+	\fecha\\
+	\vspace{0.4cm}
+\end{center}
+
+\begin{preguntas}
+\item Calcule la derivada de las siguientes funciones
+\begin{tasks}(2)
+\task $f(x) = x^4 + 6e^x + 2\cos x$
+\task $f(x) = \dfrac{3x^3}{\sin x}$
+\task $f(x) = 3ln(x)\tan x$
+\task $f(x) = \arcsin x + \dfrac{e^x}{x}$
+\end{tasks}
+\item Dado $f(x)$, determinar $f'(x)$
+\begin{tasks}(2)
+\task $f(x) = \sin x(x^4+\cot x)$
+\task $f(x) = \cos ^2 (x^3) \sin(x^2)\csc(x)$
+\task $f(x) = e^{3x} + ln(3(x+1)^5)$
+\task $f(x) = 5^x cos(3x)$
+\end{tasks}
+\item Sea $f(x)$ una función derivable cuyo gráfico pasa por el punto $(1,1)$ tal que $f'(1) = -2$.\\
+Si $g(x) = \dfrac{1}{x^2(f(x))^5}$, calcule $g'(1)$.
+\item Si $h(x) = f(x\ f(x))$ donde $f(1)=2$, $f'(1)=4$ y $f'(2) = 5$, encuentre $h'(1)$.
+\item Sea $f(x) = ln(x^2+3^x)$. Determine $f'(0) + f''(0)$.
+\item Calcular $y'$
+\begin{tasks}(2)
+\task $x^2+y^2-7=0$
+\task $x^2y-xy^2+y^2=4$
+\end{tasks}
+\item Sea
+$$-x^2+xy+y^2=1$$
+Encuentre el valor de $y''$ cuando $(x,y)=(1,1)$
+\item Determine todos los puntos de la curva $x^2y^2 + e^{3y} = e$ cuya tangente es horizontal.
+\item Encuentre las derivadas de las siguientes funciones
+\begin{tasks}(2)
+\task $f(x) = x^{\sin x}$
+\task $f(x) = (x^2+3)^{5x-1}$
+\end{tasks}
+\item Dada la función invertible $f(x) = x^3 + 3x + 6$, calcular $(f^{-1})'(6)$
+\item Sean $f$ y $g$ funciones derivables e invertibles. La tabla adjunta muestra los valores de $f$, $g$ y sus derivadas sobre algunos valores. Calcule $(f \circ f)'(3)$ y $(g^{-1} \circ f)'(2)$
+$$
+\begin{tabular}{|l|l|l|l|l|}
+\hline
+  & f & g & f' & g' \\ \hline
+1 & 3 & 2 & 4  & 1  \\ \hline
+2 & 1 & 3 & 3  & 2  \\ \hline
+3 & 2 & 4 & 2  & 4  \\ \hline
+4 & 4 & 1 & 1  & 2  \\ \hline
+\end{tabular}
+$$
+\item Sea $f$ una función derivable en un intervalo $(a,b)$ tal que $f'(x) = \dfrac{e^{f(x)}}{1+(f(x))^2}$ para todo $x \in (a,b)$. Demuestre que $f$ es invertible y determine $(f^{-1})'(x)$.
+\item En un estanque de forma cónica, con radio basal 5 $m$ y altura 10 $m$, con el vértice hacia abajo, se hace entrar agua a razón de 9 $m^3/min$. ¿Cuán rápido varía el nivel del agua cuando esta tiene una profundidad de 6 metros?
+\item La ley de los gases para un gas ideal a la temperatura absoluta $T$ (en Kelvin) y la presión $P$ (en atmósferas) con un volumen $V$ (en litros) es
+$$PV = nRT$$
+donde $n$ es constante y corresponde al número de moles del gas y $R = 0,0821$ es la constante de los gases.\\
+Suponga que en el instante $t_0$ la presión $P$ es igual a 8 $atm$ y que esta aumenta a razón de 0,1 $atm/min$. Además se sabe que en ese mismo instante el volumen $V$ es de 10 litros y que este disminuye a razón de 0,15 $lt/min$.\\
+Determine la razón de cambio de $T$, con respecto al tiempoo, en el instante $t_0$, sabiendo que la constante $n = 10\ mol$.
+\item Para cada una de las siguientes funciones, encontrar sus máximos y mínimos locales, en caso de haber
+\begin{tasks}(2)
+\task $f(x) = x^4 - 8x^2 + 3$
+\task $f(x)=x+ln(x^2-1)$
+\end{tasks}
+\item Determine el máximo y mínimo absoluto de la función 
+$$f(x) = 2\cos (x) + \sin (2x)$$
+en el intervalo $[0, 2\pi]$.
+\item Encuentre los máximos y mínimos globales de la función
+$$f(x) = \dfrac{|x|}{1+x^2}$$
+en el intervalo $x \in [-3,2]$
+\item Estudiar, según el valor de la constante $k$, los puntos críticos y los puntos de inflexión de la función
+$$f(x) = x^3-3kx^2+12x$$
+\item Probar que la ecuación $1+2x+3x^2+4x^3=0$ tiene solución única.
+\item Demuestre que la ecuación $\sin (x) = 2x-1$ tiene exáctamente una raíz real.
+\item Sea $f$ una función derivable en $[0, \infty)$, tal que $\forall x \in [0, \infty)(f(2x)=2f(x))$.\\
+Demuestre que
+$$\forall x \in (0, \infty) \exists c > 0 \left(f'(c) = \dfrac{f(x)}{x}\right)$$
+\item Si $f$ es una función dos veces derivable en $[a,b]$ tal que $f(a)=f(b)=0$ y $f(c) > 0$ con $a < c < b$, demuestre que
+$$\exists \alpha \in (a,b) (f''(\alpha) < 0)$$
+\item Determine los siguientes límites, en caso de que existan
+\begin{tasks}(3)
+\task $\lim\limits_{x\ra 0}\dfrac{(\arcsin x)^2}{1-cos(3x)}$
+\task $\lim\limits_{x\ra 0} x^{\frac{1}{\ln (e^x-1)}}$
+\task $\lim\limits_{x\ra \infty} \left(1+\dfrac{a}{x}\right)^{bx}$
+\end{tasks}
+\item Determine las asíntotas de la función $f(x) = xe^{1/x}$.
+\end{preguntas}
+\end{document}
