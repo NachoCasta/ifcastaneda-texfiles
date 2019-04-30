@@ -163,7 +163,41 @@ $$(f^{-1})'(x) = \dfrac{1}{\dfrac{e^x}{1+x^2}} = \dfrac{1+x^2}{e^x}$$
 $$f(x) = 2\cos (x) + \sin (2x)$$
 en el intervalo $[0, 2\pi]$.
 \begin{solucion}
-
+Derivando, tenemos que
+$$f'(x) = -2 \sin(x) + 2 \cos(2x)$$
+Igualamos esto a cero para obtener los puntos críticos, esto es
+$$f'(x) = -2 \sin(x) + 2 \cos(2x) = 0 \ra \sin(x) = \cos(2x)$$
+Para resolver esto, podemos hacerlo analíticamente graficando ambos lados de la igualdad, es decir,
+\begin{center}
+	\begin{tikzpicture}
+	\begin{axis}[ 
+	width=320pt,compat=1.5.1,grid style={ultra thin},every axis plot post/.append style={thick},
+	x tick label style={font=\tiny},y tick label style={font=\tiny},
+	scale only axis,grid=major,axis lines=middle,
+	xlabel={$x$},
+	ylabel={$y$},
+	xmin=0,
+	xmax=360,
+	domain=-0:360,
+	ymin=-1,
+	ymax=1,
+	xtick={0, 30, 90, 150, 180, 270, 360},
+	xticklabels={$0$,$\dfrac{\pi}{6}$, $\dfrac{\pi}{2}$, $\dfrac{5\pi}{6}$,$\pi$,$\dfrac{3\pi}{2}$,$2\pi$},
+	ytick={-1, 0, 1},
+	legend style={at={(0.5,-0.05)},anchor=north,nodes={right}},
+	] 
+	\addplot[mark=none,color=blue, samples=500]{sin(x)}; 
+	\addplot[mark=none,color=blue, samples=500]{cos(2*x)};
+	\end{axis}
+	\end{tikzpicture}
+\end{center}
+Aqui vemos claramente que hay 3 valores para los cuales las funciones se igualan. Probando para verificar, podemos concluir que estos son
+$$x = \dfrac{\pi}{6}, \qquad x = \dfrac{5\pi}{6}, \qquad x = \dfrac{3\pi}{2}$$
+Luego, nuestros candidatos a máximos y mínimos serán los puntos críticos y los bordes del intervalo, es decir
+$$0, \quad \dfrac{\pi}{6}, \quad \dfrac{5\pi}{6}, \quad \dfrac{3\pi}{2}, \quad 2\pi$$
+Evaluando, podemos ver que
+$$f(0) = 2, \quad f(\dfrac{\pi}{6}) = \dfrac{3\ \sqrt[]{3}}{2}, \quad f(\dfrac{5\pi}{6}) = -\dfrac{3\ \sqrt[]{3}}{2}, \quad f(\dfrac{3\pi}{2}) = 0, \quad f(2\pi) = 2$$
+Por lo que el mínimo es $-\dfrac{3\ \sqrt[]{3}}{2}$ y el máximo es $\dfrac{3\ \sqrt[]{3}}{2}$.
 \end{solucion}
 \item Demuestre que la ecuación $\sin (x) = 2x-1$ tiene exáctamente una raíz real.
 \begin{solucion}
@@ -190,7 +224,37 @@ $$\blacksquare$$
 \end{solucion}
 \item Determine las asíntotas de la función $f(x) = xe^{1/x}$.
 \begin{solucion}
+En primer lugar, veamos las asíntotas verticales. Notemos que la función solo se indefine en $x=0$, por lo que este es el único candidato a asíntota vertical.\\
 
+Verificamos,
+$$\lim\limits_{x \ra 0} xe^{1/x} = 
+\lim\limits_{x \ra 0} \dfrac{e^{1/x}}{\dfrac{1}{x}} \lh
+\lim\limits_{x \ra 0} \dfrac{-\dfrac{e^{1/x}}{x^2}}{-\dfrac{1}{x^2}} =
+\lim\limits_{x \ra 0} e^{1/x} =
+e^{\infty} = \infty
+$$
+Por lo tanto, $x = 0$ es una asíntota vertical.\\
+
+Para ver las asíntotas horizontales, hacemos
+$$\lim\limits_{x \ra \pm \infty} xe^{1/x} = \pm \infty e^0 = \pm \infty$$
+Por lo que no hay asíntotas horizontales.\\
+
+Por último, buscamos asíntotas oblicuas con
+$$m = 
+\lim\limits_{x \ra \pm \infty} \dfrac{f(x)}{x} =
+\lim\limits_{x \ra \pm \infty} \dfrac{xe^{1/x}}{x} =
+\lim\limits_{x \ra \pm \infty} e^{1/x} =
+1$$
+$$n = 
+\lim\limits_{x \ra \pm \infty} f(x) - mx =
+\lim\limits_{x \ra \pm \infty} xe^{1/x} - x =
+\lim\limits_{x \ra \pm \infty} x(e^{1/x} - 1) =
+\lim\limits_{x \ra \pm \infty} \dfrac{e^{1/x} - 1}{\dfrac{1}{x}}$$
+$$\lh
+\lim\limits_{x \ra \pm \infty} \dfrac{-\dfrac{e^{1/x}}{x^2}}{-\dfrac{1}{x^2}} =
+\lim\limits_{x \ra \pm \infty} e^{1/x} = 1
+$$
+Por lo que $y = x + 1$ es asíntota oblicua.
 \end{solucion}
 \item La ley de los gases para un gas ideal a la temperatura absoluta $T$ (en Kelvin) y la presión $P$ (en atmósferas) con un volumen $V$ (en litros) es
 $$PV = nRT$$
@@ -198,7 +262,22 @@ donde $n$ es constante y corresponde al número de moles del gas y $R = 0,0821$ 
 Suponga que en el instante $t_0$ la presión $P$ es igual a 8 $atm$ y que esta aumenta a razón de 0,1 $atm/min$. Además se sabe que en ese mismo instante el volumen $V$ es de 10 litros y que este disminuye a razón de 0,15 $lt/min$.\\
 Determine la razón de cambio de $T$, con respecto al tiempoo, en el instante $t_0$, sabiendo que la constante $n = 10\ mol$.
 \begin{solucion}
+En el instante $t_0$, tenemos
+$$P = 8\ atm, \qquad P' = 0.1\ atm/min$$
+$$V = 10\ l, \qquad V' = -0.15\ l/min$$
+Además, estamos buscando
+$$T'(t=t_0)$$
+Olvidemos esto por ahora y veamos como se relacionan las variables en cualquier instante $t$.\\
 
+En cualquier instante $t$, se cumple que
+$$PV = 10 \cdot 0.0821 \cdot T \ra PV = 0.821 T $$
+Derivando esto en función del tiempo (de manera implícita para todas las variables), tenemos
+$$P'V + V'P = 0.821T'$$
+Despejamos $T'$, ya que es lo que queremos obtener,
+$$T' = \dfrac{P'V + V'P}{0.821}$$
+Finalmente, evaluamos en $t_0$, es decir, reemplazamos los datos entregados en el enunciado, esto es
+$$T'(t=t_0) = \dfrac{8 \cdot (-0.15) + 10 \cdot 0.1)}{0.821} = -\dfrac{0.2}{0.821} = -0.243$$
+Por lo que la razón de cambio de la temperatura es $-0.243\ K/min$
 \end{solucion}
 \end{preguntas}
 \end{document}
