@@ -127,8 +127,23 @@ $$A^3 =
 \begin{solucion}
 
 \begin{enumerate}[a)]
-\item 
-\item 
+\item Calcule el determinante de la matriz $A^3$ mediante desarrollo por cofactores.\\
+\\
+$$|A^3| = \left|\begin{bmatrix}
+2 & 0 & 2\\
+-1 & 1 & 2\\
+2 & -1 & -1
+\end{bmatrix}\right| = 2\left|\begin{bmatrix}
+1 & 2\\
+-1 & -1
+\end{bmatrix}\right| + 2\left|\begin{bmatrix}
+1 & 2\\
+-1 & -1
+\end{bmatrix}\right| = 2 - 2 = 0$$
+\item Demuestre que $A$ no es invertible.\\
+\\
+$$|A^3| = 0 \ra |A|^3 = 0 \ra |A| = 0$$
+Por lo que la matriz no es invertible.
 \end{enumerate}
 \end{solucion}
 \item Calcular el determinante de siguiente matriz de $n\times n$
@@ -213,7 +228,52 @@ Como por lo menos alguna de las columnas de $B$ es $b_i \neq \vec{0}$, la ecuaci
 $$W = \{p(x) \in V: p(1) = p(0) =0\}$$
 Demostrar que $W$ es subespacio de $V$.
 \begin{solucion}
+Para demostrar que $U$ es un subespacio vectorial, debemos ver que contenga al 0, sea cerrado en la suma y cerrado en la multiplicación.
 
+$0 \in W$:
+
+Sea el polinomio $p(x) = 0$, vemos que
+$$p(1) = p(0) = 0$$
+$$0 = 0 = 0$$
+Por lo que $p(x) \in U$, asi que no es vacío.\\
+
+Suma:
+
+Sean $p, q \in W$,
+
+P.D. $p + q \in W$.\\
+
+Notemos que $p$ y $q$ serán de la forma
+$$p(x) = a + bx + cx^2 + dx^3 \qquad y \qquad q(x) = e + fx + gx^2 + hx^3$$
+Con
+$$p(0) = a = 0, \qquad q(0) = e = 0$$
+$$p(1) = a + b + c + d = 0,\qquad q(1) = e + f + g + h = 0$$
+Luego,
+$$(p+q)(x) = (a + bx + cx^2 + dx^3) + (e + fx + gx^2 + hx^3)$$
+Además,
+$$(p+q)(0) = a + e = 0 + 0 = 0$$
+$$(p+q)(1) = (a + b + c + d) + (e + f + g + h) = 0 + 0 = 0$$
+Por lo que $p + q \in W$ y por ende $W$ es cerrado en la suma.\\
+
+Multiplicación:
+
+Sea $p \in W$ y $\alpha \in \R$,
+P.D. $\alpha p \in W$.\\
+
+Notemos que $p$ y $q$ serán de la forma
+$$p(x) = a + bx + cx^2 + dx^3 \qquad y \qquad q(x) = e + fx + gx^2 + hx^3$$
+Con
+$$p(0) = a = 0, \qquad p(1) = a + b + c + d = 0$$
+Luego,
+$$(\alpha p)(x) = \alpha(a + bx + cx^2 + dx^3)$$
+Además,
+$$(\alpha p)(0) = \alpha a = \alpha \cdot 0 = 0$$
+$$(\alpha p)(1) = \alpha (a + b + c + d) = \alpha \cdot 0 = 0$$
+
+Por lo que $\alpha p \in W$ y $W$ es cerrado en la multiplicación\\
+
+Entonces, tenemos que $W$ es un subespacio de $V$.
+$$\blacksquare$$
 \end{solucion}
 \newpage
 \item En cada caso, determine si la afirmación es verdadera o falsa y justifique su respuesta.
