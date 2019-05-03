@@ -1,0 +1,799 @@
+\documentclass[12pt]{article}
+
+\usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[none]{hyphenat}
+\usepackage{parskip}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\usepackage{tasks}
+\usepackage{mdframed}
+\usepackage{xcolor}
+\usepackage{pgfplots}
+\usepackage[makeroom]{cancel}
+\usepackage{multicol}
+\usepackage[shortlabels]{enumitem}
+\usepackage{stackrel}
+\usepackage{tkz-tab}
+\usepackage{xpatch}
+\xpatchcmd{\tkzTabLine}{$0$}{$\bullet$}{}{}
+
+\setlength{\headheight}{10pt}
+\setlength{\headsep}{10pt}
+\pagestyle{fancy}
+\rhead{\ayudantia \ - \alumno}
+\tikzset{t style/.style={style=solid}}
+
+\newcommand*{\mybox}[2]{\colorbox{#1!30}{\parbox{.98\linewidth}{#2}}}
+
+\newenvironment{solucion}
+{\begin{mdframed}[backgroundcolor=black!10]
+		{\bf Solución:}\\
+	}
+	{
+	\end{mdframed}
+}
+
+\newenvironment{alternativas}[1]
+{\begin{multicols}{#1}
+		\begin{enumerate}[a)]
+		}
+		{
+		\end{enumerate}
+	\end{multicols}
+}
+
+\newenvironment{preguntas}
+{\begin{enumerate}\itemsep12pt
+	}
+	{
+	\end{enumerate}
+}
+
+\newcommand{\ayudantia}{{\sc Ayudantía 8.5}}
+\newcommand{\tituloayu}{Compilado I2}
+\newcommand{\fecha}{3 de mayo de 2019}
+\newcommand{\sigla}{MAT1203}
+\newcommand{\nombre}{Álgebra Lineal}
+\newcommand{\profesor}{Camilo Perez}
+\newcommand{\ano}{2019}
+\newcommand{\semestre}{1}
+\newcommand{\mail}{mat1203@ifcastaneda.cl}
+\newcommand{\alumno}{Ignacio Castañeda - \mail}
+
+\newcommand{\ev}{\Big|}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lra}{\leftrightarrow}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Exp}[1]{\mathcal{E}_{#1}}
+\newcommand{\List}[1]{\mathcal{L}_{#1}}
+\newcommand{\EN}{\Exp{\N}}
+\newcommand{\LN}{\List{\N}}
+\newcommand{\comment}[1]{}
+\newcommand{\lb}{\\~\\}
+\newcommand{\eop}{_{\square}}
+\newcommand{\hsig}{\hat{\sigma}}
+\newcommand{\widesim}[2][1.5]{
+	\mathrel{\overset{#2}{\scalebox{#1}[1]{$\sim$}}}
+}
+\newcommand{\wsim}{\widesim{}}
+\newcommand{\lh}{\stackrel{L'H}{=}}
+
+\begin{document}
+\thispagestyle{empty}
+
+\begin{minipage}{2cm}
+	\includegraphics[width=2cm]{../../../../img/logo.pdf}
+	\vspace{0.5cm}
+\end{minipage}
+\begin{minipage}{\linewidth}
+	\begin{tabular}{lrl}
+		{\scriptsize\sc Pontificia Universidad Catolica de Chile} & \hspace*{0.7in}Curso: &
+		\sigla  - \nombre\\
+		{\sc Facultad de Matemáticas}&
+		Profesor: & \profesor \\
+		{\sc Semestre \ano-\semestre} & Ayudante: & {Ignacio Castañeda}\\
+		& {Mail:} & \texttt{\mail}
+	\end{tabular}
+\end{minipage}
+
+\vspace{-10mm}
+\begin{center}
+	{\LARGE\bf \ayudantia}\\
+	\vspace{0.1cm}
+	{\tituloayu}\\
+	\vspace{0.1cm}
+	\fecha\\
+	\vspace{0.4cm}
+\end{center}
+
+\begin{preguntas}
+\item Sea $A$ una matriz de $n \times n$ tal que existe una matriz $B \neq 0$ tal que $AB = 0$.\\
+Demuestre que $A$ no es invertible.
+\begin{solucion}
+Como por lo menos alguna de las columnas de $B$ es $b_i \neq \vec{0}$, la ecuación $Ax = 0$ posee una solución no trivial $x = b_i$, por lo que no puede ser invertible, ya que sus columnas son $LD$
+\end{solucion}
+\item Encuentre una factorziación $A = LU$ de
+	$$A = \begin{bmatrix}
+	2 & 4 & -1 & 5 & -2 \\
+	-4 & -5 & 3 & -8 & 1 \\
+	2 & -5 & -4 & 1 & 8 \\
+	-6 & 0 & 7 & -3 & 1
+	\end{bmatrix}$$
+\begin{solucion}
+Procedemos a llevar la matriz a su forma escalonada, deteniendonos luego de cada generación de un pivote y teniendo cuidado de no ponderar filas
+		$$\begin{bmatrix}
+		2 & 4 & -1 & 5 & -2 \\
+		-4 & -5 & 3 & -8 & 1 \\
+		2 & -5 & -4 & 1 & 8 \\
+		-6 & 0 & 7 & -3 & 1
+		\end{bmatrix}$$
+		Antes de hacer nada, podemos ver nuestro primer pivote, por lo que todos los coeficientes abajo que hay desde el pivote (incluido) hacia abajo, serán la primera columna que utilizaremos luego para construir $L$, es decir $\begin{bmatrix} 2\\-4\\2\\-6\end{bmatrix}$
+		
+		Procedemos entonces con el pivoteo,
+		$$\sim \begin{bmatrix}
+		2 & 4 & -1 & 5 & -2 \\
+		0 & 3 & 1 & 2 & -3 \\
+		0 & -9 & -3 & -4 & 10 \\
+		0 & 12 & 4 & 12 & -5
+		\end{bmatrix}$$
+		Vemos aquí que el nuevo pivote generado es $3$, por lo que la segunda columna que usaremos para construir $L$ será
+		$\begin{pmatrix}
+		0\\3\\-9\\12
+		\end{pmatrix}$. El primer coeficiente es 0, ya que consideramos solo los numeros abajo del pivote (incluyendo al pivote). Seguimos pivoteando,
+		$$\sim \begin{bmatrix}
+		2 & 4 & -1 & 5 & -2 \\
+		0 & 3 & 1 & 2 & -3 \\
+		0 & 0 & 0 & 2 & 1 \\
+		0 & 0 & 0 & 4 & 7
+		\end{bmatrix}$$
+		Luego, la tercera columna que usaremos será
+		$\begin{pmatrix}
+		0\\0\\2\\4
+		\end{pmatrix}$. Continuamos,
+		$$\sim \begin{bmatrix}
+		2 & 4 & -1 & 5 & -2 \\
+		0 & 3 & 1 & 2 & -3 \\
+		0 & 0 & 0 & 2 & 1 \\
+		0 & 0 & 0 & 0 & 5
+		\end{bmatrix} = U$$
+		Por lo que la última columna que necesitamos es $\begin{pmatrix}0\\0\\0\\5
+		\end{pmatrix}$. Además, esta última matriz (la forma escalonada de $A$), corresponde a $U$.
+		
+		Procedamos a construir $L$. Lo que haremos será dividir cada vector seleccionado anteriormente por el coeficiente que está más arriba (pivote) y usar cada vector resultante como una columna de $L$. De esta manera,
+		$$ L = \begin{bmatrix}
+		1 & 0 & 0 & 0 \\
+		-2 & 1 & 0 & 0 \\
+		1 & -3 & 1 & 0 \\
+		3 & 4 & 2 & 1
+		\end{bmatrix}$$
+		Finalmente,
+		$$A = \begin{bmatrix}
+		1 & 0 & 0 & 0 \\
+		-2 & 1 & 0 & 0 \\
+		1 & -3 & 1 & 0 \\
+		3 & 4 & 2 & 1
+		\end{bmatrix} \begin{bmatrix}
+		2 & 4 & -1 & 5 & -2 \\
+		0 & 3 & 1 & 2 & -3 \\
+		0 & 0 & 0 & 2 & 1 \\
+		0 & 0 & 0 & 0 & 5
+		\end{bmatrix}$$
+\end{solucion}
+\item Sea $A = \begin{bmatrix}
+	1 & 2 & 3\\
+	2 & 8 & 4 \\
+	3 & 4 & 11\end{bmatrix}$. Calcule la factorización $A=LDL^T$ de la matriz $A$ y en base a esto encuentre una matriz $R$ tal que $A = RR^T$.
+\begin{solucion}
+Procedemos a pivotear la matriz para llevarla a su forma escalonada, preocupandonos de no ponderar filas y deteniendonos cada vez que se forme un pivote.
+		$$A = \begin{bmatrix}
+		1 & 2 & 3\\
+		2 & 8 & 4 \\
+		3 & 4 & 11\end{bmatrix}$$
+		Aquí ya tenemos un pivote, que es la primera columna, es decir $\begin{bmatrix} 1 \\ 2 \\ 3 \end{bmatrix}$.
+		$$\sim \begin{bmatrix}
+		1 & 2 & 3\\
+		0 & 4 & -2 \\
+		0 & -2 & 2\end{bmatrix}$$
+		El segundo pivote está en la segunda columna. Tomamos solo los valores bajo el pivote (incluyendolo). Esto es $\begin{bmatrix}0 \\ 4 \\ -2\end{bmatrix}$.
+		$$\sim \begin{bmatrix}
+		1 & 2 & 3\\
+		0 & 4 & -2 \\
+		0 & 0 & 1\end{bmatrix} = U$$
+		El último pivote está en la tercera columna, que corresponderá a $\begin{bmatrix}0 \\ 0 \\ 1\end{bmatrix}$.
+		
+		Ahora, procedemos a dividir cada columna extraida por el pivote correspondiente (coeficiente de más arriba) y luego formar la matriz $L$, esto es
+		$$L = \begin{bmatrix}
+		1 & 0 & 0\\
+		2 & 1 & 0\\
+		3 & -\frac{1}{2} & 1
+		\end{bmatrix}$$
+		La matriz $D$ corresponde a la diagonal de $U$, por lo que
+		$$D =\begin{bmatrix}
+		1 & 0 & 0\\
+		0 & 4 & 0 \\
+		0 & 0 & 1\end{bmatrix}$$
+		Luego,
+		$$A = LDL^T = \begin{bmatrix}
+		1 & 0 & 0\\
+		2 & 1 & 0\\
+		3 & -\frac{1}{2} & 1
+		\end{bmatrix}
+		\begin{bmatrix}
+		1 & 0 & 0\\
+		0 & 4 & 0 \\
+		0 & 0 & 1\end{bmatrix}
+		\begin{bmatrix}
+		1 & 2 & 3\\
+		0 & 1 & -\frac{1}{2}\\
+		0 & 0 & 1
+		\end{bmatrix}$$
+		Notemos ahora que, al ser $D$ una matriz diagonal, es facil calcular $\sqrt[]{D}$. Esto es
+		$$\sqrt[]{D} = 
+		\begin{bmatrix}
+		1 & 0 & 0\\
+		0 & 2 & 0 \\
+		0 & 0 & 1
+		\end{bmatrix}$$
+		Ahora,
+		$$A = LDL^T = (L\ \sqrt[]{D})(\ \sqrt[]{D}L^T) = (L\ \sqrt[]{D})(L\ \sqrt[]{D}^T)^T $$
+		Pero la matriz transpuesta de una matriz diagonal es igual a la matriz en cuestión, por lo que
+		$$A = (L\ \sqrt[]{D})(L\ \sqrt[]{D})^T \ra R = L\ \sqrt[]{D}$$
+		$$R = \begin{bmatrix}
+		1 & 0 & 0\\
+		2 & 1 & 0\\
+		3 & -\frac{1}{2} & 1
+		\end{bmatrix}
+		\begin{bmatrix}
+		1 & 0 & 0\\
+		0 & 2 & 0 \\
+		0 & 0 & 1
+		\end{bmatrix} = \begin{bmatrix}
+		1 & 0 & 0\\
+		2 & 2 & 0\\
+		3 & -1 & 1
+		\end{bmatrix}$$
+		Finalmente,
+		$$A = \begin{bmatrix}
+		1 & 0 & 0\\
+		2 & 2 & 0\\
+		3 & -1& 1
+		\end{bmatrix}
+		\begin{bmatrix}
+		1 & 2 & 3\\
+		0 & 2 & -1\\
+		0 & 0 & 1
+		\end{bmatrix}$$
+\end{solucion}
+\item Sea una descomposción $PA = LU$ donde
+	$$P = \begin{bmatrix}
+	0 & 0 & 1\\
+	0 & 1 & 0\\
+	1 & 0 & 0
+	\end{bmatrix}, \quad
+	L = \begin{bmatrix}
+	1 & 0 & 0\\
+	-1 & 1 & 0\\
+	0 & 1 & 1
+	\end{bmatrix}, \quad
+	U = \begin{bmatrix}
+	2 & 1 & 0\\
+	0 & 1 & 1\\
+	0 & 0 & -1
+	\end{bmatrix}$$
+	determine usando directamente esta factorización la tercera fila de $A^{-1}$.
+\begin{solucion}
+La tercera fila de $A^{-1}$ es la tercera columna transpuesta de $(A^T)^{-1}$, es decir, corresponde a la solución de
+		$$A^Tx = e_3$$
+		Tenemos que
+		$$PA = LU$$
+		Transponiendo a ambos lados,
+		$$(PA)^T = (LU)^T$$
+		$$A^TP^T = U^TL^T$$
+		$$A^T = U^TL^TP$$
+		Entonces,
+		$$A^Tx = e_3 \ra U^TL^TPx = e_3$$
+		Digamos que
+		$$L^TPx = y \ra U^Ty = e_3 \ra \begin{bmatrix}
+		2 & 0 & 0\\
+		1 & 1 & 0\\
+		0 & 1 & -1
+		\end{bmatrix}y = \begin{pmatrix}
+		0 \\ 0 \\ 1
+		\end{pmatrix} \ra y = \begin{pmatrix}
+		0 \\ 0 \\ -1
+		\end{pmatrix}$$
+		Digamos ahora que
+		$$Px = z \ra L^Tz = y \ra \begin{bmatrix}
+		1 & -1 & 0\\
+		0 & 1 & 1\\
+		0 & 0 & 1
+		\end{bmatrix}z = \begin{pmatrix}
+		0 \\ 0 \\ -1
+		\end{pmatrix} \ra z = \begin{pmatrix}
+		1 \\ 1 \\ -1
+		\end{pmatrix}$$
+		Por último
+		$$Px = z \ra \begin{bmatrix}
+		2 & 1 & 0\\
+		0 & 1 & 1\\
+		0 & 0 & -1
+		\end{bmatrix}x = \begin{pmatrix}
+		1 \\ 1 \\ -1
+		\end{pmatrix} \ra x = \begin{pmatrix}
+		-1 \\ 1 \\ 1
+		\end{pmatrix}$$
+		En conclusión, la tercera fila de $A^{-1}$ es $\begin{pmatrix}
+		-1 \\ 1 \\ 1
+		\end{pmatrix}$
+\end{solucion}
+\item Sea $A \in M_4 (\R)$ tal que $|A|=5$, encuentre
+\begin{tasks}(4)
+\task $|2^3A|$
+\task $|A^5|$
+\task $|-A|$
+\task $||A|A^{-1}|$
+\end{tasks}
+\begin{solucion}
+
+\begin{enumerate}[a)]
+\item $|2^3A| = (2^3)^4|A| = 2^{12}\cdot 5$
+\item $|A^5| = |AAAAA| = |A||A||A||A||A| = |A|^5 = 5^5$
+\item $|-A| = (-1)^4|A| = |A| = 5$
+\item $||A|A^{-1}| = |5A^{-1}| = 5^4|A^{-1}| = 5^4\dfrac{1}{|A|} = \dfrac{5^4}{5} = 5^3 = 125$
+\end{enumerate}
+\end{solucion}
+\item Sea $A$ una matriz de $4\times 4$, tal que $det(A) = \alpha \neq 0$
+\begin{enumerate}[a)]
+\item Calcule  $det(5A)+det(3A^{-1})$ en terminos de $\alpha$.
+\item Se sabe que $det(Adj(A))=8$. Calcule $\alpha$.
+\end{enumerate}
+\begin{solucion}
+
+\begin{enumerate}[a)]
+\item Calcule  $det(5A)+det(3A^{-1})$ en terminos de $\alpha$.
+			
+			En primer lugar,
+			$$det(5A) = 5^4det(a) = 5^4\alpha = 625 \alpha$$
+			En segundo lugar,
+			$$det(3A^{-1}) = 3^4det(A^{-1}) = 3^4 \dfrac{1}{\alpha} = \dfrac{81}{\alpha}$$
+			Finalmente,
+			$$det(5A)+det(3A^{-1}) = 625 \alpha + \dfrac{81}{\alpha}$$
+\item Se sabe que $det(Adj(A))=8$. Calcule $\alpha$.
+			
+			Recordemos que
+			$$A\ Adj(A) = det(A) I$$
+			Apliquemos $det$ a ambos lados de la igualdad,
+			$$det(A\ Adj(A)) = det(det(A) I)$$
+			$$det(A)\ det(Adj(A)) = det(A)^4\ det(I)$$
+			$$det(Adj(A)) = det(A)^3$$
+			$$det(A) = \sqrt[3]{det(Adj(A))}$$
+			$$det(A) = \sqrt[3]{8}$$
+			$$det(A) = 2$$
+\end{enumerate}
+\end{solucion}
+\item Sea $A$ un matriz tal que
+$$A^3 = 
+\begin{bmatrix}
+2 & 0 & 2\\
+-1 & 1 & 2\\
+2 & -1 & -1
+\end{bmatrix}$$
+\begin{enumerate}[a)]
+\item Calcule el determinante de la matriz $A^3$ mediante desarrollo por cofactores.
+\item Demuestre que $A$ no es invertible.
+\end{enumerate}
+\begin{solucion}
+
+\begin{enumerate}[a)]
+\item Calcule el determinante de la matriz $A^3$ mediante desarrollo por cofactores.\\
+\\
+$$|A^3| = \left|\begin{bmatrix}
+2 & 0 & 2\\
+-1 & 1 & 2\\
+2 & -1 & -1
+\end{bmatrix}\right| = 2\left|\begin{bmatrix}
+1 & 2\\
+-1 & -1
+\end{bmatrix}\right| + 2\left|\begin{bmatrix}
+1 & 2\\
+-1 & -1
+\end{bmatrix}\right| = 2 - 2 = 0$$
+\item Demuestre que $A$ no es invertible.\\
+\\
+$$|A^3| = 0 \ra |A|^3 = 0 \ra |A| = 0$$
+Por lo que la matriz no es invertible.
+\end{enumerate}
+\end{solucion}
+\item Sea $A$ una matriz de $n \times n$ definida por
+	$$a_{i,j} = 
+	\begin{cases}
+	3 \quad si\ i\leq j \\
+	1 \quad si\ i > j
+	\end{cases}$$
+	Calcule $det(A)$.
+\begin{solucion}
+En primer lugar, veamos como es $A$,
+		$$A = \begin{bmatrix}
+		3 & 3 & 3 & \dots & 3 & 3 \\ 
+		1 & 3 & 3 & \dots & 3 & 3 \\ 
+		1 & 1 & 3 & \dots & 3 & 3 \\ 
+		\vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\ 
+		1 & 1 & 1 & \dots & 3 & 3 \\ 
+		1 & 1 & 1 & \dots & 1 & 3
+		\end{bmatrix}$$
+		Ahora, busquemos su determinante,
+		$$det(A) = \left|\begin{bmatrix}
+		3 & 3 & 3 & \dots & 3 & 3 \\ 
+		1 & 3 & 3 & \dots & 3 & 3 \\ 
+		1 & 1 & 3 & \dots & 3 & 3 \\ 
+		\vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\ 
+		1 & 1 & 1 & \dots & 3 & 3 \\ 
+		1 & 1 & 1 & \dots & 1 & 3
+		\end{bmatrix}\right|$$
+		En primer lugar, ponderemos la primera fila por $\dfrac{1}{3}$. Al hacer esto, debemos multiplicar por 3 afuera para mantener el valor del determinante igual.
+		$$det(A) = 3 \left|\begin{bmatrix}
+		1 & 1 & 1 & \dots & 1 & 1 \\ 
+		1 & 3 & 3 & \dots & 3 & 3 \\ 
+		1 & 1 & 3 & \dots & 3 & 3 \\ 
+		\vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\ 
+		1 & 1 & 1 & \dots & 3 & 3 \\ 
+		1 & 1 & 1 & \dots & 1 & 3
+		\end{bmatrix}\right|$$
+		Ahora, a todas las filas (menos a la primera) le restaremos la primera fila
+		$$det(A) = 3 \left|\begin{bmatrix}
+		1 & 1 & 1 & \dots & 1 & 1 \\ 
+		0 & 2 & 2 & \dots & 2 & 2 \\ 
+		0 & 0 & 2 & \dots & 2 & 2 \\ 
+		\vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\ 
+		0 & 0 & 0 & \dots & 2 & 2 \\ 
+		0 & 0 & 0 & \dots & 0 & 2
+		\end{bmatrix}\right|$$
+		Notemos ahora que la diagonal está compuesta de un 1 y luego puros 2, por lo que
+		$$det(A) = 3 \cdot 2^{n-1}$$
+\end{solucion}
+\item Calcular el determinante de siguiente matriz de $n\times n$
+	$$ \begin{bmatrix}
+	-3 & x & x & \dots & x \\
+	x & -3 & x & \dots & x \\
+	x & x & -3 & \dots & x \\
+	\vdots & \vdots & \vdots & \ddots & \vdots \\
+	x & x & x & \dots & -3
+	\end{bmatrix}$$
+\begin{solucion}
+Calulemos el determinante de la matriz, esto es
+		$$ \left|\begin{bmatrix}
+		-3 & x & x & \dots & x \\
+		x & -3 & x & \dots & x \\
+		x & x & -3 & \dots & x \\
+		\vdots & \vdots & \vdots & \ddots & \vdots \\
+		x & x & x & \dots & -3
+		\end{bmatrix}\right|$$
+		Lo primero que haremos, será restarle la fila $n$ a todas las filas menos a la fila 1 y a la fila $n$, es decir realizaremos las operaciones $f_2-f_n$, $f_3-f_n$, \dots, $f_{n-1} - f_n$
+		$$ \left|\begin{bmatrix}
+		-3 & x & x & \dots & x \\
+		0 & -3-x & 0 & \dots & x+3 \\
+		0 & 0 & -3 & \dots & x+3 \\
+		\vdots & \vdots & \vdots & \ddots & \vdots \\
+		x & x & x & \dots & -3
+		\end{bmatrix}\right|$$
+		En segundo lugar, haremos $f_n-f_1$
+		$$ \left|\begin{bmatrix}
+		-3 & x & x & \dots & x \\
+		0 & -3-x & 0 & \dots & x+3 \\
+		0 & 0 & -3 & \dots & x+3 \\
+		\vdots & \vdots & \vdots & \ddots & \vdots \\
+		x+3 & 0 & 0 & \dots & -3-x
+		\end{bmatrix}\right|$$
+		Recordemos que el determinante de una matriz es el mismo que de su transpuesta, por lo que podemos también realizar operaciones de columnas al igual como lo hacemos con las filas. Dicho esto, haremos $c_1 + c_n$,
+		$$ \left|\begin{bmatrix}
+		-3+x & x & x & \dots & x \\
+		x+3 & -3-x & 0 & \dots & x+3 \\
+		x+3 & 0 & -3 & \dots & x+3 \\
+		\vdots & \vdots & \vdots & \ddots & \vdots \\
+		0 & 0 & 0 & \dots & -3-x
+		\end{bmatrix}\right|$$
+		Por último, realizaremos las operaciones $c_1 + c_2$, $c_1 +c_3$, \dots, $c_1 + c_{n-1}$
+		$$ \left|\begin{bmatrix}
+		-3+x(n-1) & x & x & \dots & x \\
+		0 & -3-x & 0 & \dots & x+3 \\
+		0 & 0 & -3 & \dots & x+3 \\
+		\vdots & \vdots & \vdots & \ddots & \vdots \\
+		0 & 0 & 0 & \dots & -3-x
+		\end{bmatrix}\right|$$
+		Aqui ya podemos multiplicar la diagonal de esta matriz, con lo que el determinante nos queda
+		$$det = (-3 + x(n-1)) \cdot (-3-x)^{n-1} = (-3-x)^n + xn(-3-x)^{n-1}$$
+\end{solucion}
+\item Sean $v_1,v_2,v_3,v_4 \in \R^4$, encuentre el $|A|$ si\\
+$A=[v_1-v_3+v_4 \;\;\;\;-v_2-v_3 \;\;\;\; v_3-v_1
+\;\;\;\;v_1+v_2+2v_4 ]\in M_4 (\R)$
+\begin{solucion}
+En primer lugar, notemos que no sabemos nada de los vectores dados, es decir, estos podrían perfectamente ser $LD$. Por ende, existen dos posibles respuestas a esta pregunta: el determinante es 0 o no hay suficiente información para saber.\\
+
+Para que el determinante sea 0, las columnas de $A$ deben ser $LD$, es decir, debe existir $\alpha_1, \alpha_2, \alpha_3, \alpha_4 \in \R$ no todos iguales a 0, tal que
+$$\alpha_1(v_1-v_3+v_4) + \alpha_2(-v_2-v_3) +\alpha_3(v_3-v_1) + \alpha_4(v_1+v_2+2v_4) = 0$$
+Una forma sencilla de demostrar que existe alguna combinación de valores no triviales que cumpla con esto, es buscar una en particular. Para esto diremos de manera arbitraria que $\alpha_4 = -1$ y buscaremos los otros. Con esto, obtenemos
+$$\alpha_1(v_1-v_3+v_4) + \alpha_2(-v_2-v_3) +\alpha_3(v_3-v_1) =v_1+v_2+2v_4$$
+Notemos que esto equivale a encontrar una combinación lineal de las 3 primeras columnas para formar la cuarta. Reordenando,
+$$(\alpha_1 - \alpha_3)v_1 -\alpha_2 v_2 + (-\alpha_1 - \alpha_2 + \alpha_3)v_3 + \alpha_1 v_4 =v_1+v_2+2v_4$$
+De aquí, obtenemos el sistema
+$$\begin{array}{rcl}
+\alpha_1 - \alpha_3 & = & 1\\
+-\alpha_2 & = & 1\\
+-\alpha_1 - \alpha_2 + \alpha_3 & = & 0\\
+\alpha_1 & = & 2
+\end{array} \ra
+\begin{array}{rcl}
+\alpha_1 & = & 2\\
+\alpha_2 & = & -1\\
+\alpha_3 & = & 1\\
+\alpha_4 & = & -1
+\end{array}
+$$
+Que corresponde a una solución no trivial, por lo que las columnas de $A$ son $LD$.\\
+
+En conclusión, el determinante de $A$ es 0.
+\end{solucion}
+\item Sea $P$ el paralelepípedo con un vertice en el origen y vertices adyacentes en $(1,4,0)$, $(-2,-5,2)$, $(-1,2,-1)$
+\begin{enumerate}[a)]
+\item Determinar el volumen de $P$.
+\item Se define $T: \R^3 \ra \R^3$ como la transformación lineal definida por $$T(x,y,z)=(x+y,y+z,x-z)$$
+		Calcule el volumen de $T(P)$.
+\end{enumerate}
+\begin{solucion}
+
+\begin{enumerate}[a)]
+\item Determinar el volumen de $P$.\\
+			\\
+			Los vectores de las aristas son 
+			$$v_1 = \begin{pmatrix}
+			1 \\ 4 \\ 0
+			\end{pmatrix}, \quad
+			v_2 = \begin{pmatrix}
+			-2 \\ -5 \\ 2
+			\end{pmatrix}, \quad
+			v_3 = \begin{pmatrix}
+			-1 \\ 2 \\ -1
+			\end{pmatrix}$$
+			Podemos representar a $P$ en forma matricial de la siguiente forma:
+			$$A_P = \begin{bmatrix}
+			1 & -2 & -1 \\
+			4 & -5 & 2 \\
+			0 & 2 & -1
+			\end{bmatrix}$$
+			Luego, el volumen de $P$ se calcula como $|det(A_P)|$, esto es
+			$$\left| det \left(\begin{bmatrix}
+			1 & -2 & -1 \\
+			4 & -5 & 2 \\
+			0 & 2 & -1
+			\end{bmatrix}\right)\right| =| 0 -2(2+4) - 1(-5+8)| = |-12 - 3| =| -15| = 15$$
+			Por lo que el volumen de $P$ es $15$.
+\item Se define $T: \R^3 \ra \R^3$ como la transformación lineal definida por $$T(x,y,z)=(x+y,y+z,x-z)$$
+			Calcule el volumen de $T(P)$.\\
+			\\
+			En primer lugar, encontremos la matriz de la transformación lineal
+			$$T(x,y,z)=(x+y,y+z,x-z) = \begin{pmatrix}
+			x+y \\ 
+			y+z \\ 
+			x-z
+			\end{pmatrix} = \begin{bmatrix}
+			1 & 1 & 0 \\
+			0 & 1 & 1 \\
+			1 & 0 & -1 
+			\end{bmatrix} \begin{pmatrix}
+			x \\ y \\ z
+			\end{pmatrix}$$
+			Por lo que
+			$$A_T = \begin{bmatrix}
+			1 & 1 & 0 \\
+			0 & 1 & 1 \\
+			1 & 0 & -1 
+			\end{bmatrix}$$
+			Luego, el volumen de $T(P)$ será $|det(A_P)| \cdot |det(A_T)|$
+			$$|det(A_T)| = \left| det \left(\begin{bmatrix}
+			1 & 1 & 0 \\
+			0 & 1 & 1 \\
+			1 & 0 & -1 
+			\end{bmatrix}\right)\right| = |1(-1-0) - (0 - 1)| = |1-1| = 0$$
+			Finalmente,
+			$$V(T(P)) = |det(A_P)| \cdot |det(A_T)| = 15 \cdot 0 = 0$$
+\end{enumerate}
+\end{solucion}
+\item Determine la segunda columna de la inversa de $A = \left[ \begin{array}{rrr} 2&1&0\\ 0&1&2\\ 1&2&0 \end{array} \right]$ utilizando el metodo de cramer.
+\begin{solucion}
+El metodo de cramer dice que para resolver un sistema $Ax = b$, se puede hacer lo siguiente:\\
+
+Sea $A_1$ la matriz $A$ con la columna $i$ reemplazada por el vector $b$, se cumple que
+$$x_i = \dfrac{|A_i|}{|A|}$$
+Como lo que queremos obtener es la segunda columna de la inversa de $A$, el sistema que debemos resolver es
+$$Ax = e_2$$
+Para aplicar cramer, en primer lugar calculemos el determinante de $A$, esto es
+$$|A| = \left|  \left[ \begin{array}{rrr} 2&1&0\\ 0&1&2\\ 1&2&0 \end{array} \right] \right| = 2\cdot (-4) - (-2) = -6$$
+Luego,
+$$x_1 = 
+\dfrac{\left|  \left[ \begin{array}{rrr} 0&1&0\\ 1&1&2\\ 0&2&0 \end{array} \right] \right|}{|A|} = 
+\dfrac{0}{-6} = 0$$
+$$x_2 = 
+\dfrac{\left|  \left[ \begin{array}{rrr} 2&0&0\\ 0&1&2\\ 1&0&0 \end{array} \right] \right|}{|A|} = 
+\dfrac{0}{-6} = 0$$
+$$x_3 = 
+\dfrac{\left|  \left[ \begin{array}{rrr} 2&1&0\\ 0&1&1\\ 1&2&0 \end{array} \right] \right|}{|A|} = 
+\dfrac{2\cdot 1 - (-1)}{-6} = \dfrac{1}{2}$$
+Finalmente,
+$$x = \begin{pmatrix}
+0 \\ 0 \\ \frac{1}{2}
+\end{pmatrix}$$
+Que corresponde a la segunda columna de la inversa de $A$.
+\end{solucion}
+\item Sea $V = \mathbb{P}_2$ el espacio vectorial de los polinomios con coeficientes reales de grado menor o igual a 2. Demuestre que el conjunto
+	$$U=\{p(x) \in V : p(1) + p(0) = p(-1)\}$$
+	Demuestre que $U$ es subespacio de $V$.
+\begin{solucion}
+Para demostrar que $U$ es un subespacio vectorial, debemos ver que sea no vacío, cerrado en la suma y cerrado en la multiplicación.
+		
+		No vacío:
+		
+		Sea el polinomio $p(x) = 0$, vemos que
+		$$p(1) + p(0) =p(-1)$$
+		$$0 = 0$$
+		Por lo que $p(x) \in U$, asi que no es vacío.
+		
+		Suma:
+		
+		Sean $p, q \in U$,
+		
+		P.D.
+		$$ \begin{array}{rcl}
+		(p+q)(1) + (p+q)(0) &= &(p+q)(-1)\\
+		p(1) + q(1)+ p(0)+q(0) &= &(p+q)(-1)\\
+		p(1) + p(0)+ q(1) + q(0) &= &(p+q)(-1)\\
+		p(-1)+ q(-1) &= &(p+q)(-1)\\
+		(p+q)(-1) &= &(p+q)(-1)
+		\end{array}$$
+		Por lo que es cerrado en la suma
+		
+		Multiplicación:
+		
+		Sea $p \in U$ y $\alpha \in \R$,
+		P.D.
+		$$ \begin{array}{rcl}
+		(\alpha p)(1) + (\alpha p)(0) = (\alpha p)(-1) \\
+		\alpha p(1) + \alpha p(0) = (\alpha p)(-1) \\
+		\alpha ( p(1) +  p(0)) = (\alpha p)(-1) \\
+		\alpha p(-1) = (\alpha p)(-1)\\
+		(\alpha  p)(-1) = (\alpha p)(-1)
+		\end{array}$$
+		 
+		Por lo que es cerrado en la multiplicación
+		
+		Entonces, tenemos que $U$ es un subespacio de $V$.
+		$$\blacksquare$$
+\end{solucion}
+\item Sea $V = \mathbb{P}_3$ y sea
+$$W = \{p(x) \in V: p(1) = p(0) =0\}$$
+Demostrar que $W$ es subespacio de $V$.
+\begin{solucion}
+Para demostrar que $U$ es un subespacio vectorial, debemos ver que contenga al 0, sea cerrado en la suma y cerrado en la multiplicación.
+
+$0 \in W$:
+
+Sea el polinomio $p(x) = 0$, vemos que
+$$p(1) = p(0) = 0$$
+$$0 = 0 = 0$$
+Por lo que $p(x) \in U$, asi que no es vacío.\\
+
+Suma:
+
+Sean $p, q \in W$,
+
+P.D. $p + q \in W$.\\
+
+Notemos que $p$ y $q$ serán de la forma
+$$p(x) = a + bx + cx^2 + dx^3 \qquad y \qquad q(x) = e + fx + gx^2 + hx^3$$
+Con
+$$p(0) = a = 0, \qquad q(0) = e = 0$$
+$$p(1) = a + b + c + d = 0,\qquad q(1) = e + f + g + h = 0$$
+Luego,
+$$(p+q)(x) = (a + bx + cx^2 + dx^3) + (e + fx + gx^2 + hx^3)$$
+Además,
+$$(p+q)(0) = a + e = 0 + 0 = 0$$
+$$(p+q)(1) = (a + b + c + d) + (e + f + g + h) = 0 + 0 = 0$$
+Por lo que $p + q \in W$ y por ende $W$ es cerrado en la suma.\\
+
+Multiplicación:
+
+Sea $p \in W$ y $\alpha \in \R$,
+P.D. $\alpha p \in W$.\\
+
+Notemos que $p$ y $q$ serán de la forma
+$$p(x) = a + bx + cx^2 + dx^3 \qquad y \qquad q(x) = e + fx + gx^2 + hx^3$$
+Con
+$$p(0) = a = 0, \qquad p(1) = a + b + c + d = 0$$
+Luego,
+$$(\alpha p)(x) = \alpha(a + bx + cx^2 + dx^3)$$
+Además,
+$$(\alpha p)(0) = \alpha a = \alpha \cdot 0 = 0$$
+$$(\alpha p)(1) = \alpha (a + b + c + d) = \alpha \cdot 0 = 0$$
+
+Por lo que $\alpha p \in W$ y $W$ es cerrado en la multiplicación\\
+
+Entonces, tenemos que $W$ es un subespacio de $V$.
+$$\blacksquare$$
+\end{solucion}
+\item La matriz $A = \begin{bmatrix}
+	1 & 3 & 4 & -1 & 2\\
+	2 & 6 & 6 & 0 & -3\\
+	3 & 9 & 3 & 6 & -3\\
+	3 & 9 & 0 & 9 & 0
+	\end{bmatrix}$ es equivalente por filas a $B = \begin{bmatrix}
+	1 & 3 & 4 & -1 & 2\\
+	0 & 0 & 1 & -1 & 1\\
+	0 & 0 & 0 & 0 & -8\\
+	0 & 0 & 0 & 0 & 0
+	\end{bmatrix}$. Sin calcular bases, determine las dimensiones de Nul $A$, Col $A$, Col $A^T$ y Nul $A^T$.
+\begin{solucion}
+$B$ tiene 2 filas $L.D.$, es decir, 2 variables libres, por lo que $A$ también. Por esto,
+		$$dim(Nul\ A) = 2$$
+		Como $B$ tiene 3 pivotes, entonces $A$ también. Luego,
+		$$dim(Col\ A) = 3$$
+		Además, $B$ tiene 3 filas no nulas (pivotes), por lo que $A$ también. Estas filas serán el espacio fila de $A$ ($Fil\ A$), cuya dimensión es equivalente al espacio columna de $A^T$, por lo que
+		$$dim(Col\ A^T) = dim(Fil\ A) = 3$$
+		Por lo anterior, como $A^T$ tendrá 3 columnas pivotes, tendrá una variable libre, lo que implica
+		$$dim(Nul\ A^T) = 1$$
+\end{solucion}
+\item En cada caso, determine si la afirmación es verdadera o falsa y justifique su respuesta.
+\begin{enumerate}[a)]
+\item El subconjunto de $\R^2$
+		$$E=\{(x_1, x_2) \in \R^2:9x_1^2+2x_2^2 \leq 4\}$$
+		es un subespacio vectorial de $\R^2$.
+\item Si $A$ es una matriz de $n \times n$ tal que $A^2=A$, entonces $Col(A) \cap Nul(A) = \{0\}$.
+\item Si $n$ es impar y $A$ es una matriz de $n\times n$ que satisface $A^T = -A$ entonces $Nul(A) \neq \{0\}$.
+\end{enumerate}
+\begin{solucion}
+
+\begin{enumerate}[a)]
+\item El subconjunto de $\R^2$
+			$$E=\{(x_1, x_2) \in \R^2:9x_1^2+2x_2^2 \leq 4\}$$
+			es un subespacio vectorial de $\R^2$.\\
+			\\
+			Tomemos el par $(0,1)$
+			$$9 \cdot 0^2 + 2 \cdot 1^2 \leq 4 \ra 2 \leq 4 \ra (0,1) \in E$$
+			Veamos ahora con $2 \cdot (0,1) = (0,2)$,
+			$$9 \cdot 0^2 + 2 \cdot 2^2 \leq 4 \ra 8 \leq 4 \ra (0,2) \not \in E$$
+			Con lo que concluimos que $E$ no es cerrado en la multiplicación, por lo que no puede ser un subespacio vectorial. Entonces, la afirmación es {\bf FALSA}.
+\item Si $A$ es una matriz de $n \times n$ tal que $A^2=A$, entonces $Col(A) \cap Nul(A) = \{0\}$.\\
+			\\
+			Digamos que $y \in Col(A) \cap Nul(A)$
+			
+			Como $y \in Col(A) \cap Nul(A) \ra \exists x \in \R^n (Ax = y)$\\
+			\\
+			Como $A^2 = A$, entonces
+			$$Ay = A(Ax) = A^2x = Ax = y$$
+			de donde concluimos que $y = Ay$\\
+			\\
+			Además, sabemos que $y \in Nul(A)$, por lo que
+			$$y = Ay = 0 \ra y = 0$$
+			Luego,
+			$$Col(A) \cap Nul(A) = \{0\}$$
+			Por lo que la afirmación es {\bf VERDADERA}.
+\item Si $n$ es impar y $A$ es una matriz de $n\times n$ que satisface $A^T = -A$ entonces $Nul(A) \neq \{0\}$.\\
+			\\
+			$$det(-A) = (-1)^n det(A)$$
+			Pero $n$ es impar, por lo que
+			$$det(-A) = -det(A)$$
+			Además, $det(A) = det(A^T)$. Luego,
+			$$det(A) = det(A^T) = det(-A) = -det(A)$$
+			$$det(A) = -det(A)$$
+			$$det(A) = 0$$
+			Luego, $A$ no es invertible, por lo que
+			$$Nul(A) \neq \{0\}$$
+			Dicho esto, la afirmación es {\bf VERDADERA}.
+\end{enumerate}
+\end{solucion}
+\end{preguntas}
+\end{document}
