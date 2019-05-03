@@ -1,0 +1,220 @@
+\documentclass[12pt]{article}
+
+\usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[none]{hyphenat}
+\usepackage{parskip}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\usepackage{tasks}
+\usepackage{mdframed}
+\usepackage{xcolor}
+\usepackage{pgfplots}
+\usepackage[makeroom]{cancel}
+\usepackage{multicol}
+\usepackage[shortlabels]{enumitem}
+\usepackage{stackrel}
+\usepackage{tkz-tab}
+\usepackage{xpatch}
+\xpatchcmd{\tkzTabLine}{$0$}{$\bullet$}{}{}
+
+\setlength{\headheight}{10pt}
+\setlength{\headsep}{10pt}
+\pagestyle{fancy}
+\rhead{\ayudantia \ - \alumno}
+\tikzset{t style/.style={style=solid}}
+
+\newcommand*{\mybox}[2]{\colorbox{#1!30}{\parbox{.98\linewidth}{#2}}}
+
+\newenvironment{solucion}
+{\begin{mdframed}[backgroundcolor=black!10]
+		{\bf Solución:}\\
+	}
+	{
+	\end{mdframed}
+}
+
+\newenvironment{alternativas}[1]
+{\begin{multicols}{#1}
+		\begin{enumerate}[a)]
+		}
+		{
+		\end{enumerate}
+	\end{multicols}
+}
+
+\newenvironment{preguntas}
+{\begin{enumerate}\itemsep12pt
+	}
+	{
+	\end{enumerate}
+}
+
+\newcommand{\ayudantia}{{\sc Ayudantía 8.5}}
+\newcommand{\tituloayu}{Compilado I2}
+\newcommand{\fecha}{3 de mayo de 2019}
+\newcommand{\sigla}{MAT1203}
+\newcommand{\nombre}{Álgebra Lineal}
+\newcommand{\profesor}{Camilo Perez}
+\newcommand{\ano}{2019}
+\newcommand{\semestre}{1}
+\newcommand{\mail}{mat1203@ifcastaneda.cl}
+\newcommand{\alumno}{Ignacio Castañeda - \mail}
+
+\newcommand{\ev}{\Big|}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lra}{\leftrightarrow}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Exp}[1]{\mathcal{E}_{#1}}
+\newcommand{\List}[1]{\mathcal{L}_{#1}}
+\newcommand{\EN}{\Exp{\N}}
+\newcommand{\LN}{\List{\N}}
+\newcommand{\comment}[1]{}
+\newcommand{\lb}{\\~\\}
+\newcommand{\eop}{_{\square}}
+\newcommand{\hsig}{\hat{\sigma}}
+\newcommand{\widesim}[2][1.5]{
+	\mathrel{\overset{#2}{\scalebox{#1}[1]{$\sim$}}}
+}
+\newcommand{\wsim}{\widesim{}}
+\newcommand{\lh}{\stackrel{L'H}{=}}
+
+\begin{document}
+\thispagestyle{empty}
+
+\begin{minipage}{2cm}
+	\includegraphics[width=2cm]{../../../../img/logo.pdf}
+	\vspace{0.5cm}
+\end{minipage}
+\begin{minipage}{\linewidth}
+	\begin{tabular}{lrl}
+		{\scriptsize\sc Pontificia Universidad Catolica de Chile} & \hspace*{0.7in}Curso: &
+		\sigla  - \nombre\\
+		{\sc Facultad de Matemáticas}&
+		Profesor: & \profesor \\
+		{\sc Semestre \ano-\semestre} & Ayudante: & {Ignacio Castañeda}\\
+		& {Mail:} & \texttt{\mail}
+	\end{tabular}
+\end{minipage}
+
+\vspace{-10mm}
+\begin{center}
+	{\LARGE\bf \ayudantia}\\
+	\vspace{0.1cm}
+	{\tituloayu}\\
+	\vspace{0.1cm}
+	\fecha\\
+	\vspace{0.4cm}
+\end{center}
+
+\begin{preguntas}
+\item Sea $A$ una matriz de $n \times n$ tal que existe una matriz $B \neq 0$ tal que $AB = 0$.\\
+Demuestre que $A$ no es invertible.
+\item Encuentre una factorziación $A = LU$ de
+	$$A = \begin{bmatrix}
+	2 & 4 & -1 & 5 & -2 \\
+	-4 & -5 & 3 & -8 & 1 \\
+	2 & -5 & -4 & 1 & 8 \\
+	-6 & 0 & 7 & -3 & 1
+	\end{bmatrix}$$
+\item Sea $A = \begin{bmatrix}
+	1 & 2 & 3\\
+	2 & 8 & 4 \\
+	3 & 4 & 11\end{bmatrix}$. Calcule la factorización $A=LDL^T$ de la matriz $A$ y en base a esto encuentre una matriz $R$ tal que $A = RR^T$.
+\item Sea una descomposción $PA = LU$ donde
+	$$P = \begin{bmatrix}
+	0 & 0 & 1\\
+	0 & 1 & 0\\
+	1 & 0 & 0
+	\end{bmatrix}, \quad
+	L = \begin{bmatrix}
+	1 & 0 & 0\\
+	-1 & 1 & 0\\
+	0 & 1 & 1
+	\end{bmatrix}, \quad
+	U = \begin{bmatrix}
+	2 & 1 & 0\\
+	0 & 1 & 1\\
+	0 & 0 & -1
+	\end{bmatrix}$$
+	determine usando directamente esta factorización la tercera fila de $A^{-1}$.
+\item Sea $A \in M_4 (\R)$ tal que $|A|=5$, encuentre
+\begin{tasks}(4)
+\task $|2^3A|$
+\task $|A^5|$
+\task $|-A|$
+\task $||A|A^{-1}|$
+\end{tasks}
+\item Sea $A$ una matriz de $4\times 4$, tal que $det(A) = \alpha \neq 0$
+\begin{enumerate}[a)]
+\item Calcule  $det(5A)+det(3A^{-1})$ en terminos de $\alpha$.
+\item Se sabe que $det(Adj(A))=8$. Calcule $\alpha$.
+\end{enumerate}
+\item Sea $A$ un matriz tal que
+$$A^3 = 
+\begin{bmatrix}
+2 & 0 & 2\\
+-1 & 1 & 2\\
+2 & -1 & -1
+\end{bmatrix}$$
+\begin{enumerate}[a)]
+\item Calcule el determinante de la matriz $A^3$ mediante desarrollo por cofactores.
+\item Demuestre que $A$ no es invertible.
+\end{enumerate}
+\item Sea $A$ una matriz de $n \times n$ definida por
+	$$a_{i,j} = 
+	\begin{cases}
+	3 \quad si\ i\leq j \\
+	1 \quad si\ i > j
+	\end{cases}$$
+	Calcule $det(A)$.
+\item Calcular el determinante de siguiente matriz de $n\times n$
+	$$ \begin{bmatrix}
+	-3 & x & x & \dots & x \\
+	x & -3 & x & \dots & x \\
+	x & x & -3 & \dots & x \\
+	\vdots & \vdots & \vdots & \ddots & \vdots \\
+	x & x & x & \dots & -3
+	\end{bmatrix}$$
+\item Sean $v_1,v_2,v_3,v_4 \in \R^4$, encuentre el $|A|$ si\\
+$A=[v_1-v_3+v_4 \;\;\;\;-v_2-v_3 \;\;\;\; v_3-v_1
+\;\;\;\;v_1+v_2+2v_4 ]\in M_4 (\R)$
+\item Sea $P$ el paralelepípedo con un vertice en el origen y vertices adyacentes en $(1,4,0)$, $(-2,-5,2)$, $(-1,2,-1)$
+\begin{enumerate}[a)]
+\item Determinar el volumen de $P$.
+\item Se define $T: \R^3 \ra \R^3$ como la transformación lineal definida por $$T(x,y,z)=(x+y,y+z,x-z)$$
+		Calcule el volumen de $T(P)$.
+\end{enumerate}
+\item Determine la segunda columna de la inversa de $A = \left[ \begin{array}{rrr} 2&1&0\\ 0&1&2\\ 1&2&0 \end{array} \right]$ utilizando el metodo de cramer.
+\item Sea $V = \mathbb{P}_2$ el espacio vectorial de los polinomios con coeficientes reales de grado menor o igual a 2. Demuestre que el conjunto
+	$$U=\{p(x) \in V : p(1) + p(0) = p(-1)\}$$
+	Demuestre que $U$ es subespacio de $V$.
+\item Sea $V = \mathbb{P}_3$ y sea
+$$W = \{p(x) \in V: p(1) = p(0) =0\}$$
+Demostrar que $W$ es subespacio de $V$.
+\item La matriz $A = \begin{bmatrix}
+	1 & 3 & 4 & -1 & 2\\
+	2 & 6 & 6 & 0 & -3\\
+	3 & 9 & 3 & 6 & -3\\
+	3 & 9 & 0 & 9 & 0
+	\end{bmatrix}$ es equivalente por filas a $B = \begin{bmatrix}
+	1 & 3 & 4 & -1 & 2\\
+	0 & 0 & 1 & -1 & 1\\
+	0 & 0 & 0 & 0 & -8\\
+	0 & 0 & 0 & 0 & 0
+	\end{bmatrix}$. Sin calcular bases, determine las dimensiones de Nul $A$, Col $A$, Col $A^T$ y Nul $A^T$.
+\item En cada caso, determine si la afirmación es verdadera o falsa y justifique su respuesta.
+\begin{enumerate}[a)]
+\item El subconjunto de $\R^2$
+		$$E=\{(x_1, x_2) \in \R^2:9x_1^2+2x_2^2 \leq 4\}$$
+		es un subespacio vectorial de $\R^2$.
+\item Si $A$ es una matriz de $n \times n$ tal que $A^2=A$, entonces $Col(A) \cap Nul(A) = \{0\}$.
+\item Si $n$ es impar y $A$ es una matriz de $n\times n$ que satisface $A^T = -A$ entonces $Nul(A) \neq \{0\}$.
+\end{enumerate}
+\end{preguntas}
+\end{document}
