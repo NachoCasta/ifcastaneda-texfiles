@@ -115,26 +115,82 @@
 \begin{preguntas}
 \item Considere un trozo de alambre de 10 metros, el cual se corta en dos pedazos. Uno se dobla para formar un cuadrado y el otro se dobla para formar un triángulo equilátero. ¿Cómo debe cortarse el alambre de modo que el área total encerrada sea máxima?
 \begin{solucion}
+Notemos que al cortar el alambre en $x \in [0, 10]$, un trozo queda de largo $x$ y el otro de largo $10-x$. Digamos que el trozo de largo $x$ será usado para armar el triangulo y el de largo $10-x$ para armar el cuadrado. En caso de "cortarse" en uno de los extremos, significa que usamos el alambre en su totalidad para hacer uno o el otro.\\
 
+El área de un triangulo equilatero de lado $a$ correspode a $A_\triangle = \dfrac{a^2\ \sqrt[]{3}}{4}$. Luego,
+$$A_\triangle = \dfrac{\left(\dfrac{x}{3}\right)\ \sqrt[]{3}}{4} = \dfrac{\sqrt[]{3}x^2}{36}$$
+El área de un cuadrado de lado $a$ corresponde a $A_\square = a^2$, por lo que
+$$A_\square = \left(\dfrac{10-x}{4}\right)^2$$
+Entonces, lo que se quiere maximizar es
+$$A_T(x) = A_\triangle + A_\square = \dfrac{\left(\dfrac{x}{3}\right)\ \sqrt[]{3}}{4} + \left(\dfrac{10-x}{4}\right)^2$$
+Derivando,
+{\small$$A_T'(x) = \dfrac{\sqrt[]{3}x}{18} + 2\left(\dfrac{10-x}{4}\right)\cdot\left(-\dfrac{1}{4}\right) =
+\dfrac{\sqrt[]{3}{x}}{18} + \dfrac{x-10}{8} =
+\dfrac{4\ \sqrt[]{3}x + 9x - 90}{72} =
+\dfrac{(4\ \sqrt[]{3} + 9)x - 90}{72} $$}
+Luego,
+$$A_T'(x) = 0 \ra x = \dfrac{90}{4\ \sqrt[]{3} + 9} \in (0,10)$$
+Sin embargo, notemos que $A_T'(0) < 0$ y $A_T'(10) > 0$, por lo que el punto $x = \dfrac{90}{4\ \sqrt[]{3} + 9}$ corresponde a un mínimo local.\\
+
+Por lo tanto, el máximo debe estar en $x=0$ o en $x=10$.
+$$A_T(0) = \dfrac{100}{16} \qquad y \qquad A_T(10) = \dfrac{100\ \sqrt[]{3}}{36}$$
+Como $\dfrac{100\ \sqrt[]{3}}{36} < \dfrac{100}{16}$, el máximo se encuentra en $x=0$, es decir, no se hace ningún corte y se forma solo un cuadrado.
 \end{solucion}
 \item Determine el punto de la parábola $y = 1 - x^2$ que está ubicado en el primer cuadrante, de modo que la tangente en dicho punto, forme un triángulo de área mínima con los ejes coordenados.
 \begin{solucion}
+Notemos que $y' = -2x$. Además, una parabola en el punto $(x_0, y_0)$ viene dada por la ecuación
+$$y-y_0 = y'(x_0)(x-x_0)$$
+Como $y_0 = 1-x_0^2$, 
+$$y-(1-x_0^2) = -2x_0(x-x_0)$$
+Para determinar el área del triangulo, debemos obtener su base y altura, que corresponde a la recta desde el origen hasta la intersección con el eje $X$ y el eje $Y$, respectivamente.\\
 
+Para la intersección con el eje $X$, hacemos $y = 0$, por lo que
+$$1-x_0^2 = -2x_0(x-x_0) \ra x* = \dfrac{1+x_0^2}{2x_0}$$
+Donde $x^*$ corresponde a la altura del triangulo\\
+
+Para la intersección con el eje $Y$, hacemos $x = 0$, por lo que
+$$y-(1-x_0^2) = 2x_0^2 \ra y* = 1 + x_0^2$$
+Donde $y^*$ corresponde a la base del triangulo.\\
+
+Luego, nuestra función área corresponderá a
+$$A(x_0) = \dfrac{x^*y^*}{2} = \dfrac{(1+x_0^2)^2}{4x_0}, \ x > 0$$
+Derivando,
+$$A'(x_0) = \dfrac{(x_0^2)(3x_0^2-1)}{4x_0^2} = 0$$
+De donde obtenemos que los puntos críticos son $\dfrac{1}{\sqrt[]{3}}$ y $-\dfrac{1}{\sqrt[]{3}}$. Sin embargo, $x$ debe ser positivo, por lo que el único punto crítico que tenemos es $x = \dfrac{1}{\sqrt[]{3}}$\\
+\\
+Además, notemos que para $x \in \left(0, \dfrac{1}{\sqrt[]{3}}\right) \ra A'(x) < 0$ y para $x > \dfrac{1}{\sqrt[]{3}} \ra A'(x) > 0$, por lo que $x = \dfrac{1}{\sqrt[]{3}}$ corresponde al área mínima, la cual es
+$$A\left(\dfrac{1}{\sqrt[]{3}}\right) = \dfrac{2}{3}$$
 \end{solucion}
 \item Encuentra una antiderivada para cada una de las siguientes funciones
 \begin{tasks}(2)
 \task $f(x) = 4x^3$
 \task $f(x) = 8x\sin (2x^2)$
-\task $f(x) = x^2 + \dfrac{3}{2x} + \dfrac{1}{1+4x^2}$
-\task $f(x) = e^{3x} + x\ln(x^2)$
+\task $f(x) = \dfrac{3}{2x}$
+\task $f(x) = \dfrac{1}{1+4x^2}$
 \end{tasks}
 \begin{solucion}
-
+Una antiderivada corresponde a una función cuya derivada nos de la función original, por lo que debemos pensar que cosa al derivarla nos dará la función que tenemos.
 \begin{enumerate}[a)]
-\item 
-\item 
-\item 
-\item 
+\item $f(x) = 4x^3$\\
+\\
+Notemos que al derivar algo de la forma $x^n$, siempre se pierde un grado, por lo que la antiderivada debe tener un grado más que $f(x)$ y contrarestar el exponente que pasará multiplicando al derivar, esto es,
+$$F(x) = 4\dfrac{x^3}{3}$$
+\item $f(x) = 8x\sin (2x^2)$\\
+\\
+Para obtener la función $\sin(x)$ debemos derivar el $-\cos(x)$. Sin embargo, necesitamos que "aparezca" un $x$ afuera multiplicando la función. Esto lo podemos lograr con la regla de la cadena. Además, como al derivar una función con la regla de la cadena, lo que esta adentro se mantiene, debemos dejar $2x^2$ adentro del coseno. Luego,
+$$F(x) = -4\cos(2x^2)$$
+\item $f(x) = \dfrac{3}{2x}$\\
+\\
+Notemos que $f(x) = \dfrac{3}{2} \cdot \dfrac{1}{x}$. Luego,
+$$F(x) = \dfrac{3}{2} \ln(x)$$
+\item $f(x) = \dfrac{3}{2x}$\\
+\\
+Notemos que $f(x) = \dfrac{3}{2} \cdot \dfrac{1}{x}$. Luego,
+$$F(x) = \dfrac{3}{2} \ln(x)$$
+\item $f(x) = \dfrac{1}{1+4x^2}$\\
+\\
+Es evidente que $f(x)= \dfrac{1}{1+(2x)^2}$, por lo que
+$$F(x) = \arctan(2x)$$
 \end{enumerate}
 \end{solucion}
 \end{preguntas}
