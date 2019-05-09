@@ -237,7 +237,31 @@ a\\ b\\ c \end{array} \right] \right) = (a+b+c) + (a-b+2c)x +
 $$
 Determine una base para $Nul(T) $ y para $Im (T) $ y las dimensiones de estos subespacios.
 \begin{solucion}
+Notemos que lo que estamos generando son polinomios de grado menor o igual a 2. La base canónica para estos polinomios es $B=\{1, x, x^2\}$
+En primer lugar, obtengamos la matriz asociada a la transformación lineal respecto a las bases canónicas, esto es,
+$$A = \begin{bmatrix}
+1 & 1 & 1 \\
+1 & -1 & 2 \\
+0 & 3 & -1
+\end{bmatrix}$$
+Recordemos que $Nul(T)$ corresponde a la solución del sistema homogeneo, es decir $Ax = 0$, esto es,
+$$\begin{bmatrix}
+1 & 1 & 1 \\
+1 & -1 & 2 \\
+0 & 3 & -1
+\end{bmatrix} \sim 
+\begin{bmatrix}
+1 & 0 & 0 \\
+0 & 1 & 0 \\
+0 & 0 & 1
+\end{bmatrix}$$
+Por lo que la solución del sistema homogeneo es $Gen\left\{\begin{pmatrix}0 \\ 0 \\ 0 \end{pmatrix}\right\}$. Recordemos que este vector es un vector de coordenadas, sin embargo, al ser el vector nulo, este generado equivale a $Gen\{0\}$.\\
 
+Veamos ahora el $Im (T)$, que corresponde a las bases $LI$. Esto es equivalente a ver las columnas $LI$ de $A$, que ya sabemos que son todas. Por lo tanto, 
+$$Im(A) = Gen\left\{\begin{pmatrix}1 \\ 0 \\ 0 \end{pmatrix},\begin{pmatrix}0 \\ 1 \\ 0 \end{pmatrix}, \begin{pmatrix}1 \\ 0 \\ 0 \end{pmatrix}\right\}$$
+Luego, traduciendo estos vectores coordenadas, concluimos que
+$$Im(T) = Gen\{1, x, x^2\}$$
+Finalmente, las dimensiones de $Nul(T)$ y $Im(T)$ son 0 y 3, respectivamente.
 \end{solucion}
 \end{preguntas}
 \end{document}
