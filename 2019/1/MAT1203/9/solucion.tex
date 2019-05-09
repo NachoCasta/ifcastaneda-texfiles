@@ -230,55 +230,14 @@ La base que utilizaremos será
 			Por lo que sus el conjunto $\{p_1(t), f(t), g(t)\}$ es $L.I.$
 \end{enumerate}
 \end{solucion}
-\item Sea $A$ una matriz tal que $dim(Nul(A)) = 3$ y
-	$$A^T \begin{pmatrix}
-	1 \\ -2 \\ 1 \\ 1
-	\end{pmatrix} = \begin{pmatrix}
-	0 \\ 0 \\ 0 \\ 0 \\ 0
-	\end{pmatrix}, \quad A^T \begin{pmatrix}
-	2 \\ -1 \\ -1 \\ 1
-	\end{pmatrix} = \begin{pmatrix}
-	0 \\ 0 \\ 0 \\ 0 \\ 0
-	\end{pmatrix}$$
-\begin{enumerate}[a)]
-\item Determine las dimensiones de $Col(A)$, de $Fila(A)$ y de $Nul(A^T)$
-\item Determine, en los casos que sea posible, bases para los espacios $Nul(A^T)$ y $Fila(A)$.
-\end{enumerate}
+\item Sea
+$$T\left(\left[ \begin{array}{c}
+a\\ b\\ c \end{array} \right] \right) = (a+b+c) + (a-b+2c)x +
+(3b-c)x^2
+$$
+Determine una base para $Nul(T) $ y para $Im (T) $ y las dimensiones de estos subespacios.
 \begin{solucion}
 
-\begin{enumerate}[a)]
-\item Determine las dimensiones de $Col(A)$, de $Fila(A)$ y de $Nul(A^T)$\\
-			\\
-			Antes de comenzar, recordemos que para una matriz $A_{n\times m}$, se tiene que
-			$$dim(Nul(A)) + dim(Col(A)) = m$$
-			$$dim(Nul(A^T)) + dim(Col(A^T)) = n$$
-			$$dim(Col(A)) = dim(Col(A^T))$$
-			Para este ejercicio en particular, sabemos que $dim(Nul(A)) = 3$ y que la matriz $A$ tiene 4 filas y 5 columnas. Luego, usando la primera propiedad,
-			$$dim(Nul(A)) + dim(Col(A)) = 5$$
-			$$3 + dim(Col(A)) = 5$$
-			$$dim(Col(A)) = 2$$
-			Notemos también que la cantidad de pivotes será la misma en las filas que en las columnas, por lo que
-			$$dim(Fila(A)) = dim(Col(A)) = 2$$
-			Ahora, usando la segunda propiedad, tenemos que
-			$$dim(Nul(A^T)) + dim(Col(A^T)) = 4$$
-			Pero por la tercera propiedad sabemos que 
-			$$dim(Col(A^T)) = dim(Col(A)) = 2$$
-			Por lo que
-			$$dim(Nul(A^T)) + 2 = 4$$
-			$$dim(Nul(A^T)) = 2$$
-			Finalmente,
-			$$dim(Col(A))=2,\quad dim(Fila(A))=2, \quad dim(Nul(A^T))=2$$
-\item Determine, en los casos que sea posible, bases para los espacios $Nul(A^T)$ y $Fila(A)$.\\
-			\\
-			Sabemos que $dim(Nul(A^T))=0$ y del enunciado tenemos dos vectores $L.I.$ que son pertenecen al $Nul(A^T)$, por lo que una base de $Nul(A^T)$ es
-			$$\left\{ \begin{pmatrix}
-			1 \\ -2 \\ 1 \\ 1
-			\end{pmatrix},
-			\begin{pmatrix}
-			2 \\ -1 \\ -1 \\ 1
-			\end{pmatrix}\right\}$$
-			Por el otro lado, no podemos determinar una base para $Fila(A)$, ya que solo conocemos su dimensión pero no vectores que puedan generarlo.
-\end{enumerate}
 \end{solucion}
 \end{preguntas}
 \end{document}
