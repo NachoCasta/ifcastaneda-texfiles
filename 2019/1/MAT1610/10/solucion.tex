@@ -1,0 +1,171 @@
+\documentclass[12pt]{article}
+
+\usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[none]{hyphenat}
+\usepackage{parskip}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\usepackage{tasks}
+\usepackage{mdframed}
+\usepackage{xcolor}
+\usepackage{pgfplots}
+\usepackage[makeroom]{cancel}
+\usepackage{multicol}
+\usepackage[shortlabels]{enumitem}
+\usepackage{stackrel}
+\usepackage{tkz-tab}
+\usepackage{xpatch}
+\xpatchcmd{\tkzTabLine}{$0$}{$\bullet$}{}{}
+
+\setlength{\headheight}{10pt}
+\setlength{\headsep}{10pt}
+\pagestyle{fancy}
+\rhead{\ayudantia \ - \alumno}
+\tikzset{t style/.style={style=solid}}
+
+\newcommand*{\mybox}[2]{\colorbox{#1!30}{\parbox{.98\linewidth}{#2}}}
+
+\newenvironment{solucion}
+{\begin{mdframed}[backgroundcolor=black!10]
+		{\bf Solución:}\\
+	}
+	{
+	\end{mdframed}
+}
+
+\newenvironment{alternativas}[1]
+{\begin{multicols}{#1}
+		\begin{enumerate}[a)]
+		}
+		{
+		\end{enumerate}
+	\end{multicols}
+}
+
+\newenvironment{preguntas}
+{\begin{enumerate}\itemsep12pt
+	}
+	{
+	\end{enumerate}
+}
+
+\newcommand{\ayudantia}{{\sc Ayudantía 10}}
+\newcommand{\tituloayu}{Sumas de Riemann e Integrales}
+\newcommand{\fecha}{14 de mayo de 2019}
+\newcommand{\sigla}{MAT1610}
+\newcommand{\nombre}{Cálculo I}
+\newcommand{\profesor}{Amal Taarabt}
+\newcommand{\ano}{2019}
+\newcommand{\semestre}{1}
+\newcommand{\mail}{mat1610@ifcastaneda.cl}
+\newcommand{\alumno}{Ignacio Castañeda - \mail}
+
+\newcommand{\ev}{\Big|}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lra}{\leftrightarrow}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Exp}[1]{\mathcal{E}_{#1}}
+\newcommand{\List}[1]{\mathcal{L}_{#1}}
+\newcommand{\EN}{\Exp{\N}}
+\newcommand{\LN}{\List{\N}}
+\newcommand{\comment}[1]{}
+\newcommand{\lb}{\\~\\}
+\newcommand{\eop}{_{\square}}
+\newcommand{\hsig}{\hat{\sigma}}
+\newcommand{\widesim}[2][1.5]{
+	\mathrel{\overset{#2}{\scalebox{#1}[1]{$\sim$}}}
+}
+\newcommand{\wsim}{\widesim{}}
+\newcommand{\lh}{\stackrel{L'H}{=}}
+
+\begin{document}
+\thispagestyle{empty}
+
+\begin{minipage}{2cm}
+	\includegraphics[width=2cm]{../../../../img/logo.pdf}
+	\vspace{0.5cm}
+\end{minipage}
+\begin{minipage}{\linewidth}
+	\begin{tabular}{lrl}
+		{\scriptsize\sc Pontificia Universidad Catolica de Chile} & \hspace*{0.7in}Curso: &
+		\sigla  - \nombre\\
+		{\sc Facultad de Matemáticas}&
+		Profesor: & \profesor \\
+		{\sc Semestre \ano-\semestre} & Ayudante: & {Ignacio Castañeda}\\
+		& {Mail:} & \texttt{\mail}
+	\end{tabular}
+\end{minipage}
+
+\vspace{-10mm}
+\begin{center}
+	{\LARGE\bf \ayudantia}\\
+	\vspace{0.1cm}
+	{\tituloayu}\\
+	\vspace{0.1cm}
+	\fecha\\
+	\vspace{0.4cm}
+\end{center}
+
+\begin{preguntas}
+\item Calcule la siguiente integral, usando la definición de esta
+	$$\int_2^5(4-2x)dx$$
+\begin{solucion}
+Usando la integral por definición, podemos escribir la integral como
+		$$\int_2^5(4-2x)dx = \lim\limits_{n\ra \infty} \dfrac{5-2}{n} \sum\limits_{i=1}^n f \left(2+\dfrac{(5-2)i}{n}\right) $$
+		$$\int_2^5(4-2x)dx = \lim\limits_{n\ra \infty} \dfrac{5-2}{n} \sum\limits_{i=1}^n \left[4-2 \left(2+\dfrac{(5-2)i}{n}\right)\right]$$
+		Luego, procedemos a resolver el límite
+		$$= \lim\limits_{n\ra \infty} \dfrac{3}{n} \sum\limits_{i=1}^n \left[4-2 \left(2+\dfrac{3i}{n}\right)\right]$$
+		$$= \lim\limits_{n\ra \infty} \dfrac{3}{n} \sum\limits_{i=1}^n \left[4-4-\dfrac{6i}{n}\right]$$
+		$$= \lim\limits_{n\ra \infty} \dfrac{3}{n} \sum\limits_{i=1}^n \left[-\dfrac{6i}{n}\right]$$
+		$$= -18\lim\limits_{n\ra \infty} \dfrac{1}{n^2} \sum\limits_{i=1}^n i$$
+		$$= -18\lim\limits_{n\ra \infty} \dfrac{1}{n^2} \dfrac{n(n+1)}{2}$$
+		$$= -9\lim\limits_{n\ra \infty} \dfrac{n+1}{n}$$
+		$$= -9$$
+\end{solucion}
+\item Exprese el siguiente límite como una integral
+	$$\lim\limits_{n\ra \infty} \sum\limits_{k=0}^n \dfrac{1}{n+3k}$$
+\begin{solucion}
+Para lograr esto, debemos acomodar el límite para que tenga la estructura de una Suma de Riemann, es decir,
+		$$\lim\limits_{n \ra \infty} \dfrac{b-a}{n}\sum\limits_{k=0} f\left(a+\dfrac{(b-a)k}{n}\right)$$
+		Reorganizando el límite pedido,
+		$$ = \lim\limits_{n\ra \infty} \sum\limits_{k=0}^n \dfrac{1}{n+3k}$$
+		$$ = \lim\limits_{n\ra \infty} \sum\limits_{k=0}^n \dfrac{1}{n\left(1+\dfrac{3k}{n}\right)}$$
+		$$ = \dfrac{1}{3} \lim\limits_{n\ra \infty} \dfrac{3}{n} \sum\limits_{k=0}^n \dfrac{1}{1+\dfrac{3k}{n}}$$
+		Llegamos a una suma de Riemann, que esta asociada a la función $f(x) = \dfrac{1}{1+x}$ en el intervalo $[0, 3]$, por lo que
+		$$\lim\limits_{n\ra \infty} \sum\limits_{k=0}^n \dfrac{1}{n+3k} = \dfrac{1}{3} \displaystyle\int_0^3 \dfrac{dx}{1+x}$$
+\end{solucion}
+\item Resuelva las siguientes integrales
+\begin{tasks}(2)
+\task $\displaystyle\int 2xdx$
+\task $\displaystyle\int e^{ln(x^2)}dx$
+\task $\displaystyle\int 4cos(2x)dx$
+\task $\displaystyle\int 6e^{3x}dx$
+\end{tasks}
+\begin{solucion}
+
+\begin{enumerate}[a)]
+\item $\displaystyle\int 2xdx = x^2 + c$
+\item $\displaystyle\int e^{ln(x^2)}dx = \displaystyle\int x^2dx = \dfrac{x^3}{3} + c$
+\item $\displaystyle\int 4cos(2x)dx = 2sen(2x) + c$
+\item $\displaystyle\int 6e^{3x}dx = 2e^{3x} + c$
+\end{enumerate}
+\end{solucion}
+\item $$F(x) = \displaystyle\int_0^{x^2} \dfrac{xtan(t)}{1+t^2}dt$$
+	Calule $F'(\pi /4)$
+\begin{solucion}
+En primer lugar, saquemos la variable $x$ de la integral
+		$$F(x) = x\displaystyle\int_0^{x^2} \dfrac{tan(t)}{1+t^2}dt$$
+		Fijemonos que estamos frente a dos funciones, por lo que debemos usar la regla de la multiplicación y luego el TFC.
+		$$F'(x) = \displaystyle\int_0^{x^2} \dfrac{tan(t)}{1+t^2}dt + 2x^2\left(\dfrac{tan(t)}{1+t^2}\ev_0^{x^2}\right)$$
+		$$= \displaystyle\int_0^{x^2} \dfrac{tan(t)}{1+t^2}dt + 2x^2\left(\dfrac{tan(x^2)}{1+x^4}\right)$$
+		Luego, evaluamos en $x = \pi /4, obteniendo$
+		$$F'(\pi /4) = \displaystyle\int_0^{(\pi /4)^2} \dfrac{tan(t)}{1+t^2}dt + 2(\pi /4)^2\left(\dfrac{tan((\pi /4)^2)}{1+(\pi /4)^4}\right)$$
+\end{solucion}
+\end{preguntas}
+\end{document}
