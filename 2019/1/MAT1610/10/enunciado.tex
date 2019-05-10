@@ -1,0 +1,130 @@
+\documentclass[12pt]{article}
+
+\usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[none]{hyphenat}
+\usepackage{parskip}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\usepackage{tasks}
+\usepackage{mdframed}
+\usepackage{xcolor}
+\usepackage{pgfplots}
+\usepackage[makeroom]{cancel}
+\usepackage{multicol}
+\usepackage[shortlabels]{enumitem}
+\usepackage{stackrel}
+\usepackage{tkz-tab}
+\usepackage{xpatch}
+\xpatchcmd{\tkzTabLine}{$0$}{$\bullet$}{}{}
+
+\setlength{\headheight}{10pt}
+\setlength{\headsep}{10pt}
+\pagestyle{fancy}
+\rhead{\ayudantia \ - \alumno}
+\tikzset{t style/.style={style=solid}}
+
+\newcommand*{\mybox}[2]{\colorbox{#1!30}{\parbox{.98\linewidth}{#2}}}
+
+\newenvironment{solucion}
+{\begin{mdframed}[backgroundcolor=black!10]
+		{\bf Solución:}\\
+	}
+	{
+	\end{mdframed}
+}
+
+\newenvironment{alternativas}[1]
+{\begin{multicols}{#1}
+		\begin{enumerate}[a)]
+		}
+		{
+		\end{enumerate}
+	\end{multicols}
+}
+
+\newenvironment{preguntas}
+{\begin{enumerate}\itemsep12pt
+	}
+	{
+	\end{enumerate}
+}
+
+\newcommand{\ayudantia}{{\sc Ayudantía 10}}
+\newcommand{\tituloayu}{Sumas de Riemann e Integrales}
+\newcommand{\fecha}{14 de mayo de 2019}
+\newcommand{\sigla}{MAT1610}
+\newcommand{\nombre}{Cálculo I}
+\newcommand{\profesor}{Amal Taarabt}
+\newcommand{\ano}{2019}
+\newcommand{\semestre}{1}
+\newcommand{\mail}{mat1610@ifcastaneda.cl}
+\newcommand{\alumno}{Ignacio Castañeda - \mail}
+
+\newcommand{\ev}{\Big|}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lra}{\leftrightarrow}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Exp}[1]{\mathcal{E}_{#1}}
+\newcommand{\List}[1]{\mathcal{L}_{#1}}
+\newcommand{\EN}{\Exp{\N}}
+\newcommand{\LN}{\List{\N}}
+\newcommand{\comment}[1]{}
+\newcommand{\lb}{\\~\\}
+\newcommand{\eop}{_{\square}}
+\newcommand{\hsig}{\hat{\sigma}}
+\newcommand{\widesim}[2][1.5]{
+	\mathrel{\overset{#2}{\scalebox{#1}[1]{$\sim$}}}
+}
+\newcommand{\wsim}{\widesim{}}
+\newcommand{\lh}{\stackrel{L'H}{=}}
+
+\begin{document}
+\thispagestyle{empty}
+
+\begin{minipage}{2cm}
+	\includegraphics[width=2cm]{../../../../img/logo.pdf}
+	\vspace{0.5cm}
+\end{minipage}
+\begin{minipage}{\linewidth}
+	\begin{tabular}{lrl}
+		{\scriptsize\sc Pontificia Universidad Catolica de Chile} & \hspace*{0.7in}Curso: &
+		\sigla  - \nombre\\
+		{\sc Facultad de Matemáticas}&
+		Profesor: & \profesor \\
+		{\sc Semestre \ano-\semestre} & Ayudante: & {Ignacio Castañeda}\\
+		& {Mail:} & \texttt{\mail}
+	\end{tabular}
+\end{minipage}
+
+\vspace{-10mm}
+\begin{center}
+	{\LARGE\bf \ayudantia}\\
+	\vspace{0.1cm}
+	{\tituloayu}\\
+	\vspace{0.1cm}
+	\fecha\\
+	\vspace{0.4cm}
+\end{center}
+
+\begin{preguntas}
+\item Calcule la siguiente integral, usando la definición de esta
+	$$\int_2^5(4-2x)dx$$
+\item Exprese el siguiente límite como una integral
+	$$\lim\limits_{n\ra \infty} \sum\limits_{k=0}^n \dfrac{1}{n+3k}$$
+\item Resuelva las siguientes integrales
+\begin{tasks}(2)
+\task $\displaystyle\int 2xdx$
+\task $\displaystyle\int e^{ln(x^2)}dx$
+\task $\displaystyle\int 4cos(2x)dx$
+\task $\displaystyle\int 6e^{3x}dx$
+\end{tasks}
+\item $$F(x) = \displaystyle\int_0^{x^2} \dfrac{xtan(t)}{1+t^2}dt$$
+	Calule $F'(\pi /4)$
+\end{preguntas}
+\end{document}
