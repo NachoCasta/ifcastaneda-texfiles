@@ -1,0 +1,398 @@
+\documentclass[12pt]{article}
+
+\usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[none]{hyphenat}
+\usepackage{parskip}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\usepackage{tasks}
+\usepackage{mdframed}
+\usepackage{xcolor}
+\usepackage{pgfplots}
+\usepackage[makeroom]{cancel}
+\usepackage{multicol}
+\usepackage[shortlabels]{enumitem}
+\usepackage{stackrel}
+\usepackage{tkz-tab}
+\usepackage{xpatch}
+\xpatchcmd{\tkzTabLine}{$0$}{$\bullet$}{}{}
+
+\setlength{\headheight}{10pt}
+\setlength{\headsep}{10pt}
+\pagestyle{fancy}
+\rhead{\ayudantia \ - \alumno}
+\tikzset{t style/.style={style=solid}}
+
+\newcommand*{\mybox}[2]{\colorbox{#1!30}{\parbox{.98\linewidth}{#2}}}
+
+\newenvironment{solucion}
+{\begin{mdframed}[backgroundcolor=black!10]
+		{\bf Solución:}\\
+	}
+	{
+	\end{mdframed}
+}
+
+\newenvironment{alternativas}[1]
+{\begin{multicols}{#1}
+		\begin{enumerate}[a)]
+		}
+		{
+		\end{enumerate}
+	\end{multicols}
+}
+
+\newenvironment{preguntas}
+{\begin{enumerate}\itemsep12pt
+	}
+	{
+	\end{enumerate}
+}
+
+\newcommand{\ayudantia}{{\sc Ayudantía 10}}
+\newcommand{\tituloayu}{Cambio de base y vectores propios}
+\newcommand{\fecha}{16 de mayo de 2019}
+\newcommand{\sigla}{MAT1203}
+\newcommand{\nombre}{Álgebra Lineal}
+\newcommand{\profesor}{Camilo Perez}
+\newcommand{\ano}{2019}
+\newcommand{\semestre}{1}
+\newcommand{\mail}{mat1203@ifcastaneda.cl}
+\newcommand{\alumno}{Ignacio Castañeda - \mail}
+
+\newcommand{\ev}{\Big|}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lra}{\leftrightarrow}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Exp}[1]{\mathcal{E}_{#1}}
+\newcommand{\List}[1]{\mathcal{L}_{#1}}
+\newcommand{\EN}{\Exp{\N}}
+\newcommand{\LN}{\List{\N}}
+\newcommand{\comment}[1]{}
+\newcommand{\lb}{\\~\\}
+\newcommand{\eop}{_{\square}}
+\newcommand{\hsig}{\hat{\sigma}}
+\newcommand{\widesim}[2][1.5]{
+	\mathrel{\overset{#2}{\scalebox{#1}[1]{$\sim$}}}
+}
+\newcommand{\wsim}{\widesim{}}
+\newcommand{\lh}{\stackrel{L'H}{=}}
+
+\begin{document}
+\thispagestyle{empty}
+
+\begin{minipage}{2cm}
+	\includegraphics[width=2cm]{../../../../img/logo.pdf}
+	\vspace{0.5cm}
+\end{minipage}
+\begin{minipage}{\linewidth}
+	\begin{tabular}{lrl}
+		{\scriptsize\sc Pontificia Universidad Catolica de Chile} & \hspace*{0.7in}Curso: &
+		\sigla  - \nombre\\
+		{\sc Facultad de Matemáticas}&
+		Profesor: & \profesor \\
+		{\sc Semestre \ano-\semestre} & Ayudante: & {Ignacio Castañeda}\\
+		& {Mail:} & \texttt{\mail}
+	\end{tabular}
+\end{minipage}
+
+\vspace{-10mm}
+\begin{center}
+	{\LARGE\bf \ayudantia}\\
+	\vspace{0.1cm}
+	{\tituloayu}\\
+	\vspace{0.1cm}
+	\fecha\\
+	\vspace{0.4cm}
+\end{center}
+
+\begin{preguntas}
+\item Sean $B_1 = \{1+x,1-x,1+x^2\}$ y $B_2$ bases de $P_2(\R)$ tales que para todo $p \in P_2(\R)$
+	$$ \begin{bmatrix}
+	1 & 0 & -1\\
+	1 & 1 & 0 \\
+	0 & 1 & 2
+	\end{bmatrix} [p]_{B_1} = [p]_{B_2}$$
+	Determine los polinomios que forman la base $B_2$.
+\begin{solucion}
+Notemos que la matriz que nos dan corresponde a la matriz cambio de base de $B_1$ a $B_2$. Recordemos que una matriz cambio de base, de $B_1$ a $B_2$, corresponde a la matriz formada por las coordenadas de los elementos de $B_1$ en la base $B_2$.
+		
+		En base a lo anterior, dado que tenemos los vectores de $B_1$, lo que necesitamos es justamente lo contrario, es decir, la matriz cambio de base de $B_2$ a $B_1$. De esta manera, tendriamos las coordenadas de los elementos de $B_2$ en la base $B_1$, por lo que podriamos calcularlos con facilidad, ya que tenemos estos últimos.
+		
+		Para encontrar esta matriz, basta con obtener la inversa de la matriz cambio de base dada, esto es
+		$$ \left[\begin{array}{ccc|ccc}
+		1 & 0 & -1 & 1 & 0 & 0\\
+		1 & 1 & 0 & 0 & 1 & 0\\
+		0 & 1 & 2 & 0 & 0 & 1
+		\end{array}\right] \sim 
+		\left[\begin{array}{ccc|ccc}
+		1 & 0 & 0 & 2 & -1 & 1\\
+		0 & 1 & 0 & -2 & 2 & -1\\
+		0 & 0 & 1 & 1 & -1 & 1
+		\end{array}\right]$$
+		con lo que
+		$$A_{B_2}^{B_1} = \begin{bmatrix}
+		2 & -1 & 1\\
+		-2 & 2 & -1\\
+		1 & -1 & 1
+		\end{bmatrix}$$
+		Sea 
+		$$B_2 = \{q_1(x), q_2(x), q_3(x)\}$$
+		Las columnas de $A_{B_2}^{B_1}$ corresponden a los vectores de coordenada de $q_1$, $q_2$ y $q_3$, respectivamente, en la base $B_1$.
+		
+		Luego,
+		$$q_1(x) = 2(1+x) - 2(1-x) + (1+x^2) = 1+4x+x^2$$
+		$$q_2(x) = -(1+x) + 2(1-x) - (1+x^2) = -3x-x^2$$
+		$$q_3(x) = (1+x) - (1-x) + (1+x^2) = 1+2x+x^2$$
+		Finalmente,
+		$$B_2 = \{1+4x+x^2,-3x-x^2,1+2x+x^2\}$$
+\end{solucion}
+\item Sean $B$ y $C$ bases de un espacio vectorial $V$ y $P = \begin{bmatrix}4 &-1 \\ 6 & -1\end{bmatrix}$ la matriz de cambio de coordenadas tal que $[v]_C = P[v]_B\ \forall v \in V$
+\begin{enumerate}[a)]
+\item Demuestre que el conjunto $W = \{v \in V: [v]_C = 2[v]_B\}$ es un subespacio de $V$.
+\item Si $B=\{v_1,v_2\}$ determine una base para $W$ en términos de la base de $B$.
+\end{enumerate}
+\begin{solucion}
+
+\begin{enumerate}[a)]
+\item Demuestre que el conjunto $W = \{v \in V: [v]_C = 2[v]_B\}$ es subespacio de $V$.
+			
+			\begin{enumerate}
+				\item No vacio $(0\in W)$
+				$$\begin{array}{cc}
+				[\vec{0}]_C = \vec{0}\\
+				2 \cdot [\vec{0}]_B = 2 \cdot \vec{0} = 0
+				\end{array} \Longrightarrow \vec{0} = \vec{0} \ra \vec{0} \in W$$	
+				\item Suma y multiplicación (a la vez)	
+				
+				
+				Sea $u, v \in W$ y $\alpha, \beta \in \R$, debemos demostrar que $\alpha u + \beta v \in W$
+				$$\begin{array}{rcl}
+				[\alpha u + \beta v]_C & = & 2 [\alpha u + \beta v]_B \\
+				& = & 2 [\alpha u + \beta v]_B \\
+				& = & 2 [\alpha u]_B + 2[\beta v]_B \\
+				& = & \alpha 2[u]_B + \beta 2[v]_B \\
+				& = & \alpha [u]_C + \beta [v]_C \\
+				& = & [\alpha u]_C + [\beta v]_C \\
+				{[}\alpha u + \beta v]_C & = & [\alpha u +\beta v]_C
+				\end{array}
+				$$
+			\end{enumerate}
+			$$\blacksquare$$
+\item Si $B=\{v_1,v_2\}$ determine una base para $W$ en términos de la base de $B$.
+			
+			Sea $B = \{v_1, v_2\}$ la base dada, busquemos una base $B_W$ de $W$\\
+			\\
+			Sea $v \in W$,
+			$$v = x_1v_1 + x_2v_2 \ra x = \begin{pmatrix} x_1 \\ x_2 \end{pmatrix} = [v]_B$$
+			Además,
+			$$\begin{array}{cclcl}
+			[v]_C & = & 2[v]_B & = & 2x \\
+			{[}v]_C & = & P[v]_B & = & Px
+			\end{array} \Longrightarrow
+			2x = Px$$
+			Luego,
+			$$2x = Px$$
+			$$Px - 2x = 0$$
+			$$(P - 2I)x = 0$$
+			$$\left(\begin{bmatrix}4 &-1 \\ 6 & -1\end{bmatrix} - \begin{bmatrix}2 &0 \\ 0 & 2\end{bmatrix}\right)x = 0$$
+			$$\begin{bmatrix}2 &-1 \\ 6 & -3\end{bmatrix}x = 0$$
+			Resolviendo el sistema,
+			$$\begin{bmatrix}2 &-1 \\ 6 & -3\end{bmatrix} \sim 
+			\begin{bmatrix}2 &-1 \\ 0 & 0\end{bmatrix} \ra x_2 = 2x_1$$
+			Luego,
+			$$v = x_1v_1 + 2x_1v_2 = x_1(v_1 + 2v_2)$$
+			Finalmente,
+			$$B_W = \{v_1 + 2v_2\}$$
+\end{enumerate}
+\end{solucion}
+\item Calcular los valores y vectores propios de
+	$$ A = \begin{bmatrix} 1 & 2 & -1\\ 1 & 0 & 1\\ 4 & -4 & 5\end{bmatrix}$$
+\begin{solucion}
+Para calcular los valores propios de una matriz, debemos buscar todos los valores de $\lambda$ tales que
+		$$A-\lambda I = 0$$
+		Luego, para cada valor propio obtenido, debemos resolver el problema
+		$$(A-\lambda I)v = 0$$
+		Encontrando así los valores propios.\\
+		\\
+		Pasando ahora al ejercicio,
+		$$\left|\begin{bmatrix}
+		1-\lambda & 2 & -1\\
+		1 & -\lambda & 1\\
+		4 & -4 & 5-\lambda 
+		\end{bmatrix}\right| = 0$$
+		Usando cofactores, tenemos que
+		$$\left|\begin{bmatrix}
+		1-\lambda & 2 & -1\\
+		1 & -\lambda & 1\\
+		4 & -4 & 5-\lambda 
+		\end{bmatrix}\right| = (1-\lambda)(-\lambda(5-\lambda) - -4) - 2((5-\lambda)-4) -(-4 - -4\lambda)$$
+		Simplificando,
+		$$=-\lambda^3 + 6\lambda^2 -11\lambda + 6 = -(\lambda - 1)(\lambda - 2) (\lambda - 3)$$
+		Por lo que los valores propios son
+		$$\lambda_1 =  1, \quad \lambda_2 = 2, \quad \lambda_3 = 3$$
+		Busquemos ahora los vectores propios asociados a cada valor propio
+		\begin{enumerate}[1)]
+			\item $\lambda_1 = 1$\\
+			\\
+			Debemos resolver el sistema $(A-I)v = 0$, esto es
+			\small$$\begin{bmatrix}
+			0 & 2 & -1\\
+			1 & -1 & 1\\
+			4 & -4 & 4
+			\end{bmatrix} \sim 
+			\begin{bmatrix}
+			1 & -1 & 1\\
+			0 & 2 & -1\\
+			4 & -4 & 4
+			\end{bmatrix} \sim 
+			\begin{bmatrix}
+			1 & -1 & 1\\
+			0 & 2 & -1\\
+			0 & 0 & 0
+			\end{bmatrix} \sim 
+			\begin{bmatrix}
+			1 & -1 & 1\\
+			0 & 1 & -\frac{1}{2}\\
+			0 & 0 & 0
+			\end{bmatrix} \sim 
+			\begin{bmatrix}
+			1 & 0 & \frac{1}{2}\\
+			0 & 1 & -\frac{1}{2}\\
+			0 & 0 & 0
+			\end{bmatrix}$$
+			Por lo que
+			$$\begin{array}{rcl}
+			x_1 & = & -\dfrac{1}{2}x_3\\
+			x_2 & = & \dfrac{1}{2}x_3\\
+			x_3 & = & x_3
+			\end{array} \Longrightarrow
+			v_1 = \begin{pmatrix}
+			-\frac{1}{2}\\
+			\frac{1}{2}\\
+			1
+			\end{pmatrix} \rightarrow
+			v_1 = \begin{pmatrix}
+			-1\\
+			1\\
+			2
+			\end{pmatrix}$$
+			La solución del sistema es el generado de $v$. Por esto, lo simplificamos al final para obtener un vector propio sin fracciones.
+			
+			\item $\lambda_2 = 2$\\
+			\\
+			Debemos resolver el sistema $(A-2I)v = 0$, esto es
+			\small$$\begin{bmatrix}
+			-1 & 2 & -1\\
+			1 & -2 & 1\\
+			4 & -4 & 3
+			\end{bmatrix} \sim 
+			\begin{bmatrix}
+			1 & 0 & \frac{1}{2}\\
+			0 & 1 & -\frac{1}{4}\\
+			0 & 0 & 0
+			\end{bmatrix}$$
+			Por lo que
+			$$\begin{array}{rcl}
+			x_1 & = & -\dfrac{1}{2}x_3\\
+			x_2 & = & \dfrac{1}{4}x_3\\
+			x_3 & = & x_3
+			\end{array} \Longrightarrow
+			v_2 = \begin{pmatrix}
+			-\frac{1}{2}\\
+			\frac{1}{4}\\
+			1
+			\end{pmatrix} \rightarrow
+			v_2 = \begin{pmatrix}
+			-2\\
+			1\\
+			4
+			\end{pmatrix}$$
+			
+			\item $\lambda_3 = 3$\\
+			\\
+			Debemos resolver el sistema $(A-2I)v = 0$, esto es
+			\small$$\begin{bmatrix}
+			-2 & 2 & -1\\
+			1 & -3 & 1\\
+			4 & -4 & 2
+			\end{bmatrix} \sim 
+			\begin{bmatrix}
+			1 & 0 & \frac{1}{4}\\
+			0 & 1 & -\frac{1}{4}\\
+			0 & 0 & 0
+			\end{bmatrix}$$
+			Por lo que
+			$$\begin{array}{rcl}
+			x_1 & = & -\dfrac{1}{4}x_3\\
+			x_2 & = & \dfrac{1}{4}x_3\\
+			x_3 & = & x_3
+			\end{array} \Longrightarrow
+			v_3 = \begin{pmatrix}
+			-\frac{1}{4}\\
+			\frac{1}{4}\\
+			1
+			\end{pmatrix} \rightarrow
+			v_3 = \begin{pmatrix}
+			-1\\
+			1\\
+			4
+			\end{pmatrix}$$
+		\end{enumerate}
+		Finalmente, los vectores propios son
+		$$v_1 = \begin{pmatrix}
+		-1\\
+		1\\
+		2
+		\end{pmatrix}, \quad
+		v_2 = \begin{pmatrix}
+		-2\\
+		1\\
+		4
+		\end{pmatrix}, \quad
+		v_3 = \begin{pmatrix}
+		-1\\
+		1\\
+		4
+		\end{pmatrix}$$
+\end{solucion}
+\item Determine si las siguientes afirmaciones son Verdaderas o Falsas.
+\begin{enumerate}[a)]
+\item El espacio fila de $AB$ es subespacio del espacio fila de $B$.
+\item Dada una base en un espacio vectorial $V$, el vector coordenado de un vector de $V$ con respecto a esa base, es único.
+\item Si $A$ y $B$ son similares y $\lambda$ es valor propio de $A$ entonces $\lambda$ es también valor propio de $B$.
+\end{enumerate}
+\begin{solucion}
+
+\begin{enumerate}[a)]
+\item El espacio fila de $AB$ es subespacio del espacio fila de $B$.
+			
+			$$C = AB  \ra C^T = B^TA^T \ra Col(C^T) = Col(B^TA^T)$$
+			Como al multiplicar una matriz por otra podemos, en el mejor de los casos, obtener la misma dimensión de antes,
+			$$Col(C^T) \subset Col(B^T) \ra Fil(C) \subset Fil(B)$$
+			Luego,
+			$$Fil(AB) \subset Fil(B)$$
+			Con lo que concluimos que el espacio fila de $AB$ es subespacio del espacio fila de $B$. Entonces, la afirmación es {\bf Verdadera}.
+\item Dada una base en un espacio vectorial $V$, el vector coordenado de un vector de $V$ con respecto a esa base, es único.
+			
+			Los vectores de una base son $L.I.$, por lo que existe una única combinación lineal para generar cada vector. Luego, la afirmación es {\bf Verdadera}.
+\item Si $A$ y $B$ son similares y $\lambda$ es valor propio de $A$ entonces $\lambda$ es también valor propio de $B$.
+			
+			Tomemos, las matrices
+			$$A = \begin{bmatrix}
+			1 & 0 \\ 0 & 1
+			\end{bmatrix}, \quad 
+			B = \begin{bmatrix}
+			2 & 0 \\ 0 & 2
+			\end{bmatrix}$$
+			Los valores propios de $A$ son $\lambda = 1$ (multiplicidad 2) y los de $B$ son $\lambda = 2$ (multiplicidad 2), por lo que la afirmación es {\bf Falsa}.
+\end{enumerate}
+\end{solucion}
+\end{preguntas}
+\end{document}
