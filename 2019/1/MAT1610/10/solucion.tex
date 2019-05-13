@@ -130,10 +130,10 @@ Usando la integral por definición, podemos escribir la integral como
 \end{solucion}
 \item Exprese los siguientes límites como una integral
 	
-\begin{enumerate}[a)]
-\item $\lim\limits_{n\ra \infty} \sum\limits_{k=0}^n \dfrac{1}{n+3k}$
-\item $\lim\limits_{n\ra \infty} \sum\limits_{k=1}^n \dfrac{1}{(n+k)^2}$
-\end{enumerate}
+\begin{tasks}(2)
+\task $\lim\limits_{n\ra \infty} \sum\limits_{k=0}^n \dfrac{1}{n+3k}$
+\task $\lim\limits_{n\ra \infty} \sum\limits_{k=1}^n \dfrac{1}{(n+k)^2}$
+\end{tasks}
 \begin{solucion}
 Para lograr esto, debemos acomodar el límite para que tenga la estructura de una Suma de Riemann, es decir,
 		$$\lim\limits_{n \ra \infty} \dfrac{b-a}{n}\sum\limits_{k=0} f\left(a+\dfrac{(b-a)k}{n}\right)$$
@@ -168,7 +168,8 @@ $$\lim\limits_{n \ra \infty} \dfrac{n+1}{n^2+1} + \dfrac{n+2}{n^2+4} + \dots  + 
 \item $\displaystyle\int 6e^{3x}dx = 2e^{3x} + c$
 \end{enumerate}
 \end{solucion}
-\item $$F(x) = \displaystyle\int_0^{x^2} \dfrac{xtan(t)}{1+t^2}dt$$
+\item Sea
+$$F(x) = \displaystyle\int_0^{x^2} \dfrac{xtan(t)}{1+t^2}dt$$
 	Calule $F'(\pi /4)$
 \begin{solucion}
 En primer lugar, saquemos la variable $x$ de la integral
