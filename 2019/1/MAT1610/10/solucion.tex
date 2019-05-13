@@ -128,17 +128,29 @@ Usando la integral por definición, podemos escribir la integral como
 		$$= -9\lim\limits_{n\ra \infty} \dfrac{n+1}{n}$$
 		$$= -9$$
 \end{solucion}
-\item Exprese el siguiente límite como una integral
-	$$\lim\limits_{n\ra \infty} \sum\limits_{k=0}^n \dfrac{1}{n+3k}$$
+\item Exprese los siguientes límites como una integral
+	
+\begin{enumerate}[a)]
+\item $\lim\limits_{n\ra \infty} \sum\limits_{k=0}^n \dfrac{1}{n+3k}$
+\item $\lim\limits_{n\ra \infty} \sum\limits_{k=1}^n \dfrac{1}{(n+k)^2}$
+\end{enumerate}
 \begin{solucion}
 Para lograr esto, debemos acomodar el límite para que tenga la estructura de una Suma de Riemann, es decir,
 		$$\lim\limits_{n \ra \infty} \dfrac{b-a}{n}\sum\limits_{k=0} f\left(a+\dfrac{(b-a)k}{n}\right)$$
-		Reorganizando el límite pedido,
+\begin{enumerate}[a)]
+\item Reorganizando el límite pedido,
 		$$ = \lim\limits_{n\ra \infty} \sum\limits_{k=0}^n \dfrac{1}{n+3k}$$
 		$$ = \lim\limits_{n\ra \infty} \sum\limits_{k=0}^n \dfrac{1}{n\left(1+\dfrac{3k}{n}\right)}$$
 		$$ = \dfrac{1}{3} \lim\limits_{n\ra \infty} \dfrac{3}{n} \sum\limits_{k=0}^n \dfrac{1}{1+\dfrac{3k}{n}}$$
 		Llegamos a una suma de Riemann, que esta asociada a la función $f(x) = \dfrac{1}{1+x}$ en el intervalo $[0, 3]$, por lo que
 		$$\lim\limits_{n\ra \infty} \sum\limits_{k=0}^n \dfrac{1}{n+3k} = \dfrac{1}{3} \displaystyle\int_0^3 \dfrac{dx}{1+x}$$
+\item 
+\end{enumerate}
+\end{solucion}
+\item Convierta el siguiente límite en una integral, expresándolo como una Suma de Riemann
+$$\lim\limits_{n \ra \infty} \dfrac{n+1}{n^2+1} + \dfrac{n+2}{n^2+4} + \dots  + \dfrac{n+n}{n^2+n^2}$$
+\begin{solucion}
+
 \end{solucion}
 \item Resuelva las siguientes integrales
 \begin{tasks}(2)
