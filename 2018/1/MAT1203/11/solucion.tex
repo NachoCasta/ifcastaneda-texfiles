@@ -113,5 +113,256 @@
 \end{center}
 
 \begin{preguntas}
+\item Sea $A$ una matriz invertible, y sea $\lambda$ un valor propio de $A$. Demuestre que $\lambda \neq 0$ y que $\dfrac{1}{\lambda}$ es un valor propio de $A^{-1}$.
+\begin{solucion}
+
+		P.D. $\lambda \neq 0 \wedge \dfrac{1}{\lambda} \text{ es VP de }A^{-1}$
+		
+		Digamos que $\lambda = 0$. Luego, como $\lambda = 0$ es un VP, tenemos que
+		$$det(A-\lambda I) = 0$$
+		$$det(A-0 I) = 0$$
+		$$det(A) = 0$$
+		Pero $det(A) \neq 0$, ya que $A$ es invertible. Entonces, $\lambda \neq 0$.
+		
+		Notemos también que
+		$$A^{-1}x 
+		= A^{-1}\left(\dfrac{1}{\lambda}(\lambda x)\right)
+		= A^{-1}\dfrac{1}{\lambda}(\lambda x)
+		= \dfrac{1}{\lambda}A^{-1}(A x)
+		= \dfrac{1}{\lambda} x$$
+		$$A^{-1}x 
+		= \dfrac{1}{\lambda} x$$
+		De donde se desprende que $\dfrac{1}{\lambda}$ es valor propio de $A^{-1}$.
+\end{solucion}
+\item Sea $A$ una matriz de $2\times 2$ de rango 1 tal que $A\begin{bmatrix} 1 \\ 2\end{bmatrix} = \begin{bmatrix} 2 \\ 4 \end{bmatrix}$. ¿Es $A$ diagonalizable? Justifique.
+\begin{solucion}
+Notemos que
+		$$A\begin{bmatrix} 1 \\ 2\end{bmatrix} = \begin{bmatrix} 2 \\ 4 \end{bmatrix}
+		= A\begin{bmatrix} 1 \\ 2\end{bmatrix} = 2\begin{bmatrix} 1 \\ 2 \end{bmatrix}$$
+		Luego, $\lambda_1 = 2$ es valor propio de la matriz $A$ y $v_1 = \begin{bmatrix} 1 \\ 2\end{bmatrix}$ es el vector propio asociado.
+		
+		Como $A$ es de rango 1, $\exists u \neq 0$ tal que $Au = $. Para ese $u$ se cumple que
+		$$Au = 0 \ra Au = 0 u$$
+		Luego, $\lambda_2 = 0$ es valor propio de la matriz $A$ y $v_2 = u$ es el vector propio asociado.
+		
+		Finalmente, como la multiplicidad algebraica es igual a la multiplicidad geométrica, la matriz es diagonalizable.
+\end{solucion}
+\item Diagonalice la matriz
+	$$M = \begin{bmatrix}
+	1 & 0 & 0\\
+	1 & 1 & 2 \\
+	1 & 0 & 3
+	\end{bmatrix}$$
+	y encuentre una matriz $N$ tal que $N^3 = M$.
+\begin{solucion}
+Buscamos los valores propios,
+		$$det(M-\lambda I) = \left|\begin{bmatrix}
+		1-\lambda & 0 & 0\\
+		1 & 1-\lambda & 2 \\
+		1 & 0 & 3-\lambda
+		\end{bmatrix}\right|
+		= (1-\lambda)(1-\lambda)(3-\lambda) = 0$$
+		$$\lambda_1 = 1 \ra \text{multiplicidad 2}$$
+		$$\lambda_2 = 3 \ra \text{multiplicidad 1}$$
+		Buscamos ahora los vectores propios,
+		\begin{itemize}
+			\item $\lambda_1 = 1$
+			
+			$$(A-I)x = 0$$
+			$$\begin{bmatrix}
+			0 & 0 & 0\\
+			1 & 0 & 2 \\
+			1 & 0 & 2
+			\end{bmatrix} \ra v_1 = \begin{pmatrix}
+			2 \\ 0 \\ -1
+			\end{pmatrix}, \quad
+			v_2 = \begin{pmatrix}
+			0 \\ 1 \\ 0
+			\end{pmatrix}$$
+			
+			\item $\lambda_2 = 3$
+			
+			$$(A-3I)x = 0$$
+			$$\begin{bmatrix}
+			-2 & 0 & 0\\
+			1 & -2 & 2 \\
+			1 & 0 & 0
+			\end{bmatrix} \ra v_3 = \begin{pmatrix}
+			0 \\ 1 \\ 1
+			\end{pmatrix}$$
+		\end{itemize}
+			Recordemos ahora que para diagonalizar una matriz debemos expresarla de la forma
+			$$M = PDP^{-1} \ra P = \begin{bmatrix}
+			v_1 & v_2 & v_3
+			\end{bmatrix}, \quad
+			D = \begin{bmatrix}
+			\lambda_1 & 0 & 0 \\
+			0 & \lambda_2 & 0 \\
+			0 & 0 & \lambda_3
+			\end{bmatrix}$$
+			Es importante recordar que cada vector propio debe ir asociado con su respectivo valor propio (misma columna).
+			
+			En nuestro ejercicio, debemos considerar $\lambda_1 = \lambda_2 = 1$ y $\lambda_3 = 3$. Entonces,
+			$$P = \begin{bmatrix}
+			2 & 0 & 0 \\
+			0 & 1 & 1 \\
+			-1 & 0 & 1
+			\end{bmatrix}, \quad
+			D = \begin{bmatrix}
+			1 & 0 & 0 \\
+			0 & 1 & 0 \\
+			0 & 0 & 3
+			\end{bmatrix}, \quad
+			P^{-1} = \begin{bmatrix}
+			\frac{1}{2} & 0 & 0 \\
+			-\frac{1}{2} & 1 & -1 \\
+			\frac{1}{2} & 0 & 1
+			\end{bmatrix}$$
+			Sea
+			$$R = \sqrt[3]{D} = \begin{bmatrix}
+			1 & 0 & 0 \\
+			0 & 1 & 0 \\
+			0 & 0 & \sqrt[3]{3}
+			\end{bmatrix}$$
+			y sea
+			$$N = PRP^{-1}$$
+			Notemos que	
+			$$N^3 = (PRP^{-1}) = PR\cancel{P^{-1}P}R\cancel{P^{-1}P}RP^{-1} = PR^3P^{-1} = PDP^{-1} = M$$
+			Finalmente, $N = P\sqrt[3]{D}P^{-1}$ es la matriz buscada.
+\end{solucion}
+\item Diagonalice $A =
+	\begin{bmatrix} 
+	-1 & -2 & 2 \\
+	0 & -1 & 0 \\
+	0 & -2 & 1
+	\end{bmatrix}$ y diagonalice $B = A^{10} + A - I$ 
+\begin{solucion}
+Buscamos los valores propios,
+		$$det(A-\lambda I) = \left|\begin{bmatrix}
+		-1-\lambda & -2 & 2 \\
+		0 & -1-\lambda & 0 \\
+		0 & -2 & 1-\lambda
+		\end{bmatrix}\right|
+		= (1+\lambda)^2(1-\lambda) = 0$$
+		$$\lambda_1 = -1 \ra \text{multiplicidad 2}$$
+		$$\lambda_2 = 1 \ra \text{multiplicidad 1}$$
+		Buscamos ahora los vectores propios,
+		\begin{itemize}
+			\item $\lambda_1 = -1$
+			
+			$$(A+I)x = 0 \ra v_1 = \begin{pmatrix}
+			1 \\ 0 \\ 1
+			\end{pmatrix}$$
+			
+			\item $\lambda_2 = 1$
+			
+			$$(A-I)x = 0 \ra v_2 = \begin{pmatrix}
+			1 \\ 0 \\ 0
+			\end{pmatrix}, \quad
+			v_2 = \begin{pmatrix}
+			0 \\ 1 \\ 1
+			\end{pmatrix}$$
+		\end{itemize}
+		Luego,
+		$$A = PDP^{-1} \ra P = \begin{bmatrix}
+		1 & 1 & 0 \\
+		0 & 0 & 1 \\
+		1 & 0 & 1
+		\end{bmatrix}, \quad
+		D = \begin{bmatrix}
+		1 & 0 & 0 \\
+		0 & -1 & 0 \\
+		0 & 0 & -1
+		\end{bmatrix}, \quad
+		P^{-1} = \begin{bmatrix}
+		0 & -1 & 1 \\
+		1 & 1 & -1 \\
+		0 & 1 & 0
+		\end{bmatrix}$$
+		Reemplacemos ahora en $B$,
+		$$\begin{array}{lcl}
+		B & = & A^{10} + A - I \\
+		 & = & (PDP^{-1})^{10} + PDP^{-1} - I \\
+		 & = & (PDP^{-1})^{10} + PDP^{-1} - PIP^{-1} \\
+		B & = & P(D^10 + D - I)P^{-1}
+		\end{array}$$
+		Además, sabemos que
+		$$D^{10} = \begin{bmatrix}
+		1^{10} & 0 & 0 \\
+		0 & (-1)^{10} & 0 \\
+		0 & 0 & (-1)^{10}
+		\end{bmatrix}
+		 = \begin{bmatrix}
+		1 & 0 & 0 \\
+		0 & 1 & 0 \\
+		0 & 0 & 1
+		\end{bmatrix} = I$$
+		Por lo tanto,
+		$$B = P(I + D - I)P^{-1} = PDP^{-1}$$
+		Con lo que concluimos que $A=B$, por lo que la diagonalización de $A$ también es diagonalización de $B$.
+\end{solucion}
+\item La matriz $\begin{bmatrix} 1 & -2 \\ 1 & 3 \end{bmatrix}$ actúa sobre $\mathbb{C}^2$. Determine los valores propios y una base para cada espacio propio de $\mathbb{C}^2$.
+\begin{solucion}
+En primer lugar, buscamos los valores propios,
+		$$det(A-\lambda I) = \left|\begin{bmatrix} 
+		1-\lambda & -2 \\ 
+		1 & 3-\lambda \end{bmatrix}\right| = (1-\lambda)(3-\lambda) + 2 = \lambda^2 - 4\lambda + 5$$
+		$$\lambda_{1,2} = 2 \pm i$$
+		Como los valores propios son un par de complejos conjugados, los vectores propios asociados a cada uno también lo serán, por lo que basta con buscar un solo vector propio.
+		
+		Para $\lambda = 2+i$,
+		$$(A-(2+i)\lambda)x = 0 \ra 
+		\begin{bmatrix} 
+		-1-i & -2 \\ 
+		1 & 1-i 
+		\end{bmatrix} \sim 
+		\begin{bmatrix} 
+		-1-i & -2 \\ 
+		0 & 0
+		\end{bmatrix}$$
+		$$(-1-i)x_1 - 2x_2 = 0 \ra \begin{array}{lcl}
+		x_1 & = & x_1 \\
+		x_2 & = & \dfrac{-1-i}{2}x_1
+		\end{array}$$
+		Luego,
+		$$v_1 = \begin{pmatrix}
+		2 \\
+		-1-i
+		\end{pmatrix}, \quad
+		v_2 = \begin{pmatrix}
+		2 \\
+		-1+i
+		\end{pmatrix} $$
+		Por último, las bases de los espacios propios están formadas por los vectores propios asociados a cada valor propio, es decir
+		$$E_{2+i} = Gen\left\{\begin{pmatrix}
+		2 \\
+		-1-i
+		\end{pmatrix}\right\}, \quad 
+		E_{2-i} = Gen\left\{\begin{pmatrix}
+		2 \\
+		-1+i
+		\end{pmatrix}\right\}$$
+\end{solucion}
+\item Sea $A$ una matriz de $5 \times 5$ tal que $A^t = -A$ y $q$ el polinomio dado por $q(x) = 2-x^2+4x^3$. Demuestre que $2$ es valor propio de la matriz $q(A)$.
+\begin{solucion}
+Sabemos que
+		$$det(A) = det(A^T) \wedge det(A^T) = det(-A)$$
+		$$det(A) = det(-A)$$
+		$$det(A) = -det(A)$$
+		$$det(A) = 0$$
+		Luego, existe $u \neq 0 | Au = 0$
+		
+		Notemos que
+		$$\begin{array}{lcl}
+		q(A) & = & 2I - A^2 + 4A^3\\
+		q(A) u & = & (2I - A^2 + 4A^3)u\\
+		& = & 2Iu - A^2u + 4A^3u \\
+		& = & 2Iu - A(Au) + 4A^2(Au) \\
+		& = & 2Iu - A0 + 4A^20 \\
+		& = & 2Iu \\
+		q(A) u & = & 2u
+		\end{array}$$
+		Luego, $\lambda = 2 $ es $VP$ de $q(A)$
+\end{solucion}
 \end{preguntas}
 \end{document}
