@@ -18,11 +18,15 @@
 \usepackage{multicol}
 \usepackage[shortlabels]{enumitem}
 \usepackage{stackrel}
+\usepackage{tkz-tab}
+\usepackage{xpatch}
+\xpatchcmd{\tkzTabLine}{$0$}{$\bullet$}{}{}
 
 \setlength{\headheight}{10pt}
 \setlength{\headsep}{10pt}
 \pagestyle{fancy}
 \rhead{\ayudantia \ - \alumno}
+\tikzset{t style/.style={style=solid}}
 
 \newcommand*{\mybox}[2]{\colorbox{#1!30}{\parbox{.98\linewidth}{#2}}}
 
@@ -78,6 +82,7 @@
 	\mathrel{\overset{#2}{\scalebox{#1}[1]{$\sim$}}}
 }
 \newcommand{\wsim}{\widesim{}}
+\newcommand{\lh}{\stackrel{L'H}{=}}
 
 \begin{document}
 \thispagestyle{empty}
@@ -181,15 +186,6 @@ g'(x) & = & \dfrac{-1}{(x^2(f(x))^5)^2}(x^2(f(x))^5)'\\
 Luego, reemplazando con $x=1$, obtenemos
 
 $$g'(1) =\dfrac{-2(f(1))^5 - 5(f(1))^4f'(1)}{(f(1))^{10}} = -2-5\cdot (-2) = 8$$
-\end{solucion}
-\item Si $h(x) = f(x\ f(x))$ donde $f(1)=2$, $f'(1)=4$ y $f'(2) = 5$, encuentre $h'(1)$.
-\begin{solucion}
-Por la regla de la cadena, tenemos que
-$$h'(x) = f'(x\ f(x)) (x\ f(x))' = f'(x\ f(x))(f(x) + xf'(x))$$
-Luego, reemplazando en $x=1$, tenemos que
-$$h'(x) = f'(f(1))(f(1) + f'(1))$$
-Finalmente, reemplazando con la información del enunciado,
-$$h'(x) = f'(2)(2+4) = 5\cdot 6 = 30$$
 \end{solucion}
 \item Si $h(x) = f(x\ f(x))$ donde $f(1)=2$, $f'(1)=4$ y $f'(2) = 5$, encuentre $h'(1)$.
 \begin{solucion}
