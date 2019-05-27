@@ -113,17 +113,34 @@
 \end{center}
 
 \begin{preguntas}
-\item Sea
-$$F(x) = \displaystyle\int_0^{x^2} \dfrac{xtan(t)}{1+t^2}dt$$
-	Calule $F'(\pi /4)$
+\item Determine el valor de $r$ de modo que $y(x) = e^{rx}$ sea solución de la ecuación:
+	$$3y'' + 3y' - 4y=0$$
 \begin{solucion}
-En primer lugar, saquemos la variable $x$ de la integral
-		$$F(x) = x\displaystyle\int_0^{x^2} \dfrac{tan(t)}{1+t^2}dt$$
-		Fijemonos que estamos frente a dos funciones, por lo que debemos usar la regla de la multiplicación y luego el TFC.
-		$$F'(x) = \displaystyle\int_0^{x^2} \dfrac{tan(t)}{1+t^2}dt + 2x^2\left(\dfrac{tan(t)}{1+t^2}\ev_0^{x^2}\right)$$
-		$$= \displaystyle\int_0^{x^2} \dfrac{tan(t)}{1+t^2}dt + 2x^2\left(\dfrac{tan(x^2)}{1+x^4}\right)$$
-		Luego, evaluamos en $x = \pi /4, obteniendo$
-		$$F'(\pi /4) = \displaystyle\int_0^{(\pi /4)^2} \dfrac{tan(t)}{1+t^2}dt + 2(\pi /4)^2\left(\dfrac{tan((\pi /4)^2)}{1+(\pi /4)^4}\right)$$
+En primer lugar, calculamos las primeras dos derivadas de $y(x)$
+		$$y(x) = e^{rx}$$
+		$$y'(x) = re^{rx}$$
+		$$y''(x) = r^2e^{rx}$$
+		y procedemos a reemplazar en la ecuación
+		$$3r^2e^{rx} + 3re^{rx} - 4e^{rx} = 0$$
+		$$3r^2 + 3r - 4 = 0$$
+		$$r = \dfrac{-3 \pm \sqrt[]{57}}{6}$$
+\end{solucion}
+\item Calcule $\lim\limits_{x \ra 0+} x^{x}
+\begin{solucion}
+Para calcular este límite, se usa la propiedad siguiente
+		$$e^{ln(algo)} = algo$$
+		Utilizando esta propiedad, 
+		$$\lim\limits_{x \ra 0+} x^{x} = \lim\limits_{x \ra 0+} e^{ln(x^x)} = \lim\limits_{x \ra 0+} e^{xln(x)}$$
+		Como $e$ es una constante, tenemos que
+		$$\lim\limits_{x \ra 0+} e^{xln(x)} = e^{\lim\limits_{x \ra 0+} xln(x)}$$
+		Por lo que en primer lugar calcularemos el límite del exponente, es decir
+		$$\lim\limits_{x \ra 0+} xln(x) = \lim\limits_{x \ra 0+} \dfrac{ln(x)}{\frac{1}{x}} \stackrel{L'H}{=} \lim\limits_{x \ra 0+} \dfrac{\frac{1}{x}}{-\frac{1}{x^2}} = \lim\limits_{x \ra 0+} -x = 0 $$
+\end{solucion}
+\item Sea $a_n = \dfrac{n!}{n^n}$, calcular $\lim\limits_{n \ra \infty} \dfrac{a_{n+1}}{a_n}$
+\begin{solucion}
+$$\lim\limits_{n \ra \infty} \dfrac{a_{n+1}}{a_n} = \lim\limits_{n \ra \infty} \dfrac{\dfrac{(n+1)!}{(n+1)^{n+1}}}{\dfrac{n!}{n^n}} = \lim\limits_{n \ra \infty} \dfrac{(n+1)!}{n!} \cdot \dfrac{n^n}{(n+1)^{n+1}} =\lim\limits_{n \ra \infty} (n+1) \cdot \dfrac{n^n}{(n+1)^{n+1}}$$
+		$$=\lim\limits_{n \ra \infty} \dfrac{n^n}{(n+1)^{n}} = \lim\limits_{n \ra \infty} \left(\dfrac{n}{n+1}\right)^n = \lim\limits_{n \ra \infty} \dfrac{1}{\left(\dfrac{n+1}{n}\right)^n} = \lim\limits_{n \ra \infty} \dfrac{1}{\left(1+\dfrac{1}{n}\right)^n}$$
+		$$ = \dfrac{1}{e}$$
 \end{solucion}
 \end{preguntas}
 \end{document}
