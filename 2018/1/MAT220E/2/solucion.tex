@@ -113,5 +113,17 @@
 \end{center}
 
 \begin{preguntas}
+\item Sea
+$$F(x) = \displaystyle\int_0^{x^2} \dfrac{xtan(t)}{1+t^2}dt$$
+	Calule $F'(\pi /4)$
+\begin{solucion}
+En primer lugar, saquemos la variable $x$ de la integral
+		$$F(x) = x\displaystyle\int_0^{x^2} \dfrac{tan(t)}{1+t^2}dt$$
+		Fijemonos que estamos frente a dos funciones, por lo que debemos usar la regla de la multiplicación y luego el TFC.
+		$$F'(x) = \displaystyle\int_0^{x^2} \dfrac{tan(t)}{1+t^2}dt + 2x^2\left(\dfrac{tan(t)}{1+t^2}\ev_0^{x^2}\right)$$
+		$$= \displaystyle\int_0^{x^2} \dfrac{tan(t)}{1+t^2}dt + 2x^2\left(\dfrac{tan(x^2)}{1+x^4}\right)$$
+		Luego, evaluamos en $x = \pi /4, obteniendo$
+		$$F'(\pi /4) = \displaystyle\int_0^{(\pi /4)^2} \dfrac{tan(t)}{1+t^2}dt + 2(\pi /4)^2\left(\dfrac{tan((\pi /4)^2)}{1+(\pi /4)^4}\right)$$
+\end{solucion}
 \end{preguntas}
 \end{document}
