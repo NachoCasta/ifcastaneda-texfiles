@@ -115,7 +115,20 @@
 \begin{preguntas}
 \item Calcule $\lim\limits_{n \ra \infty} \sqrt[]{\dfrac{1}{n^3}} + \sqrt[]{\dfrac{2}{n^3}} + \dots  + \sqrt[]{\dfrac{1}{n^2}}$
 \begin{solucion}
-
+Notemos que podemos escribir el límite como
+$$\lim\limits_{n \ra \infty} \sum\limits_{k=1}^{n}\sqrt[]{\dfrac{k}{n^3}} =
+\lim\limits_{n \ra \infty} \dfrac{1}{n} \sum\limits_{k=1}^{n}\sqrt[]{\dfrac{k}{n}}$$
+Luego, podemos ver que $a=0$, $b=1$ y $f(x) = \sqrt[]{x}$, por lo que
+$$
+\lim\limits_{n \ra \infty} \dfrac{1}{n} \sum\limits_{k=1}^{n}\sqrt[]{\dfrac{k}{n}} = \displaystyle\int_0^1\sqrt[]{x}dx$$
+Resolvemos,
+$$\displaystyle\int_0^1\sqrt[]{x}dx = 
+\displaystyle\int_0^1 x^{1/2}dx =
+\dfrac{2}{3}x^{3/2} \ev_0^1 =
+\dfrac{2}{3}
+$$
+Por lo que
+$$\lim\limits_{n \ra \infty} \sqrt[]{\dfrac{1}{n^3}} + \sqrt[]{\dfrac{2}{n^3}} + \dots  + \sqrt[]{\dfrac{1}{n^2}} = \dfrac{2}{3}$$
 \end{solucion}
 \item Calcular
 \begin{tasks}(3)
@@ -135,7 +148,26 @@
 $$F(x) = \displaystyle\int_{1-x}^{1+x} \ln(t^2)dt, \quad x \in [0, \frac{1}{2}]$$
 es decreciente
 \begin{solucion}
+Recordemos que para un función cualquiera
+$$F(x) = \displaystyle\int_a^{g(x)}f(t)dt \ra F'(x) = f(g(x))g'(x)$$
+Vamos ahora con el ejercicio.\\
 
+Notemos que podemos escribir $F(x)$ de la siguiente forma
+$$F(x) =
+\displaystyle\int_{1-x}^{1} \ln(t^2)dt + \displaystyle\int_{1}^{1+x} \ln(t^2)dt =
+-\displaystyle\int_{1}^{1-x} \ln(t^2)dt + \displaystyle\int_{1}^{1+x} \ln(t^2)dt
+$$
+Luego, al derivar,
+$$F'(x) = -\ln((1-x)^2)\cdot (-1) + \ln((1+x)^2)$$
+Simplificando,
+$$F'(x) = \ln((1-x)^2) + \ln((1+x)^2)
+= \ln(((1-x)(1+x))^2)
+= 2\ln(1-x^2)$$
+Luego, como 
+$$0 \leq x \leq \dfrac{1}{2} \ra \dfrac{3}{4} \leq 1-x^2 \leq 1$$
+Concluimos que 
+$$F'(x) = 2\ln(1-x^2) \leq 0$$
+Por lo que la función es decreciente.
 \end{solucion}
 \item Determine el área limitada por la parabola $y^2=4x$ y la recta $y=x$.
 \begin{solucion}
