@@ -139,9 +139,37 @@ $$\lim\limits_{n \ra \infty} \sqrt[]{\dfrac{1}{n^3}} + \sqrt[]{\dfrac{2}{n^3}} +
 \begin{solucion}
 
 \begin{enumerate}[a)]
-\item 
-\item 
-\item 
+\item $\displaystyle\int_0^{\frac{1}{\sqrt[]{2}}} \dfrac{x \arcsin(x^2)}{\sqrt[]{1-x^4}}dx$\\
+\\
+Usando la sustitución
+$$u = \arcsin(x^2) \ra du = \dfrac{2x}{\sqrt[]{1-x^4}}dx$$
+$$x \in (0, \frac{1}{\sqrt[]{2}}) \ra u \in (0, \frac{\pi}{6})$$
+$$\displaystyle\int_0^{\frac{1}{\sqrt[]{2}}} \dfrac{x \arcsin(x^2)}{\sqrt[]{1-x^4}}dx = 
+\dfrac{1}{2} \displaystyle\int_0^{\frac{\pi}{6}} udu =
+\dfrac{1}{4}u^2 \ev_0^{\frac{\pi}{6}} =
+\dfrac{\pi^2}{144}
+$$
+\item $\displaystyle\int_0^{\ln(2)} e^x\ \sqrt[]{e^x-1}dx$\\
+\\
+Usando la sustitución
+$$u = e^x-1 \ra du = e^xdx$$
+$$x \in (0, \ln(2)) \ra u \in (0, 1)$$
+$$\displaystyle\int_0^{\ln(2)} e^x\ \sqrt[]{e^x-1}dx=
+\displaystyle\int_0^{1} \sqrt[]{u}du = \dfrac{2}{3}u^{3/2} \ev_0^1 = \dfrac{2}{3}
+$$
+\item $\displaystyle\int_{-3}^{4} |x-1|dx$\\
+\\
+Al haber un valor absoluto, debemos separar la integral, de manera de ver ambos casos (positivo y negativo) por separado. El cambio de signo del valor absoluto ocurre en $x=1$, por lo que ahí es donde hay que separar la integral, esto es,
+$$\displaystyle\int_{-3}^{4} |x-1|dx = 
+\displaystyle\int_{-3}^{1} |x-1|dx + 
+\displaystyle\int_{1}^{4} |x-1|dx$$
+Aplicamos valor absoluto
+$$ = 
+\displaystyle\int_{-3}^{1} -(x-1)dx + 
+\displaystyle\int_{1}^{4} (x-1)dx$$
+Resolvemos,
+$$= \left(x-\dfrac{x^2}{2}\right)\ev_{-3}^1 +
+\left(x-\dfrac{x^2}{2}\right)\ev_{1}^4 = 8 + \dfrac{9}{2} = \dfrac{25}{2}$$
 \end{enumerate}
 \end{solucion}
 \item Demuestre que la función
