@@ -113,5 +113,33 @@
 \end{center}
 
 \begin{preguntas}
+\item Determine el área limitada por la parabola $y^2=4x$ y la recta $y=x$.
+\item Usando integrales, calcule el área del siguiente triangulo
+	\begin{center}
+		\begin{tikzpicture}
+		\begin{axis}[
+		axis lines = left,
+		xlabel = $x$,
+		ylabel = $y$,
+		]
+		\addplot [
+		domain=0:2,  
+		color=red,
+		]
+		{x};
+		\addplot [
+		domain=0:1, 
+		color=red,
+		]
+		{-x};
+		\addplot [
+		domain=1:2, 
+		color=red,
+		]
+		{3*x-4};
+		
+		\end{axis}
+		\end{tikzpicture}
+	\end{center}
 \end{preguntas}
 \end{document}
