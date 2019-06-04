@@ -113,5 +113,69 @@
 \end{center}
 
 \begin{preguntas}
+\item Determine el área limitada por la parabola $y^2=4x$ y la recta $y=x$.
+\begin{solucion}
+\begin{center}
+			\begin{tikzpicture}
+			\begin{axis}[
+			axis lines = left,
+			xlabel = $x$,
+			ylabel = $y$,
+			]
+			\addplot [
+			domain=0:4,  
+			color=red,
+			]
+			{2*x^(1/2)};
+			\addplot [
+			domain=0:4, 
+			color=blue,
+			]
+			{x};
+			
+			\end{axis}
+			\end{tikzpicture}
+		\end{center}
+		Integramos en el eje $y$, en $[0,4]$. Para esto, usaremos las ecuaciones $x=y$ y $x=\dfrac{y^2}{4}$, por lo que el área buscada será
+		$$A = \displaystyle\int_0^4 y-\dfrac{y^2}{4} dy$$
+		$$A = \dfrac{16}{2} - \dfrac{64}{12} = \dfrac{8}{3}$$
+\end{solucion}
+\item Usando integrales, calcule el área del siguiente triangulo
+	\begin{center}
+		\begin{tikzpicture}
+		\begin{axis}[
+		axis lines = left,
+		xlabel = $x$,
+		ylabel = $y$,
+		]
+		\addplot [
+		domain=0:2,  
+		color=red,
+		]
+		{x};
+		\addplot [
+		domain=0:1, 
+		color=red,
+		]
+		{-x};
+		\addplot [
+		domain=1:2, 
+		color=red,
+		]
+		{3*x-4};
+		
+		\end{axis}
+		\end{tikzpicture}
+	\end{center}
+\begin{solucion}
+Notemos que los lados del triangulo se pueden representar como rectas. Esto es,
+		$$L_1:\quad y = x$$
+		$$L_2:\quad y = -x$$
+		$$L_3:\quad y = 3x-4$$
+		Luego, al área de triangulo será
+		$$A = \displaystyle\int_0^1 (x - (-x))dx + \displaystyle\int_1^2 (x - (3x-4))dx$$
+		$$A = \displaystyle\int_0^1 2xdx + \displaystyle\int_1^2 (4-2x)dx$$
+		$$A = 2$$
+\end{solucion}
 \end{preguntas}
 \end{document}
