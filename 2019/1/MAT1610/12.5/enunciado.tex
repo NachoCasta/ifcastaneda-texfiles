@@ -113,5 +113,94 @@
 \end{center}
 
 \begin{preguntas}
+\item Encuentra una antiderivada para cada una de las siguientes funciones
+\begin{tasks}(2)
+\task $f(x) = 4x^3$
+\task $f(x) = 8x\sin (2x^2)$
+\task $f(x) = \dfrac{3}{2x}$
+\task $f(x) = \dfrac{1}{1+4x^2}$
+\end{tasks}
+\item Calcule la siguiente integral, usando la definición de esta
+	$$\int_2^5(4-2x)dx$$
+\item Exprese los siguientes límites como una integral
+	
+\begin{tasks}(2)
+\task $\lim\limits_{n\ra \infty} \sum\limits_{k=0}^n \dfrac{1}{n+3k}$
+\task $\lim\limits_{n \ra \infty} \dfrac{n+1}{n^2+1} + \dfrac{n+2}{n^2+4} + \dots  + \dfrac{n+n}{n^2+n^2}$
+\end{tasks}
+\item Calcule $\lim\limits_{n \ra \infty} \sqrt[]{\dfrac{1}{n^3}} + \sqrt[]{\dfrac{2}{n^3}} + \dots  + \sqrt[]{\dfrac{1}{n^2}}$
+\item Resuelva las siguientes integrales
+\begin{tasks}(2)
+\task $\displaystyle\int 2xdx$
+\task $\displaystyle\int e^{ln(x^2)}dx$
+\task $\displaystyle\int 4cos(2x)dx$
+\task $\displaystyle\int 6e^{3x}dx$
+\end{tasks}
+\item Resolver las siguientes integrales indefinidas
+\begin{tasks}(2)
+\task $\displaystyle\int (3x^2 + 2x + 1)dx$
+\task $\displaystyle\int x(x+1)(x+2)dx$
+\task $\displaystyle\int sen^2(x)dx$
+\task $\displaystyle\int (1+e)^xdx$
+\end{tasks}
+\item Sea
+$$F(x) = \displaystyle\int_0^{x^2} \dfrac{xtan(t)}{1+t^2}dt$$
+	Calule $F'(\pi /4)$
+\item Calcular $F'(0)$, siendo
+	$$F(x) = \displaystyle\int_0^{5x+1} \dfrac{e^{t^2}}{1+t^4}dt$$
+\item Calcule los siguientes límites, en caso de que existan
+\begin{tasks}(2)
+\task $\lim\limits_{x \ra 5} \dfrac{1}{x-5}$ 
+\task $\lim\limits_{x \ra 2} \dfrac{4x}{6-x}$
+\task $\lim\limits_{x \ra -1} \dfrac{x^3+1}{x^2-1}$
+\task $\lim\limits_{x \ra 3} \dfrac{\sqrt[]{4-x}-1}{x-3}$
+\task $\lim\limits_{x \ra 2} \dfrac{\sqrt[]{6-x}-2}{\sqrt[]{3-x}-1}$
+\task $\lim\limits_{x \ra 1} \dfrac{x^4+2x^3-3x^2+4x-4}{x^4+2x-3}$
+\task $\lim\limits_{x \ra 0} \dfrac{|x|(|x|-x)}{x^2}$
+\task $\lim\limits_{x \ra 2}\left(\dfrac{1}{x}-\dfrac{1}{|x|}\right)$
+\end{tasks}
+\item Resolver las siguientes integrales definidas
+\begin{tasks}(2)
+\task $\displaystyle\int_0^2 \dfrac{x^2}{x^3+8} dx$
+\task $\displaystyle\int_{-1}^1 xsen(1-x^2)dx$
+\end{tasks}
+\item Calcular
+\begin{tasks}(3)
+\task $\displaystyle\int_0^{\frac{1}{\sqrt[]{2}}} \dfrac{x \arcsin(x^2)}{\sqrt[]{1-x^4}}dx$
+\task $\displaystyle\int_0^{\ln(2)} e^x\ \sqrt[]{e^x-1}dx$
+\task $\displaystyle\int_{-3}^{4} |x-1|dx$
+\end{tasks}
+\item Calule el área de la región acotada por las curvas $y=x^2-4$ e $y = -x^2-2x$ en el intervalo $I =  [-3.3]$.
+\item Encuentre el área acotada por las curvas por las curvas $y=x(x^2+11)$ e $y=6(x^2+1)$.
+\item Determine el área limitada por la parabola $y^2=4x$ y la recta $y=x$.
+\item Hallar el área de la elipse
+	$$\dfrac{x^2}{9} + \dfrac{y^2}{4} = 1$$
+\item Usando integrales, calcule el área del siguiente triangulo
+	\begin{center}
+		\begin{tikzpicture}
+		\begin{axis}[
+		axis lines = left,
+		xlabel = $x$,
+		ylabel = $y$,
+		]
+		\addplot [
+		domain=0:2,  
+		color=red,
+		]
+		{x};
+		\addplot [
+		domain=0:1, 
+		color=red,
+		]
+		{-x};
+		\addplot [
+		domain=1:2, 
+		color=red,
+		]
+		{3*x-4};
+		
+		\end{axis}
+		\end{tikzpicture}
+	\end{center}
 \end{preguntas}
 \end{document}
