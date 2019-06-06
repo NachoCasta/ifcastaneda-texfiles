@@ -191,7 +191,56 @@ Para hacer esto debemos hacer un procedimiento similar al que realizamos cuando 
 \end{solucion}
 \item Sean $B = \begin{bmatrix} 1 & -1 \\ 0 & 0 \end{bmatrix}$ y $C = \{X \in M_2(\R)|BX=0\}$. Determine una base y la dimensión de $C$.
 \begin{solucion}
+Digamos que $X = \begin{bmatrix}
+a & b \\c & d
+\end{bmatrix}$.\\
 
+Luego, debemos encontrar $\begin{bmatrix}
+a & b \\c & d
+\end{bmatrix}$ tal que
+$$\begin{bmatrix} 1 & -1 \\ 0 & 0 \end{bmatrix}
+\begin{bmatrix}
+a & b \\c & d
+\end{bmatrix}
+= 0$$
+$$a-c = 0 \qquad b - d = 0$$
+$$a = c \qquad b = d$$
+Por lo tanto,
+$$X = \begin{bmatrix}
+a & b \\
+a & b
+\end{bmatrix} =
+a
+\begin{bmatrix}
+1 & 0 \\
+1 & 0
+\end{bmatrix} + 
+b
+\begin{bmatrix}
+0 & 1 \\
+0 & 1
+\end{bmatrix} =
+Gen\left\{
+\begin{bmatrix}
+1 & 0 \\
+1 & 0
+\end{bmatrix},
+\begin{bmatrix}
+0 & 1 \\
+0 & 1
+\end{bmatrix}
+\right\}
+$$
+Finalmente, una base para $C$ es $\left\{
+\begin{bmatrix}
+1 & 0 \\
+1 & 0
+\end{bmatrix},
+\begin{bmatrix}
+0 & 1 \\
+0 & 1
+\end{bmatrix}
+\right\}$ y su dimensión es 2.
 \end{solucion}
 \item Sea $T: \mathbb{P}_2 \ra \mathbb{P}_2$ una transformación lineal cuya matriz de transformación respecto a la base $B = \{1, t, t^2\}$ está dada por
 $$[T]_B = \begin{bmatrix}
@@ -201,7 +250,42 @@ $$[T]_B = \begin{bmatrix}
 \end{bmatrix}$$
 Determine $T(t^2+1)$ y el espacio Nulo de $T$.
 \begin{solucion}
-
+Notemos que esta matriz lo que hace es modificar las coordenadas de un elemento $p$ y convertirlas en las coordenadas de $T(p)$, por lo que para determinar $T(t^2+1)$ primero debemos determinar sus coordenadas, esto es
+$$[t^2+1]_B = \begin{pmatrix}
+1 \\ 0 \\1
+\end{pmatrix}$$
+Luego, para obtener $T(t^2+1)$, calculamos
+$$[T]_B[t^2+1]_B = \begin{bmatrix}
+1 & -1 & 1\\
+0 & 2 & -1\\
+-1 & 3 & -2
+\end{bmatrix}
+\begin{pmatrix}
+1 \\ 0 \\1
+\end{pmatrix}
+=
+\begin{pmatrix}
+2 \\ -1 \\3
+\end{pmatrix}$$
+Por lo tanto,
+$$T(t^2+1) = 2-t-3t^2$$
+Para determinar el espacio Nulo de $T$, debemos calcular el espacio Nulo de $[T]_B$ y a partir de eso obtener el espacio Nulo de $T$.
+$$\begin{bmatrix}
+1 & -1 & 1\\
+0 & 2 & -1\\
+-1 & 3 & -2
+\end{bmatrix} \wsim
+\begin{bmatrix}
+1 & -1 & 1\\
+0 & 2 & -1\\
+0 & 0 & 0
+\end{bmatrix}$$
+De aqui tenemos que
+$$Nul([T]_B) = Gen\left\{\begin{pmatrix}
+-1 \\ 1 \\2
+\end{pmatrix}\right\}$$
+Finalmente,
+$$Nul(T) = Gen\{-1+t+2t^2\}$$
 \end{solucion}
 \end{preguntas}
 \end{document}
