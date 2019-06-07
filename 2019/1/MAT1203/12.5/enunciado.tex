@@ -113,5 +113,57 @@
 \end{center}
 
 \begin{preguntas}
+\item Sea 
+	$$U=\{p(x) \in \mathbb{P}_2 : p(1) + p(0) = p(-1)\}$$
+	Determinar una base de $U$.
+\item Use vectores de coordenadas para probar la independencia lineal del conjunto de polinomios $\{1-2t^2-t^3,t+2t^3,1+t-2t^2\}$.
+\item Sean $p_1(t) = 1-t^2, p_2(t) = 1+t, p_3(t) = 1+t+t^2$. Se sabe que $\{p_1(t), p_2(t), p_3(t)\}$ es una base de $\mathbb{P}_2$.
+\begin{enumerate}[a)]
+\item Exprese los polinomios $f(t) = 3-5t + 2t^2$ y $g(t) = 1-3t$ como combinaciones lineales de $\{p_1(t), p_2(t), p_3(t)\}$.
+\item Use los vectores de coordenadas encontrados en la parte anterior para determinar si el conjunto $\{p_1(t), f(t), g(t)\}$ es L.I. o L.D.
+\end{enumerate}
+\item Sea
+$$T\left(\left[ \begin{array}{c}
+a\\ b\\ c \end{array} \right] \right) = (a+b+c) + (a-b+2c)x +
+(3b-c)x^2
+$$
+Determine una base para $Nul(T) $ y para $Im (T) $ y las dimensiones de estos subespacios.
+\item Sean $B_1 = \{1+x,1-x,1+x^2\}$ y $B_2$ bases de $P_2(\R)$ tales que para todo $p \in P_2(\R)$
+	$$ \begin{bmatrix}
+	1 & 0 & -1\\
+	1 & 1 & 0 \\
+	0 & 1 & 2
+	\end{bmatrix} [p]_{B_1} = [p]_{B_2}$$
+	Determine los polinomios que forman la base $B_2$.
+\item Sean $B$ y $C$ bases de un espacio vectorial $V$ y $P = \begin{bmatrix}4 &-1 \\ 6 & -1\end{bmatrix}$ la matriz de cambio de coordenadas tal que $[v]_C = P[v]_B\ \forall v \in V$
+\begin{enumerate}[a)]
+\item Demuestre que el conjunto $W = \{v \in V: [v]_C = 2[v]_B\}$ es un subespacio de $V$.
+\item Si $B=\{v_1,v_2\}$ determine una base para $W$ en términos de la base de $B$.
+\end{enumerate}
+\item Calcular los valores y vectores propios de
+	$$ A = \begin{bmatrix} 1 & 2 & -1\\ 1 & 0 & 1\\ 4 & -4 & 5\end{bmatrix}$$
+\item Determine si las siguientes afirmaciones son Verdaderas o Falsas.
+\begin{enumerate}[a)]
+\item El espacio fila de $AB$ es subespacio del espacio fila de $B$.
+\item Dada una base en un espacio vectorial $V$, el vector coordenado de un vector de $V$ con respecto a esa base, es único.
+\item Si $A$ y $B$ son similares y $\lambda$ es valor propio de $A$ entonces $\lambda$ es también valor propio de $B$.
+\end{enumerate}
+\item Sea $A$ una matriz invertible, y sea $\lambda$ un valor propio de $A$. Demuestre que $\lambda \neq 0$ y que $\dfrac{1}{\lambda}$ es un valor propio de $A^{-1}$.
+\item Sea $A$ una matriz de $2\times 2$ de rango 1 tal que $A\begin{bmatrix} 1 \\ 2\end{bmatrix} = \begin{bmatrix} 2 \\ 4 \end{bmatrix}$. ¿Es $A$ diagonalizable? Justifique.
+\item Diagonalice la matriz
+	$$M = \begin{bmatrix}
+	1 & 0 & 0\\
+	1 & 1 & 2 \\
+	1 & 0 & 3
+	\end{bmatrix}$$
+	y encuentre una matriz $N$ tal que $N^3 = M$.
+\item Diagonalice $A =
+	\begin{bmatrix} 
+	-1 & -2 & 2 \\
+	0 & -1 & 0 \\
+	0 & -2 & 1
+	\end{bmatrix}$ y diagonalice $B = A^{10} + A - I$ 
+\item La matriz $\begin{bmatrix} 1 & -2 \\ 1 & 3 \end{bmatrix}$ actúa sobre $\mathbb{C}^2$. Determine los valores propios y una base para cada espacio propio de $\mathbb{C}^2$.
+\item Sea $A$ una matriz de $5 \times 5$ tal que $A^t = -A$ y $q$ el polinomio dado por $q(x) = 2-x^2+4x^3$. Demuestre que $2$ es valor propio de la matriz $q(A)$.
 \end{preguntas}
 \end{document}
