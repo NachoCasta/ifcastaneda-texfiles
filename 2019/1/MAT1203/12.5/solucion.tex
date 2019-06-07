@@ -795,5 +795,179 @@ Sabemos que
 		\end{array}$$
 		Luego, $\lambda = 2 $ es $VP$ de $q(A)$
 \end{solucion}
+\item Sean $u, v$ dos vectores ortogonales en $\R^n$ tales que $||u|| = 1, ||v|| = \sqrt[]{3/2}$. Demuestre que el conjunto 
+	$$B = \{u-v, 3u+2v\}$$
+	es ortogonal y encuentre las coordenadas del vector $4u - 9v$ respecto al conjunto $B$.
+\begin{solucion}
+Para demostrar que $B$ es ortogonal, debemos demostrar que todos sus elementos son ortogonales entre si, es decir, debemos demoestrar que
+		$$(u-v) \cdot (3u+2v) = 0$$
+		Notemos que como $u$ y $v$ son ortogonales entre si, $u \cdot v = 0$. Luego,
+		$$\begin{array}{rcl}
+		(u-v) \cdot (3u+2v) & = & 3u \cdot u + 2 u \cdot v - 3u \cdot v - 2v \cdot v\\
+		& = & 3||u||^2 + 2 (u \cdot v) - 3(u \cdot v) - 2||v||^2 \\
+		& = & 3 + 2 \cdot 0 - 3 \cdot 0 - 2(\ \sqrt[]{3/2})^2 \\
+		& = & 3 - 3 \\
+		& = & 0
+		\end{array}$$
+		$$\blacksquare$$
+		Ahora, para buscar las coordenadas de $4u - 9v$ respecto al conjunto $B$, debemos buscar $\alpha, \beta \in \R$, tal que
+		$$\alpha(u-v) + \beta(3u+2v) = 4u-9v$$
+		Reordenando,
+		$$(\alpha+3\beta)u + (2\beta -\alpha)v= 4u -9v$$
+		Luego, debemos resolver el sistema
+		$$\begin{array}{rcl}
+		\alpha+3\beta & = & 4\\
+		-\alpha+2\beta & = & -9
+		\end{array}$$
+		Resolviendolo, obtenemos que
+		$$\alpha = 7 \quad y \quad \beta = -1$$
+		Finalmente,
+		$$[4u-9v]_B = \begin{pmatrix}
+		7 \\ -1
+		\end{pmatrix}$$
+\end{solucion}
+\item Demuestre que si $P$ es una matriz ortogonal de  $n \times n$, entonces para todo $x, y \in \R^n$ se tiene que $Px \cdot Py = x \cdot y$
+\begin{solucion}
+Como $P$ es ortogonal, se cumple que $P^TP = I$. Luego,
+		$$Px \cdot Py = (Px)^T(Py) = x^TP^TPy = x^TIx= x^Ty = x \cdot y$$
+\end{solucion}
+\item Diagonalice ortogonalmente
+	$$M = \begin{bmatrix}
+	1 & 0 & 1 \\
+	0 & 2 & 0 \\
+	1 & 0 & 1
+	\end{bmatrix}$$
+\begin{solucion}
+Para hacer esto debemos hacer un procedimiento similar al que realizamos cuando queremos diagonalizar una matriz, es decir, buscar $P$ y $D$ tal que $M = PDP^{-1}$, con la diferencia de que en este caso $P$ debe ser ortogonal.
+		
+		Comenzamos buscando los valores propios, con lo que obtendremos
+		$$\lambda_1 = 0 \ra \text{multiplicidad 1}$$
+		$$\lambda_2 = 2 \ra \text{multiplicidad 2}$$
+		Luego, buscamos los vectores propios asociados a cada uno de estos valores propios, los que son
+		$$\lambda_1 = 0 \ra v_1 = \begin{pmatrix}
+		1 \\ 0 \\ -1
+		\end{pmatrix}$$
+		$$\lambda_2 = 0 \ra v_2 = \begin{pmatrix}
+		0 \\ 1 \\ 0
+		\end{pmatrix}, v_3 = \begin{pmatrix}
+		1 \\ 0 \\ 1
+		\end{pmatrix}$$
+		Notemos que todos estos vectores son ortogonales entre si, sin embargo, necesitamos que sean ortonormales. Recordemos que un vector propio será cualquier multiplo de los vectores calculados anteriormente, por lo que para obtener vectores ortonormales, basta con dividir cada uno por su modulo. De esta forma, nuestros nuevos vectores serán
+		$$v_1 = \begin{pmatrix}
+		1/\ \sqrt[]{2} \\ 0 \\ -1/\ \sqrt[]{2}
+		\end{pmatrix}, v_2 = \begin{pmatrix}
+		0 \\ 1 \\ 0
+		\end{pmatrix}, v_3 = \begin{pmatrix}
+		1/\ \sqrt[]{2} \\ 0 \\ 1/\ \sqrt[]{2}
+		\end{pmatrix}$$
+		Luego, $M$ se diagonaliza con
+		$$P = \begin{bmatrix}
+		1/\ \sqrt[]{2} & 0 & 1/\ \sqrt[]{2} \\
+		0 & 1 & 0 \\
+		-1/\ \sqrt[]{2} & 0 & 1/\ \sqrt[]{2}
+		\end{bmatrix}, \quad D = \begin{bmatrix}
+		0 & 0 & 0 \\
+		0 & 2 & 0 \\
+		0 & 0 & 2
+		\end{bmatrix}$$
+\end{solucion}
+\item Sean $B = \begin{bmatrix} 1 & -1 \\ 0 & 0 \end{bmatrix}$ y $C = \{X \in M_2(\R)|BX=0\}$. Determine una base y la dimensión de $C$.
+\begin{solucion}
+Digamos que $X = \begin{bmatrix}
+a & b \\c & d
+\end{bmatrix}$.\\
+
+Luego, debemos encontrar $\begin{bmatrix}
+a & b \\c & d
+\end{bmatrix}$ tal que
+$$\begin{bmatrix} 1 & -1 \\ 0 & 0 \end{bmatrix}
+\begin{bmatrix}
+a & b \\c & d
+\end{bmatrix}
+= 0$$
+$$a-c = 0 \qquad b - d = 0$$
+$$a = c \qquad b = d$$
+Por lo tanto,
+$$X = \begin{bmatrix}
+a & b \\
+a & b
+\end{bmatrix} =
+a
+\begin{bmatrix}
+1 & 0 \\
+1 & 0
+\end{bmatrix} + 
+b
+\begin{bmatrix}
+0 & 1 \\
+0 & 1
+\end{bmatrix} =
+Gen\left\{
+\begin{bmatrix}
+1 & 0 \\
+1 & 0
+\end{bmatrix},
+\begin{bmatrix}
+0 & 1 \\
+0 & 1
+\end{bmatrix}
+\right\}
+$$
+Finalmente, una base para $C$ es $\left\{
+\begin{bmatrix}
+1 & 0 \\
+1 & 0
+\end{bmatrix},
+\begin{bmatrix}
+0 & 1 \\
+0 & 1
+\end{bmatrix}
+\right\}$ y su dimensión es 2.
+\end{solucion}
+\item Sea $T: \mathbb{P}_2 \ra \mathbb{P}_2$ una transformación lineal cuya matriz de transformación respecto a la base $B = \{1, t, t^2\}$ está dada por
+$$[T]_B = \begin{bmatrix}
+1 & -1 & 1\\
+0 & 2 & -1\\
+-1 & 3 & -2
+\end{bmatrix}$$
+Determine $T(t^2+1)$ y el espacio Nulo de $T$.
+\begin{solucion}
+Notemos que esta matriz lo que hace es modificar las coordenadas de un elemento $p$ y convertirlas en las coordenadas de $T(p)$, por lo que para determinar $T(t^2+1)$ primero debemos determinar sus coordenadas, esto es
+$$[t^2+1]_B = \begin{pmatrix}
+1 \\ 0 \\1
+\end{pmatrix}$$
+Luego, para obtener $T(t^2+1)$, calculamos
+$$[T]_B[t^2+1]_B = \begin{bmatrix}
+1 & -1 & 1\\
+0 & 2 & -1\\
+-1 & 3 & -2
+\end{bmatrix}
+\begin{pmatrix}
+1 \\ 0 \\1
+\end{pmatrix}
+=
+\begin{pmatrix}
+2 \\ -1 \\3
+\end{pmatrix}$$
+Por lo tanto,
+$$T(t^2+1) = 2-t-3t^2$$
+Para determinar el espacio Nulo de $T$, debemos calcular el espacio Nulo de $[T]_B$ y a partir de eso obtener el espacio Nulo de $T$.
+$$\begin{bmatrix}
+1 & -1 & 1\\
+0 & 2 & -1\\
+-1 & 3 & -2
+\end{bmatrix} \wsim
+\begin{bmatrix}
+1 & -1 & 1\\
+0 & 2 & -1\\
+0 & 0 & 0
+\end{bmatrix}$$
+De aqui tenemos que
+$$Nul([T]_B) = Gen\left\{\begin{pmatrix}
+-1 \\ 1 \\2
+\end{pmatrix}\right\}$$
+Finalmente,
+$$Nul(T) = Gen\{-1+t+2t^2\}$$
+\end{solucion}
 \end{preguntas}
 \end{document}
