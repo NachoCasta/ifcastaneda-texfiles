@@ -113,5 +113,168 @@
 \end{center}
 
 \begin{preguntas}
+\item Calcule el volumen del sólido generado al rotar la curva $y=x^2$ en torno al eje $y$ con $0 \leq y \leq 4$
+\begin{solucion}
+En primer lugar, grafiquemos la curva:
+		\begin{center}
+			\begin{tikzpicture}
+			\begin{axis}[
+			axis lines = left,
+			xlabel = $x$,
+			ylabel = $y$,
+			]
+			\addplot [
+			domain=-3:3,  
+			color=red,
+			]
+			{x^2};
+			
+			\end{axis}
+			\end{tikzpicture}
+		\end{center}
+	
+		Notemos que cada sección transversal tendrá un radio $x$. Sin embargo, como el objeto se rota en torno al eje $y$, debemos integrar en la variable y, por lo que debemos expresar todo en función de $y$. Luego, el radio de cada sección transversal es 
+		$$y = x^2 \ra x = \sqrt[]{y}$$
+		De esta manera, al área de cada sección transversal será
+		$$A = \pi (\ \sqrt[]{y})^2 = \pi y$$
+		Si decimos además que cada sección transversal tiene un ancho $dy$,
+		$$dV =  \pi y dy$$
+	 	Por lo que el volumen buscado es
+	 	$$V = \displaystyle \int_0^4 \pi y dy = \pi \dfrac{y^2}{2} \ev_0^4 = \pi \dfrac{16}{2} = 8 \pi$$
+\end{solucion}
+\item La base de un sólido es un círculo de radio $a$ y todas sus secciones perpendiculares a un diametro fijo de éste son triángulos rectángulos isósceles con la hipotenusa sobre la base del sólido. Hallar el volúmen del sólido.
+\begin{solucion}
+En primer lugar, recordemos que la ecuación de un círculo de radio $a$ es
+		$$x^2 + y^2 = a^2$$
+		Podemos usar muchas interpretaciones del enunciado. En este caso nos imaginaremos que cada triangulo corresponde a fijar una $x$ en el círculo (quedando una linea vertical) y poniendo ahí nuestro triángulo rectángulo isóceles. Notemos que lo que queda sobre un cuarto del círculo tambien es un triángulo rectángulo isóceles, que tiene por catetos el alto de la linea que trazamos antes (que corresponde a $y$) y la altura del triángulo original. Nuestro objetivo será calcular el volumen sobre este cuarto de círculo y multiplicarlo por 4 para obtener el volúmen total.
+		
+		Como integraremos en el eje $x$, necesitamos el cateto del triángulo en función de $y$. Es decir, despejando en la ecuación del círculo,
+		$$y = \sqrt[]{a^2-x^2}$$
+		Como este es el catéto y nuestro triángulo es rectángulo isóceles, sabemos que su área será
+		$$A =  \dfrac{(\sqrt[]{a^2-x^2})^2}{2} = \dfrac{a^2-x^2}{2}$$
+		Luego,
+		$$dV = \dfrac{a^2-x^2}{2} dx$$
+		Finalmente, el volumen es
+		$$V = 4 \displaystyle \int_0^a \dfrac{a^2-x^2}{2} dx = 4\left(\dfrac{a^2x}{2} - \dfrac{x^3}{6}\right) \ev_0^a = 4\left(\dfrac{a^3}{2} - \dfrac{a^3}{6}\right) = 4\left(\dfrac{2a^3}{6}\right) = \dfrac{4}{3}a^3$$
+\end{solucion}
+\item Determinar el volumen del sólido generado al rotar las curvas $y=x$ e $y= x^2$ en torno al eje $x$, para $x \int [0,1]$
+\begin{solucion}
+Graficando:
+		\begin{center}
+			\begin{tikzpicture}
+			\begin{axis}[
+			axis lines = left,
+			xlabel = $x$,
+			ylabel = $y$,
+			xmin = 0,
+			xmax = 1,
+			ymax = 1,
+			ymin = 0,
+			]
+			\addplot [
+			domain=0:1,  
+			color=red,
+			]
+			{x};
+			\addplot [
+			domain=0:1,  
+			color=red,
+			]
+			{x^2};
+			
+			
+			\end{axis}
+			\end{tikzpicture}
+		\end{center}
+		
+		Notemos que al rotar esto en torno al eje $x$, las secciones transversales serán circulos con un hoyo en el centro. Esto lo podemos ver como el área de un círculo grande menos el área de un circulo más chico.
+		
+		El círculo grande tendrá radio $r_1 = x$, mientras que el círculo pequeño tendrá área $r_2 = x^2$. 
+		
+		Luego, el área de cada sección será
+		$$A = \pi r_1^2 + \pi r_2^2 = \pi(x^2+x^4) $$
+		Asi,
+		$$dV = \pi(x^2+x^4)dx$$
+		Finalmente, el volumen del sólido es
+		$$V = \int_0^1 \pi(x^2+x^4)dx = \pi\left(\dfrac{x^3}{3} + \dfrac{x^5}{5}\right)\ev_0^1 = \pi \left(\dfrac{1}{3}+\dfrac{1}{5}\right) = \dfrac{8\pi}{15}$$
+\end{solucion}
+\item $$\displaystyle\int x^2\ arctan(x)dx$$
+\begin{solucion}
+Usamos integración por partes, con
+		$$U = arctan(x) \ra du = \dfrac{dx}{1+x^2}$$
+		$$dv = x^2 \ra V = \dfrac{x^3}{3}dx$$
+		Luego,
+		$$\displaystyle\int x^2\ arctan(x)dx = \dfrac{x^3}{3}arctan(x) - \dfrac{1}{3} \displaystyle\int \dfrac{x^3}{x^2+1}dx$$
+		Para la integral del lado derecho, usamos sustitución con $m = 1+x^2 \ra dm = 2xdx$, con lo que
+		$$\displaystyle\int \dfrac{x^3}{x^2+1}dx
+		= \dfrac{1}{2}\displaystyle\int \dfrac{m-1}{m}dm
+		= \dfrac{1}{2}\displaystyle\int \left(1-\dfrac{1}{m}\right)dm = \dfrac{1}{2}(m-ln|m|)$$
+		Volvemos a la variable original
+		$$= \dfrac{1}{2}(1+x^2-ln(1+x^2))$$
+		Finalmente, reemplazando en el inicio,
+		$$\displaystyle\int x^2\ arctan(x)dx = \dfrac{x^3}{3}arctan(x) - \dfrac{1}{6} (1+x^2-ln(1+x^2))$$
+\end{solucion}
+\item Resuelva las siguientes integrales
+\begin{tasks}(2)
+\task $\displaystyle\int cos^2(x)dx$
+\task $\displaystyle\int cos^3(x)sen^2(x)dx$
+\task $\displaystyle\int sec^4(x)tan^2(x)dx$
+\task $\displaystyle\int sec^3(x)tan^3(x)dx$
+\end{tasks}
+\begin{solucion}
+
+\begin{enumerate}[a)]
+\item $\displaystyle\int cos^2(x)dx$\\\\
+			Recordemos que $cos^2(x) = \dfrac{1+cos(2x)}{2}$
+			Luego,
+			$$\displaystyle\int cos^2(x)dx 
+			= \displaystyle\int \dfrac{1+cos(2x)}{2}dx
+			= \displaystyle\int \dfrac{dx}{2} + \displaystyle\int \dfrac{cos(2x)dx}{2}
+			= \dfrac{x}{2} + \dfrac{sen(2x)}{4} + c
+			$$
+\item $\displaystyle\int cos^3(x)sen^2(x)dx$\\\\
+			Cuando estamos ante senos y cosenos y alguno de los exponentes es impar, debemos separar la función que tiene dicho exponente para dejarlo par y proceder a convertir todo a la otra función, es decir
+			$$\displaystyle\int cos^3(x)sen^2(x)dx
+			= \displaystyle\int cos^2(x)sen^2(x)cos(x)dx$$
+			$$= \displaystyle\int (1-sen^2(x))sen^2(x)cos(x)dx$$
+			Luego, utilizamos el cambio
+			$$u = sen(x) \ra du = cos(x)dx$$
+			De esta forma,
+			$$= \displaystyle\int (1-u^2)u^2du
+			= \displaystyle\int (u^2-u^4)du
+			= \dfrac{u^3}{3} - \dfrac{u^5}{5} + c
+			$$
+			Volviendo a la variable original,
+			$$\displaystyle\int cos^3(x)sen^2(x)dx 
+			= \dfrac{sen^3(x)}{3} - \dfrac{sen^5(x)}{5} + c$$
+			
+\item $\displaystyle\int sec^4(x)tan^2(x)dx$\\\\
+			En el caso de las secantes y tangentes, mientras el exponente de la secante y la tangente no sean impar y pan, respectivamente de manera simultanea, siempre podremos acuidar a pasar todo a tangente o todo a secante, de la siguiente forma
+			$$\displaystyle\int sec^4(x)tan^2(x)dx
+			=\displaystyle\int sec^2(x)tan^2(x)sec^2(x)dx$$
+			$$=\displaystyle\int (1+tan^2(x))tan^2(x)sec^2(x)dx$$
+			Luego,
+			$$u = tan(x) \ra du = sec^2(x)dx$$
+			Con lo que tenemos
+			$$=\displaystyle\int (1+u^2)u^2du
+			= \displaystyle\int (u^2+u^4)du
+			= \dfrac{u^3}{3} + \dfrac{u^5}{5} + c$$
+			Finalmente, volvemos a la variable original, con lo que
+			$$\displaystyle\int sec^4(x)tan^2(x)dx = \dfrac{tan^3(x)}{3} + \dfrac{tan^5(x)}{5} + c$$
+\item $\displaystyle\int sec^3(x)tan^3(x)dx$\\\\
+			Como dije antes, también podemos convertir todo en secantes. Esto se hace de la siguiente forma
+			$$\displaystyle\int sec^3(x)tan^3(x)dx
+			= \displaystyle\int sec^2(x)tan^2(x)sec(x)tan(x)dx$$
+			$$ = \displaystyle\int sec^2(x)(sec^2(x)-1)sec(x)tan(x)dx$$
+			En este caso, hacemos el cambio
+			$$u = sec(x) \ra du = sec(x)tan(x)$$
+			Con lo que obtenemos
+			$$ = \displaystyle\int u^2(u^2-1)du
+			= \displaystyle\int (u^4-u^2)du
+			= \dfrac{u^5}{5} - \dfrac{u^3}{3} + c$$
+			Finalmente, volvemos a la variable original, con lo que
+			$$= \dfrac{sec^5(x)}{5} - \dfrac{sec^3(x)}{3} + c$$	
+\end{enumerate}
+\end{solucion}
 \end{preguntas}
 \end{document}
