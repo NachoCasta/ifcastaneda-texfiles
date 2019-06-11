@@ -113,5 +113,224 @@
 \end{center}
 
 \begin{preguntas}
+\item Resuelva las siguientes integrales
+\begin{tasks}(2)
+\task $\displaystyle\int \dfrac{dx}{\sqrt[]{(4-x^2)^3}}$
+\task $\displaystyle\int \dfrac{xdx}{\sqrt[]{1+x^2}}$
+\task $\displaystyle\int \dfrac{dx}{x\ \sqrt[]{x^2-1}}$
+\task $\displaystyle\int \dfrac{dx}{\sqrt[]{16+6x-x^2}}$
+\end{tasks}
+\begin{solucion}
+
+\begin{enumerate}[a)]
+\item $\displaystyle\int \dfrac{dx}{\sqrt[]{(4-x^2)^3}}$\\\\
+			Como en la integral hay presente una expresión de la forma $a^2-x^2$, realizamos el siguiente cambio de variable
+			$$x = asen(\theta) \ra x = 2sen(\theta) \ra dx = 2cos(\theta)d\theta$$
+			Luego, la integral es
+			$$\displaystyle\int \dfrac{2cos(\theta)d\theta}{\sqrt[]{(4-4sen^2(\theta))^3}}
+			= \displaystyle\int \dfrac{2cos(\theta)d\theta}{\sqrt[]{(4(1-sen^2(\theta)))^3}}
+			= \displaystyle\int \dfrac{2cos(\theta)d\theta}{\sqrt[]{(4cos^2(\theta))^3}}$$
+			$$= \displaystyle\int \dfrac{2cos(\theta)d\theta}{(\sqrt[]{4cos^2(\theta)})^3}
+			= \displaystyle\int \dfrac{2cos(\theta)d\theta}{(2cos(\theta))^3}
+			= \dfrac{1}{4}\displaystyle\int \dfrac{d\theta}{(cos^2(\theta))}
+			= \dfrac{1}{4}\displaystyle\int sec^2(\theta)d\theta$$
+			$$= \dfrac{1}{4} tan(\theta) + c$$
+			Recordemos que $x = 2sen(\theta)$, por lo que
+			$$\theta = arcsen\left(\dfrac{x}{2}\right)$$
+			Esto se puede representar con el siguiente triangulo auxiliar, ya que $\theta$ es el ángulo cuyo seno es $\dfrac{x}{2}$
+			\begin{center}
+				\begin{tikzpicture}[scale=1.25]%,cap=round,>=latex]
+				
+				\coordinate [label=left:$ $] (A) at (-1.5cm,-1.cm);
+				\coordinate [label=right:$ $] (C) at (1.5cm,-1.0cm);				\coordinate [label=above:$ $] (B) at (1.5cm,1.0cm);
+				\draw (A) -- node[above] {$2$} (B) -- node[right] {$x$} (C) -- node[below] {$\sqrt[]{4-x^2}$} (A);
+				
+				\draw (1.25cm,-1.0cm) rectangle (1.5cm,-0.75cm);
+				
+				\tkzMarkAngle[size=0.8cm,%
+				opacity=.4](C,A,B)
+				\tkzLabelAngle[pos = 0.6](C,A,B){$\theta$}
+				
+				\end{tikzpicture}
+			\end{center}
+			Luego, podemos ver que
+			$$tan(\theta) = \dfrac{x}{\sqrt[]{4-x^2}}$$
+			Finalmente,
+			$$\displaystyle\int \dfrac{dx}{\sqrt[]{(4-x^2)^3}} =
+			\dfrac{x}{4\ \sqrt[]{4-x^2}} + c$$
+\item $\displaystyle\int \dfrac{xdx}{\sqrt[]{1+x^2}}$\\\\
+			Como identificamos una expresión de la forma $a^2+x^2$, usamos la sustitución
+			$$x = tan(\theta) \ra dx = sec^2(\theta)$$
+			Luego tenemos
+			$$\displaystyle\int \dfrac{tan(\theta)sec^2(\theta)d\theta}{\sqrt[]{1+tan^2(\theta)}}
+			= \displaystyle\int \dfrac{tan(\theta)sec^2(\theta)d\theta}{\sqrt[]{sec^2(\theta)}}
+			= \displaystyle\int \dfrac{tan(\theta)sec^2(\theta)d\theta}{sec(\theta)}$$
+			$$= \displaystyle\int sec(\theta)tan(\theta)d\theta = sec(\theta) + c$$
+			Como $x = tan(\theta) \ra \theta = arctan(x)$, nuestro triangulo auxiliar sería
+			\begin{center}
+				\begin{tikzpicture}[scale=1.25]%,cap=round,>=latex]
+				
+				\coordinate [label=left:$ $] (A) at (-1.5cm,-1.cm);
+				\coordinate [label=right:$ $] (C) at (1.5cm,-1.0cm);				\coordinate [label=above:$ $] (B) at (1.5cm,1.0cm);
+				\draw (A) -- node[above] {$\sqrt[]{1+x^2}$} (B) -- node[right] {$x$} (C) -- node[below] {$1$} (A);
+				
+				\draw (1.25cm,-1.0cm) rectangle (1.5cm,-0.75cm);
+				
+				\tkzMarkAngle[size=0.8cm,%
+				opacity=.4](C,A,B)
+				\tkzLabelAngle[pos = 0.6](C,A,B){$\theta$}
+				
+				\end{tikzpicture}
+			\end{center}
+			Finalmente, 
+			$$\displaystyle\int \dfrac{xdx}{\sqrt[]{1+x^2}} = \sqrt[]{1+x^2} + c$$
+\item $\displaystyle\int \dfrac{dx}{x\ \sqrt[]{x^2-1}}$\\\\
+			Al identificar la expresión de la forma $x^2-a^2$, sabemos que debemos ocupar
+			$$x = sec(\theta) \ra dx = sec(\theta)tan(\theta)$$
+			Luego obtenemos
+			$$\displaystyle\int \dfrac{sec(\theta)tan(\theta)d\theta}{sec(\theta)\ \sqrt[]{sec^2(\theta)-1}}
+			= \displaystyle\int \dfrac{tan(\theta)d\theta}{\sqrt[]{tan^2(\theta)}}
+			= \displaystyle\int d\theta = \theta + c$$
+			Como $x = tan(\theta) \ra \theta = arctan(x)$
+			Finalmente,
+			$$\displaystyle\int \dfrac{dx}{x\ \sqrt[]{x^2-1}} = arctan(\theta) + c$$
+\item $\displaystyle\int \dfrac{dx}{\sqrt[]{16+6x-x^2}}$\\\\
+			Como no podemos ver ninguna expresión como las mencionadas anteriormente, vamos a hacer completación de cuadrados
+			$$16+6x-x^2 = 25 - 9 + 6x - x^2 = 25 - (x^2-6x+9) = 25 - (x-3)^2$$
+			Luego, la integral es
+			$$\displaystyle\int \dfrac{dx}{\sqrt[]{25 - (x-3)^2}}$$
+			Aqui si podemos identificar una expresión del tipo $a^2-x^2$, por lo que el cambio que corresponde hacer es
+			$$x-3 = 5sen(\theta) \ra dx = 5cos(\theta)d\theta$$
+			Entonces obtenemos la integral
+			$$\displaystyle\int \dfrac{5cos(\theta)d\theta}{\sqrt[]{25 - 25sen^2(\theta)}}
+			=\displaystyle\int \dfrac{5cos(\theta)d\theta}{\sqrt[]{25(1 - sen^2(\theta))}}
+			=\displaystyle\int \dfrac{5cos(\theta)d\theta}{\sqrt[]{25cos^2(\theta)}}$$
+			$$=\displaystyle\int \dfrac{5cos(\theta)d\theta}{5cos(\theta)} 
+			= \displaystyle\int d\theta = \theta + c$$
+			Como $x-3 = 5sen(\theta) \ra \theta = arcsen\left(\dfrac{x-3}{5}\right)$\\
+			Finalmente,
+			$$\displaystyle\int \dfrac{dx}{\sqrt[]{16+6x-x^2}} = arcsen\left(\dfrac{x-3}{5}\right) + c$$
+\end{enumerate}
+\end{solucion}
+\item Resuelva las siguientes integrales
+\begin{tasks}(2)
+\task $\displaystyle\int xcos(x)dx
+\task $\displaystyle\int arctan(x)dx$
+\task $\displaystyle\int ln(x)dx$
+\task $\displaystyle\int ln^2(x)dx$
+\end{tasks}
+\begin{solucion}
+Recordemos primero que
+		$$\displaystyle\int Udv = UV - \displaystyle\int Vdu$$
+		Además, para todos estos ejercicios debemos recordar lo siguiente: ILATE,
+		donde\\\\
+		I: Inversa trigonométrica\\
+		L: Logarítmica\\
+		A: Algebraica\\
+		T: Trigonométrica\\
+		E: Exponencial\\\\
+		La función que esté primero en la lista, la usaremos como $U$. La que este despues, será $dv$.
+\begin{enumerate}[a)]
+\item $\displaystyle\int xcos(x)dx$\\\\
+			Aquí podemos ver dos funciones: $x$ que es algebraica y $cos(x)$ que es trigonométrica. Como $x^2$ esta primero en la lista, entonces
+			$$U = x, \quad dv = cos(x)dx$$
+			Para obtener $V$ y $du$, derivamos e integramos según corresponda
+			$$du = dx, \quad V = sen(x)$$
+			Luego, aplicando la regla de la vaca, tenemos que
+			$$\displaystyle\int xcos(x)dx = xsen(x) - \displaystyle\int sen(x)dx = xsen(x) +cos(x) + c $$
+\item $\displaystyle\int arctan(x)dx$\\\\
+			Es evidente que en este caso debemos tomar
+			$$U = arctan(x), \quad dv = dx \ra du = \dfrac{dx}{1+x^2}, \quad V = x$$
+			Luego,
+			$$\displaystyle\int arctan(x)dx 
+			= x\ arctan(x) - \displaystyle\int \dfrac{xdx}{1+x^2} $$
+			Utilizamos $w = 1+x^2 \ra dw = 2xdx$, 
+			$$= x\ arctan(x) - \dfrac{1}{2}\displaystyle\int \dfrac{dw}{w} + c
+			= x\ arctan(x) - \dfrac{1}{2}ln(w)$$
+			$$= \ arctan(x) - \dfrac{1}{2}ln(1+x^2) + c$$
+\item $\displaystyle\int ln(x)dx$\\\\
+			En este caso,
+			$$U = ln(x), \quad dv = dx \ra du = \dfrac{dx}{x}, \quad V = x$$
+			Luego, 
+			$$\displaystyle\int ln(x)dx
+			= xln(x) - \displaystyle\int \dfrac{xdx}{x}
+			= xln(x) - \displaystyle\int dx
+			= xln(x) - x + c
+			$$
+\item $\displaystyle\int ln^2(x)dx$\\\\
+			De la misma forma que antes
+			$$U = ln^2(x), \quad dv = dx \ra du = 2ln(x)\dfrac{1}{x}dx, \quad V = x$$
+			Con esto,
+			$$\displaystyle\int ln^2(x)dx = xln^2(x) - 2\displaystyle\int ln(x)dx$$
+			Por el ejercicio anterior sabemos que
+			$$\displaystyle\int ln(x)dx = xln(x) -x$$
+			Luego,
+			$$=xln^2(x) - 2(xln(x) - x) + c$$
+			Finalmente,
+			$$\displaystyle\int ln^2(x)dx = xln^2(x) - 2xln(x) + x + c$$
+\end{enumerate}
+\end{solucion}
+\item Resuelva las siguientes integrales
+\begin{tasks}(2)
+\task $\displaystyle\int cos^2(x)dx$
+\task $\displaystyle\int cos^3(x)sen^2(x)dx$
+\task $\displaystyle\int sec^4(x)tan^2(x)dx$
+\task $\displaystyle\int sec^3(x)tan^3(x)dx$
+\end{tasks}
+\begin{solucion}
+
+\begin{enumerate}[a)]
+\item $\displaystyle\int cos^2(x)dx$\\\\
+			Recordemos que $cos^2(x) = \dfrac{1+cos(2x)}{2}$
+			Luego,
+			$$\displaystyle\int cos^2(x)dx 
+			= \displaystyle\int \dfrac{1+cos(2x)}{2}dx
+			= \displaystyle\int \dfrac{dx}{2} + \displaystyle\int \dfrac{cos(2x)dx}{2}
+			= \dfrac{x}{2} + \dfrac{sen(2x)}{4} + c
+			$$
+\item $\displaystyle\int cos^3(x)sen^2(x)dx$\\\\
+			Cuando estamos ante senos y cosenos y alguno de los exponentes es impar, debemos separar la función que tiene dicho exponente para dejarlo par y proceder a convertir todo a la otra función, es decir
+			$$\displaystyle\int cos^3(x)sen^2(x)dx
+			= \displaystyle\int cos^2(x)sen^2(x)cos(x)dx$$
+			$$= \displaystyle\int (1-sen^2(x))sen^2(x)cos(x)dx$$
+			Luego, utilizamos el cambio
+			$$u = sen(x) \ra du = cos(x)dx$$
+			De esta forma,
+			$$= \displaystyle\int (1-u^2)u^2du
+			= \displaystyle\int (u^2-u^4)du
+			= \dfrac{u^3}{3} - \dfrac{u^5}{5} + c
+			$$
+			Volviendo a la variable original,
+			$$\displaystyle\int cos^3(x)sen^2(x)dx 
+			= \dfrac{sen^3(x)}{3} - \dfrac{sen^5(x)}{5} + c$$
+			
+\item $\displaystyle\int sec^4(x)tan^2(x)dx$\\\\
+			En el caso de las secantes y tangentes, mientras el exponente de la secante y la tangente no sean impar y pan, respectivamente de manera simultanea, siempre podremos acuidar a pasar todo a tangente o todo a secante, de la siguiente forma
+			$$\displaystyle\int sec^4(x)tan^2(x)dx
+			=\displaystyle\int sec^2(x)tan^2(x)sec^2(x)dx$$
+			$$=\displaystyle\int (1+tan^2(x))tan^2(x)sec^2(x)dx$$
+			Luego,
+			$$u = tan(x) \ra du = sec^2(x)dx$$
+			Con lo que tenemos
+			$$=\displaystyle\int (1+u^2)u^2du
+			= \displaystyle\int (u^2+u^4)du
+			= \dfrac{u^3}{3} + \dfrac{u^5}{5} + c$$
+			Finalmente, volvemos a la variable original, con lo que
+			$$\displaystyle\int sec^4(x)tan^2(x)dx = \dfrac{tan^3(x)}{3} + \dfrac{tan^5(x)}{5} + c$$
+\item $\displaystyle\int sec^3(x)tan^3(x)dx$\\\\
+			Como dije antes, también podemos convertir todo en secantes. Esto se hace de la siguiente forma
+			$$\displaystyle\int sec^3(x)tan^3(x)dx
+			= \displaystyle\int sec^2(x)tan^2(x)sec(x)tan(x)dx$$
+			$$ = \displaystyle\int sec^2(x)(sec^2(x)-1)sec(x)tan(x)dx$$
+			En este caso, hacemos el cambio
+			$$u = sec(x) \ra du = sec(x)tan(x)$$
+			Con lo que obtenemos
+			$$ = \displaystyle\int u^2(u^2-1)du
+			= \displaystyle\int (u^4-u^2)du
+			= \dfrac{u^5}{5} - \dfrac{u^3}{3} + c$$
+			Finalmente, volvemos a la variable original, con lo que
+			$$= \dfrac{sec^5(x)}{5} - \dfrac{sec^3(x)}{3} + c$$	
+\end{enumerate}
+\end{solucion}
 \end{preguntas}
 \end{document}
