@@ -113,5 +113,156 @@
 \end{center}
 
 \begin{preguntas}
+\item Sea $A = \begin{bmatrix}1 & -3 \\ -3 & 9\end{bmatrix}$
+\begin{enumerate}[a)]
+\item Encuentre una matriz $L$ cuadrada, triangular inferior con numeros 1 en la diagonal, y una matriz diagonal $D$ tal que $A = LDL^T$.
+\item Realice un cambio de variable $x=Py$ que transforme la forma cuadrática
+		$$Q\left(\begin{bmatrix}x_1\\x_2\end{bmatrix}\right) = \begin{bmatrix}x_1& x_2\end{bmatrix}A\begin{bmatrix}x_1\\ x_2\end{bmatrix}$$
+		en una sin términos con producto cruzado.
+\end{enumerate}
+\begin{solucion}
+
+\begin{enumerate}[a)]
+\item 
+\item 
+\end{enumerate}
+\end{solucion}
+\item Sea $A$ la matriz simétrica que representa a la forma cuadrática
+	$$Q(x) = 9x_1^2 + 7x_2^2 + 11x_3^2 - 8x_1x_2 + 8x_1x_3$$
+\begin{enumerate}[a)]
+\item Encuentre una matriz ortogonal $P$ tal que el cambio de variable $x = Py$ transforma la forma $x^TAx$ en una forma cuadrática sin productos cruzados.
+\item Escriba la forma cuadrática en las nuevas variables y clasifíquela.
+\end{enumerate}
+\begin{solucion}
+
+\begin{enumerate}[a)]
+\item 
+\item 
+\end{enumerate}
+\end{solucion}
+\item Calcule la descomposición en valores singulares de la matriz $A = \begin{bmatrix}4 & 11 & 14\\ 8 & 7 & -2\end{bmatrix}$
+\begin{solucion}
+Sea $A_{m \times n}$ de rango $r$, debemos buscar una matriz $\Sigma_{m \times n}$, una matriz $U_{m \times m}$ y una matriz $V_{n \times n}$ tal que
+		$$A = U \Sigma V^T$$
+		La matriz $\Sigma$ será de la forma
+		$$\Sigma = \begin{bmatrix}
+		D & \dots & 0\\
+		\vdots & \ddots & 0\\
+		0 & \dots & 0
+		\end{bmatrix}$$
+		donde $D$ es una matriz diagonal con los primeros $r$ valores singulares de $A$ ordenados en de manera decreciente.
+		
+		$U$ y $V$ serán matrices ortogonales compuestas por los vectores singulares izquierdos y derechos de $A$, respectivamente.
+		
+		Los valores singulares de $A$ corresponden a las raices de los valores propios de la matriz $A^TA$. Estos los denominaremos como $\sigma_n = \sqrt[]{\lambda_n}$ y los ordenaremos de mayor a menor, por lo que siempre $\sigma_{n+1} \geq \sigma_n$.
+		
+		Los vectores singulares derechos de $A$ corresponderán a los vectores propios unitarios de $A^TA$, por lo que la matriz $V$ será de la forma 
+		$$V = \begin{bmatrix}
+		v_1 & v_2 & \dots & v_n
+		\end{bmatrix}$$
+		donde cada uno esta asociado a uno de valores singulares (recuerden que deben estar ordenados de mayor a menor).
+		
+		Los vectores singulares izquierdos corresponderán a $u_n = \dfrac{1}{\sigma_n}Av_n$ donde $v_n$ son los vectores propios unitarios de $A^TA$. Luego, la matriz $U$ es de la forma
+		$$U = \begin{bmatrix}
+		u_1 & u_2 & \dots & u_n
+		\end{bmatrix}$$
+		
+		Veamos ahora que ocurre en el ejercicio.
+		
+		En primer lugar, debemos determinar los datos propios de $A^TA$ para obtener los valores y vectores singulares.
+		$$A^TA = \begin{bmatrix}
+		80 & 100 & 40 \\
+		100 & 170 & 200 \\
+		40 & 140 & 200
+		\end{bmatrix}$$
+		Luego,
+		$$|A^TA - \lambda I| = 0$$
+		con lo que
+		$$\lambda_1 = 360 \ra \sigma_1 = 6 \ \sqrt[]{10}$$
+		$$\ \lambda_2 = 90  \ra \sigma_2 = 3 \ \sqrt[]{10}$$
+		$$ \ \lambda_3 = 0  \ra \sigma_3 = 0$$
+		Los vectores propios normalizados asociados son
+		$$v_1 = \begin{pmatrix}
+		\dfrac{1}{3}\\\\
+		\dfrac{2}{3}\\\\
+		\dfrac{2}{3}
+		\end{pmatrix},
+		v_2 = \begin{pmatrix}
+		-\dfrac{2}{3}\\\\
+		-\dfrac{1}{3}\\\\
+		\dfrac{2}{3}
+		\end{pmatrix},
+		v_3 = \begin{pmatrix}
+		\dfrac{2}{3}\\\\
+		-\dfrac{2}{3}\\\\
+		\dfrac{1}{3}
+		\end{pmatrix}$$
+		A continuación debemos armar las matrices de la descomposición.
+		
+		Pivoteando podemos notar que el rango de $A$ es 2, por lo que la matriz $D$ será
+		$$D = \begin{bmatrix}
+		\sigma_1 & 0\\
+		0 & \sigma_2
+		\end{bmatrix} 
+		= \begin{bmatrix}
+		6 \ \sqrt[]{10} & 0\\
+		0 & 3 \ \sqrt[]{10}
+		\end{bmatrix} $$
+		Luego,
+		$$\Sigma = \begin{bmatrix}
+		6 \ \sqrt[]{10} & 0 & 0\\
+		0 & 3 \ \sqrt[]{10} & 0
+		\end{bmatrix}$$
+		Con los vectores propios podemos determinar
+		$$V = \begin{bmatrix}
+		\dfrac{1}{3} & -\dfrac{2}{3} & \dfrac{2}{3} \\\\
+		\dfrac{2}{3} & -\dfrac{1}{3} & -\dfrac{2}{3}  \\\\
+		\dfrac{2}{3} & \dfrac{2}{3}  & \dfrac{1}{3} 
+		\end{bmatrix}$$
+		Para determinar $U$ necesitamos primero encontrar los vectores singulares izquierdos, esto es
+		$$u_1 = \dfrac{1}{\sigma_1} A v_1 = \dfrac{1}{6 \ \sqrt[]{10}} \begin{pmatrix}
+		18 \\ 6
+		\end{pmatrix} = 
+		\begin{pmatrix}
+		\dfrac{3}{\sqrt[]{10}} \\\\
+		\dfrac{1}{\sqrt[]{10}}
+		\end{pmatrix}$$
+		$$u_2 = \dfrac{1}{\sigma_2} A v_2 = \dfrac{1}{3 \ \sqrt[]{10}} \begin{pmatrix}
+		3 \\ -9
+		\end{pmatrix} = 
+		\begin{pmatrix}
+		\dfrac{1}{\sqrt[]{10}} \\\\
+		\dfrac{-3}{\sqrt[]{10}}
+		\end{pmatrix}$$
+		Luego,
+		$$U = \begin{bmatrix}
+		\dfrac{3}{\sqrt[]{10}} & \dfrac{1}{\sqrt[]{10}} \\\\
+		\dfrac{1}{\sqrt[]{10}} & \dfrac{-3}{\sqrt[]{10}}
+		\end{bmatrix}$$
+		Finalmente,
+		$$A = U \Sigma V^T = \begin{bmatrix}
+		\dfrac{3}{\sqrt[]{10}} & \dfrac{1}{\sqrt[]{10}} \\\\
+		\dfrac{1}{\sqrt[]{10}} & \dfrac{-3}{\sqrt[]{10}}
+		\end{bmatrix} 
+		\begin{bmatrix}
+		6 \ \sqrt[]{10} & 0 & 0\\
+		0 & 3 \ \sqrt[]{10} & 0
+		\end{bmatrix}
+		\begin{bmatrix}
+		\dfrac{1}{3} & \dfrac{2}{3} & \dfrac{2}{3} \\\\
+		-\dfrac{2}{3} & -\dfrac{1}{3} & \dfrac{2}{3}  \\\\
+		\dfrac{2}{3} & -\dfrac{2}{3}  & \dfrac{1}{3} 
+		\end{bmatrix}
+		$$
+\end{solucion}
+\item Sea la matriz
+	$A = \begin{bmatrix}
+	1 & 0 \\1 & 1 \\
+	-1 & 1
+	\end{bmatrix}$
+	, determine su descomposición en valores singulares.
+\begin{solucion}
+
+\end{solucion}
 \end{preguntas}
 \end{document}
