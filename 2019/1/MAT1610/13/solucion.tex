@@ -200,6 +200,64 @@ Graficando:
 \end{solucion}
 \item Resuelva las siguientes integrales
 \begin{tasks}(2)
+\task $\displaystyle\int xcos(x)dx
+\task $\displaystyle\int arctan(x)dx$
+\task $\displaystyle\int ln(x)dx$
+\task $\displaystyle\int ln^2(x)dx$
+\end{tasks}
+\begin{solucion}
+Recordemos primero que
+		$$\displaystyle\int Udv = UV - \displaystyle\int Vdu$$
+		Además, para todos estos ejercicios debemos recordar lo siguiente: ILATE,
+		donde\\\\
+		I: Inversa trigonométrica\\
+		L: Logarítmica\\
+		A: Algebraica\\
+		T: Trigonométrica\\
+		E: Exponencial\\\\
+		La función que esté primero en la lista, la usaremos como $U$. La que este despues, será $dv$.
+\begin{enumerate}[a)]
+\item $\displaystyle\int xcos(x)dx$\\\\
+			Aquí podemos ver dos funciones: $x$ que es algebraica y $cos(x)$ que es trigonométrica. Como $x^2$ esta primero en la lista, entonces
+			$$U = x, \quad dv = cos(x)dx$$
+			Para obtener $V$ y $du$, derivamos e integramos según corresponda
+			$$du = dx, \quad V = sen(x)$$
+			Luego, aplicando la regla de la vaca, tenemos que
+			$$\displaystyle\int xcos(x)dx = xsen(x) - \displaystyle\int sen(x)dx = xsen(x) +cos(x) + c $$
+\item $\displaystyle\int arctan(x)dx$\\\\
+			Es evidente que en este caso debemos tomar
+			$$U = arctan(x), \quad dv = dx \ra du = \dfrac{dx}{1+x^2}, \quad V = x$$
+			Luego,
+			$$\displaystyle\int arctan(x)dx 
+			= x\ arctan(x) - \displaystyle\int \dfrac{xdx}{1+x^2} $$
+			Utilizamos $w = 1+x^2 \ra dw = 2xdx$, 
+			$$= x\ arctan(x) - \dfrac{1}{2}\displaystyle\int \dfrac{dw}{w} + c
+			= x\ arctan(x) - \dfrac{1}{2}ln(w)$$
+			$$= \ arctan(x) - \dfrac{1}{2}ln(1+x^2) + c$$
+\item $\displaystyle\int ln(x)dx$\\\\
+			En este caso,
+			$$U = ln(x), \quad dv = dx \ra du = \dfrac{dx}{x}, \quad V = x$$
+			Luego, 
+			$$\displaystyle\int ln(x)dx
+			= xln(x) - \displaystyle\int \dfrac{xdx}{x}
+			= xln(x) - \displaystyle\int dx
+			= xln(x) - x + c
+			$$
+\item $\displaystyle\int ln^2(x)dx$\\\\
+			De la misma forma que antes
+			$$U = ln^2(x), \quad dv = dx \ra du = 2ln(x)\dfrac{1}{x}dx, \quad V = x$$
+			Con esto,
+			$$\displaystyle\int ln^2(x)dx = xln^2(x) - 2\displaystyle\int ln(x)dx$$
+			Por el ejercicio anterior sabemos que
+			$$\displaystyle\int ln(x)dx = xln(x) -x$$
+			Luego,
+			$$=xln^2(x) - 2(xln(x) - x) + c$$
+			Finalmente,
+			$$\displaystyle\int ln^2(x)dx = xln^2(x) - 2xln(x) + x + c$$
+\end{enumerate}
+\end{solucion}
+\item Resuelva las siguientes integrales
+\begin{tasks}(2)
 \task $\displaystyle\int cos^2(x)dx$
 \task $\displaystyle\int cos^3(x)sen^2(x)dx$
 \task $\displaystyle\int sec^4(x)tan^2(x)dx$
@@ -258,64 +316,6 @@ Graficando:
 			= \dfrac{u^5}{5} - \dfrac{u^3}{3} + c$$
 			Finalmente, volvemos a la variable original, con lo que
 			$$= \dfrac{sec^5(x)}{5} - \dfrac{sec^3(x)}{3} + c$$	
-\end{enumerate}
-\end{solucion}
-\item Resuelva las siguientes integrales
-\begin{tasks}(2)
-\task $\displaystyle\int xcos(x)dx
-\task $\displaystyle\int arctan(x)dx$
-\task $\displaystyle\int ln(x)dx$
-\task $\displaystyle\int ln^2(x)dx$
-\end{tasks}
-\begin{solucion}
-Recordemos primero que
-		$$\displaystyle\int Udv = UV - \displaystyle\int Vdu$$
-		Además, para todos estos ejercicios debemos recordar lo siguiente: ILATE,
-		donde\\\\
-		I: Inversa trigonométrica\\
-		L: Logarítmica\\
-		A: Algebraica\\
-		T: Trigonométrica\\
-		E: Exponencial\\\\
-		La función que esté primero en la lista, la usaremos como $U$. La que este despues, será $dv$.
-\begin{enumerate}[a)]
-\item $\displaystyle\int xcos(x)dx$\\\\
-			Aquí podemos ver dos funciones: $x$ que es algebraica y $cos(x)$ que es trigonométrica. Como $x^2$ esta primero en la lista, entonces
-			$$U = x, \quad dv = cos(x)dx$$
-			Para obtener $V$ y $du$, derivamos e integramos según corresponda
-			$$du = dx, \quad V = sen(x)$$
-			Luego, aplicando la regla de la vaca, tenemos que
-			$$\displaystyle\int xcos(x)dx = xsen(x) - \displaystyle\int sen(x)dx = xsen(x) +cos(x) + c $$
-\item $\displaystyle\int arctan(x)dx$\\\\
-			Es evidente que en este caso debemos tomar
-			$$U = arctan(x), \quad dv = dx \ra du = \dfrac{dx}{1+x^2}, \quad V = x$$
-			Luego,
-			$$\displaystyle\int arctan(x)dx 
-			= x\ arctan(x) - \displaystyle\int \dfrac{xdx}{1+x^2} $$
-			Utilizamos $w = 1+x^2 \ra dw = 2xdx$, 
-			$$= x\ arctan(x) - \dfrac{1}{2}\displaystyle\int \dfrac{dw}{w} + c
-			= x\ arctan(x) - \dfrac{1}{2}ln(w)$$
-			$$= \ arctan(x) - \dfrac{1}{2}ln(1+x^2) + c$$
-\item $\displaystyle\int ln(x)dx$\\\\
-			En este caso,
-			$$U = ln(x), \quad dv = dx \ra du = \dfrac{dx}{x}, \quad V = x$$
-			Luego, 
-			$$\displaystyle\int ln(x)dx
-			= xln(x) - \displaystyle\int \dfrac{xdx}{x}
-			= xln(x) - \displaystyle\int dx
-			= xln(x) - x + c
-			$$
-\item $\displaystyle\int ln^2(x)dx$\\\\
-			De la misma forma que antes
-			$$U = ln^2(x), \quad dv = dx \ra du = 2ln(x)\dfrac{1}{x}dx, \quad V = x$$
-			Con esto,
-			$$\displaystyle\int ln^2(x)dx = xln^2(x) - 2\displaystyle\int ln(x)dx$$
-			Por el ejercicio anterior sabemos que
-			$$\displaystyle\int ln(x)dx = xln(x) -x$$
-			Luego,
-			$$=xln^2(x) - 2(xln(x) - x) + c$$
-			Finalmente,
-			$$\displaystyle\int ln^2(x)dx = xln^2(x) - 2xln(x) + x + c$$
 \end{enumerate}
 \end{solucion}
 \end{preguntas}
