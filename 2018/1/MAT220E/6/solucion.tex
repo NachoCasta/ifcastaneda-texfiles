@@ -113,5 +113,166 @@
 \end{center}
 
 \begin{preguntas}
+\item Calcule el volumen del sólido generado al rotar la curva $y=x^2$ en torno al eje $y$ con $0 \leq y \leq 4$
+\begin{solucion}
+En primer lugar, grafiquemos la curva:
+		\begin{center}
+			\begin{tikzpicture}
+			\begin{axis}[
+			axis lines = left,
+			xlabel = $x$,
+			ylabel = $y$,
+			]
+			\addplot [
+			domain=-3:3,  
+			color=red,
+			]
+			{x^2};
+			
+			\end{axis}
+			\end{tikzpicture}
+		\end{center}
+	
+		Notemos que cada sección transversal tendrá un radio $x$. Sin embargo, como el objeto se rota en torno al eje $y$, debemos integrar en la variable y, por lo que debemos expresar todo en función de $y$. Luego, el radio de cada sección transversal es 
+		$$y = x^2 \ra x = \sqrt[]{y}$$
+		De esta manera, al área de cada sección transversal será
+		$$A = \pi (\ \sqrt[]{y})^2 = \pi y$$
+		Si decimos además que cada sección transversal tiene un ancho $dy$,
+		$$dV =  \pi y dy$$
+	 	Por lo que el volumen buscado es
+	 	$$V = \displaystyle \int_0^4 \pi y dy = \pi \dfrac{y^2}{2} \ev_0^4 = \pi \dfrac{16}{2} = 8 \pi$$
+\end{solucion}
+\item Encuentre el volumen resultante de girar la curva $y=\dfrac{1}{\sqrt[]{x}}$ en torno al eje $x$ con $x \in [1,e]$
+\begin{solucion}
+Graficando:
+		\begin{center}
+			\begin{tikzpicture}
+			\begin{axis}[
+			axis lines = left,
+			xlabel = $x$,
+			ylabel = $y$,
+			xmin = 0,
+			ymax = 3,
+			ymin = 0,
+			]
+			\addplot [
+			domain=0:e,  
+			color=red,
+			]
+			{1/x};
+			
+			\end{axis}
+			\end{tikzpicture}
+		\end{center}
+		
+		Vemos que nuestras secciones transversales tienen radio $y$. Sin embargo, como tendremos que integrar en $x$, dado que es el eje en torno al cual se gira, debemos escribir el radio en función de $x$. Por lo tanto, el radio es $\dfrac{1}{\sqrt[]{x}}$.
+		
+		Luego, el área de cada sección será
+		$$A = \pi \dfrac{1}{x}$$
+		Asi, el volumen de cada sección será
+		$$dV = \pi \dfrac{1}{x} dx$$
+		Finalmente, el volumen que buscamos corresponde a integrar en el dominio, es decir
+		$$V = \displaystyle \int_1^e \pi \dfrac{1}{x} dx = \pi ln(x) \ev_1^e = \pi - 0 = \pi$$
+\end{solucion}
+\item La base de un sólido es un círculo de radio $a$ y todas sus secciones perpendiculares a un diametro fijo de éste son triángulos rectángulos isósceles con la hipotenusa sobre la base del sólido. Hallar el volúmen del sólido.
+\begin{solucion}
+En primer lugar, recordemos que la ecuación de un círculo de radio $a$ es
+		$$x^2 + y^2 = a^2$$
+		Podemos usar muchas interpretaciones del enunciado. En este caso nos imaginaremos que cada triangulo corresponde a fijar una $x$ en el círculo (quedando una linea vertical) y poniendo ahí nuestro triángulo rectángulo isóceles. Notemos que lo que queda sobre un cuarto del círculo tambien es un triángulo rectángulo isóceles, que tiene por catetos el alto de la linea que trazamos antes (que corresponde a $y$) y la altura del triángulo original. Nuestro objetivo será calcular el volumen sobre este cuarto de círculo y multiplicarlo por 4 para obtener el volúmen total.
+		
+		Como integraremos en el eje $x$, necesitamos el cateto del triángulo en función de $y$. Es decir, despejando en la ecuación del círculo,
+		$$y = \sqrt[]{a^2-x^2}$$
+		Como este es el catéto y nuestro triángulo es rectángulo isóceles, sabemos que su área será
+		$$A =  \dfrac{(\sqrt[]{a^2-x^2})^2}{2} = \dfrac{a^2-x^2}{2}$$
+		Luego,
+		$$dV = \dfrac{a^2-x^2}{2} dx$$
+		Finalmente, el volumen es
+		$$V = 4 \displaystyle \int_0^a \dfrac{a^2-x^2}{2} dx = 4\left(\dfrac{a^2x}{2} - \dfrac{x^3}{6}\right) \ev_0^a = 4\left(\dfrac{a^3}{2} - \dfrac{a^3}{6}\right) = 4\left(\dfrac{2a^3}{6}\right) = \dfrac{4}{3}a^3$$
+\end{solucion}
+\item La base de un sólido es la región acotada por las parabolas
+	$$y=x^2 \quad e \quad y = 3-2x^2$$
+	y sus secciones perpendiculares al eje $y$ son triángulos equiláteros. Hallar el volúmen del sólido.
+\begin{solucion}
+Graficando:
+		\begin{center}
+			\begin{tikzpicture}
+			\begin{axis}[
+			axis lines = left,
+			xlabel = $x$,
+			ylabel = $y$,
+			xmin = -1,
+			xmax = 1,
+			ymax = 3,
+			ymin = 0,
+			]
+			\addplot [
+			domain=-1:1,  
+			color=red,
+			]
+			{3-2*x^2};
+			\addplot [
+			domain=-1:1,  
+			color=red,
+			]
+			{x^2};
+			
+			
+			\end{axis}
+			\end{tikzpicture}
+		\end{center}
+		
+		Recordemos que el área de un triángulo equilatero de lado $a$ es $\dfrac{\sqrt[]{3}}{4}a^2$
+		
+		Notemos que el lado de nuestro triángulo será siempre igual a $2x$. Sin embargo, debemos integrar en el eje $y$, por lo que tenemos que ver que ocurre en cada caso:
+		
+		Cuando $0 \leq y \leq 1$,
+		$$y = x^2 \ra x = \sqrt[]{y} \ra a = 2\ \sqrt[]{y} \ra A = \dfrac{\sqrt[]{3}}{4} (2\ \sqrt[]{y})^2= \sqrt[]{3}y$$
+		Mientras que si $1 \leq y \leq 3$,
+		$$y = 3-2x^2 \ra x = \sqrt[]{\dfrac{3-y}{2}} \ra a = 2\ \sqrt[]{\dfrac{3-y}{2}} \ra A =\dfrac{\sqrt[]{3}}{4} \left(2\ \sqrt[]{\dfrac{3-y}{2}}\right)^2 = \dfrac{ \sqrt[]{3}}{2} (3-y)$$
+		
+		Por lo tanto, el volumen pedido es
+		$$V = \sqrt[]{3} \displaystyle\int_0 ^1 y dy  + \dfrac{ \sqrt[]{3}}{2} \displaystyle\int_1^3(3-y)dy = \dfrac{ \sqrt[]{3}}{2}(1+2) = \dfrac{3\ \sqrt[]{3}}{2}$$
+\end{solucion}
+\item Determinar el volumen del sólido generado al rotar las curvas $y=x$ e $y= x^2$ en torno al eje $x$, para $x \int [0,1]$
+\begin{solucion}
+Graficando:
+		\begin{center}
+			\begin{tikzpicture}
+			\begin{axis}[
+			axis lines = left,
+			xlabel = $x$,
+			ylabel = $y$,
+			xmin = 0,
+			xmax = 1,
+			ymax = 1,
+			ymin = 0,
+			]
+			\addplot [
+			domain=0:1,  
+			color=red,
+			]
+			{x};
+			\addplot [
+			domain=0:1,  
+			color=red,
+			]
+			{x^2};
+			
+			
+			\end{axis}
+			\end{tikzpicture}
+		\end{center}
+		
+		Notemos que al rotar esto en torno al eje $x$, las secciones transversales serán circulos con un hoyo en el centro. Esto lo podemos ver como el área de un círculo grande menos el área de un circulo más chico.
+		
+		El círculo grande tendrá radio $r_1 = x$, mientras que el círculo pequeño tendrá área $r_2 = x^2$. 
+		
+		Luego, el área de cada sección será
+		$$A = \pi r_1^2 + \pi r_2^2 = \pi(x^2+x^4) $$
+		Asi,
+		$$dV = \pi(x^2+x^4)dx$$
+		Finalmente, el volumen del sólido es
+		$$V = \int_0^1 \pi(x^2+x^4)dx = \pi\left(\dfrac{x^3}{3} + \dfrac{x^5}{5}\right)\ev_0^1 = \pi \left(\dfrac{1}{3}+\dfrac{1}{5}\right) = \dfrac{8\pi}{15}$$
+\end{solucion}
 \end{preguntas}
 \end{document}
