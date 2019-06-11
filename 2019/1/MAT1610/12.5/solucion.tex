@@ -281,6 +281,14 @@ Concluimos que
 $$F'(x) = 2\ln(1-x^2) \leq 0$$
 Por lo que la función es decreciente.
 \end{solucion}
+\item Calcule el siguiente límite
+	$$\lim\limits_{x \ra \infty} \dfrac{\displaystyle\int_0^{arctan(x)} sen(ln(t^2+t+1)) dt}{x}$$
+\begin{solucion}
+Al evaluar podemos ver que el límite tiene la forma $\dfrac{0}{0}$, por lo que podemos usar $L'Hopital$
+		$$\lim\limits_{x \ra \infty} \dfrac{\displaystyle\int_0^{arctan(x)} sen(ln(t^2+t+1)) dt}{x}
+		\stackrel{L'H}{=} \lim\limits_{x \ra \infty} \dfrac{sen(ln(arctan^2(x)+arctan(x)+1))}{1}$$
+		$$= \lim\limits_{x \ra \infty} sen(ln(arctan^2(x)+arctan(x)+1)) = sen(ln(1)) = sen(0) = 0$$
+\end{solucion}
 \item Resolver las siguientes integrales indefinidas
 \begin{tasks}(2)
 \task $\displaystyle\int \dfrac{e^{ln(x)}}{x^2+7}dx$
@@ -454,6 +462,24 @@ Buscamos los puntos de intersección de ambas curvas, igualandolas
 		Integramos en el eje $y$, en $[0,4]$. Para esto, usaremos las ecuaciones $x=y$ y $x=\dfrac{y^2}{4}$, por lo que el área buscada será
 		$$A = \displaystyle\int_0^4 y-\dfrac{y^2}{4} dy$$
 		$$A = \dfrac{16}{2} - \dfrac{64}{12} = \dfrac{8}{3}$$
+\end{solucion}
+\item Calcule el área de la región que se encuentra bajo la gráfica de la función $f(x) = e^xx^2$, donde $x \in [1,2]$
+\begin{solucion}
+Esta área esta dada por la integral
+		$$\displaystyle \int_1^2 e^x x^2dx$$
+		Calculemos primero la integral indefinida. Para esto, utilizamos integración por partes, con
+		$$U = x^2 \ra du = 2xdx$$
+		$$dv = e^xdx \ra V = e^x$$
+		$$\displaystyle \int e^x x^2dx = x^2e^x - 2 \displaystyle \int e^x xdx$$
+		Para la segunda integral usamos nuevamente integración por partes, con
+		$$U = x \ra du = dx$$
+		$$dv = e^xdx \ra V = e^x$$
+		Luego,
+		$$\displaystyle \int e^x xdx = xe^x - \displaystyle \int e^x dx = xe^x - e^x$$
+		Reemplazando en la primera, tenemos que
+		$$\displaystyle \int e^x x^2dx = x^2e^x - 2 (xe^x - e^x) = e^x(x^2-2x+2)$$
+		Finalmente,
+		$$\displaystyle \int_1^2 e^x x^2dx = e^x(x^2-2x+2) \ev_1^2 = 2e^2 - e$$
 \end{solucion}
 \item Hallar el área de la elipse
 	$$\dfrac{x^2}{9} + \dfrac{y^2}{4} = 1$$
