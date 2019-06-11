@@ -113,5 +113,215 @@
 \end{center}
 
 \begin{preguntas}
+\item Sea 
+	$U = Gen\left\{
+	\begin{bmatrix}1\\0\\1\\1\end{bmatrix},
+	\begin{bmatrix}0\\1\\2\\1\end{bmatrix},
+	\begin{bmatrix}1\\1\\3\\2\end{bmatrix}
+	\right\}$.
+\begin{enumerate}[a)]
+\item Encuentre una base ortonormal de $U$.
+\item Encuentre la distancia de $b = 
+		\begin{bmatrix}1\\1\\1\\1\end{bmatrix}$ a $U$.
+\end{enumerate}
+\begin{solucion}
+
+\begin{enumerate}[a)]
+\item Encuentre una base ortonormal de $U$.\\
+			\\
+			En primer lugar, debemos buscar una base común y corriente de $U$. Para esto, tomemos los vectores L.I. del conjunto que lo genera. Notemos que
+			$$\begin{bmatrix}
+			1 & 0 & 1 \\
+			0 & 1 & 1 \\
+			1 & 2 & 3 \\
+			1 & 1 & 2
+			\end{bmatrix} \sim
+			\begin{bmatrix}
+			1 & 0 & 1 \\
+			0 & 1 & 1 \\
+			0 & 0 & 0 \\
+			0 & 0 & 0
+			\end{bmatrix}$$
+			Por lo que concluimos que los dos vectores del generado son L.I. Entonces, una base de $U$ corresponde a
+			$$B = \left\{ \begin{pmatrix}
+			1 \\ 0 \\ 1 \\ 1
+			\end{pmatrix},\begin{pmatrix}
+			0 \\ 1 \\ 2 \\ 1
+			\end{pmatrix} \right\}$$
+			Recordemos que Gramm-Schmidt forma una base ortogonal a partir de una base cualquiera y funciona de la siguiente forma:
+			
+			Sea $B = \{v_1, v_2, \dots \}$ una base cualquiera de un espacio vectorial,
+			
+			$$\begin{array}{rcl}
+			u_1 & = & v_1 \\\\
+			u_2 & = & v_2 - \dfrac{v_2u_1}{u_1u_1}u_1 \\\\
+			u_3 & = & v_3 - \dfrac{v_3u_1}{u_1u_1}u_1 - \dfrac{v_3u_2}{u_2u_2}u_2\\
+			& \vdots & 			
+			\end{array}$$
+			Luego, $B^{\perp} = \{u_1, u_2, \dots \}$ es una base ortogonal de ese espacio vectorial.
+			
+			Hagamos esto con nuestra base:
+			
+			En primer lugar,
+			$$u_1 = v_1 = \begin{pmatrix}
+			1 \\ 0 \\ 1 \\ 1
+			\end{pmatrix}$$
+			
+			Luego,
+			$$u_2 = v_2 - \dfrac{v_2u_1}{u_1u_1}u_1
+			= \begin{pmatrix}
+			0 \\ 1 \\ 2 \\ 1
+			\end{pmatrix} - \dfrac{\begin{pmatrix}
+				0 \\ 1 \\ 2 \\ 1
+				\end{pmatrix}\begin{pmatrix}
+				1 \\ 0 \\ 1 \\ 1
+				\end{pmatrix}}{\begin{pmatrix}
+				1 \\ 0 \\ 1 \\ 1
+				\end{pmatrix}\begin{pmatrix}
+				1 \\ 0 \\ 1 \\ 1
+				\end{pmatrix}}\begin{pmatrix}
+			1 \\ 0 \\ 1 \\ 1
+			\end{pmatrix} 
+			= \begin{pmatrix}
+			0 \\ 1 \\ 2 \\ 1
+			\end{pmatrix} - \dfrac{3}{3}\begin{pmatrix}
+			1 \\ 0 \\ 1 \\ 1
+			\end{pmatrix} 
+			= \begin{pmatrix}
+			-1 \\ 1 \\ 1 \\ 0
+			\end{pmatrix} $$
+			De esta forma,
+			$$B^{\perp} = \left\{\begin{pmatrix}
+			1 \\ 0 \\ 1 \\ 1
+			\end{pmatrix}, \begin{pmatrix}
+			-1 \\ 1 \\ 1 \\ 0
+			\end{pmatrix}\right\}$$
+			Sin embargo, necesitamos una base ortonormal. Para esto, basta con dividir todos los vectores de la base por su norma, obteniendo
+			$$\hat{B}^{\perp} = \left\{\begin{pmatrix}
+			1/\ \sqrt[]{3} \\ 0 \\ 1/\ \sqrt[]{3} \\ 1/\ \sqrt[]{3}
+			\end{pmatrix}, \begin{pmatrix}
+			-1/\ \sqrt[]{3} \\ 1/\ \sqrt[]{3} \\ 1/\ \sqrt[]{3} \\ 0
+			\end{pmatrix}\right\}$$
+\item Encuentre la distancia de $b = 
+			\begin{bmatrix}1\\1\\1\\1\end{bmatrix}$ a $U$.
+			
+			Sea $A$ una matriz con los vectores de una base de $U$ en sus columnas y $x$ un vector coordenada de un elemento cualquier perteneciente a $U$, entonces la distancia entre ese elemento y $b$ corresponde a $||Ax-b||$.
+			
+			Luego, la distancia entre $b$ y $U$ corresponde a la distancia más pequeña entre $b$ y un elemento de $U$, es decir,
+			$$min||Ax-b||$$
+			Resolver este problema es equivalente a resolver el sistema
+			$$A^TAx = A^Tb$$
+			Utilicemos
+			$$A = \begin{bmatrix}
+			1 & 0 \\
+			0 & 1 \\
+			1 & 2 \\
+			1 & 1
+			\end{bmatrix}$$
+			Entonces,
+			$$A^TA = \begin{bmatrix}
+			3 & 3 \\
+			3 & 6
+			\end{bmatrix}, \quad A^Tb = \begin{pmatrix}
+			3 \\ 4
+			\end{pmatrix}$$
+			Por lo que tenemos que resolver el sistema
+			$$\begin{bmatrix}
+			3 & 3 \\
+			3 & 6
+			\end{bmatrix}x = \begin{pmatrix}
+			3 \\ 4
+			\end{pmatrix} \ra x = \begin{pmatrix}
+			\frac{2}{3}\\ \frac{1}{3}
+			\end{pmatrix}$$
+			Finalmente, la distancia corresponde a
+			$$||Ax-b|| = \left|\left|\begin{bmatrix}
+			1 & 0 \\
+			0 & 1 \\
+			1 & 2 \\
+			1 & 1
+			\end{bmatrix}\begin{pmatrix}
+			\frac{2}{3}\\ \frac{1}{3}
+			\end{pmatrix} - \begin{pmatrix}1\\1\\1\\1\end{pmatrix}\right|\right|
+			= \left|\left|\begin{pmatrix}
+			-\frac{1}{3}\\
+			-\frac{2}{3}\\
+			\frac{1}{3}\\
+			0
+			\end{pmatrix}\right|\right| = \sqrt[]{\dfrac{2}{3}}$$
+\end{enumerate}
+\end{solucion}
+\item Un cierto experimento genera los datos $(1,3)$, $(2,5)$ y $(3,4)$. Describa el modelo que da un ajuste de mínimos cuadrados de esos puntos mediante una recta de la forma $y = \beta_0 +  \beta_1x$
+\begin{solucion}
+Los valores del experimento se pueden ver en las siguiente tabla:\\
+		\\
+		\begin{center}
+		\begin{tabular}{|l|l|}
+			\hline
+			\textbf{y} & \textbf{x} \\ \hline
+			3          & 1          \\ \hline
+			5          & 2          \\ \hline
+			4          & 3          \\ \hline
+		\end{tabular}
+		\end{center}
+		Estamos buscando $\beta_0, \beta_1$ tal que
+		$$y = \beta_0 +  \beta_1x$$
+		sea un ajuste por mínimos cuadrados. Esto lo podemos escribir como
+		$$Y = X\beta$$
+		donde
+		$$Y = \begin{pmatrix}
+		3 \\ 5 \\ 4
+		\end{pmatrix}, \quad 
+		X = \begin{bmatrix}
+		1 & 1 \\
+		1 & 2 \\
+		1 & 3
+		\end{bmatrix}, \quad
+		\beta = \begin{pmatrix}
+		\beta_0 \\ \beta_1
+		\end{pmatrix}$$
+		Para encontrar $\beta$, debemos resolver el sistema
+		$$X^TX\beta = X^TY \ra \beta = (X^TX)^{-1}X^TY$$
+		$$(X^TX)^{-1} = \left(\begin{bmatrix}
+		1 & 1 & 1\\
+		1 & 2 & 3
+		\end{bmatrix}
+		\begin{bmatrix}
+		1 & 1 \\
+		1 & 2 \\
+		1 & 3
+		\end{bmatrix}\right)^{-1}
+		 = 
+		 \begin{bmatrix}
+		 3 & 6 \\
+		 6 & 14
+		 \end{bmatrix}^{-1} = \begin{bmatrix}
+		 \frac{7}{3} & -1 \\
+		 -1 & \frac{1}{2}
+		 \end{bmatrix}$$
+		 $$ X^TY = \begin{bmatrix}
+		 1 & 1 & 1\\
+		 1 & 2 & 3
+		 \end{bmatrix} \begin{pmatrix}
+		 3 \\ 5 \\ 4
+		 \end{pmatrix} = 
+		 \begin{pmatrix}
+		 12 \\ 25
+		 \end{pmatrix}$$
+		 Luego,
+		 $$\beta = (X^TX)^{-1}X^TY
+		 = \begin{bmatrix}
+		 \frac{7}{3} & -1 \\
+		 -1 & \frac{1}{2}
+		 \end{bmatrix}\begin{pmatrix}
+		 12 \\ 25
+		 \end{pmatrix}
+		 = \begin{pmatrix}
+		 3 \\ \frac{1}{2}
+		 \end{pmatrix}
+		 $$
+		 Finalmente, el ajuste por mínimos cuadrados es
+		 $$y = 3 + \dfrac{1}{2}x$$
+\end{solucion}
 \end{preguntas}
 \end{document}
