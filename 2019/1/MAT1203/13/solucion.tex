@@ -332,8 +332,65 @@ Los valores del experimento se pueden ver en las siguiente tabla:\\
 \begin{solucion}
 
 \begin{enumerate}[a)]
-\item 
-\item 
+\item Encuentre una matriz ortogonal $P$ tal que el cambio de variable $x = Py$ transforma la forma $x^TAx$ en una forma cuadrática sin productos cruzados.\\
+\\
+En primer lugar, podemos ver que
+$$A = \begin{bmatrix}
+9 & -4 & 4\\
+-4 & 7 & 0\\
+4 & 0 & 11
+\end{bmatrix}$$
+Notemos que para que una forma cuadrática no tenga productos cruzados, su matriz asociada debe ser diagonal.\\
+
+Luego, haciendo el cambio de variable,
+$$x^TAx = (Py)^TA(Py) = y^TP^TAPy$$
+Por lo tanto, para cumplir lo que nos piden, debe ocurrir que $P^TAP = D$ con $D$ una matriz diagonal.\\
+
+Notemos que
+$$P^TAP = D \ra A = PDP^T$$
+Por lo que podemos encontrar $P$ diagonalizando ortogonalmente $A$.\\
+
+Buscando los valores y vectores propios de $A$ obtendremos
+$$\lambda_1 = 3 \ra v_1 = \begin{pmatrix}
+2 \\ 2 \\ -1
+\end{pmatrix},
+\quad
+\lambda_2 = 9 \ra v_2 = \begin{pmatrix}
+1 \\ -2 \\ -2
+\end{pmatrix}, 
+\quad
+\lambda_3 = 15 \ra v_3 = \begin{pmatrix}
+2 \\ -1 \\ 2
+\end{pmatrix}$$
+Como queremos diagonalizar ortogonalmente, normalizamos cada vector propio, con lo que tenemos
+$$v_1 = \begin{pmatrix}
+\frac{2}{3} \\ \frac{2}{3} \\ -\frac{1}{3}
+\end{pmatrix},
+\quad
+v_2 = \begin{pmatrix}
+\frac{1}{3} \\ -\frac{2}{3} \\ -\frac{2}{3}
+\end{pmatrix},
+\quad
+v_3 = \begin{pmatrix}
+\frac{2}{3} \\ -\frac{1}{3} \\ \frac{2}{3}
+\end{pmatrix} $$
+Finalmente,
+$$P = \begin{bmatrix}
+\frac{2}{3} & \frac{1}{3} & \frac{2}{3} \\
+\frac{2}{3} & -\frac{2}{3} & -\frac{2}{3} \\
+-\frac{1}{3} & -\frac{1}{3} & \frac{2}{3}
+\end{bmatrix}$$
+\item Escriba la forma cuadrática en las nuevas variables y clasifíquela.\\
+\\
+De antes, tenemos que
+$$x^TAx = (Py)^TA(Py) = y^TP^TAPy = y^TDy$$
+Donde $D$ también era la matriz diagonal de la diagonalización ortogonal de $A$, por lo que
+$$D = \begin{bmatrix}
+3 & 0 & 0 \\
+0 & 9 & 0 \\
+0 & 0 & 15
+\end{bmatrix}$$
+Por lo tanto, como todos los elementos de la diagonal son positivos, la forma cuadrática es positiva definida.
 \end{enumerate}
 \end{solucion}
 \end{preguntas}
