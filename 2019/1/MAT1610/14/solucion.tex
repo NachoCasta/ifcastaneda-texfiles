@@ -113,5 +113,142 @@
 \end{center}
 
 \begin{preguntas}
+\item Resuelva las siguientes integrales
+\begin{tasks}(2)
+\task $\displaystyle\int \dfrac{dx}{\sqrt[]{(4-x^2)^3}}$
+\task $\displaystyle\int \dfrac{xdx}{\sqrt[]{1+x^2}}$
+\task $\displaystyle\int \dfrac{dx}{x\ \sqrt[]{x^2-1}}$
+\task $\displaystyle\int \dfrac{dx}{\sqrt[]{16+6x-x^2}}$
+\end{tasks}
+\begin{solucion}
+
+\begin{enumerate}[a)]
+\item $\displaystyle\int \dfrac{dx}{\sqrt[]{(4-x^2)^3}}$\\\\
+			Como en la integral hay presente una expresión de la forma $a^2-x^2$, realizamos el siguiente cambio de variable
+			$$x = asen(\theta) \ra x = 2sen(\theta) \ra dx = 2cos(\theta)d\theta$$
+			Luego, la integral es
+			$$\displaystyle\int \dfrac{2cos(\theta)d\theta}{\sqrt[]{(4-4sen^2(\theta))^3}}
+			= \displaystyle\int \dfrac{2cos(\theta)d\theta}{\sqrt[]{(4(1-sen^2(\theta)))^3}}
+			= \displaystyle\int \dfrac{2cos(\theta)d\theta}{\sqrt[]{(4cos^2(\theta))^3}}$$
+			$$= \displaystyle\int \dfrac{2cos(\theta)d\theta}{(\sqrt[]{4cos^2(\theta)})^3}
+			= \displaystyle\int \dfrac{2cos(\theta)d\theta}{(2cos(\theta))^3}
+			= \dfrac{1}{4}\displaystyle\int \dfrac{d\theta}{(cos^2(\theta))}
+			= \dfrac{1}{4}\displaystyle\int sec^2(\theta)d\theta$$
+			$$= \dfrac{1}{4} tan(\theta) + c$$
+			Recordemos que $x = 2sen(\theta)$, por lo que
+			$$\theta = arcsen\left(\dfrac{x}{2}\right)$$
+			Esto se puede representar con el siguiente triangulo auxiliar, ya que $\theta$ es el ángulo cuyo seno es $\dfrac{x}{2}$
+			\begin{center}
+				\begin{tikzpicture}[scale=1.25]%,cap=round,>=latex]
+				
+				\coordinate [label=left:$ $] (A) at (-1.5cm,-1.cm);
+				\coordinate [label=right:$ $] (C) at (1.5cm,-1.0cm);				\coordinate [label=above:$ $] (B) at (1.5cm,1.0cm);
+				\draw (A) -- node[above] {$2$} (B) -- node[right] {$x$} (C) -- node[below] {$\sqrt[]{4-x^2}$} (A);
+				
+				\draw (1.25cm,-1.0cm) rectangle (1.5cm,-0.75cm);
+				
+				\tkzMarkAngle[size=0.8cm,%
+				opacity=.4](C,A,B)
+				\tkzLabelAngle[pos = 0.6](C,A,B){$\theta$}
+				
+				\end{tikzpicture}
+			\end{center}
+			Luego, podemos ver que
+			$$tan(\theta) = \dfrac{x}{\sqrt[]{4-x^2}}$$
+			Finalmente,
+			$$\displaystyle\int \dfrac{dx}{\sqrt[]{(4-x^2)^3}} =
+			\dfrac{x}{4\ \sqrt[]{4-x^2}} + c$$
+\item $\displaystyle\int \dfrac{xdx}{\sqrt[]{1+x^2}}$\\\\
+			Como identificamos una expresión de la forma $a^2+x^2$, usamos la sustitución
+			$$x = tan(\theta) \ra dx = sec^2(\theta)$$
+			Luego tenemos
+			$$\displaystyle\int \dfrac{tan(\theta)sec^2(\theta)d\theta}{\sqrt[]{1+tan^2(\theta)}}
+			= \displaystyle\int \dfrac{tan(\theta)sec^2(\theta)d\theta}{\sqrt[]{sec^2(\theta)}}
+			= \displaystyle\int \dfrac{tan(\theta)sec^2(\theta)d\theta}{sec(\theta)}$$
+			$$= \displaystyle\int sec(\theta)tan(\theta)d\theta = sec(\theta) + c$$
+			Como $x = tan(\theta) \ra \theta = arctan(x)$, nuestro triangulo auxiliar sería
+			\begin{center}
+				\begin{tikzpicture}[scale=1.25]%,cap=round,>=latex]
+				
+				\coordinate [label=left:$ $] (A) at (-1.5cm,-1.cm);
+				\coordinate [label=right:$ $] (C) at (1.5cm,-1.0cm);				\coordinate [label=above:$ $] (B) at (1.5cm,1.0cm);
+				\draw (A) -- node[above] {$\sqrt[]{1+x^2}$} (B) -- node[right] {$x$} (C) -- node[below] {$1$} (A);
+				
+				\draw (1.25cm,-1.0cm) rectangle (1.5cm,-0.75cm);
+				
+				\tkzMarkAngle[size=0.8cm,%
+				opacity=.4](C,A,B)
+				\tkzLabelAngle[pos = 0.6](C,A,B){$\theta$}
+				
+				\end{tikzpicture}
+			\end{center}
+			Finalmente, 
+			$$\displaystyle\int \dfrac{xdx}{\sqrt[]{1+x^2}} = \sqrt[]{1+x^2} + c$$
+\item $\displaystyle\int \dfrac{dx}{x\ \sqrt[]{x^2-1}}$\\\\
+			Al identificar la expresión de la forma $x^2-a^2$, sabemos que debemos ocupar
+			$$x = sec(\theta) \ra dx = sec(\theta)tan(\theta)$$
+			Luego obtenemos
+			$$\displaystyle\int \dfrac{sec(\theta)tan(\theta)d\theta}{sec(\theta)\ \sqrt[]{sec^2(\theta)-1}}
+			= \displaystyle\int \dfrac{tan(\theta)d\theta}{\sqrt[]{tan^2(\theta)}}
+			= \displaystyle\int d\theta = \theta + c$$
+			Como $x = tan(\theta) \ra \theta = arctan(x)$
+			Finalmente,
+			$$\displaystyle\int \dfrac{dx}{x\ \sqrt[]{x^2-1}} = arctan(\theta) + c$$
+\item $\displaystyle\int \dfrac{dx}{\sqrt[]{16+6x-x^2}}$\\\\
+			Como no podemos ver ninguna expresión como las mencionadas anteriormente, vamos a hacer completación de cuadrados
+			$$16+6x-x^2 = 25 - 9 + 6x - x^2 = 25 - (x^2-6x+9) = 25 - (x-3)^2$$
+			Luego, la integral es
+			$$\displaystyle\int \dfrac{dx}{\sqrt[]{25 - (x-3)^2}}$$
+			Aqui si podemos identificar una expresión del tipo $a^2-x^2$, por lo que el cambio que corresponde hacer es
+			$$x-3 = 5sen(\theta) \ra dx = 5cos(\theta)d\theta$$
+			Entonces obtenemos la integral
+			$$\displaystyle\int \dfrac{5cos(\theta)d\theta}{\sqrt[]{25 - 25sen^2(\theta)}}
+			=\displaystyle\int \dfrac{5cos(\theta)d\theta}{\sqrt[]{25(1 - sen^2(\theta))}}
+			=\displaystyle\int \dfrac{5cos(\theta)d\theta}{\sqrt[]{25cos^2(\theta)}}$$
+			$$=\displaystyle\int \dfrac{5cos(\theta)d\theta}{5cos(\theta)} 
+			= \displaystyle\int d\theta = \theta + c$$
+			Como $x-3 = 5sen(\theta) \ra \theta = arcsen\left(\dfrac{x-3}{5}\right)$\\
+			Finalmente,
+			$$\displaystyle\int \dfrac{dx}{\sqrt[]{16+6x-x^2}} = arcsen\left(\dfrac{x-3}{5}\right) + c$$
+\end{enumerate}
+\end{solucion}
+\item Resuelva la siguiente integral
+	$$\displaystyle\int \dfrac{dx}{x(200-x)}$$
+\begin{solucion}
+En primer lugar, utilizamos fracciones parciales para descomponer la integral
+		$$\dfrac{1}{x(2-x)} = \dfrac{A}{x} + \dfrac{B}{2-x}$$
+		$$\dfrac{1}{x(2-x)} = \dfrac{A(2-x) + Bx}{x(2-x)}$$
+		$$\dfrac{1}{x(2-x)} = \dfrac{2A-Ax + Bx}{x(2-x)}$$
+		$$\dfrac{1}{x(2-x)} = \dfrac{2A+ (B-A)x}{x(2-x)}$$
+		De esta forma, tenemos el siguiente sistema de ecuaciones
+		$$2A = 1, \quad B-A = 0 \ra A = \dfrac{1}{2}, \quad B = \dfrac{1}{2}$$
+		Entonces, tenemos que la descomposición es
+		$$\dfrac{1}{x(2-x)} = \dfrac{1}{2x} + \dfrac{1}{2(2-x)}$$
+		Luego, la integral original la podemos escribir como
+		$$\displaystyle\int \dfrac{dx}{x(2-x)} = \displaystyle\int \dfrac{dx}{2x} + \displaystyle\int \dfrac{dx}{2(2-x)}$$
+		$$ = \dfrac{1}{2} \left( \displaystyle\int \dfrac{dx}{x} + \displaystyle\int \dfrac{dx}{2-x} \right)$$
+		$$ = \dfrac{1}{2} (ln|x| - ln|2-x| ) + c$$
+\end{solucion}
+\item Calcular la integral
+	$$\displaystyle\int_0^1 \dfrac{x^3+6x^2+13x+10}{x+1}dx$$
+\begin{solucion}
+Como vemos que el grado del numerador es mayor que el del denominador, realizamos división polinómica, es decir, calculamos
+		$$x^3+6x^2+13x+10 : x+1$$
+		Esto lo podemos hacer utilizando división sintética
+		$$
+		\renewcommand\arraystretch{1.5}
+		\setlength\doublerulesep{0pt}
+		\begin{array}{rrrrr}
+		\multicolumn{1}{r|}{1} & 1 & 6 & 13 & 10\\\cline{2-5}
+		& & 1& 5 & 8 \\\cline{2-5}
+		& 1 & 5& 8 & 2 
+		\end{array}
+		$$
+		De donde obtenemos que
+		$$\dfrac{x^3+6x^2+13x+10}{x+1} = x^2 +5x + 8 + \dfrac{2}{x+1}$$
+		Luego,
+		$$\displaystyle\int_0^1 \dfrac{x^3+6x^2+13x+10}{x+1}dx = \displaystyle\int_0^1 \left(x^2 + 5x + 8 +  \dfrac{2}{x+1}\right)dx$$
+		$$= \left( \dfrac{x^3}{3} + \dfrac{5x^2}{2} + 8x + 2ln(x+1)\right) \ev_0^1 = \dfrac{1}{3} + \dfrac{5}{2} + 8 + 2ln(2) = \dfrac{65}{6} + 2 ln(2)$$
+\end{solucion}
 \end{preguntas}
 \end{document}
