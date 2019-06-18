@@ -20,6 +20,8 @@
 \usepackage{stackrel}
 \usepackage{tkz-tab}
 \usepackage{xpatch}
+\usepackage{tkz-euclide}
+\usetkzobj{all}
 \xpatchcmd{\tkzTabLine}{$0$}{$\bullet$}{}{}
 
 \setlength{\headheight}{10pt}
@@ -253,7 +255,53 @@ Como vemos que el grado del numerador es mayor que el del denominador, realizamo
 \item Calcule
 $$\displaystyle\int \sqrt[]{1+x^2}dx$$
 \begin{solucion}
-
+En primer lugar, notemos que es una integral de la forma $a^2 + x^2$, por lo que debemos usar la sustitución
+$$x = \tan(\theta) \ra dx = \sec^2(\theta)d\theta$$
+Con esto,
+$$\displaystyle\int \sqrt[]{1+x^2}dx =
+\displaystyle\int \sqrt[]{1+\tan^2(\theta)}\sec^2(\theta)d\theta =
+\displaystyle\int \sqrt[]{\sec^2(\theta)}\sec^2(\theta)d\theta =
+\displaystyle\int \sec^3(\theta)d\theta
+$$
+Por lo tanto, debemos resolver
+$$I = \displaystyle\int \sec^3(\theta)d\theta$$
+Notemos que
+$$\displaystyle\int \sec^3(\theta)d\theta =
+\displaystyle\int \sec(\theta)\sec^2(\theta)d\theta
+$$
+Por lo que podemos usar integración por partes con
+$$U = \sec(\theta), \quad dv = \sec^2(\theta)d\theta \ra 
+du = \sec(\theta)\tan(\theta)d\theta, \quad V = \tan(\theta)$$
+Luego,
+$$\displaystyle\int \sec^3(\theta)d\theta = 
+\sec(\theta)\tan(\theta) - \displaystyle\int \sec(\theta)\tan^2(\theta)d\theta
+$$
+$$\displaystyle\int \sec^3(\theta)d\theta = 
+\sec(\theta)\tan(\theta) - \displaystyle\int \sec(\theta)(\sec^2(\theta)-1)d\theta
+$$
+$$\displaystyle\int \sec^3(\theta)d\theta = 
+\sec(\theta)\tan(\theta) - \displaystyle\int \sec^3(\theta)d\theta + \displaystyle\int \sec(\theta)d\theta
+$$
+Notemos que la integral original se encuentra a ambos lados de la igualdad, por lo que podemos escribirlo como
+$$I = 
+\sec(\theta)\tan(\theta) - I + \displaystyle\int \sec(\theta)d\theta
+$$
+Despejando,
+$$I = 
+\dfrac{1}{2}\left(\sec(\theta)\tan(\theta) + \displaystyle\int \sec(\theta)d\theta\right)
+$$
+Entonces, faltaría solo calcular
+$$\displaystyle\int \sec(\theta)d\theta =
+\displaystyle\int \sec(\theta)\dfrac{\sec(\theta) + \tan(\theta)}{\sec(\theta) + \tan(\theta)}d\theta =
+\displaystyle\int \dfrac{\sec^2(\theta) + \sec(\theta)\tan(\theta)}{\sec(\theta) + \tan(\theta)}d\theta
+$$
+$$u = \sec(\theta) + \tan(\theta) \ra du = (\sec^2(\theta) + \sec(\theta)\tan(\theta))d\theta$$
+$$= \displaystyle\int \dfrac{du}{u} = \ln|u| + c = \ln|\sec(\theta) + \tan(\theta)| + c
+$$
+Finalmente,
+$$I = 
+\dfrac{1}{2}\sec(\theta)\tan(\theta) + \dfrac{1}{2}\ln|\sec(\theta) + \tan(\theta)| + c
+$$
 \end{solucion}
 \end{preguntas}
 \end{document}
