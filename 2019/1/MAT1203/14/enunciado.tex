@@ -20,6 +20,8 @@
 \usepackage{stackrel}
 \usepackage{tkz-tab}
 \usepackage{xpatch}
+\usepackage{tkz-euclide}
+\usetkzobj{all}
 \xpatchcmd{\tkzTabLine}{$0$}{$\bullet$}{}{}
 
 \setlength{\headheight}{10pt}
@@ -116,6 +118,7 @@
 \item Sea $A = \begin{bmatrix}1 & -3 \\ -3 & 9\end{bmatrix}$
 \begin{enumerate}[a)]
 \item Encuentre una matriz $L$ cuadrada, triangular inferior con numeros 1 en la diagonal, y una matriz diagonal $D$ tal que $A = LDL^T$.
+\item Encuentre la segunda descomposición de Cholesky de $A$
 \item Realice un cambio de variable $x=Py$ que transforme la forma cuadrática
 		$$Q\left(\begin{bmatrix}x_1\\x_2\end{bmatrix}\right) = \begin{bmatrix}x_1& x_2\end{bmatrix}A\begin{bmatrix}x_1\\ x_2\end{bmatrix}$$
 		en una sin términos con producto cruzado.
