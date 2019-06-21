@@ -115,5 +115,680 @@
 \end{center}
 
 \begin{preguntas}
+\item Diagonalice ortogonalmente
+	$$M = \begin{bmatrix}
+	1 & 0 & 1 \\
+	0 & 2 & 0 \\
+	1 & 0 & 1
+	\end{bmatrix}$$
+\begin{solucion}
+Para hacer esto debemos hacer un procedimiento similar al que realizamos cuando queremos diagonalizar una matriz, es decir, buscar $P$ y $D$ tal que $M = PDP^{-1}$, con la diferencia de que en este caso $P$ debe ser ortogonal.
+		
+		Comenzamos buscando los valores propios, con lo que obtendremos
+		$$\lambda_1 = 0 \ra \text{multiplicidad 1}$$
+		$$\lambda_2 = 2 \ra \text{multiplicidad 2}$$
+		Luego, buscamos los vectores propios asociados a cada uno de estos valores propios, los que son
+		$$\lambda_1 = 0 \ra v_1 = \begin{pmatrix}
+		1 \\ 0 \\ -1
+		\end{pmatrix}$$
+		$$\lambda_2 = 2 \ra v_2 = \begin{pmatrix}
+		0 \\ 1 \\ 0
+		\end{pmatrix}, v_3 = \begin{pmatrix}
+		1 \\ 0 \\ 1
+		\end{pmatrix}$$
+		Notemos que todos estos vectores son ortogonales entre si, sin embargo, necesitamos que sean ortonormales. Recordemos que un vector propio será cualquier multiplo de los vectores calculados anteriormente, por lo que para obtener vectores ortonormales, basta con dividir cada uno por su modulo. De esta forma, nuestros nuevos vectores serán
+		$$v_1 = \begin{pmatrix}
+		1/\ \sqrt[]{2} \\ 0 \\ -1/\ \sqrt[]{2}
+		\end{pmatrix}, v_2 = \begin{pmatrix}
+		0 \\ 1 \\ 0
+		\end{pmatrix}, v_3 = \begin{pmatrix}
+		1/\ \sqrt[]{2} \\ 0 \\ 1/\ \sqrt[]{2}
+		\end{pmatrix}$$
+		Luego, $M$ se diagonaliza con
+		$$P = \begin{bmatrix}
+		1/\ \sqrt[]{2} & 0 & 1/\ \sqrt[]{2} \\
+		0 & 1 & 0 \\
+		-1/\ \sqrt[]{2} & 0 & 1/\ \sqrt[]{2}
+		\end{bmatrix}, \quad D = \begin{bmatrix}
+		0 & 0 & 0 \\
+		0 & 2 & 0 \\
+		0 & 0 & 2
+		\end{bmatrix}$$
+\end{solucion}
+\item Sea 
+	$U = Gen\left\{
+	\begin{bmatrix}1\\0\\1\\1\end{bmatrix},
+	\begin{bmatrix}0\\1\\2\\1\end{bmatrix},
+	\begin{bmatrix}1\\1\\3\\2\end{bmatrix}
+	\right\}$.
+\begin{enumerate}[a)]
+\item Encuentre una base ortonormal de $U$.
+\item Encuentre la distancia de $b = 
+		\begin{bmatrix}1\\1\\1\\1\end{bmatrix}$ a $U$.
+\end{enumerate}
+\begin{solucion}
+
+\begin{enumerate}[a)]
+\item Encuentre una base ortonormal de $U$.\\
+			\\
+			En primer lugar, debemos buscar una base común y corriente de $U$. Para esto, tomemos los vectores L.I. del conjunto que lo genera. Notemos que
+			$$\begin{bmatrix}
+			1 & 0 & 1 \\
+			0 & 1 & 1 \\
+			1 & 2 & 3 \\
+			1 & 1 & 2
+			\end{bmatrix} \sim
+			\begin{bmatrix}
+			1 & 0 & 1 \\
+			0 & 1 & 1 \\
+			0 & 0 & 0 \\
+			0 & 0 & 0
+			\end{bmatrix}$$
+			Por lo que concluimos que los dos vectores del generado son L.I. Entonces, una base de $U$ corresponde a
+			$$B = \left\{ \begin{pmatrix}
+			1 \\ 0 \\ 1 \\ 1
+			\end{pmatrix},\begin{pmatrix}
+			0 \\ 1 \\ 2 \\ 1
+			\end{pmatrix} \right\}$$
+			Recordemos que Gramm-Schmidt forma una base ortogonal a partir de una base cualquiera y funciona de la siguiente forma:
+			
+			Sea $B = \{v_1, v_2, \dots \}$ una base cualquiera de un espacio vectorial,
+			
+			$$\begin{array}{rcl}
+			u_1 & = & v_1 \\\\
+			u_2 & = & v_2 - \dfrac{v_2u_1}{u_1u_1}u_1 \\\\
+			u_3 & = & v_3 - \dfrac{v_3u_1}{u_1u_1}u_1 - \dfrac{v_3u_2}{u_2u_2}u_2\\
+			& \vdots & 			
+			\end{array}$$
+			Luego, $B^{\perp} = \{u_1, u_2, \dots \}$ es una base ortogonal de ese espacio vectorial.
+			
+			Hagamos esto con nuestra base:
+			
+			En primer lugar,
+			$$u_1 = v_1 = \begin{pmatrix}
+			1 \\ 0 \\ 1 \\ 1
+			\end{pmatrix}$$
+			
+			Luego,
+			$$u_2 = v_2 - \dfrac{v_2u_1}{u_1u_1}u_1
+			= \begin{pmatrix}
+			0 \\ 1 \\ 2 \\ 1
+			\end{pmatrix} - \dfrac{\begin{pmatrix}
+				0 \\ 1 \\ 2 \\ 1
+				\end{pmatrix}\begin{pmatrix}
+				1 \\ 0 \\ 1 \\ 1
+				\end{pmatrix}}{\begin{pmatrix}
+				1 \\ 0 \\ 1 \\ 1
+				\end{pmatrix}\begin{pmatrix}
+				1 \\ 0 \\ 1 \\ 1
+				\end{pmatrix}}\begin{pmatrix}
+			1 \\ 0 \\ 1 \\ 1
+			\end{pmatrix} 
+			= \begin{pmatrix}
+			0 \\ 1 \\ 2 \\ 1
+			\end{pmatrix} - \dfrac{3}{3}\begin{pmatrix}
+			1 \\ 0 \\ 1 \\ 1
+			\end{pmatrix} 
+			= \begin{pmatrix}
+			-1 \\ 1 \\ 1 \\ 0
+			\end{pmatrix} $$
+			De esta forma,
+			$$B^{\perp} = \left\{\begin{pmatrix}
+			1 \\ 0 \\ 1 \\ 1
+			\end{pmatrix}, \begin{pmatrix}
+			-1 \\ 1 \\ 1 \\ 0
+			\end{pmatrix}\right\}$$
+			Sin embargo, necesitamos una base ortonormal. Para esto, basta con dividir todos los vectores de la base por su norma, obteniendo
+			$$\hat{B}^{\perp} = \left\{\begin{pmatrix}
+			1/\ \sqrt[]{3} \\ 0 \\ 1/\ \sqrt[]{3} \\ 1/\ \sqrt[]{3}
+			\end{pmatrix}, \begin{pmatrix}
+			-1/\ \sqrt[]{3} \\ 1/\ \sqrt[]{3} \\ 1/\ \sqrt[]{3} \\ 0
+			\end{pmatrix}\right\}$$
+\item Encuentre la distancia de $b = 
+			\begin{bmatrix}1\\1\\1\\1\end{bmatrix}$ a $U$.
+			
+			Sea $A$ una matriz con los vectores de una base de $U$ en sus columnas y $x$ un vector coordenada de un elemento cualquier perteneciente a $U$, entonces la distancia entre ese elemento y $b$ corresponde a $||Ax-b||$.
+			
+			Luego, la distancia entre $b$ y $U$ corresponde a la distancia más pequeña entre $b$ y un elemento de $U$, es decir,
+			$$min||Ax-b||$$
+			Resolver este problema es equivalente a resolver el sistema
+			$$A^TAx = A^Tb$$
+			Utilicemos
+			$$A = \begin{bmatrix}
+			1 & 0 \\
+			0 & 1 \\
+			1 & 2 \\
+			1 & 1
+			\end{bmatrix}$$
+			Entonces,
+			$$A^TA = \begin{bmatrix}
+			3 & 3 \\
+			3 & 6
+			\end{bmatrix}, \quad A^Tb = \begin{pmatrix}
+			3 \\ 4
+			\end{pmatrix}$$
+			Por lo que tenemos que resolver el sistema
+			$$\begin{bmatrix}
+			3 & 3 \\
+			3 & 6
+			\end{bmatrix}x = \begin{pmatrix}
+			3 \\ 4
+			\end{pmatrix} \ra x = \begin{pmatrix}
+			\frac{2}{3}\\ \frac{1}{3}
+			\end{pmatrix}$$
+			Finalmente, la distancia corresponde a
+			$$||Ax-b|| = \left|\left|\begin{bmatrix}
+			1 & 0 \\
+			0 & 1 \\
+			1 & 2 \\
+			1 & 1
+			\end{bmatrix}\begin{pmatrix}
+			\frac{2}{3}\\ \frac{1}{3}
+			\end{pmatrix} - \begin{pmatrix}1\\1\\1\\1\end{pmatrix}\right|\right|
+			= \left|\left|\begin{pmatrix}
+			-\frac{1}{3}\\
+			-\frac{2}{3}\\
+			\frac{1}{3}\\
+			0
+			\end{pmatrix}\right|\right| = \sqrt[]{\dfrac{2}{3}}$$
+\end{enumerate}
+\end{solucion}
+\item Un cierto experimento genera los datos $(1,3)$, $(2,5)$ y $(3,4)$. Describa el modelo que da un ajuste de mínimos cuadrados de esos puntos mediante una recta de la forma $y = \beta_0 +  \beta_1x$
+\begin{solucion}
+Los valores del experimento se pueden ver en las siguiente tabla:\\
+		\\
+		\begin{center}
+		\begin{tabular}{|l|l|}
+			\hline
+			\textbf{y} & \textbf{x} \\ \hline
+			3          & 1          \\ \hline
+			5          & 2          \\ \hline
+			4          & 3          \\ \hline
+		\end{tabular}
+		\end{center}
+		Estamos buscando $\beta_0, \beta_1$ tal que
+		$$y = \beta_0 +  \beta_1x$$
+		sea un ajuste por mínimos cuadrados. Esto lo podemos escribir como
+		$$Y = X\beta$$
+		donde
+		$$Y = \begin{pmatrix}
+		3 \\ 5 \\ 4
+		\end{pmatrix}, \quad 
+		X = \begin{bmatrix}
+		1 & 1 \\
+		1 & 2 \\
+		1 & 3
+		\end{bmatrix}, \quad
+		\beta = \begin{pmatrix}
+		\beta_0 \\ \beta_1
+		\end{pmatrix}$$
+		Para encontrar $\beta$, debemos resolver el sistema
+		$$X^TX\beta = X^TY \ra \beta = (X^TX)^{-1}X^TY$$
+		$$(X^TX)^{-1} = \left(\begin{bmatrix}
+		1 & 1 & 1\\
+		1 & 2 & 3
+		\end{bmatrix}
+		\begin{bmatrix}
+		1 & 1 \\
+		1 & 2 \\
+		1 & 3
+		\end{bmatrix}\right)^{-1}
+		 = 
+		 \begin{bmatrix}
+		 3 & 6 \\
+		 6 & 14
+		 \end{bmatrix}^{-1} = \begin{bmatrix}
+		 \frac{7}{3} & -1 \\
+		 -1 & \frac{1}{2}
+		 \end{bmatrix}$$
+		 $$ X^TY = \begin{bmatrix}
+		 1 & 1 & 1\\
+		 1 & 2 & 3
+		 \end{bmatrix} \begin{pmatrix}
+		 3 \\ 5 \\ 4
+		 \end{pmatrix} = 
+		 \begin{pmatrix}
+		 12 \\ 25
+		 \end{pmatrix}$$
+		 Luego,
+		 $$\beta = (X^TX)^{-1}X^TY
+		 = \begin{bmatrix}
+		 \frac{7}{3} & -1 \\
+		 -1 & \frac{1}{2}
+		 \end{bmatrix}\begin{pmatrix}
+		 12 \\ 25
+		 \end{pmatrix}
+		 = \begin{pmatrix}
+		 3 \\ \frac{1}{2}
+		 \end{pmatrix}
+		 $$
+		 Finalmente, el ajuste por mínimos cuadrados es
+		 $$y = 3 + \dfrac{1}{2}x$$
+\end{solucion}
+\item Sea $A$ la matriz simétrica que representa a la forma cuadrática
+	$$Q(x) = 9x_1^2 + 7x_2^2 + 11x_3^2 - 8x_1x_2 + 8x_1x_3$$
+\begin{enumerate}[a)]
+\item Encuentre una matriz ortogonal $P$ tal que el cambio de variable $x = Py$ transforma la forma $x^TAx$ en una forma cuadrática sin productos cruzados.
+\item Escriba la forma cuadrática en las nuevas variables y clasifíquela.
+\end{enumerate}
+\begin{solucion}
+
+\begin{enumerate}[a)]
+\item Encuentre una matriz ortogonal $P$ tal que el cambio de variable $x = Py$ transforma la forma $x^TAx$ en una forma cuadrática sin productos cruzados.\\
+\\
+En primer lugar, podemos ver que
+$$A = \begin{bmatrix}
+9 & -4 & 4\\
+-4 & 7 & 0\\
+4 & 0 & 11
+\end{bmatrix}$$
+Notemos que para que una forma cuadrática no tenga productos cruzados, su matriz asociada debe ser diagonal.\\
+
+Luego, haciendo el cambio de variable,
+$$x^TAx = (Py)^TA(Py) = y^TP^TAPy$$
+Por lo tanto, para cumplir lo que nos piden, debe ocurrir que $P^TAP = D$ con $D$ una matriz diagonal.\\
+
+Notemos que
+$$P^TAP = D \ra A = PDP^T$$
+Por lo que podemos encontrar $P$ diagonalizando ortogonalmente $A$.\\
+
+Buscando los valores y vectores propios de $A$ obtendremos
+$$\lambda_1 = 3 \ra v_1 = \begin{pmatrix}
+2 \\ 2 \\ -1
+\end{pmatrix},
+\quad
+\lambda_2 = 9 \ra v_2 = \begin{pmatrix}
+1 \\ -2 \\ -2
+\end{pmatrix}, 
+\quad
+\lambda_3 = 15 \ra v_3 = \begin{pmatrix}
+2 \\ -1 \\ 2
+\end{pmatrix}$$
+Como queremos diagonalizar ortogonalmente, normalizamos cada vector propio, con lo que tenemos
+$$v_1 = \begin{pmatrix}
+\frac{2}{3} \\ \frac{2}{3} \\ -\frac{1}{3}
+\end{pmatrix},
+\quad
+v_2 = \begin{pmatrix}
+\frac{1}{3} \\ -\frac{2}{3} \\ -\frac{2}{3}
+\end{pmatrix},
+\quad
+v_3 = \begin{pmatrix}
+\frac{2}{3} \\ -\frac{1}{3} \\ \frac{2}{3}
+\end{pmatrix} $$
+Finalmente,
+$$P = \begin{bmatrix}
+\frac{2}{3} & \frac{1}{3} & \frac{2}{3} \\
+\frac{2}{3} & -\frac{2}{3} & -\frac{2}{3} \\
+-\frac{1}{3} & -\frac{1}{3} & \frac{2}{3}
+\end{bmatrix}$$
+\item Escriba la forma cuadrática en las nuevas variables y clasifíquela.\\
+\\
+De antes, tenemos que
+$$x^TAx = (Py)^TA(Py) = y^TP^TAPy = y^TDy$$
+Donde $D$ también era la matriz diagonal de la diagonalización ortogonal de $A$, por lo que
+$$D = \begin{bmatrix}
+3 & 0 & 0 \\
+0 & 9 & 0 \\
+0 & 0 & 15
+\end{bmatrix}$$
+Por lo tanto, como todos los elementos de la diagonal son positivos, la forma cuadrática es positiva definida.
+\end{enumerate}
+\end{solucion}
+\item Sea $A = \begin{bmatrix}
+	1 & 2 & 3\\
+	2 & 8 & 4 \\
+	3 & 4 & 11\end{bmatrix}$. Calcule la factorización $A=LDL^T$ de la matriz $A$ y en base a esto encuentre una matriz $R$ tal que $A = RR^T$.
+\begin{solucion}
+Procedemos a pivotear la matriz para llevarla a su forma escalonada, preocupandonos de no ponderar filas y deteniendonos cada vez que se forme un pivote.
+		$$A = \begin{bmatrix}
+		1 & 2 & 3\\
+		2 & 8 & 4 \\
+		3 & 4 & 11\end{bmatrix}$$
+		Aquí ya tenemos un pivote, que es la primera columna, es decir $\begin{bmatrix} 1 \\ 2 \\ 3 \end{bmatrix}$.
+		$$\sim \begin{bmatrix}
+		1 & 2 & 3\\
+		0 & 4 & -2 \\
+		0 & -2 & 2\end{bmatrix}$$
+		El segundo pivote está en la segunda columna. Tomamos solo los valores bajo el pivote (incluyendolo). Esto es $\begin{bmatrix}0 \\ 4 \\ -2\end{bmatrix}$.
+		$$\sim \begin{bmatrix}
+		1 & 2 & 3\\
+		0 & 4 & -2 \\
+		0 & 0 & 1\end{bmatrix} = U$$
+		El último pivote está en la tercera columna, que corresponderá a $\begin{bmatrix}0 \\ 0 \\ 1\end{bmatrix}$.
+		
+		Ahora, procedemos a dividir cada columna extraida por el pivote correspondiente (coeficiente de más arriba) y luego formar la matriz $L$, esto es
+		$$L = \begin{bmatrix}
+		1 & 0 & 0\\
+		2 & 1 & 0\\
+		3 & -\frac{1}{2} & 1
+		\end{bmatrix}$$
+		La matriz $D$ corresponde a la diagonal de $U$, por lo que
+		$$D =\begin{bmatrix}
+		1 & 0 & 0\\
+		0 & 4 & 0 \\
+		0 & 0 & 1\end{bmatrix}$$
+		Luego,
+		$$A = LDL^T = \begin{bmatrix}
+		1 & 0 & 0\\
+		2 & 1 & 0\\
+		3 & -\frac{1}{2} & 1
+		\end{bmatrix}
+		\begin{bmatrix}
+		1 & 0 & 0\\
+		0 & 4 & 0 \\
+		0 & 0 & 1\end{bmatrix}
+		\begin{bmatrix}
+		1 & 2 & 3\\
+		0 & 1 & -\frac{1}{2}\\
+		0 & 0 & 1
+		\end{bmatrix}$$
+		Notemos ahora que, al ser $D$ una matriz diagonal, es facil calcular $\sqrt[]{D}$. Esto es
+		$$\sqrt[]{D} = 
+		\begin{bmatrix}
+		1 & 0 & 0\\
+		0 & 2 & 0 \\
+		0 & 0 & 1
+		\end{bmatrix}$$
+		Ahora,
+		$$A = LDL^T = (L\ \sqrt[]{D})(\ \sqrt[]{D}L^T) = (L\ \sqrt[]{D})(L\ \sqrt[]{D}^T)^T $$
+		Pero la matriz transpuesta de una matriz diagonal es igual a la matriz en cuestión, por lo que
+		$$A = (L\ \sqrt[]{D})(L\ \sqrt[]{D})^T \ra R = L\ \sqrt[]{D}$$
+		$$R = \begin{bmatrix}
+		1 & 0 & 0\\
+		2 & 1 & 0\\
+		3 & -\frac{1}{2} & 1
+		\end{bmatrix}
+		\begin{bmatrix}
+		1 & 0 & 0\\
+		0 & 2 & 0 \\
+		0 & 0 & 1
+		\end{bmatrix} = \begin{bmatrix}
+		1 & 0 & 0\\
+		2 & 2 & 0\\
+		3 & -1 & 1
+		\end{bmatrix}$$
+		Finalmente,
+		$$A = \begin{bmatrix}
+		1 & 0 & 0\\
+		2 & 2 & 0\\
+		3 & -1& 1
+		\end{bmatrix}
+		\begin{bmatrix}
+		1 & 2 & 3\\
+		0 & 2 & -1\\
+		0 & 0 & 1
+		\end{bmatrix}$$
+\end{solucion}
+\item Sea $A = \begin{bmatrix}1 & -3 \\ -3 & 9\end{bmatrix}$
+\begin{enumerate}[a)]
+\item Encuentre una matriz $L$ cuadrada, triangular inferior con numeros 1 en la diagonal, y una matriz diagonal $D$ tal que $A = LDL^T$.
+\item Encuentre la segunda descomposición de Cholesky de $A$
+\item Realice un cambio de variable $x=Py$ que transforme la forma cuadrática
+		$$Q\left(\begin{bmatrix}x_1\\x_2\end{bmatrix}\right) = \begin{bmatrix}x_1& x_2\end{bmatrix}A\begin{bmatrix}x_1\\ x_2\end{bmatrix}$$
+		en una sin términos con producto cruzado.
+\end{enumerate}
+\begin{solucion}
+
+\begin{enumerate}[a)]
+\item Encuentre una matriz $L$ cuadrada, triangular inferior con numeros 1 en la diagonal, y una matriz diagonal $D$ tal que $A = LDL^T$.\\
+\\
+En primer lugar,  buscamos $A = LU$, esto es
+$$A \begin{bmatrix}1 & -3 \\ -3 & 9\end{bmatrix} 
+\wsim
+\begin{bmatrix}1 & -3 \\ 0 & 0\end{bmatrix}
+= U$$
+Luego,
+$$L = \begin{bmatrix}1 & 0 \\ -3 & 1\end{bmatrix}$$
+Ahora, debemos escribir $U$ como $DL^T$. Para hacer esto, basta tomar $D$ como la diagonal de $U$, con lo que
+$$D = \begin{bmatrix}1 & 0 \\ 0 & 0\end{bmatrix}$$
+Finalmente,
+$$A = 
+\begin{bmatrix}1 & 0 \\ -3 & 1\end{bmatrix}
+\begin{bmatrix}1 & 0 \\ 0 & 0\end{bmatrix}
+\begin{bmatrix}1 & -3 \\ 0 & 1\end{bmatrix}
+$$
+\item Encuentre la segunda descomposición de C
+holesky de $A$\\
+\\
+Para encontrar la segunda descomposición de Cholesky, debemos escribir $A$ de la forma $A = RR^T$.\\
+
+Notemos que
+$$A = LDL^T = (L\ \sqrt[]{D})(\sqrt[]{D}L^T) = (L\ \sqrt[]{D})(L\ \sqrt[]{D})^T$$
+Por lo que podemos tomar
+$$R =  L\ \sqrt[]{D} = 
+\begin{bmatrix}1 & 0 \\ -3 & 1\end{bmatrix}
+\sqrt[]{\begin{bmatrix}1 & 0 \\ 0 & 0\end{bmatrix}} =
+\begin{bmatrix}1 & 0 \\ -3 & 1\end{bmatrix}
+\begin{bmatrix}1 & 0 \\ 0 & 0\end{bmatrix} =
+\begin{bmatrix}1 & 0 \\ -3 & 0\end{bmatrix}
+$$
+Finalmente,
+$$A = 
+\begin{bmatrix}1 & 0 \\ -3 & 0\end{bmatrix}
+\begin{bmatrix}1 & -3 \\ 0 & 0\end{bmatrix}
+$$
+\item Realice un cambio de variable $x=Py$ que transforme la forma cuadrática
+$$Q\left(\begin{bmatrix}x_1\\x_2\end{bmatrix}\right) = \begin{bmatrix}x_1& x_2\end{bmatrix}A\begin{bmatrix}x_1\\ x_2\end{bmatrix}$$
+en una sin términos con producto cruzado.\\
+\\
+Como $A = LDL^T$,	
+$$Q(x) = x^T(LDL^T)x = (x^TL)D(L^Tx) = (L^Tx)^TD(L^Tx)$$
+Luego, si tomamos
+$$y = L^Tx \ra x = (L^T)^{-1}y = 
+\begin{bmatrix}
+1 & 3 \\
+0 & 1
+\end{bmatrix}
+\begin{pmatrix}
+y_1 \\ y_2
+\end{pmatrix}
+= 
+\begin{pmatrix}
+y_1 + 3y_2 \\ y_1
+\end{pmatrix}$$
+Obtenemos la forma cuadrática
+$$Q(y) = y^TDy = y_1^2$$
+Que no tiene productos cruzados.
+\end{enumerate}
+\end{solucion}
+\item Calcule la descomposición en valores singulares de la matriz $A = \begin{bmatrix}4 & 11 & 14\\ 8 & 7 & -2\end{bmatrix}$
+\begin{solucion}
+Sea $A_{m \times n}$ de rango $r$, debemos buscar una matriz $\Sigma_{m \times n}$, una matriz $U_{m \times m}$ y una matriz $V_{n \times n}$ tal que
+		$$A = U \Sigma V^T$$
+		La matriz $\Sigma$ será de la forma
+		$$\Sigma = \begin{bmatrix}
+		D & \dots & 0\\
+		\vdots & \ddots & 0\\
+		0 & \dots & 0
+		\end{bmatrix}$$
+		donde $D$ es una matriz diagonal con los primeros $r$ valores singulares de $A$ ordenados en de manera decreciente.
+		
+		$U$ y $V$ serán matrices ortogonales compuestas por los vectores singulares izquierdos y derechos de $A$, respectivamente.
+		
+		Los valores singulares de $A$ corresponden a las raices de los valores propios de la matriz $A^TA$. Estos los denominaremos como $\sigma_n = \sqrt[]{\lambda_n}$ y los ordenaremos de mayor a menor, por lo que siempre $\sigma_{n+1} \geq \sigma_n$.
+		
+		Los vectores singulares derechos de $A$ corresponderán a los vectores propios unitarios de $A^TA$, por lo que la matriz $V$ será de la forma 
+		$$V = \begin{bmatrix}
+		v_1 & v_2 & \dots & v_n
+		\end{bmatrix}$$
+		donde cada uno esta asociado a uno de valores singulares (recuerden que deben estar ordenados de mayor a menor).
+		
+		Los vectores singulares izquierdos corresponderán a $u_n = \dfrac{1}{\sigma_n}Av_n$ donde $v_n$ son los vectores propios unitarios de $A^TA$. Luego, la matriz $U$ es de la forma
+		$$U = \begin{bmatrix}
+		u_1 & u_2 & \dots & u_n
+		\end{bmatrix}$$
+		
+		Veamos ahora que ocurre en el ejercicio.
+		
+		En primer lugar, debemos determinar los datos propios de $A^TA$ para obtener los valores y vectores singulares.
+		$$A^TA = \begin{bmatrix}
+		80 & 100 & 40 \\
+		100 & 170 & 140\\
+		40 & 140 & 200
+		\end{bmatrix}$$
+		Luego,
+		$$|A^TA - \lambda I| = 0$$
+		con lo que
+		$$\lambda_1 = 360 \ra \sigma_1 = 6 \ \sqrt[]{10}$$
+		$$\ \lambda_2 = 90  \ra \sigma_2 = 3 \ \sqrt[]{10}$$
+		$$ \ \lambda_3 = 0  \ra \sigma_3 = 0$$
+		Los vectores propios normalizados asociados son
+		$$v_1 = \begin{pmatrix}
+		\dfrac{1}{3}\\\\
+		\dfrac{2}{3}\\\\
+		\dfrac{2}{3}
+		\end{pmatrix},
+		v_2 = \begin{pmatrix}
+		-\dfrac{2}{3}\\\\
+		-\dfrac{1}{3}\\\\
+		\dfrac{2}{3}
+		\end{pmatrix},
+		v_3 = \begin{pmatrix}
+		\dfrac{2}{3}\\\\
+		-\dfrac{2}{3}\\\\
+		\dfrac{1}{3}
+		\end{pmatrix}$$
+		A continuación debemos armar las matrices de la descomposición.
+		
+		Pivoteando podemos notar que el rango de $A$ es 2, por lo que la matriz $D$ será
+		$$D = \begin{bmatrix}
+		\sigma_1 & 0\\
+		0 & \sigma_2
+		\end{bmatrix} 
+		= \begin{bmatrix}
+		6 \ \sqrt[]{10} & 0\\
+		0 & 3 \ \sqrt[]{10}
+		\end{bmatrix} $$
+		Luego,
+		$$\Sigma = \begin{bmatrix}
+		6 \ \sqrt[]{10} & 0 & 0\\
+		0 & 3 \ \sqrt[]{10} & 0
+		\end{bmatrix}$$
+		Con los vectores propios podemos determinar
+		$$V = \begin{bmatrix}
+		\dfrac{1}{3} & -\dfrac{2}{3} & \dfrac{2}{3} \\\\
+		\dfrac{2}{3} & -\dfrac{1}{3} & -\dfrac{2}{3}  \\\\
+		\dfrac{2}{3} & \dfrac{2}{3}  & \dfrac{1}{3} 
+		\end{bmatrix}$$
+		Para determinar $U$ necesitamos primero encontrar los vectores singulares izquierdos, esto es
+		$$u_1 = \dfrac{1}{\sigma_1} A v_1 = \dfrac{1}{6 \ \sqrt[]{10}} \begin{pmatrix}
+		18 \\ 6
+		\end{pmatrix} = 
+		\begin{pmatrix}
+		\dfrac{3}{\sqrt[]{10}} \\\\
+		\dfrac{1}{\sqrt[]{10}}
+		\end{pmatrix}$$
+		$$u_2 = \dfrac{1}{\sigma_2} A v_2 = \dfrac{1}{3 \ \sqrt[]{10}} \begin{pmatrix}
+		3 \\ -9
+		\end{pmatrix} = 
+		\begin{pmatrix}
+		\dfrac{1}{\sqrt[]{10}} \\\\
+		\dfrac{-3}{\sqrt[]{10}}
+		\end{pmatrix}$$
+		Luego,
+		$$U = \begin{bmatrix}
+		\dfrac{3}{\sqrt[]{10}} & \dfrac{1}{\sqrt[]{10}} \\\\
+		\dfrac{1}{\sqrt[]{10}} & \dfrac{-3}{\sqrt[]{10}}
+		\end{bmatrix}$$
+		Finalmente,
+		$$A = U \Sigma V^T = \begin{bmatrix}
+		\dfrac{3}{\sqrt[]{10}} & \dfrac{1}{\sqrt[]{10}} \\\\
+		\dfrac{1}{\sqrt[]{10}} & \dfrac{-3}{\sqrt[]{10}}
+		\end{bmatrix} 
+		\begin{bmatrix}
+		6 \ \sqrt[]{10} & 0 & 0\\
+		0 & 3 \ \sqrt[]{10} & 0
+		\end{bmatrix}
+		\begin{bmatrix}
+		\dfrac{1}{3} & \dfrac{2}{3} & \dfrac{2}{3} \\\\
+		-\dfrac{2}{3} & -\dfrac{1}{3} & \dfrac{2}{3}  \\\\
+		\dfrac{2}{3} & -\dfrac{2}{3}  & \dfrac{1}{3} 
+		\end{bmatrix}
+		$$
+\end{solucion}
+\item Sea la matriz
+	$A = \begin{bmatrix}
+	1 & 0 \\1 & 1 \\
+	-1 & 1
+	\end{bmatrix}$
+	, determine su descomposición en valores singulares.
+\begin{solucion}
+En primer lugar, tenemos que
+$$A^TA = \begin{bmatrix}
+3 & 0 \\
+0 & 2
+\end{bmatrix}$$
+Al buscar los valores y vectores propios y singulares de esta matriz, obtenemos
+$$\lambda_1 = 3 \ra \sigma_1 = \sqrt[]{3}$$
+$$\lambda_2 = 2, \ra \sigma_2 = \sqrt[]{2}$$
+$$v_1 = \begin{pmatrix}
+1 \\ 0
+\end{pmatrix} \ra u_1 = \begin{pmatrix}
+\frac{1}{\sqrt[]{3}} \\
+\frac{1}{\sqrt[]{3}} \\
+\frac{1}{\sqrt[]{3}}
+\end{pmatrix} $$
+$$v_1 = \begin{pmatrix}
+0 \\ 1
+\end{pmatrix} \ra u_2 = \begin{pmatrix}
+0 \\
+\frac{1}{\sqrt[]{2}} \\
+-\frac{1}{\sqrt[]{2}}
+\end{pmatrix}$$
+Por lo tanto, tenemos que
+$$V = \begin{bmatrix}
+1 & 0 \\
+0 & 1
+\end{bmatrix}$$
+$$D = \begin{bmatrix}
+\sqrt[]{3} & 0 \\
+0 & \sqrt[]{2}
+\end{bmatrix} \ra \Sigma = \begin{bmatrix}
+\sqrt[]{3} & 0 \\
+0 & \sqrt[]{2}\\
+0 & 0
+\end{bmatrix}$$
+Sin embargo, nos esta faltando un vector para armar $U$. Recordemos que $U$ debe ser ortogonal, por lo que podemos encontrer $u_3$ haciendo
+$$u_3 = u_1 \times u_2 = \begin{pmatrix}
+\frac{1}{\sqrt[]{3}} \\
+\frac{1}{\sqrt[]{3}} \\
+\frac{1}{\sqrt[]{3}}
+\end{pmatrix} \times 
+\begin{pmatrix}
+0 \\
+\frac{1}{\sqrt[]{2}} \\
+-\frac{1}{\sqrt[]{2}}
+\end{pmatrix} =
+\begin{pmatrix}
+-\frac{2}{\sqrt[]{6}} \\
+\frac{1}{\sqrt[]{6}} \\
+\frac{1}{\sqrt[]{6}}
+\end{pmatrix}
+$$
+Luego,
+$$U = \begin{bmatrix}
+\frac{1}{\sqrt[]{3}} & 0 & -\frac{2}{\sqrt[]{6}}\\
+\frac{1}{\sqrt[]{3}} & \frac{1}{\sqrt[]{2}} & \frac{1}{\sqrt[]{6}} \\
+\frac{1}{\sqrt[]{3}} &-\frac{1}{\sqrt[]{2}} & \frac{1}{\sqrt[]{6}}
+\end{bmatrix}$$
+Finalmente,
+$$A = U\Sigma V^T =
+\begin{bmatrix}
+\frac{1}{\sqrt[]{3}} & 0 & -\frac{2}{\sqrt[]{6}}\\
+\frac{1}{\sqrt[]{3}} & \frac{1}{\sqrt[]{2}} & \frac{1}{\sqrt[]{6}} \\
+\frac{1}{\sqrt[]{3}} &-\frac{1}{\sqrt[]{2}} & \frac{1}{\sqrt[]{6}}
+\end{bmatrix}
+\begin{bmatrix}
+\sqrt[]{3} & 0 \\
+0 & \sqrt[]{2}\\
+0 & 0
+\end{bmatrix}
+\begin{bmatrix}
+1 & 0 \\
+0 & 1
+\end{bmatrix}
+$$
+\end{solucion}
 \end{preguntas}
 \end{document}
