@@ -126,9 +126,65 @@
 \begin{solucion}
 
 \begin{enumerate}[a)]
-\item 
-\item 
-\item 
+\item Encuentre una matriz $L$ cuadrada, triangular inferior con numeros 1 en la diagonal, y una matriz diagonal $D$ tal que $A = LDL^T$.\\
+\\
+En primer lugar,  buscamos $A = LU$, esto es
+$$A \begin{bmatrix}1 & -3 \\ -3 & 9\end{bmatrix} 
+\wsim
+\begin{bmatrix}1 & -3 \\ 0 & 0\end{bmatrix}
+= U$$
+Luego,
+$$L = \begin{bmatrix}1 & 0 \\ -3 & 1\end{bmatrix}$$
+Ahora, debemos escribir $U$ como $DL^T$. Para hacer esto, basta tomar $D$ como la diagonal de $U$, con lo que
+$$D = \begin{bmatrix}1 & 0 \\ 0 & 0\end{bmatrix}$$
+Finalmente,
+$$A = 
+\begin{bmatrix}1 & 0 \\ -3 & 1\end{bmatrix}
+\begin{bmatrix}1 & 0 \\ 0 & 0\end{bmatrix}
+\begin{bmatrix}1 & -3 \\ 0 & 1\end{bmatrix}
+$$
+\item Encuentre la segunda descomposición de C
+holesky de $A$\\
+\\
+Para encontrar la segunda descomposición de Cholesky, debemos escribir $A$ de la forma $A = RR^T$.\\
+
+Notemos que
+$$A = LDL^T = (L\ \sqrt[]{D})(\sqrt[]{D}L^T) = (L\ \sqrt[]{D})(L\ \sqrt[]{D})^T$$
+Por lo que podemos tomar
+$$R =  L\ \sqrt[]{D} = 
+\begin{bmatrix}1 & 0 \\ -3 & 1\end{bmatrix}
+\sqrt[]{\begin{bmatrix}1 & 0 \\ 0 & 0\end{bmatrix}} =
+\begin{bmatrix}1 & 0 \\ -3 & 1\end{bmatrix}
+\begin{bmatrix}1 & 0 \\ 0 & 0\end{bmatrix} =
+\begin{bmatrix}1 & 0 \\ -3 & 0\end{bmatrix}
+$$
+Finalmente,
+$$A = 
+\begin{bmatrix}1 & 0 \\ -3 & 0\end{bmatrix}
+\begin{bmatrix}1 & -3 \\ 0 & 0\end{bmatrix}
+$$
+\item Realice un cambio de variable $x=Py$ que transforme la forma cuadrática
+$$Q\left(\begin{bmatrix}x_1\\x_2\end{bmatrix}\right) = \begin{bmatrix}x_1& x_2\end{bmatrix}A\begin{bmatrix}x_1\\ x_2\end{bmatrix}$$
+en una sin términos con producto cruzado.\\
+\\
+Como $A = LDL^T$,	
+$$Q(x) = x^T(LDL^T)x = (x^TL)D(L^Tx) = (L^Tx)^TD(L^Tx)$$
+Luego, si tomamos
+$$y = L^Tx \ra x = (L^T)^{-1}y = 
+\begin{bmatrix}
+1 & 3 \\
+0 & 1
+\end{bmatrix}
+\begin{pmatrix}
+y_1 \\ y_2
+\end{pmatrix}
+= 
+\begin{pmatrix}
+y_1 + 3y_2 \\ y_1
+\end{pmatrix}$$
+Obtenemos la forma cuadrática
+$$Q(y) = y^TDy = y_1^2$$
+Que no tiene productos cruzados.
 \end{enumerate}
 \end{solucion}
 \item Calcule la descomposición en valores singulares de la matriz $A = \begin{bmatrix}4 & 11 & 14\\ 8 & 7 & -2\end{bmatrix}$
@@ -163,7 +219,7 @@ Sea $A_{m \times n}$ de rango $r$, debemos buscar una matriz $\Sigma_{m \times n
 		En primer lugar, debemos determinar los datos propios de $A^TA$ para obtener los valores y vectores singulares.
 		$$A^TA = \begin{bmatrix}
 		80 & 100 & 40 \\
-		100 & 170 & 200 \\
+		100 & 170 & 140\\
 		40 & 140 & 200
 		\end{bmatrix}$$
 		Luego,
@@ -253,7 +309,81 @@ Sea $A_{m \times n}$ de rango $r$, debemos buscar una matriz $\Sigma_{m \times n
 	\end{bmatrix}$
 	, determine su descomposición en valores singulares.
 \begin{solucion}
-
+En primer lugar, tenemos que
+$$A^TA = \begin{bmatrix}
+3 & 0 \\
+0 & 2
+\end{bmatrix}$$
+Al buscar los valores y vectores propios y singulares de esta matriz, obtenemos
+$$\lambda_1 = 3 \ra \sigma_1 = \sqrt[]{3}$$
+$$\lambda_2 = 2, \ra \sigma_2 = \sqrt[]{2}$$
+$$v_1 = \begin{pmatrix}
+1 \\ 0
+\end{pmatrix} \ra u_1 = \begin{pmatrix}
+\frac{1}{\sqrt[]{3}} \\
+\frac{1}{\sqrt[]{3}} \\
+\frac{1}{\sqrt[]{3}}
+\end{pmatrix} $$
+$$v_1 = \begin{pmatrix}
+0 \\ 1
+\end{pmatrix} \ra u_2 = \begin{pmatrix}
+0 \\
+\frac{1}{\sqrt[]{2}} \\
+-\frac{1}{\sqrt[]{2}}
+\end{pmatrix}$$
+Por lo tanto, tenemos que
+$$V = \begin{bmatrix}
+1 & 0 \\
+0 & 1
+\end{bmatrix}$$
+$$D = \begin{bmatrix}
+\sqrt[]{3} & 0 \\
+0 & \sqrt[]{2}
+\end{bmatrix} \ra \Sigma = \begin{bmatrix}
+\sqrt[]{3} & 0 \\
+0 & \sqrt[]{2}\\
+0 & 0
+\end{bmatrix}$$
+Sin embargo, nos esta faltando un vector para armar $U$. Recordemos que $U$ debe ser ortogonal, por lo que podemos encontrer $u_3$ haciendo
+$$u_3 = u_1 \times u_2 = \begin{pmatrix}
+\frac{1}{\sqrt[]{3}} \\
+\frac{1}{\sqrt[]{3}} \\
+\frac{1}{\sqrt[]{3}}
+\end{pmatrix} \times 
+\begin{pmatrix}
+0 \\
+\frac{1}{\sqrt[]{2}} \\
+-\frac{1}{\sqrt[]{2}}
+\end{pmatrix} =
+\begin{pmatrix}
+-\frac{2}{\sqrt[]{6}} \\
+\frac{1}{\sqrt[]{6}} \\
+\frac{1}{\sqrt[]{6}}
+\end{pmatrix}
+$$
+Luego,
+$$U = \begin{bmatrix}
+\frac{1}{\sqrt[]{3}} & 0 & -\frac{2}{\sqrt[]{6}}\\
+\frac{1}{\sqrt[]{3}} & \frac{1}{\sqrt[]{2}} & \frac{1}{\sqrt[]{6}} \\
+\frac{1}{\sqrt[]{3}} &-\frac{1}{\sqrt[]{2}} & \frac{1}{\sqrt[]{6}}
+\end{bmatrix}$$
+Finalmente,
+$$A = U\Sigma V^T =
+\begin{bmatrix}
+\frac{1}{\sqrt[]{3}} & 0 & -\frac{2}{\sqrt[]{6}}\\
+\frac{1}{\sqrt[]{3}} & \frac{1}{\sqrt[]{2}} & \frac{1}{\sqrt[]{6}} \\
+\frac{1}{\sqrt[]{3}} &-\frac{1}{\sqrt[]{2}} & \frac{1}{\sqrt[]{6}}
+\end{bmatrix}
+\begin{bmatrix}
+\sqrt[]{3} & 0 \\
+0 & \sqrt[]{2}\\
+0 & 0
+\end{bmatrix}
+\begin{bmatrix}
+1 & 0 \\
+0 & 1
+\end{bmatrix}
+$$
 \end{solucion}
 \end{preguntas}
 \end{document}

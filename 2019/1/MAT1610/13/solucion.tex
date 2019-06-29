@@ -20,6 +20,8 @@
 \usepackage{stackrel}
 \usepackage{tkz-tab}
 \usepackage{xpatch}
+\usepackage{tkz-euclide}
+\usetkzobj{all}
 \xpatchcmd{\tkzTabLine}{$0$}{$\bullet$}{}{}
 
 \setlength{\headheight}{10pt}
@@ -157,7 +159,7 @@ En primer lugar, recordemos que la ecuación de un círculo de radio $a$ es
 		Finalmente, el volumen es
 		$$V = 4 \displaystyle \int_0^a \dfrac{a^2-x^2}{2} dx = 4\left(\dfrac{a^2x}{2} - \dfrac{x^3}{6}\right) \ev_0^a = 4\left(\dfrac{a^3}{2} - \dfrac{a^3}{6}\right) = 4\left(\dfrac{2a^3}{6}\right) = \dfrac{4}{3}a^3$$
 \end{solucion}
-\item Determinar el volumen del sólido generado al rotar las curvas $y=x$ e $y= x^2$ en torno al eje $x$, para $x \int [0,1]$
+\item Determinar el volumen del sólido generado al rotar las curvas $y=x$ e $y= x^2$ en torno al eje $x$, para $x \in [0,1]$
 \begin{solucion}
 Graficando:
 		\begin{center}
@@ -192,11 +194,11 @@ Graficando:
 		El círculo grande tendrá radio $r_1 = x$, mientras que el círculo pequeño tendrá área $r_2 = x^2$. 
 		
 		Luego, el área de cada sección será
-		$$A = \pi r_1^2 + \pi r_2^2 = \pi(x^2+x^4) $$
+		$$A = \pi r_1^2 - \pi r_2^2 = \pi(x^2-x^4) $$
 		Asi,
-		$$dV = \pi(x^2+x^4)dx$$
+		$$dV = \pi(x^2-x^4)dx$$
 		Finalmente, el volumen del sólido es
-		$$V = \int_0^1 \pi(x^2+x^4)dx = \pi\left(\dfrac{x^3}{3} + \dfrac{x^5}{5}\right)\ev_0^1 = \pi \left(\dfrac{1}{3}+\dfrac{1}{5}\right) = \dfrac{8\pi}{15}$$
+		$$V = \int_0^1 \pi(x^2-x^4)dx = \pi\left(\dfrac{x^3}{3} - \dfrac{x^5}{5}\right)\ev_0^1 = \pi \left(\dfrac{1}{3}-\dfrac{1}{5}\right) = \dfrac{2\pi}{15}$$
 \end{solucion}
 \item Resuelva las siguientes integrales
 \begin{tasks}(2)
@@ -264,7 +266,45 @@ Recordemos primero que
 \task $\displaystyle\int sec^3(x)tan^3(x)dx$
 \end{tasks}
 \begin{solucion}
+En este tipo de integrales, encontraremos 2 grandes casos, con múltiples casos dentro de ellos.\\
 
+En primer lugar,
+$$\displaystyle\int sen^n(x)cos^m(x)dx$$
+Caso 1: $n$ ó $m$ impar\\
+
+En este caso, se toma el que tenga el exponente impar (si ambos son impares se puede elegir cualquiera) y se separa un factor de él, el cual se pone al final. El resto de los términos se transforman a la otra función, es decir, si separamos el $seno$, todo se transforma a $coseno$ y viceversa. Luego se hace la sustitución con la función trigonométrica que \textbf{no} separamos.
+
+Por ejemplo, si el $m$ fuese impar, esto se vería así:
+$$= \displaystyle\int sen^n(x)(1-sen^2(x))^{\frac{m-1}{2}}cos(x)dx$$
+Luego, $u = sen(x) \ra du = cos(x)dx$, quedando
+$$= \displaystyle\int u^n(1-u^2)^{\frac{m-1}{2}}du$$
+Caso 2: $n$ y $m$ par\\
+
+En este caso, usamos las propiedades
+$$sen^2(x) = \dfrac{1-cos(2x)}{2} \qquad y \qquad cos^2(x) = \dfrac{1+cos(2x)}{2}$$
+Para reducir el grado de los $senos$ y $cosenos$ y separamos en multiples integrales.\\
+
+En segundo lugar,
+$$\displaystyle\int sec^n(x)tan^m(x)dx$$
+Caso 1: $n$ par\\
+
+En este caso, separamos un $sec^2(x)$ de la integral, dejandolo al final y convertimos todas las $secantes$ a $tangentes$. Luego, hacemos la sustitución $u = tan(x) \ra du = sec^2(x)dx$. Esto es,
+$$=\displaystyle\int (1+tan^2(x))^{\frac{n-2}{2}}tan^m(x)sec^2(x)dx$$
+Luego, $u = tan(x) \ra du = sec^2(x)dx$, quedando
+$$=\displaystyle\int (1+u^2)^{\frac{n-2}{2}}u^m du$$
+Caso 2: $m$ impar\\
+
+En este caso, separamos un $sec(x)tan(x)$ de la integral, dejandolo al final y convertimos todas las $tangentes$ a $secantes$. Luego, hacemos la sustitución $u = sec(x) \ra du = sec(x)tan(x)dx$. Esto es,
+$$=\displaystyle\int sec^{n-1}(x)(sec^2(x) - 1)^{\frac{m-1}{2}}sec(x)tan(x)dx$$
+Luego, $u = sec(x) \ra du = sec(x)tan(x)dx$, quedando
+$$=\displaystyle\int u^{n-1}(u^2 - 1)^{\frac{m-1}{2}}du$$
+
+Caso 3: $n$ impar y $m$ par\\
+
+\begin{center}
+\includegraphics[width=8cm]{../../../../img/lie_down}
+\end{center}
+Procedamos ahora con los ejercicios:
 \begin{enumerate}[a)]
 \item $\displaystyle\int cos^2(x)dx$\\\\
 			Recordemos que $cos^2(x) = \dfrac{1+cos(2x)}{2}$

@@ -20,6 +20,8 @@
 \usepackage{stackrel}
 \usepackage{tkz-tab}
 \usepackage{xpatch}
+\usepackage{tkz-euclide}
+\usetkzobj{all}
 \xpatchcmd{\tkzTabLine}{$0$}{$\bullet$}{}{}
 
 \setlength{\headheight}{10pt}
@@ -196,7 +198,7 @@ La base que utilizaremos será
 		$$\begin{array}{lcl}
 		1-2t-t^3 & \ra & (1,\ \ 0,-2,-1)\\
 		t+2t^3 & \ra & (0,\ \ 1,\ \ 0,\ \ 2)\\
-		1+t-2t^3 & \ra & (1,\ \ 1,-2,\ \ 0)
+		1+t-2t^2 & \ra & (1,\ \ 1,-2,\ \ 0)
 		\end{array}$$
 		Ahora, para probar que los elementos del conjunto son $L.I.$, basta con probar que los vectores de coordenadas lo son. Para esto, ponemos los vectores en una matriz y pivoteamos:
 		$$\begin{bmatrix}
@@ -308,7 +310,7 @@ $$\begin{bmatrix}
 0 & 1 & 0 \\
 0 & 0 & 1
 \end{bmatrix}$$
-Por lo que la solución del sistema homogeneo es $Gen\left\{\begin{pmatrix}0 \\ 0 \\ 0 \end{pmatrix}\right\}$. Recordemos que este vector es un vector de coordenadas, sin embargo, al ser el vector nulo, este generado equivale a $Gen\{0\}$.\\
+Por lo que la solución del sistema homogeneo es $Gen\left\{\begin{pmatrix}0 \\ 0 \\ 0 \end{pmatrix}\right\}$, que corresponde al Nul(T).\\
 
 Veamos ahora el $Im (T)$, que corresponde a las bases $LI$. Esto es equivalente a ver las columnas $LI$ de $A$, que ya sabemos que son todas. Por lo tanto, 
 $$Im(A) = Gen\left\{\begin{pmatrix}1 \\ 0 \\ 0 \end{pmatrix},\begin{pmatrix}0 \\ 1 \\ 0 \end{pmatrix}, \begin{pmatrix}1 \\ 0 \\ 0 \end{pmatrix}\right\}$$
@@ -566,7 +568,7 @@ Para calcular los valores propios de una matriz, debemos buscar todos los valore
 			\item $\lambda_3 = 3$\\
 			\\
 			Debemos resolver el sistema $(A-3I)v = 0$, esto es
-			\small$$\begin{bmatrix}
+			$$\begin{bmatrix}
 			-2 & 2 & -1\\
 			1 & -3 & 1\\
 			4 & -4 & 2
@@ -877,7 +879,7 @@ Para hacer esto debemos hacer un procedimiento similar al que realizamos cuando 
 		$$\lambda_1 = 0 \ra v_1 = \begin{pmatrix}
 		1 \\ 0 \\ -1
 		\end{pmatrix}$$
-		$$\lambda_2 = 0 \ra v_2 = \begin{pmatrix}
+		$$\lambda_2 = 2 \ra v_2 = \begin{pmatrix}
 		0 \\ 1 \\ 0
 		\end{pmatrix}, v_3 = \begin{pmatrix}
 		1 \\ 0 \\ 1
