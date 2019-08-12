@@ -225,5 +225,17 @@ Como habrán notado, al igual que los límites al infinito, en algunas integrale
 		$$= \lim\limits_{a\ra \infty} ln \left( \dfrac{\sqrt[]{a^2+1}}{3a+1} \right) - ln(1)$$
 		$$I = ln\left(\dfrac{1}{3}\right) = -ln(3)$$
 \end{solucion}
+\item Estudiar la convergencia de la siguiente integral
+$$\displaystyle\int_{0}^{\infty} e^{-x} \dfrac{sen^2(x)}{x^{5/2}}dx$$
+\begin{solucion}
+En primer lugar, notemos que esta integral es de tipo 3, por lo que debemos separarla para obtener una integral de tipo 1 y una de tipo 2, esto es,
+$$=\displaystyle\int_{0}^{1} e^{-x} \dfrac{sen^2(x)}{x^{5/2}}dx +
+\displaystyle\int_{1}^{\infty} e^{-x} \dfrac{sen^2(x)}{x^{5/2}}dx$$
+Notemos que si $ 0 < x < 1$, se cumple que
+$$\dfrac{\sin(x)}{x} < 1 \quad \wedge \qquad e^{-x} < 1$$
+Luego, al multiplicar ambas inecuaciones y elevar la primera al cuadrado, tenemos que
+$$e^{-x}\dfrac{sin^2(x)}{x^2} < 1$$
+$$e^{-x}\dfrac{sin^2(x)}{x^{5/2}} < \dfrac{1}{x^{1/2}}$$
+\end{solucion}
 \end{preguntas}
 \end{document}
