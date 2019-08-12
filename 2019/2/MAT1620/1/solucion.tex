@@ -232,10 +232,26 @@ En primer lugar, notemos que esta integral es de tipo 3, por lo que debemos sepa
 $$=\displaystyle\int_{0}^{1} e^{-x} \dfrac{sen^2(x)}{x^{5/2}}dx +
 \displaystyle\int_{1}^{\infty} e^{-x} \dfrac{sen^2(x)}{x^{5/2}}dx$$
 Notemos que si $ 0 < x < 1$, se cumple que
-$$\dfrac{\sin(x)}{x} < 1 \quad \wedge \qquad e^{-x} < 1$$
+$$\dfrac{\sin(x)}{x} < 1 \qquad \wedge \qquad e^{-x} < 1$$
 Luego, al multiplicar ambas inecuaciones y elevar la primera al cuadrado, tenemos que
 $$e^{-x}\dfrac{sin^2(x)}{x^2} < 1$$
+Multiplicamos a ambos lados por $\dfrac{1}{x^{1/2}}$
 $$e^{-x}\dfrac{sin^2(x)}{x^{5/2}} < \dfrac{1}{x^{1/2}}$$
+Luego,
+$$\displaystyle\int_0^1 e^{-x}\dfrac{sin^2(x)}{x^{5/2}} < \displaystyle\int_0^1 \dfrac{1}{x^{1/2}}$$
+Notemos que la integral de la derecha es una integral de tipo 2 con $p < 1$, por lo que converge. Por lo tanto, por criterio de comparación, la integral del lado izquierdo también converge.
+\\
+Ahora, para $x \geq 1$, tenemos que
+$$\sin^2(x) \leq 1 \qquad \wedge \qquad e^{-x} \leq 1$$
+Multiplicando ambas inecuaciones, tenemos que
+$$e^{-x}\sin^2(x) \leq 1$$
+Multiplicamos por $\dfrac{1}{x^{5/2}}$
+$$\dfrac{e^{-x}\sin^2(x)}{x^{5/2}} \leq \dfrac{1}{x^{5/2}}$$
+Luego,
+$$\displaystyle\int_{1}^{\infty} \dfrac{e^{-x}\sin^2(x)}{x^{5/2}} \leq \displaystyle\int_{1}^{\infty} \dfrac{1}{x^{5/2}}$$
+Donde la integral de la derecha es una integral de tipo 1 con $p > 1$, por lo que converge. Entonces, por criterio de comparación, la integral del lado izquierdo también converge.
+\\
+Finalmente, como ambas integrales convergen, concluimos que $\displaystyle\int_{0}^{\infty} e^{-x} \dfrac{sen^2(x)}{x^{5/2}}dx$ es convergente.
 \end{solucion}
 \end{preguntas}
 \end{document}
