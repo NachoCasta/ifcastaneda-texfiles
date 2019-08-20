@@ -152,7 +152,15 @@
 			Luego, el límite de la sucesión es igual al límite del termino general, que sería
 			$$\lim\limits_{n\ra \infty} a_n = \lim\limits_{n\ra \infty} (-1)^n \dfrac{2^{n}}{3^{n}} = 
 			\lim\limits_{n\ra \infty} (-1)^n \left(\dfrac{2}{3}\right)^n = 0$$
-\item $\left\{\sqrt[]{2}, \sqrt[]{2\ \sqrt[]{2}}, \sqrt[]{2\ \sqrt[]{2\ \sqrt[]{2}}}, \dots \right\}$
+\item $\left\{\sqrt[]{2}, \sqrt[]{2\ \sqrt[]{2}}, \sqrt[]{2\ \sqrt[]{2\ \sqrt[]{2}}}, \dots \right\}$\\
+Notemos que la sucesión también la podemos escribir como
+$$\left\{\sqrt[]{2}, \sqrt[4]{8}, \sqrt[8]{128}, \dots \right\}$$
+$$\left\{\sqrt[]{2}, \sqrt[4]{2^3}, \sqrt[8]{2^7}, \dots \right\}$$
+$$\left\{2^{1/2}, 2^{3/4}, 2^{7/8}, \dots \right\}$$
+Luego,
+$$a_n = 2^{\frac{2^n-1}{2^n}}$$
+Finalmente,
+$$\lim\limits_{n\ra \infty} a_n = \lim\limits_{n\ra \infty} 2^{\frac{2^n-1}{2^n}} = 2$$
 \end{enumerate}
 \end{solucion}
 \item Sea $a_n = \dfrac{n!}{n^n}$, calcular $\lim\limits_{n \ra \infty} \dfrac{a_{n+1}}{a_n}$
