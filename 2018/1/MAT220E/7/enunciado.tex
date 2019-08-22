@@ -17,12 +17,18 @@
 \usepackage[makeroom]{cancel}
 \usepackage{multicol}
 \usepackage[shortlabels]{enumitem}
-\usepackage{tabto}
+\usepackage{stackrel}
+\usepackage{tkz-tab}
+\usepackage{xpatch}
+\usepackage{tkz-euclide}
+\usetkzobj{all}
+\xpatchcmd{\tkzTabLine}{$0$}{$\bullet$}{}{}
 
 \setlength{\headheight}{10pt}
 \setlength{\headsep}{10pt}
 \pagestyle{fancy}
 \rhead{\ayudantia \ - \alumno}
+\tikzset{t style/.style={style=solid}}
 
 \newcommand*{\mybox}[2]{\colorbox{#1!30}{\parbox{.98\linewidth}{#2}}}
 
@@ -74,6 +80,11 @@
 \newcommand{\lb}{\\~\\}
 \newcommand{\eop}{_{\square}}
 \newcommand{\hsig}{\hat{\sigma}}
+\newcommand{\widesim}[2][1.5]{
+	\mathrel{\overset{#2}{\scalebox{#1}[1]{$\sim$}}}
+}
+\newcommand{\wsim}{\widesim{}}
+\newcommand{\lh}{\stackrel{L'H}{=}}
 
 \begin{document}
 \thispagestyle{empty}
@@ -117,6 +128,9 @@
 \item Calcular el volumen de la trompeta entre $1$ y $L$ con la siguiente formula:
 		$$ V = \pi \displaystyle\int_{1}^{L} f(x)^2dx, \quad con\ L \ra \infty$$
 \end{enumerate}
+\item Determinar el valor de la constante $C$ para la cual la integral
+	$$\displaystyle\int_{0}^{\infty} \left( \dfrac{x}{x^2+1} - \dfrac{C}{3x+1}\right)dx$$
+	converge. Evalúe la integral para este valor de $C$.
 \item Determine si las siguientes series convergen o divergen.
 \begin{tasks}(3)
 \task $\sum\limits_{n=1}^{\infty}\dfrac{5n^3}{7n+n^3-1}$
@@ -126,8 +140,5 @@
 \task $\sum\limits_{n=20}^{\infty}\dfrac{1}{nln(n)ln(ln(n))}$
 \task $\sum\limits_{n=1}^{\infty}ln\left(1+\dfrac{1}{n}\right)$
 \end{tasks}
-\item Determinar el valor de la constante $C$ para la cual la integral
-	$$\displaystyle\int_{0}^{\infty} \left( \dfrac{x}{x^2+1} - \dfrac{C}{3x+1}\right)dx$$
-	converge. Evalúe la integral para este valor de $C$.
 \end{preguntas}
 \end{document}
