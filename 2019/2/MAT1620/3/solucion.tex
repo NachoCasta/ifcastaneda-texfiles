@@ -174,22 +174,6 @@
 			Finalmente, la serie es divergente.
 \end{enumerate}
 \end{solucion}
-\item Considere una función $f$ continua en $\R$, decreciente y no negativa tal que
-	$$\lim_{x\ra\infty}\dfrac{f(x)}{e^{-x}}=5$$
-	Analice la convergencia de la serie $\sum\limits_{n=1}^{\infty}f(n)$
-\begin{solucion}
-Sabemos que
-		$$\lim_{x\ra\infty}\dfrac{f(x)}{e^{-x}}=5 \neq 0$$
-		Por lo tanto, por el criterio de comparación al límite, $\sum\limits_{n=1}^{\infty}f(n)$ se comporta igual que $\sum\limits_{n=1}^{\infty}e^{-n}$\\
-		\\
-		Veamos la convergencia de 
-		$$\sum\limits_{n=1}^{\infty}e^{-n}$$
-		Usando el criterio de la razón,
-		$$\lim\limits_{n \ra \infty} \dfrac{a_{n+1}}{a_n}
-		= \lim\limits_{n \ra \infty} \dfrac{e^{-n-1}}{e^{-n}}
-		= e^{-1} < 1$$
-		Por lo tanto, es convergente. De la misma forma, la serie $\sum\limits_{n=1}^{\infty}f(n)$ también lo es.
-\end{solucion}
 \item Demuestre que si $\sum\limits_{n=1}^{\infty}a_n$ es convergente, entonces el limite de la sucesión $b_n=ln(1+a_n)$ en el infinito es $0$.
 \begin{solucion}
 
