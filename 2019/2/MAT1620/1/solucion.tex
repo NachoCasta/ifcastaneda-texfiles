@@ -174,14 +174,13 @@ En primer lugar,
 			$$S = 2\pi \displaystyle\int_{1}^{\infty} \dfrac{1}{x}\ \sqrt[]{1+\left(-\dfrac{1}{x^2}\right)^2}dx 
 			= 2\pi \displaystyle\int_{1}^{\infty} \dfrac{\sqrt[]{1+\frac{1}{x^4}}}{x}dx$$
 			Notemos que
-			$$\dfrac{\sqrt[]{1+\frac{1}{x^4}}}{x} > \dfrac{1}{x}$$
-			Luego,
-			$$2\pi \displaystyle\int_{1}^{\infty} \dfrac{\sqrt[]{1+\frac{1}{x^4}}}{x}dx
-			>  2\pi \displaystyle\int_{1}^{\infty} \dfrac{1}{x}dx$$
-			$$2\pi \displaystyle\int_{1}^{\infty} \dfrac{\sqrt[]{1+\frac{1}{x^4}}}{x}dx
-			>  2\pi ln(x) \ev_1^{\infty}$$
-			$$2\pi \displaystyle\int_{1}^{\infty} \dfrac{\sqrt[]{1+\frac{1}{x^4}}}{x}dx
-			>  \infty$$
+			$$\lim\limits_{x \ra \infty} \dfrac{\sqrt[]{1+\frac{1}{x^4}}}{x} = 
+\lim\limits_{x \ra \infty} \dfrac{\sqrt[]{1+\cancelto{\frac{1}{x^4}}{0}}}{x} = 
+\lim\limits_{x \ra \infty} \dfrac{1}{x} = 0$$
+			Luego, usando $g(x) = \dfrac{1}{x}$, se cumple que
+$$\lim\limits_{x \ra \infty} \dfrac{\dfrac{\sqrt[]{1+\frac{1}{x^4}}}{x}}{\dfrac{1}{x}} = 
+\dfrac{\dfrac{1}{x}}{\dfrac{1}{x}} = 1 \neq 0$$
+Por criterio de comparación al límite, $\displaystyle\int_{1}^{\infty} \dfrac{\sqrt[]{1+\frac{1}{x^4}}}{x}dx$ se comportará igual a $\displaystyle\int_{1}^{\infty} \dfrac{1}{x}dx$. Notemos que esta última converge por criterio-p, ya que $p=1$.
 			Finalmente,
 			$$S = \infty$$
 \item Calcular el volumen de la trompeta entre $1$ y $L$ con la siguiente formula:
