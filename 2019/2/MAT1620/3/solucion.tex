@@ -183,5 +183,27 @@
 \begin{solucion}
 
 \end{solucion}
+\item Considere una función $f$ continua en $\R$, decreciente y no negativa tal que
+	$$\lim_{x\ra\infty}\dfrac{f(x)}{e^{-x}}=5$$
+	Analice la convergencia de la serie $\sum\limits_{n=1}^{\infty}f(n)$
+\begin{solucion}
+Sabemos que
+		$$\lim_{x\ra\infty}\dfrac{f(x)}{e^{-x}}=5 \neq 0$$
+		Por lo tanto, por el criterio de comparación al límite, $\sum\limits_{n=1}^{\infty}f(n)$ se comporta igual que $\sum\limits_{n=1}^{\infty}e^{-n}$\\
+		\\
+		Veamos la convergencia de 
+		$$\sum\limits_{n=1}^{\infty}e^{-n}$$
+		Usando el criterio de la razón,
+		$$\lim\limits_{n \ra \infty} \dfrac{a_{n+1}}{a_n}
+		= \lim\limits_{n \ra \infty} \dfrac{e^{-n-1}}{e^{-n}}
+		= e^{-1} < 1$$
+		Por lo tanto, es convergente. De la misma forma, la serie $\sum\limits_{n=1}^{\infty}f(n)$ también lo es.
+\end{solucion}
+\item Considere la representación decimal de un número,
+$$0,d_1d_2d_3... = \dfrac{d_1}{10} + \dfrac{d_2}{10^2} + \dfrac{d_3}{10^3}$$
+donde $d_i$ es alguno de los dígitos entre 0 y 9. Pruebe que la serie anterior es convergente.
+\begin{solucion}
+
+\end{solucion}
 \end{preguntas}
 \end{document}
