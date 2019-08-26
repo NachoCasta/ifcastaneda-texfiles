@@ -115,5 +115,121 @@
 \end{center}
 
 \begin{preguntas}
+\item Determine si las siguientes series convergen o divergen.
+\begin{tasks}(3)
+\task $\sum\limits_{n=1}^{\infty}\dfrac{n}{n^4+1}$
+\task $\sum\limits_{n=2}^{\infty}\dfrac{n}{(n+1)^2ln(n)}$
+\task $\sum\limits_{n=1}^{\infty}\dfrac{n!}{n^n}$
+\end{tasks}
+\begin{solucion}
+
+\begin{enumerate}[a)]
+\item $\sum\limits_{n=1}^{\infty}\dfrac{n}{n^4+1}$\\
+			\\
+			En primer lugar, veamos cual es el límite de la sucesión, fijandonos bien en el término que se genera antes de evaluar
+			$$\lim\limits_{n \ra \infty} a_n
+			= \lim\limits_{n \ra \infty} \dfrac{n}{n^4+1}
+			= \lim\limits_{n \ra \infty} \dfrac{n}{n^4\left(1+\dfrac{1}{n^4}\right)}
+			= \lim\limits_{n \ra \infty} \dfrac{1}{n^3} = 0$$
+			Tomemos ese último termino y usemoslo como $b_n$. Sea $b_n = \dfrac{1}{n^3}$,
+			$$\lim\limits_{n \ra \infty} \dfrac{a_n}{b_n}
+			= \lim\limits_{n \ra \infty} \dfrac{\dfrac{n}{n^4+1}}{\dfrac{1}{n^3}}
+			= \lim\limits_{n \ra \infty} \dfrac{\dfrac{1}{n^3}}{\dfrac{1}{n^3}} = 1 \neq 0$$
+			Por lo tanto, $\sum\limits^{\infty} a_n$ se comporta igual que $\sum\limits^{\infty} b_n$.\\
+			\\
+			Como $\sum\limits^{\infty} \dfrac{1}{n^3}$ es una serie-$p$ con $p=3>1$, la serie converge. Luego, por criterio de comparación al límite, la serie $\lim\limits_{n \ra \infty} \dfrac{n}{n^4+1}$ también converge.
+\item $\sum\limits_{n=2}^{\infty}\dfrac{n}{(n+1)^2ln(n)}$\\
+			\\
+			Igual que antes, veamos el límite de la sucesión,
+			$$\lim\limits_{n \ra \infty} a_n
+			= \lim\limits_{n \ra \infty} \dfrac{n}{(n+1)^2ln(n)}
+			= \lim\limits_{n \ra \infty} \dfrac{n}{\left(n\left(1+\dfrac{1}{n}\right)\right)^2ln(n)}
+			= \lim\limits_{n \ra \infty} \dfrac{n}{n^2ln(n)}$$
+			$$= \lim\limits_{n \ra \infty} \dfrac{1}{nln(n)} = 0$$
+			Sea $b_n = \dfrac{1}{nln(n)}$,
+			$$\lim\limits_{n \ra \infty} \dfrac{a_n}{b_n}
+			=\lim\limits_{n \ra \infty} \dfrac{\dfrac{n}{(n+1)^2ln(n)}}{\dfrac{1}{nln(n)}}
+			=\lim\limits_{n \ra \infty} \dfrac{\dfrac{1}{nln(n)}}{\dfrac{1}{nln(n)}} = 1 \neq 0$$
+			Por lo tanto, $\sum\limits^{\infty} a_n$ se comporta igual que $\sum\limits^{\infty} b_n$.\\
+			\\
+			Veamos ahora que pasa con $\sum\limits_{n=2}^{\infty} \dfrac{1}{nln(n)}$. Usando el criterio de la integral, tenemos que la serie se comportara igual a $\displaystyle\int_2^{\infty} \dfrac{1}{xln(x)}$. \\
+			\\
+			Calculemos entonces esta integral impropia,
+			$$\displaystyle\int_2^{\infty} \dfrac{1}{xln(x)} =  ln(ln(x)) \ev_2^{\infty} = \infty$$
+			Luego, $\displaystyle\int_2^{\infty} \dfrac{1}{xln(x)}$ diverge, por lo que por criterio de la integral, $\sum\limits_{n=2}^{\infty} \dfrac{1}{nln(n)}$ tambiém diverge. Finalmente, por el criterio de comparación al limite, la serie $\sum\limits_{n=2}^{\infty}\dfrac{n}{(n+1)^2ln(n)}$ es divergente.
+\item $\sum\limits_{n=1}^{\infty}\dfrac{n!}{n^n}$\\
+			\\
+			Recordemos que en el infinito,
+			$$n^n > n! > a^n > n > ln(n)$$
+			El límite de la sucesión es
+			$$\lim\limits_{n\ra\infty}\dfrac{n!}{n^n} = 0$$
+			Usando el criterio de la razón,
+			$$\lim\limits_{n \ra \infty} \dfrac{a_{n+1}}{a_n}
+			= \lim\limits_{n \ra \infty} \dfrac{\dfrac{(n+1)!}{(n+1)^{n+1}}}{\dfrac{n!}{n^n}}
+			= \lim\limits_{n \ra \infty} \dfrac{(n+1)!}{n!}\dfrac{n^n}{(n+1)^{n+1}}$$
+			$$= \lim\limits_{n \ra \infty} \dfrac{(n+1)}{1}\dfrac{n^n}{(n+1)^{n+1}}
+			= \lim\limits_{n \ra \infty} \dfrac{n^n}{(n+1)^{n}}
+			= \lim\limits_{n \ra \infty} \left(\dfrac{n}{n+1}\right)^n$$
+			$$= \lim\limits_{n \ra \infty} \dfrac{1}{\left(\dfrac{n+1}{n}\right)^n}
+			= \dfrac{1}{e} < 1$$
+			Por criterio de la razón, la serie es convergente.
+\end{enumerate}
+\end{solucion}
+\item Determine si las siguientes series convergen condicionalmente, absolutamente o divergen.
+\begin{tasks}(3)
+\task $\sum\limits_{n=1}^{\infty}\dfrac{(-1)^{n+1}}{\sqrt[]{n}}$
+\task $\sum\limits_{n=2}^{\infty}\dfrac{(-1)^{n-1}(2n-1)}{(\sqrt[]{2})^n}$
+\task $\sum\limits_{n=2}^{\infty}\dfrac{(-1)^{n-1}(n+1)}{n}$
+\end{tasks}
+\begin{solucion}
+
+\begin{enumerate}[a)]
+\item $\sum\limits_{n=1}^{\infty}\dfrac{(-1)^{n+1}}{\sqrt[]{n}}$\\
+			\\
+			Veamos el límite de la sucesión,
+			$$\lim_{n\ra\infty} |a_n| = \lim_{n\ra\infty} \dfrac{1}{\sqrt[]{n}} = 0$$
+			Además, notemos que 
+			$$\dfrac{1}{\sqrt[]{n}} > \dfrac{1}{\sqrt[]{n+1}} \ra \dfrac{1}{n} > \dfrac{1}{n+1} \ra n < n+1$$
+			Por lo que la sucesión es decreciente.\\
+			\\
+			Dicho esto, por el criterio de Leibniz, la serie converge.\\
+			\\
+			Veamos ahora que pasa con la serie no alternante 
+			$$\sum\limits_{n=1}^{\infty}\dfrac{1}{\sqrt[]{n}} = \sum\limits_{n=1}^{\infty}\dfrac{1}{n^{1/2}}$$
+			Es una serie-p con $p<1$, por lo que es divergente.\\
+			\\
+			Finalmente, la serie converge condicionalmente.
+\item $\sum\limits_{n=2}^{\infty}\dfrac{(-1)^{n-1}(2n-1)}{(\sqrt[]{2})^n}$\\
+			\\
+			Veamos el límite de la sucesión,
+			$$\lim_{n\ra\infty} |a_n| = \lim_{n\ra\infty} \dfrac{2n-1}{(\sqrt[]{2})^n} = 0$$
+			Usando el criterio de la razón,
+			$$\lim\limits_{n \ra \infty} \left|\dfrac{a_{n+1}}{a_n}\right|
+			= \lim\limits_{n \ra \infty} \dfrac{2n+2-1}{(\sqrt[]{2})^{\cancel{n+1}}} \cdot \dfrac{(\cancel{\sqrt[]{2})^n}}{2n-1}
+			= \lim\limits_{n \ra \infty} \dfrac{2n+1}{(2n-1)(\sqrt[]{2})} = \dfrac{1}{\sqrt[]{2}} < 1$$
+			Por lo tanto, la serie no alternante converge, lo que implica que la alternante también. En conclusióm, la serie converge absolutamente.
+\item $\sum\limits_{n=2}^{\infty}\dfrac{(-1)^{n-1}(n+1)}{n}$\\
+			\\
+			Veamos el límite de la sucesión,
+			$$\lim_{n\ra\infty} |a_n| = \lim_{n\ra\infty}\dfrac{(n+1)}{n} = 1 \neq 0$$
+			Por la prueba de la divergencia, la serie es divergente.
+\end{enumerate}
+\end{solucion}
+\item Considere una función $f$ continua en $\R$, decreciente y no negativa tal que
+	$$\lim_{x\ra\infty}\dfrac{f(x)}{e^{-x}}=5$$
+	Analice la convergencia de la serie $\sum\limits_{n=1}^{\infty}f(n)$
+\begin{solucion}
+Sabemos que
+		$$\lim_{x\ra\infty}\dfrac{f(x)}{e^{-x}}=5 \neq 0$$
+		Por lo tanto, por el criterio de comparación al límite, $\sum\limits_{n=1}^{\infty}f(n)$ se comporta igual que $\sum\limits_{n=1}^{\infty}e^{-n}$\\
+		\\
+		Veamos la convergencia de 
+		$$\sum\limits_{n=1}^{\infty}e^{-n}$$
+		Usando el criterio de la razón,
+		$$\lim\limits_{n \ra \infty} \dfrac{a_{n+1}}{a_n}
+		= \lim\limits_{n \ra \infty} \dfrac{e^{-n-1}}{e^{-n}}
+		= e^{-1} < 1$$
+		Por lo tanto, es convergente. De la misma forma, la serie $\sum\limits_{n=1}^{\infty}f(n)$ también lo es.
+\end{solucion}
 \end{preguntas}
 \end{document}
