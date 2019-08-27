@@ -2190,5 +2190,469 @@ $$
 Finalmente, podemos escribir $T^{-1}(x)$ como
 $$T^{-1}(x) = (x_1, -x_1 + x_2, -x_2+x_3)$$
 \end{solucion}
+\item Determine si las siguientes afirmaciones son verdaderas o falsas. En caso de ser verdaderas demuéstrelas y si son falsas de un contraejemplo.
+\begin{enumerate}[a)]
+\item Si $\{v_1, v_2, v_3\}$ es un conjunto linealmente dependiente de vectores en $\R^3$ entonces el conjunto $\{v_1, v_2\}$ también es linealmente dependiente.
+\item Si $A$ es una matriz de $3 \times 3$ entonces la imagen del plano $x+y+z=0$ bajo la transformación $T(x)=Ax$ es un plano.
+\item Si $A_{2\times 2} = (a_{ij}), \quad B_{2\times 3} = (b_{ij}), \quad AB = C = (c_{ij})$ tal que
+$$a_{ij} = (-2)^{i+j}, \quad b_{ij} = (-3)^{i-j}$$
+entonces $c_{23} = -\dfrac{56}{9}$
+\end{enumerate}
+\begin{solucion}
+
+\begin{enumerate}[a)]
+\item \textbf{Falso.}\\
+\\
+Un contraejemplo sería
+$\left\{ 
+\begin{pmatrix}
+	1 \\ 0 \\ 0
+\end{pmatrix},
+\begin{pmatrix}
+	0 \\ 1 \\ 0
+\end{pmatrix},
+\begin{pmatrix}
+	1 \\ 1 \\ 0
+\end{pmatrix}
+\right\}$.\\
+Como
+$
+\begin{pmatrix}
+1 \\ 1 \\ 0
+\end{pmatrix}
+=
+\begin{pmatrix}
+1 \\ 0 \\ 0
+\end{pmatrix}
++
+\begin{pmatrix}
+0 \\ 1 \\ 0
+\end{pmatrix}$ el conjunto claramente es $LD$.\\
+Sin embargo,
+$\left\{ 
+\begin{pmatrix}
+1 \\ 0 \\ 0
+\end{pmatrix},
+\begin{pmatrix}
+0 \\ 1 \\ 0
+\end{pmatrix}
+\right\}$ 
+es $LI$, lo que contradice el enunciado.
+\item  \textbf{Falso.}\\
+\\
+Un contraejemplo es tomar la matriz cero, ya que la imagen de cualquier conjunto por esta matriz es 0.
+\item  \textbf{Verdadero.}\\
+\\
+$c_{23}$ corresponde al coeficiente de la matriz $C$ resultante del producto punto entre la segunda fila de la matriz $A$ y la tercera columna de la matriz $B$.\\
+
+Luego,
+$$c_{23} = \begin{pmatrix}
+(-2)^{2+1}\\ (-2)^{2+2}
+\end{pmatrix} \cdot
+\begin{pmatrix}
+(-3)^{1-3}\\ (-3)^{2-3}
+\end{pmatrix} = 
+\begin{pmatrix}
+-8\\ 16
+\end{pmatrix} \cdot
+\begin{pmatrix}
+\frac{1}{9}\\ -\frac{1}{3}
+\end{pmatrix}=
+-8 \cdot \dfrac{1}{9} + 16 \cdot -\dfrac{1}{3} = -\dfrac{56}{9}
+$$
+\end{enumerate}
+\end{solucion}
+\item En cada caso, determine si la afirmación es verdadera o falsa y justifique su respuesta.
+\begin{enumerate}[a)]
+\item Si el conjunto $\{v_1, v_2, v_3, v_4\}$ es L.I., entonces $\{v_1, v_2, v_3\}$ también lo es.
+\item Si $A$ es una matriz de $3\times 5$ y $T$ es la transformación lineal definida por $T(x) = Ax$, entonces $T$ tiene dominio $\R^3$.
+\item Un sistema con más ecuaciones que incógnitas es siempre consistente.
+\end{enumerate}
+\begin{solucion}
+
+\begin{enumerate}[a)]
+\item Si el conjunto $\{v_1, v_2, v_3, v_4\}$ es L.I., entonces $\{v_1, v_2, v_3\}$ también lo es.\\
+			\\
+			Digamos que $\{v_1, v_2, v_3, v_4\}$ es L.I. y que $\{v_1, v_2, v_3\}$ es L.D.\\
+			Entonces, $\exists$ una combinación lineal no trivial tal que 
+			$$\alpha_1 v_1 + \alpha_2 v_2 + \alpha_4 v_4 = 0$$
+			Definamos ahora $alpha_3 = 0$ y agreguemos a la ecuación anterior $alpha_3 v_3$ (esto será $\vec{0}$ asi que no afecta).\\
+			$$\alpha_1 v_1 + \alpha_2 v_2 + \alpha_3 v_3 + \alpha_4 v_4 = 0$$
+			Luego, esta también será una combinación lineal no trivial de $\{v_1, v_2, v_3, v_4\}$.\\
+			Pero $\{v_1, v_2, v_3, v_4\}$ es L.I., por lo que esto contradice nuestro supuesto.
+			
+			
+			Finalmente, $\{v_1, v_2, v_4\}$ es L.I., por lo que la afirmación es {\bf Verdadera}.
+\item Si $A$ es una matriz de $3\times 5$ y $T$ es la transformación lineal definida por $T(x) = Ax$, entonces $T$ tiene dominio $\R^3$.\\
+			\\
+			$x$ debe tener tantas filas como columnas tiene $A$, es decir 5, por lo que el dominio de $T$ es $\R^5$.
+			
+			Entonces, la afirmación es {\bf Falsa}.
+\item Un sistema con más ecuaciones que incógnitas es siempre consistente.\\
+			\\
+			Intentemos buscar un caso donde no se cumpla esto.
+			$$\begin{array}{rcl}
+			x + y & = & 1 \\
+			y & = & 1 \\
+			y & = & 2
+			\end{array} \Longrightarrow
+			\begin{bmatrix}
+			1 & 1 & 1\\
+			0 & 1 & 1\\
+			0 & 1 & 2
+			\end{bmatrix} \wsim 
+			\begin{bmatrix}
+			1 & 1 & 1\\
+			0 & 1 & 1\\
+			0 & 0 & 1
+			\end{bmatrix}$$
+			Este sistema es claramente inconsistente.
+			
+			Entonces, la afirmación es {\bf Falsa}.
+\end{enumerate}
+\end{solucion}
+\item Encuentre una factorziación $A = LU$ de
+	$$A = \begin{bmatrix}
+	2 & 4 & -1 & 5 & -2 \\
+	-4 & -5 & 3 & -8 & 1 \\
+	2 & -5 & -4 & 1 & 8 \\
+	-6 & 0 & 7 & -3 & 1
+	\end{bmatrix}$$
+\begin{solucion}
+Procedemos a llevar la matriz a su forma escalonada, deteniendonos luego de cada generación de un pivote y teniendo cuidado de no ponderar filas
+		$$\begin{bmatrix}
+		2 & 4 & -1 & 5 & -2 \\
+		-4 & -5 & 3 & -8 & 1 \\
+		2 & -5 & -4 & 1 & 8 \\
+		-6 & 0 & 7 & -3 & 1
+		\end{bmatrix}$$
+		Antes de hacer nada, podemos ver nuestro primer pivote, por lo que todos los coeficientes abajo que hay desde el pivote (incluido) hacia abajo, serán la primera columna que utilizaremos luego para construir $L$, es decir $\begin{bmatrix} 2\\-4\\2\\-6\end{bmatrix}$
+		
+		Procedemos entonces con el pivoteo,
+		$$\sim \begin{bmatrix}
+		2 & 4 & -1 & 5 & -2 \\
+		0 & 3 & 1 & 2 & -3 \\
+		0 & -9 & -3 & -4 & 10 \\
+		0 & 12 & 4 & 12 & -5
+		\end{bmatrix}$$
+		Vemos aquí que el nuevo pivote generado es $3$, por lo que la segunda columna que usaremos para construir $L$ será
+		$\begin{pmatrix}
+		0\\3\\-9\\12
+		\end{pmatrix}$. El primer coeficiente es 0, ya que consideramos solo los numeros abajo del pivote (incluyendo al pivote). Seguimos pivoteando,
+		$$\sim \begin{bmatrix}
+		2 & 4 & -1 & 5 & -2 \\
+		0 & 3 & 1 & 2 & -3 \\
+		0 & 0 & 0 & 2 & 1 \\
+		0 & 0 & 0 & 4 & 7
+		\end{bmatrix}$$
+		Luego, la tercera columna que usaremos será
+		$\begin{pmatrix}
+		0\\0\\2\\4
+		\end{pmatrix}$. Continuamos,
+		$$\sim \begin{bmatrix}
+		2 & 4 & -1 & 5 & -2 \\
+		0 & 3 & 1 & 2 & -3 \\
+		0 & 0 & 0 & 2 & 1 \\
+		0 & 0 & 0 & 0 & 5
+		\end{bmatrix} = U$$
+		Por lo que la última columna que necesitamos es $\begin{pmatrix}0\\0\\0\\5
+		\end{pmatrix}$. Además, esta última matriz (la forma escalonada de $A$), corresponde a $U$.
+		
+		Procedamos a construir $L$. Lo que haremos será dividir cada vector seleccionado anteriormente por el coeficiente que está más arriba (pivote) y usar cada vector resultante como una columna de $L$. De esta manera,
+		$$ L = \begin{bmatrix}
+		1 & 0 & 0 & 0 \\
+		-2 & 1 & 0 & 0 \\
+		1 & -3 & 1 & 0 \\
+		-3 & 4 & 2 & 1
+		\end{bmatrix}$$
+		Finalmente,
+		$$A = \begin{bmatrix}
+		1 & 0 & 0 & 0 \\
+		-2 & 1 & 0 & 0 \\
+		1 & -3 & 1 & 0 \\
+		-3 & 4 & 2 & 1
+		\end{bmatrix} \begin{bmatrix}
+		2 & 4 & -1 & 5 & -2 \\
+		0 & 3 & 1 & 2 & -3 \\
+		0 & 0 & 0 & 2 & 1 \\
+		0 & 0 & 0 & 0 & 5
+		\end{bmatrix}$$
+\end{solucion}
+\item Sea $A = \begin{bmatrix}
+	1 & 2 & 3\\
+	2 & 8 & 4 \\
+	3 & 4 & 11\end{bmatrix}$. Calcule la factorización $A=LDL^T$ de la matriz $A$ y en base a esto encuentre una matriz $R$ tal que $A = RR^T$.
+\begin{solucion}
+Procedemos a pivotear la matriz para llevarla a su forma escalonada, preocupandonos de no ponderar filas y deteniendonos cada vez que se forme un pivote.
+		$$A = \begin{bmatrix}
+		1 & 2 & 3\\
+		2 & 8 & 4 \\
+		3 & 4 & 11\end{bmatrix}$$
+		Aquí ya tenemos un pivote, que es la primera columna, es decir $\begin{bmatrix} 1 \\ 2 \\ 3 \end{bmatrix}$.
+		$$\sim \begin{bmatrix}
+		1 & 2 & 3\\
+		0 & 4 & -2 \\
+		0 & -2 & 2\end{bmatrix}$$
+		El segundo pivote está en la segunda columna. Tomamos solo los valores bajo el pivote (incluyendolo). Esto es $\begin{bmatrix}0 \\ 4 \\ -2\end{bmatrix}$.
+		$$\sim \begin{bmatrix}
+		1 & 2 & 3\\
+		0 & 4 & -2 \\
+		0 & 0 & 1\end{bmatrix} = U$$
+		El último pivote está en la tercera columna, que corresponderá a $\begin{bmatrix}0 \\ 0 \\ 1\end{bmatrix}$.
+		
+		Ahora, procedemos a dividir cada columna extraida por el pivote correspondiente (coeficiente de más arriba) y luego formar la matriz $L$, esto es
+		$$L = \begin{bmatrix}
+		1 & 0 & 0\\
+		2 & 1 & 0\\
+		3 & -\frac{1}{2} & 1
+		\end{bmatrix}$$
+		La matriz $D$ corresponde a la diagonal de $U$, por lo que
+		$$D =\begin{bmatrix}
+		1 & 0 & 0\\
+		0 & 4 & 0 \\
+		0 & 0 & 1\end{bmatrix}$$
+		Luego,
+		$$A = LDL^T = \begin{bmatrix}
+		1 & 0 & 0\\
+		2 & 1 & 0\\
+		3 & -\frac{1}{2} & 1
+		\end{bmatrix}
+		\begin{bmatrix}
+		1 & 0 & 0\\
+		0 & 4 & 0 \\
+		0 & 0 & 1\end{bmatrix}
+		\begin{bmatrix}
+		1 & 2 & 3\\
+		0 & 1 & -\frac{1}{2}\\
+		0 & 0 & 1
+		\end{bmatrix}$$
+		Notemos ahora que, al ser $D$ una matriz diagonal, es facil calcular $\sqrt[]{D}$. Esto es
+		$$\sqrt[]{D} = 
+		\begin{bmatrix}
+		1 & 0 & 0\\
+		0 & 2 & 0 \\
+		0 & 0 & 1
+		\end{bmatrix}$$
+		Ahora,
+		$$A = LDL^T = (L\ \sqrt[]{D})(\ \sqrt[]{D}L^T) = (L\ \sqrt[]{D})(L\ \sqrt[]{D}^T)^T $$
+		Pero la matriz transpuesta de una matriz diagonal es igual a la matriz en cuestión, por lo que
+		$$A = (L\ \sqrt[]{D})(L\ \sqrt[]{D})^T \ra R = L\ \sqrt[]{D}$$
+		$$R = \begin{bmatrix}
+		1 & 0 & 0\\
+		2 & 1 & 0\\
+		3 & -\frac{1}{2} & 1
+		\end{bmatrix}
+		\begin{bmatrix}
+		1 & 0 & 0\\
+		0 & 2 & 0 \\
+		0 & 0 & 1
+		\end{bmatrix} = \begin{bmatrix}
+		1 & 0 & 0\\
+		2 & 2 & 0\\
+		3 & -1 & 1
+		\end{bmatrix}$$
+		Finalmente,
+		$$A = \begin{bmatrix}
+		1 & 0 & 0\\
+		2 & 2 & 0\\
+		3 & -1& 1
+		\end{bmatrix}
+		\begin{bmatrix}
+		1 & 2 & 3\\
+		0 & 2 & -1\\
+		0 & 0 & 1
+		\end{bmatrix}$$
+\end{solucion}
+\item Sea una descomposción $PA = LU$ donde
+	$$P = \begin{bmatrix}
+	0 & 0 & 1\\
+	0 & 1 & 0\\
+	1 & 0 & 0
+	\end{bmatrix}, \quad
+	L = \begin{bmatrix}
+	1 & 0 & 0\\
+	-1 & 1 & 0\\
+	0 & 1 & 1
+	\end{bmatrix}, \quad
+	U = \begin{bmatrix}
+	2 & 1 & 0\\
+	0 & 1 & 1\\
+	0 & 0 & -1
+	\end{bmatrix}$$
+	determine usando directamente esta factorización la tercera fila de $A^{-1}$.
+\begin{solucion}
+La tercera fila de $A^{-1}$ es la tercera columna transpuesta de $(A^T)^{-1}$, es decir, corresponde a la solución de
+		$$A^Tx = e_3$$
+		Tenemos que
+		$$PA = LU$$
+		Transponiendo a ambos lados,
+		$$(PA)^T = (LU)^T$$
+		$$A^TP^T = U^TL^T$$
+		$$A^T = U^TL^TP$$
+		Entonces,
+		$$A^Tx = e_3 \ra U^TL^TPx = e_3$$
+		Digamos que
+		$$L^TPx = y \ra U^Ty = e_3 \ra \begin{bmatrix}
+		2 & 0 & 0\\
+		1 & 1 & 0\\
+		0 & 1 & -1
+		\end{bmatrix}y = \begin{pmatrix}
+		0 \\ 0 \\ 1
+		\end{pmatrix} \ra y = \begin{pmatrix}
+		0 \\ 0 \\ -1
+		\end{pmatrix}$$
+		Digamos ahora que
+		$$Px = z \ra L^Tz = y \ra \begin{bmatrix}
+		1 & -1 & 0\\
+		0 & 1 & 1\\
+		0 & 0 & 1
+		\end{bmatrix}z = \begin{pmatrix}
+		0 \\ 0 \\ -1
+		\end{pmatrix} \ra z = \begin{pmatrix}
+		1 \\ 1 \\ -1
+		\end{pmatrix}$$
+		Por último
+		$$Px = z \ra \begin{bmatrix}
+		2 & 1 & 0\\
+		0 & 1 & 1\\
+		0 & 0 & -1
+		\end{bmatrix}x = \begin{pmatrix}
+		1 \\ 1 \\ -1
+		\end{pmatrix} \ra x = \begin{pmatrix}
+		-1 \\ 1 \\ 1
+		\end{pmatrix}$$
+		En conclusión, la tercera fila de $A^{-1}$ es $\begin{pmatrix}
+		-1 \\ 1 \\ 1
+		\end{pmatrix}$
+\end{solucion}
+\item Sea $A$ una matriz de $n \times n$ definida por
+	$$a_{i,j} = 
+	\begin{cases}
+	3 \quad si\ i\leq j \\
+	1 \quad si\ i > j
+	\end{cases}$$
+	Calcule $det(A)$.
+\begin{solucion}
+En primer lugar, veamos como es $A$,
+		$$A = \begin{bmatrix}
+		3 & 3 & 3 & \dots & 3 & 3 \\ 
+		1 & 3 & 3 & \dots & 3 & 3 \\ 
+		1 & 1 & 3 & \dots & 3 & 3 \\ 
+		\vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\ 
+		1 & 1 & 1 & \dots & 3 & 3 \\ 
+		1 & 1 & 1 & \dots & 1 & 3
+		\end{bmatrix}$$
+		Ahora, busquemos su determinante,
+		$$det(A) = \left|\begin{bmatrix}
+		3 & 3 & 3 & \dots & 3 & 3 \\ 
+		1 & 3 & 3 & \dots & 3 & 3 \\ 
+		1 & 1 & 3 & \dots & 3 & 3 \\ 
+		\vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\ 
+		1 & 1 & 1 & \dots & 3 & 3 \\ 
+		1 & 1 & 1 & \dots & 1 & 3
+		\end{bmatrix}\right|$$
+		En primer lugar, ponderemos la primera fila por $\dfrac{1}{3}$. Al hacer esto, debemos multiplicar por 3 afuera para mantener el valor del determinante igual.
+		$$det(A) = 3 \left|\begin{bmatrix}
+		1 & 1 & 1 & \dots & 1 & 1 \\ 
+		1 & 3 & 3 & \dots & 3 & 3 \\ 
+		1 & 1 & 3 & \dots & 3 & 3 \\ 
+		\vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\ 
+		1 & 1 & 1 & \dots & 3 & 3 \\ 
+		1 & 1 & 1 & \dots & 1 & 3
+		\end{bmatrix}\right|$$
+		Ahora, a todas las filas (menos a la primera) le restaremos la primera fila
+		$$det(A) = 3 \left|\begin{bmatrix}
+		1 & 1 & 1 & \dots & 1 & 1 \\ 
+		0 & 2 & 2 & \dots & 2 & 2 \\ 
+		0 & 0 & 2 & \dots & 2 & 2 \\ 
+		\vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\ 
+		0 & 0 & 0 & \dots & 2 & 2 \\ 
+		0 & 0 & 0 & \dots & 0 & 2
+		\end{bmatrix}\right|$$
+		Notemos ahora que la diagonal está compuesta de un 1 y luego puros 2, por lo que
+		$$det(A) = 3 \cdot 2^{n-1}$$
+\end{solucion}
+\item Calcular el determinante de siguiente matriz de $n\times n$
+	$$ \begin{bmatrix}
+	-3 & x & x & \dots & x \\
+	x & -3 & x & \dots & x \\
+	x & x & -3 & \dots & x \\
+	\vdots & \vdots & \vdots & \ddots & \vdots \\
+	x & x & x & \dots & -3
+	\end{bmatrix}$$
+\begin{solucion}
+Calulemos el determinante de la matriz, esto es
+		$$ \left|\begin{bmatrix}
+		-3 & x & x & \dots & x \\
+		x & -3 & x & \dots & x \\
+		x & x & -3 & \dots & x \\
+		\vdots & \vdots & \vdots & \ddots & \vdots \\
+		x & x & x & \dots & -3
+		\end{bmatrix}\right|$$
+		Lo primero que haremos, será restarle la fila $n$ a todas las filas menos a la fila 1 y a la fila $n$, es decir realizaremos las operaciones $f_2-f_n$, $f_3-f_n$, \dots, $f_{n-1} - f_n$
+		$$ \left|\begin{bmatrix}
+		-3 & x & x & \dots & x \\
+		0 & -3-x & 0 & \dots & x+3 \\
+		0 & 0 & -3 & \dots & x+3 \\
+		\vdots & \vdots & \vdots & \ddots & \vdots \\
+		x & x & x & \dots & -3
+		\end{bmatrix}\right|$$
+		En segundo lugar, haremos $f_n-f_1$
+		$$ \left|\begin{bmatrix}
+		-3 & x & x & \dots & x \\
+		0 & -3-x & 0 & \dots & x+3 \\
+		0 & 0 & -3 & \dots & x+3 \\
+		\vdots & \vdots & \vdots & \ddots & \vdots \\
+		x+3 & 0 & 0 & \dots & -3-x
+		\end{bmatrix}\right|$$
+		Recordemos que el determinante de una matriz es el mismo que de su transpuesta, por lo que podemos también realizar operaciones de columnas al igual como lo hacemos con las filas. Dicho esto, haremos $c_1 + c_n$,
+		$$ \left|\begin{bmatrix}
+		-3+x & x & x & \dots & x \\
+		x+3 & -3-x & 0 & \dots & x+3 \\
+		x+3 & 0 & -3 & \dots & x+3 \\
+		\vdots & \vdots & \vdots & \ddots & \vdots \\
+		0 & 0 & 0 & \dots & -3-x
+		\end{bmatrix}\right|$$
+		Por último, realizaremos las operaciones $c_1 + c_2$, $c_1 +c_3$, \dots, $c_1 + c_{n-1}$
+		$$ \left|\begin{bmatrix}
+		-3+x(n-1) & x & x & \dots & x \\
+		0 & -3-x & 0 & \dots & x+3 \\
+		0 & 0 & -3 & \dots & x+3 \\
+		\vdots & \vdots & \vdots & \ddots & \vdots \\
+		0 & 0 & 0 & \dots & -3-x
+		\end{bmatrix}\right|$$
+		Aqui ya podemos multiplicar la diagonal de esta matriz, con lo que el determinante nos queda
+		$$det = (-3 + x(n-1)) \cdot (-3-x)^{n-1} = (-3-x)^n + xn(-3-x)^{n-1}$$
+\end{solucion}
+\item Sean $v_1,v_2,v_3,v_4 \in \R^4$, encuentre el $|A|$ si\\
+$A=[v_1-v_3+v_4 \;\;\;\;-v_2-v_3 \;\;\;\; v_3-v_1
+\;\;\;\;v_1+v_2+2v_4 ]\in M_4 (\R)$
+\begin{solucion}
+En primer lugar, notemos que no sabemos nada de los vectores dados, es decir, estos podrían perfectamente ser $LD$. Por ende, existen dos posibles respuestas a esta pregunta: el determinante es 0 o no hay suficiente información para saber.\\
+
+Para que el determinante sea 0, las columnas de $A$ deben ser $LD$, es decir, debe existir $\alpha_1, \alpha_2, \alpha_3, \alpha_4 \in \R$ no todos iguales a 0, tal que
+$$\alpha_1(v_1-v_3+v_4) + \alpha_2(-v_2-v_3) +\alpha_3(v_3-v_1) + \alpha_4(v_1+v_2+2v_4) = 0$$
+Una forma sencilla de demostrar que existe alguna combinación de valores no triviales que cumpla con esto, es buscar una en particular. Para esto diremos de manera arbitraria que $\alpha_4 = -1$ y buscaremos los otros. Con esto, obtenemos
+$$\alpha_1(v_1-v_3+v_4) + \alpha_2(-v_2-v_3) +\alpha_3(v_3-v_1) =v_1+v_2+2v_4$$
+Notemos que esto equivale a encontrar una combinación lineal de las 3 primeras columnas para formar la cuarta. Reordenando,
+$$(\alpha_1 - \alpha_3)v_1 -\alpha_2 v_2 + (-\alpha_1 - \alpha_2 + \alpha_3)v_3 + \alpha_1 v_4 =v_1+v_2+2v_4$$
+De aquí, obtenemos el sistema
+$$\begin{array}{rcl}
+\alpha_1 - \alpha_3 & = & 1\\
+-\alpha_2 & = & 1\\
+-\alpha_1 - \alpha_2 + \alpha_3 & = & 0\\
+\alpha_1 & = & 2
+\end{array} \ra
+\begin{array}{rcl}
+\alpha_1 & = & 2\\
+\alpha_2 & = & -1\\
+\alpha_3 & = & 1\\
+\alpha_4 & = & -1
+\end{array}
+$$
+Que corresponde a una solución no trivial, por lo que las columnas de $A$ son $LD$.\\
+
+En conclusión, el determinante de $A$ es 0.
+\end{solucion}
 \end{preguntas}
 \end{document}
