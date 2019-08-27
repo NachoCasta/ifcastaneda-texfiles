@@ -185,7 +185,17 @@ Notemos que $\sum\limits_{n=1}^{\infty} \dfrac{1}{3n^3}$ es es una $serie-p$ con
 \end{solucion}
 \item Demuestre que si $\sum\limits_{n=1}^{\infty}a_n$ es convergente, entonces el limite de la sucesión $b_n=ln(1+a_n)$ en el infinito es $0$.
 \begin{solucion}
+Como $\sum\limits_{n=1}^{\infty}a_n$ es convergente, entonces debe ocurrir que
+$\lim\limits_{x \ra \infty} a_n = 0$.\\
 
+Luego,
+$$\lim\limits_{x \ra \infty} b_n
+= \lim\limits_{x \ra \infty} ln(1+a_n)
+= ln(1+\lim\limits_{x \ra \infty} a_n)
+= ln(1+0)
+= 0$$
+
+$$\blacksquare$$
 \end{solucion}
 \item Sea $a_n$ una sucesión tal que $a_n \neq 0,\ \forall n \in \N$.\\
 	Demuestre que si $\sum\limits_{n=1}^{\infty}a_n$ converge, entonces $\sum\limits_{n=1}^{\infty}\dfrac{1}{a_n}$ diverge.
