@@ -1501,6 +1501,14 @@ $$B = \begin{bmatrix}
 0 & 1
 \end{bmatrix}$$
 \end{solucion}
+\item Sea $T: \R^7 \ra \R^9$ una transformación lineal. Suponga que el conjunto $\{u,v\}$ es linealmente independiente en $\R^7$ pero $\{T(u), T(v)\}$ es linealmente dependiente. Demuestre que la ecuación $T(x)=0$ admite soluciones no triviales.
+\begin{solucion}
+Como el conjunto $\{T(u), T(v)\}$ es $LD$, existen $\alpha, \beta \neq 0$, tales que 
+$$\alpha T(u) + \beta T(v) = 0$$
+Usando la propiedad de linealidad para las transformaciones lineales, también tenemos que
+$$ T(\alpha u +\beta v) = 0$$
+Por otro lado, como $\{u, v\}$ es $LI$ y $\alpha, \beta \neq 0$, el vector $\alpha u +\beta v$ no puede ser cero. Por ende, se concluye que $\alpha u +\beta v$ es una solución no trivial de $T(x) = 0$.
+\end{solucion}
 \item Sea $L: P_2(\R) \ra \R^2$ una transformación lineal tal que
 	$$L(1+x) = \begin{pmatrix}
 	1\\
