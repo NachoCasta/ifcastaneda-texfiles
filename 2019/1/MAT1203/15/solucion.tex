@@ -2872,6 +2872,57 @@ Para demostrar que $U$ es un subespacio vectorial, debemos ver que sea no vacío
 		Entonces, tenemos que $U$ es un subespacio de $V$.
 		$$\blacksquare$$
 \end{solucion}
+\item Sea $V = \mathbb{P}_3$ y sea
+$$W = \{p(x) \in V: p(1) = p(0) =0\}$$
+Demostrar que $W$ es subespacio de $V$.
+\begin{solucion}
+Para demostrar que $U$ es un subespacio vectorial, debemos ver que contenga al 0, sea cerrado en la suma y cerrado en la multiplicación.
+
+$0 \in W$:
+
+Sea el polinomio $p(x) = 0$, vemos que
+$$p(1) = p(0) = 0$$
+$$0 = 0 = 0$$
+Por lo que $p(x) \in U$, asi que no es vacío.\\
+
+Suma:
+
+Sean $p, q \in W$,
+
+P.D. $p + q \in W$.\\
+
+Notemos que $p$ y $q$ serán de la forma
+$$p(x) = a + bx + cx^2 + dx^3 \qquad y \qquad q(x) = e + fx + gx^2 + hx^3$$
+Con
+$$p(0) = a = 0, \qquad q(0) = e = 0$$
+$$p(1) = a + b + c + d = 0,\qquad q(1) = e + f + g + h = 0$$
+Luego,
+$$(p+q)(x) = (a + bx + cx^2 + dx^3) + (e + fx + gx^2 + hx^3)$$
+Además,
+$$(p+q)(0) = a + e = 0 + 0 = 0$$
+$$(p+q)(1) = (a + b + c + d) + (e + f + g + h) = 0 + 0 = 0$$
+Por lo que $p + q \in W$ y por ende $W$ es cerrado en la suma.\\
+
+Multiplicación:
+
+Sea $p \in W$ y $\alpha \in \R$,
+P.D. $\alpha p \in W$.\\
+
+Notemos que $p$ y $q$ serán de la forma
+$$p(x) = a + bx + cx^2 + dx^3 \qquad y \qquad q(x) = e + fx + gx^2 + hx^3$$
+Con
+$$p(0) = a = 0, \qquad p(1) = a + b + c + d = 0$$
+Luego,
+$$(\alpha p)(x) = \alpha(a + bx + cx^2 + dx^3)$$
+Además,
+$$(\alpha p)(0) = \alpha a = \alpha \cdot 0 = 0$$
+$$(\alpha p)(1) = \alpha (a + b + c + d) = \alpha \cdot 0 = 0$$
+
+Por lo que $\alpha p \in W$ y $W$ es cerrado en la multiplicación\\
+
+Entonces, tenemos que $W$ es un subespacio de $V$.
+$$\blacksquare$$
+\end{solucion}
 \item La matriz $A = \begin{bmatrix}
 	1 & 3 & 4 & -1 & 2\\
 	2 & 6 & 6 & 0 & -3\\
@@ -2892,6 +2943,402 @@ $B$ tiene 2 filas $L.D.$, es decir, 2 variables libres, por lo que $A$ también.
 		$$dim(Col\ A^T) = dim(Fil\ A) = 3$$
 		Por lo anterior, como $A^T$ tendrá 3 columnas pivotes, tendrá una variable libre, lo que implica
 		$$dim(Nul\ A^T) = 1$$
+\end{solucion}
+\item En cada caso, determine si la afirmación es verdadera o falsa y justifique su respuesta.
+\begin{enumerate}[a)]
+\item El subconjunto de $\R^2$
+		$$E=\{(x_1, x_2) \in \R^2:9x_1^2+2x_2^2 \leq 4\}$$
+		es un subespacio vectorial de $\R^2$.
+\item Si $A$ es una matriz de $n \times n$ tal que $A^2=A$, entonces $Col(A) \cap Nul(A) = \{0\}$.
+\item Si $n$ es impar y $A$ es una matriz de $n\times n$ que satisface $A^T = -A$ entonces $Nul(A) \neq \{0\}$.
+\end{enumerate}
+\begin{solucion}
+
+\begin{enumerate}[a)]
+\item El subconjunto de $\R^2$
+			$$E=\{(x_1, x_2) \in \R^2:9x_1^2+2x_2^2 \leq 4\}$$
+			es un subespacio vectorial de $\R^2$.\\
+			\\
+			Tomemos el par $(0,1)$
+			$$9 \cdot 0^2 + 2 \cdot 1^2 \leq 4 \ra 2 \leq 4 \ra (0,1) \in E$$
+			Veamos ahora con $2 \cdot (0,1) = (0,2)$,
+			$$9 \cdot 0^2 + 2 \cdot 2^2 \leq 4 \ra 8 \leq 4 \ra (0,2) \not \in E$$
+			Con lo que concluimos que $E$ no es cerrado en la multiplicación, por lo que no puede ser un subespacio vectorial. Entonces, la afirmación es {\bf FALSA}.
+\item Si $A$ es una matriz de $n \times n$ tal que $A^2=A$, entonces $Col(A) \cap Nul(A) = \{0\}$.\\
+			\\
+			Digamos que $y \in Col(A) \cap Nul(A)$
+			
+			Como $y \in Col(A) \cap Nul(A) \ra \exists x \in \R^n (Ax = y)$\\
+			\\
+			Como $A^2 = A$, entonces
+			$$Ay = A(Ax) = A^2x = Ax = y$$
+			de donde concluimos que $y = Ay$\\
+			\\
+			Además, sabemos que $y \in Nul(A)$, por lo que
+			$$y = Ay = 0 \ra y = 0$$
+			Luego,
+			$$Col(A) \cap Nul(A) = \{0\}$$
+			Por lo que la afirmación es {\bf VERDADERA}.
+\item Si $n$ es impar y $A$ es una matriz de $n\times n$ que satisface $A^T = -A$ entonces $Nul(A) \neq \{0\}$.\\
+			\\
+			$$det(-A) = (-1)^n det(A)$$
+			Pero $n$ es impar, por lo que
+			$$det(-A) = -det(A)$$
+			Además, $det(A) = det(A^T)$. Luego,
+			$$det(A) = det(A^T) = det(-A) = -det(A)$$
+			$$det(A) = -det(A)$$
+			$$det(A) = 0$$
+			Luego, $A$ no es invertible, por lo que
+			$$Nul(A) \neq \{0\}$$
+			Dicho esto, la afirmación es {\bf VERDADERA}.
+\end{enumerate}
+\end{solucion}
+\item Sea 
+	$$U=\{p(x) \in \mathbb{P}_2 : p(1) + p(0) = p(-1)\}$$
+	Determinar una base de $U$.
+\begin{solucion}
+			Sea $p(x) \in \mathbb{P}_2$ un polinomio de la forma $p(x) = a + bx + cx^2$\\
+			\\
+			Para que pertenezca a $U$, debe cumplirse que
+			$$p(1) + p(0) = p(-1)$$
+			$$a+b+c+a=a-b+c$$
+			$$a = -2b$$
+			Luego,
+			$$\begin{array}{rcl}
+			a & = & -2b\\
+			b & = & b\\
+			c & = & c
+			\end{array}$$
+			Entonces, podemos reescribir el polinomio como
+			$$p(x) = -2b + bx + cx^2$$
+			$$p(x) = b(x-2) + c(x^2)$$
+			Finalmente,
+			$$U = Gen\{x-2, x^2\}$$
+\end{solucion}
+\item Sean $B = \begin{bmatrix} 1 & -1 \\ 0 & 0 \end{bmatrix}$ y $C = \{X \in M_2(\R)|BX=0\}$. Determine una base y la dimensión de $C$.
+\begin{solucion}
+Digamos que $X = \begin{bmatrix}
+a & b \\c & d
+\end{bmatrix}$.\\
+
+Luego, debemos encontrar $\begin{bmatrix}
+a & b \\c & d
+\end{bmatrix}$ tal que
+$$\begin{bmatrix} 1 & -1 \\ 0 & 0 \end{bmatrix}
+\begin{bmatrix}
+a & b \\c & d
+\end{bmatrix}
+= 0$$
+$$a-c = 0 \qquad b - d = 0$$
+$$a = c \qquad b = d$$
+Por lo tanto,
+$$X = \begin{bmatrix}
+a & b \\
+a & b
+\end{bmatrix} =
+a
+\begin{bmatrix}
+1 & 0 \\
+1 & 0
+\end{bmatrix} + 
+b
+\begin{bmatrix}
+0 & 1 \\
+0 & 1
+\end{bmatrix} =
+Gen\left\{
+\begin{bmatrix}
+1 & 0 \\
+1 & 0
+\end{bmatrix},
+\begin{bmatrix}
+0 & 1 \\
+0 & 1
+\end{bmatrix}
+\right\}
+$$
+Finalmente, una base para $C$ es $\left\{
+\begin{bmatrix}
+1 & 0 \\
+1 & 0
+\end{bmatrix},
+\begin{bmatrix}
+0 & 1 \\
+0 & 1
+\end{bmatrix}
+\right\}$ y su dimensión es 2.
+\end{solucion}
+\item Use vectores de coordenadas para probar la independencia lineal del conjunto de polinomios $\{1-2t^2-t^3,t+2t^3,1+t-2t^2\}$.
+\begin{solucion}
+La base que utilizaremos será
+		$$B = \{1,t,t^2,t^3\}$$
+		Luego, podemos reescribir cada elemento del conjunto de la siguiente forma
+		$$\begin{array}{lcl}
+		1-2t-t^3 & \ra & (1,\ \ 0,-2,-1)\\
+		t+2t^3 & \ra & (0,\ \ 1,\ \ 0,\ \ 2)\\
+		1+t-2t^2 & \ra & (1,\ \ 1,-2,\ \ 0)
+		\end{array}$$
+		Ahora, para probar que los elementos del conjunto son $L.I.$, basta con probar que los vectores de coordenadas lo son. Para esto, ponemos los vectores en una matriz y pivoteamos:
+		$$\begin{bmatrix}
+		1 & 0 & 1\\
+		0 & 1 & 1\\
+		-2 & 0 & -2\\
+		-1 & 2 & 0
+		\end{bmatrix} \sim
+		\begin{bmatrix}
+		1 & 0 & 1\\
+		0 & 1 & 1\\
+		0 & 0 & 1\\
+		0 & 0 & 0
+		\end{bmatrix}$$
+		Con lo que concluimos que son $L.I.$
+		$$\blacksquare$$
+\end{solucion}
+\item Sean $p_1(t) = 1-t^2, p_2(t) = 1+t, p_3(t) = 1+t+t^2$. Se sabe que $\{p_1(t), p_2(t), p_3(t)\}$ es una base de $\mathbb{P}_2$.
+\begin{enumerate}[a)]
+\item Exprese los polinomios $f(t) = 3-5t + 2t^2$ y $g(t) = 1-3t$ como combinaciones lineales de $\{p_1(t), p_2(t), p_3(t)\}$.
+\item Use los vectores de coordenadas encontrados en la parte anterior para determinar si el conjunto $\{p_1(t), f(t), g(t)\}$ es L.I. o L.D.
+\end{enumerate}
+\begin{solucion}
+
+\begin{enumerate}[a)]
+\item Exprese los polinomios $f(t) = 3-5t + 2t^2$ y $g(t) = 1-3t$ como combinaciones lineales de $\{p_1(t), p_2(t), p_3(t)\}$.\\
+			\\
+			Sea una base 
+			$$B = \{p_1(t), p_2(t), p_3(t)\} = $$, lo que estamos buscando son las coordenadas de $f$ y $g$ en la base $B$.\\
+			\\
+			En primer lugar, veamos $f(t)$. Debemos buscar $a$, $b$, $c$, tal que
+			$$f(t) = 3-5t + 2t^2 = ap_1(t) + bp_2(t) + cp_3(t)$$
+			Reemplazando y reagrupando,
+			$$3-5t + 2t^2 = a(1-t^2) + b(1+t) + c(1+t+t^2)$$
+			$$3-5t + 2t^2 = (a+b+c) + (b+c)t + (c-a)t^2$$
+			Por lo que
+			$$\begin{array}{rl}
+			a + b +c & = 3\\
+			b + c & =-5\\
+			-a+c & =2
+			\end{array} \Longrightarrow
+			\begin{array}{rl}
+			a & = 8\\
+			b & =-15\\
+			c & = 10
+			\end{array}$$
+			Luego, las coordenadas de $f(t)$ en $B$ son $(8,-15,10)$.\\
+			\\
+			Veamos ahora que ocurre con $g(t)$. Nuevamente, buscamos $a$, $b$, $c$, tal que
+			$$g(t) = 1-3t =  ap_1(t) + bp_2(t) + cp_3(t)$$
+			Esto es,
+			$$1-3t = a(1-t^2) + b(1+t) + c(1+t+t^2)$$
+			$$1-3t = (a+b+c) + (b+c)t + (c-a)t^2$$
+			Lo que se nos lleva al sistema
+			$$\begin{array}{rl}
+			a + b +c & = 1\\
+			b + c & =-3\\
+			-a+c & =0
+			\end{array} \Longrightarrow
+			\begin{array}{rl}
+			a & = 4\\
+			b & =-7\\
+			c & = 4
+			\end{array}$$
+			Con lo que las coordenadas de $g(t)$ en $B$ son $(4,-7,4)$.
+\item Use los vectores de coordenadas encontrados en la parte anterior para determinar si el conjunto $\{p_1(t), f(t), g(t)\}$ es L.I. o L.D.\\
+			\\
+			Para determinar esto, podemos usar las coordenadas de estos elementos en cualquier base. Por conveniencia, usaremos la base $B$. Aquí, los vectores de coordenadas son
+			$$p_1(t) = (1,0,0)$$
+			$$f(t) = (8,-15,10)$$
+			$$g(t) = (4,-7,4)$$
+			Armamos una matriz con ellos y pivoteamos,
+			$$\begin{bmatrix}
+			1 & 0 & 0 \\
+			8 & -15 & 10 \\
+			4 & -7 & 4
+			\end{bmatrix}
+			\sim
+			\begin{bmatrix}
+			1 & 0 & 0 \\
+			0 & 1 & 0 \\
+			0 & 0 & 1
+			\end{bmatrix}$$
+			Por lo que sus el conjunto $\{p_1(t), f(t), g(t)\}$ es $L.I.$
+\end{enumerate}
+\end{solucion}
+\item Sea
+$$T\left(\left[ \begin{array}{c}
+a\\ b\\ c \end{array} \right] \right) = (a+b+c) + (a-b+2c)x +
+(3b-c)x^2
+$$
+Determine una base para $Nul(T) $ y para $Im (T) $ y las dimensiones de estos subespacios.
+\begin{solucion}
+Notemos que lo que estamos generando son polinomios de grado menor o igual a 2. La base canónica para estos polinomios es $B=\{1, x, x^2\}$
+En primer lugar, obtengamos la matriz asociada a la transformación lineal respecto a las bases canónicas, esto es,
+$$A = \begin{bmatrix}
+1 & 1 & 1 \\
+1 & -1 & 2 \\
+0 & 3 & -1
+\end{bmatrix}$$
+Recordemos que $Nul(T)$ corresponde a la solución del sistema homogeneo, es decir $Ax = 0$, esto es,
+$$\begin{bmatrix}
+1 & 1 & 1 \\
+1 & -1 & 2 \\
+0 & 3 & -1
+\end{bmatrix} \sim 
+\begin{bmatrix}
+1 & 0 & 0 \\
+0 & 1 & 0 \\
+0 & 0 & 1
+\end{bmatrix}$$
+Por lo que la solución del sistema homogeneo es $Gen\left\{\begin{pmatrix}0 \\ 0 \\ 0 \end{pmatrix}\right\}$, que corresponde al Nul(T).\\
+
+Veamos ahora el $Im (T)$, que corresponde a las bases $LI$. Esto es equivalente a ver las columnas $LI$ de $A$, que ya sabemos que son todas. Por lo tanto, 
+$$Im(A) = Gen\left\{\begin{pmatrix}1 \\ 0 \\ 0 \end{pmatrix},\begin{pmatrix}0 \\ 1 \\ 0 \end{pmatrix}, \begin{pmatrix}1 \\ 0 \\ 0 \end{pmatrix}\right\}$$
+Luego, traduciendo estos vectores coordenadas, concluimos que
+$$Im(T) = Gen\{1, x, x^2\}$$
+Finalmente, las dimensiones de $Nul(T)$ y $Im(T)$ son 0 y 3, respectivamente.
+\end{solucion}
+\item Sea $T: \mathbb{P}_2 \ra \mathbb{P}_2$ una transformación lineal cuya matriz de transformación respecto a la base $B = \{1, t, t^2\}$ está dada por
+$$[T]_B = \begin{bmatrix}
+1 & -1 & 1\\
+0 & 2 & -1\\
+-1 & 3 & -2
+\end{bmatrix}$$
+Determine $T(t^2+1)$ y el espacio Nulo de $T$.
+\begin{solucion}
+Notemos que esta matriz lo que hace es modificar las coordenadas de un elemento $p$ y convertirlas en las coordenadas de $T(p)$, por lo que para determinar $T(t^2+1)$ primero debemos determinar sus coordenadas, esto es
+$$[t^2+1]_B = \begin{pmatrix}
+1 \\ 0 \\1
+\end{pmatrix}$$
+Luego, para obtener $T(t^2+1)$, calculamos
+$$[T]_B[t^2+1]_B = \begin{bmatrix}
+1 & -1 & 1\\
+0 & 2 & -1\\
+-1 & 3 & -2
+\end{bmatrix}
+\begin{pmatrix}
+1 \\ 0 \\1
+\end{pmatrix}
+=
+\begin{pmatrix}
+2 \\ -1 \\ -3
+\end{pmatrix}$$
+Por lo tanto,
+$$T(t^2+1) = 2-t-3t^2$$
+Para determinar el espacio Nulo de $T$, debemos calcular el espacio Nulo de $[T]_B$ y a partir de eso obtener el espacio Nulo de $T$.
+$$\begin{bmatrix}
+1 & -1 & 1\\
+0 & 2 & -1\\
+-1 & 3 & -2
+\end{bmatrix} \wsim
+\begin{bmatrix}
+1 & -1 & 1\\
+0 & 2 & -1\\
+0 & 0 & 0
+\end{bmatrix}$$
+De aqui tenemos que
+$$Nul([T]_B) = Gen\left\{\begin{pmatrix}
+-1 \\ 1 \\2
+\end{pmatrix}\right\}$$
+Finalmente,
+$$Nul(T) = Gen\{-1+t+2t^2\}$$
+\end{solucion}
+\item Sean $B_1 = \{1+x,1-x,1+x^2\}$ y $B_2$ bases de $P_2(\R)$ tales que para todo $p \in P_2(\R)$
+	$$ \begin{bmatrix}
+	1 & 0 & -1\\
+	1 & 1 & 0 \\
+	0 & 1 & 2
+	\end{bmatrix} [p]_{B_1} = [p]_{B_2}$$
+	Determine los polinomios que forman la base $B_2$.
+\begin{solucion}
+Notemos que la matriz que nos dan corresponde a la matriz cambio de base de $B_1$ a $B_2$. Recordemos que una matriz cambio de base, de $B_1$ a $B_2$, corresponde a la matriz formada por las coordenadas de los elementos de $B_1$ en la base $B_2$.
+		
+		En base a lo anterior, dado que tenemos los vectores de $B_1$, lo que necesitamos es justamente lo contrario, es decir, la matriz cambio de base de $B_2$ a $B_1$. De esta manera, tendriamos las coordenadas de los elementos de $B_2$ en la base $B_1$, por lo que podriamos calcularlos con facilidad, ya que tenemos estos últimos.
+		
+		Para encontrar esta matriz, basta con obtener la inversa de la matriz cambio de base dada, esto es
+		$$ \left[\begin{array}{ccc|ccc}
+		1 & 0 & -1 & 1 & 0 & 0\\
+		1 & 1 & 0 & 0 & 1 & 0\\
+		0 & 1 & 2 & 0 & 0 & 1
+		\end{array}\right] \sim 
+		\left[\begin{array}{ccc|ccc}
+		1 & 0 & 0 & 2 & -1 & 1\\
+		0 & 1 & 0 & -2 & 2 & -1\\
+		0 & 0 & 1 & 1 & -1 & 1
+		\end{array}\right]$$
+		con lo que
+		$$A_{B_2}^{B_1} = \begin{bmatrix}
+		2 & -1 & 1\\
+		-2 & 2 & -1\\
+		1 & -1 & 1
+		\end{bmatrix}$$
+		Sea 
+		$$B_2 = \{q_1(x), q_2(x), q_3(x)\}$$
+		Las columnas de $A_{B_2}^{B_1}$ corresponden a los vectores de coordenada de $q_1$, $q_2$ y $q_3$, respectivamente, en la base $B_1$.
+		
+		Luego,
+		$$q_1(x) = 2(1+x) - 2(1-x) + (1+x^2) = 1+4x+x^2$$
+		$$q_2(x) = -(1+x) + 2(1-x) - (1+x^2) = -3x-x^2$$
+		$$q_3(x) = (1+x) - (1-x) + (1+x^2) = 1+2x+x^2$$
+		Finalmente,
+		$$B_2 = \{1+4x+x^2,-3x-x^2,1+2x+x^2\}$$
+\end{solucion}
+\item Sean $B$ y $C$ bases de un espacio vectorial $V$ y $P = \begin{bmatrix}4 &-1 \\ 6 & -1\end{bmatrix}$ la matriz de cambio de coordenadas tal que $[v]_C = P[v]_B\ \forall v \in V$
+\begin{enumerate}[a)]
+\item Demuestre que el conjunto $W = \{v \in V: [v]_C = 2[v]_B\}$ es un subespacio de $V$.
+\item Si $B=\{v_1,v_2\}$ determine una base para $W$ en términos de la base de $B$.
+\end{enumerate}
+\begin{solucion}
+
+\begin{enumerate}[a)]
+\item Demuestre que el conjunto $W = \{v \in V: [v]_C = 2[v]_B\}$ es subespacio de $V$.
+			
+			\begin{enumerate}
+				\item No vacio $(0\in W)$
+				$$\begin{array}{cc}
+				[\vec{0}]_C = \vec{0}\\
+				2 \cdot [\vec{0}]_B = 2 \cdot \vec{0} = 0
+				\end{array} \Longrightarrow \vec{0} = \vec{0} \ra \vec{0} \in W$$	
+				\item Suma y multiplicación (a la vez)	
+				
+				
+				Sea $u, v \in W$ y $\alpha, \beta \in \R$, debemos demostrar que $\alpha u + \beta v \in W$
+				$$\begin{array}{rcl}
+				[\alpha u + \beta v]_C & = & 2 [\alpha u + \beta v]_B \\
+				& = & 2 [\alpha u + \beta v]_B \\
+				& = & 2 [\alpha u]_B + 2[\beta v]_B \\
+				& = & \alpha 2[u]_B + \beta 2[v]_B \\
+				& = & \alpha [u]_C + \beta [v]_C \\
+				& = & [\alpha u]_C + [\beta v]_C \\
+				{[}\alpha u + \beta v]_C & = & [\alpha u +\beta v]_C
+				\end{array}
+				$$
+			\end{enumerate}
+			$$\blacksquare$$
+\item Si $B=\{v_1,v_2\}$ determine una base para $W$ en términos de la base de $B$.
+			
+			Sea $B = \{v_1, v_2\}$ la base dada, busquemos una base $B_W$ de $W$\\
+			\\
+			Sea $v \in W$,
+			$$v = x_1v_1 + x_2v_2 \ra x = \begin{pmatrix} x_1 \\ x_2 \end{pmatrix} = [v]_B$$
+			Además,
+			$$\begin{array}{cclcl}
+			[v]_C & = & 2[v]_B & = & 2x \\
+			{[}v]_C & = & P[v]_B & = & Px
+			\end{array} \Longrightarrow
+			2x = Px$$
+			Luego,
+			$$2x = Px$$
+			$$Px - 2x = 0$$
+			$$(P - 2I)x = 0$$
+			$$\left(\begin{bmatrix}4 &-1 \\ 6 & -1\end{bmatrix} - \begin{bmatrix}2 &0 \\ 0 & 2\end{bmatrix}\right)x = 0$$
+			$$\begin{bmatrix}2 &-1 \\ 6 & -3\end{bmatrix}x = 0$$
+			Resolviendo el sistema,
+			$$\begin{bmatrix}2 &-1 \\ 6 & -3\end{bmatrix} \sim 
+			\begin{bmatrix}2 &-1 \\ 0 & 0\end{bmatrix} \ra x_2 = 2x_1$$
+			Luego,
+			$$v = x_1v_1 + 2x_1v_2 = x_1(v_1 + 2v_2)$$
+			Finalmente,
+			$$B_W = \{v_1 + 2v_2\}$$
+\end{enumerate}
 \end{solucion}
 \end{preguntas}
 \end{document}
