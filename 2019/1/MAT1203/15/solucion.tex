@@ -4473,5 +4473,169 @@ P.D. que si $B$ es $L.D.$, $AB$ también lo es\\
 		$$(AB)u = \vec{0}$$
 		Recordemos que $u \neq \vec{0}$, por lo que hay una combinación lineal no trivial de las columnas de $AB$ que da $\vec{0}$. Entonces, las columnas de $AB$ son $L.D.$
 \end{solucion}
+\item Sea $T: \R^2 \ra \R^3$ la transformación lineal definida por
+	$$ T\left(\begin{bmatrix}
+	x_1\\
+	x_2
+	\end{bmatrix}\right) = \begin{bmatrix}
+	5x_1 - 3x_2\\
+	4x_1 -x_2\\
+	2x_1 +3x_2
+	\end{bmatrix}$$
+	encuentre $x = \begin{bmatrix}
+	x_1\\
+	x_2
+	\end{bmatrix}$ tal que $T(x) = \begin{bmatrix}
+	13\\
+	9\\
+	1
+	\end{bmatrix}$
+\begin{solucion}
+Notemos que la matriz de la transformación es
+		$$ A = \begin{bmatrix}
+		5 &- 3\\
+		4& -1\\
+		2& 3
+		\end{bmatrix}$$
+		Por que debemos resolver el sistema
+		$$ \begin{bmatrix}
+		5 &- 3\\
+		4& -1\\
+		2& 3
+		\end{bmatrix}\begin{bmatrix}
+		x_1\\
+		x_2
+		\end{bmatrix} = \begin{bmatrix}
+		13\\
+		9\\
+		1
+		\end{bmatrix}$$
+		Viendolo en forma matricial,
+		$$\left[
+		\begin{array}{cc|c}
+		5 &- 3 & 13\\
+		4 & -1 & 9\\
+		2 & 3 & 1
+		\end{array}
+		\right] \stackrel{F.E.R}{\wsim} \left[
+		\begin{array}{cc|c}
+		1 & 0 & 2\\
+		0 & 1 & -1\\
+		0 & 0 & 0
+		\end{array}
+		\right]$$
+		Por lo que
+		$$x_1 = 2, \quad x_2 = -1$$
+		Finalmente,
+		$$x = \begin{bmatrix}
+		2 \\ -1
+		\end{bmatrix}$$
+\end{solucion}
+\item Determine todas las matrices $A$ tales que
+	$$ A\begin{bmatrix}
+	3\\
+	2
+	\end{bmatrix}=\begin{bmatrix}
+	2\\
+	1
+	\end{bmatrix}$$
+\begin{solucion}
+En primer lugar, notemos que dada las dimensiones de los vectores, la matriz $A$ es de $2 \times 2$. Luego,
+		$$A = \begin{bmatrix}
+		\alpha & \beta \\
+		\gamma &\delta
+		\end{bmatrix}$$
+		Reemplazando,
+		$$A\begin{bmatrix}
+		3\\
+		2
+		\end{bmatrix}=\begin{bmatrix}
+		2\\
+		1
+		\end{bmatrix} \Longrightarrow 
+		\begin{bmatrix}
+		\alpha & \beta \\
+		\gamma &\delta
+		\end{bmatrix}
+		\begin{bmatrix}
+			3\\
+			2
+		\end{bmatrix}=\begin{bmatrix}
+			2\\
+			1
+		\end{bmatrix} \Longrightarrow
+		\begin{array}{rc}
+		3\alpha + 2\beta & = 2\\
+		3\gamma + 2 \delta & = 1
+		\end{array} \Longrightarrow
+		\begin{array}{rc}
+		3\alpha & = 2 - 2\beta\\
+		3\gamma & = 1 - 2 \delta
+		\end{array}$$
+		Con lo que
+		$$\alpha = \dfrac{2}{3} - \dfrac{2\beta}{3}$$
+		$$\gamma = \dfrac{1}{3} - \dfrac{2\delta}{3}$$
+		Finalmente,
+		$$A = \begin{bmatrix}
+		\frac{2}{3} - \frac{2\beta}{3} & \beta \\
+		\frac{1}{3} - \frac{2\delta}{3} &\delta
+		\end{bmatrix}$$
+\end{solucion}
+\item Determine condiciones sobre $\alpha$ y $\beta$ de modo que \\
+	$\begin{pmatrix}
+	\alpha-\beta\\
+	\alpha + \beta\\
+	2\alpha - \beta
+	\end{pmatrix}$ pertenezca a $Gen\left\{\begin{pmatrix}
+	-1\\
+	-1\\
+	1
+	\end{pmatrix}\, \begin{pmatrix}
+	1\\
+	2\\
+	1
+	\end{pmatrix}, \begin{pmatrix}
+	1\\
+	3\\
+	3
+	\end{pmatrix}\right\}$
+\begin{solucion}
+Lo que debemos ver es para que valores de $\alpha$ y $\beta$, existe una combinación lineal de los vectores del generado que genera el vector dado. Esto equivale a ver para que valores de $\alpha$ y $\beta$, el siguiente sistema es consistente:
+		$$
+		\left[
+		\begin{array}{ccc|c}
+		-1 & 1 & 1 & \alpha - \beta\\
+		-1 & 2 & 3 & \alpha + \beta\\
+		1 & 1 & 3 & 2\alpha - \beta
+		\end{array}
+		\right] \stackbin[F_3+F_1]{F_2-F_1}{\wsim}
+		\left[
+		\begin{array}{ccc|c}
+		-1 & 1 & 1 & \alpha - \beta\\
+		0 & 1 & 2 & 2\beta\\
+		0 & 0 & 0 & 3\alpha - 6\beta
+		\end{array}	\right]$$
+		Como la última fila se anula, el sistema será consistente cuando
+		$$3\alpha - 6\beta = 0$$
+		Es decir, la condición para $\alpha$ y $\beta$, tal que 
+		$$\begin{pmatrix}
+		\alpha-\beta\\
+		\alpha + \beta\\
+		2\alpha - \beta
+		\end{pmatrix} \in Gen\left\{\begin{pmatrix}
+		-1\\
+		-1\\
+		1
+		\end{pmatrix}\, \begin{pmatrix}
+		1\\
+		2\\
+		1
+		\end{pmatrix}, \begin{pmatrix}
+		1\\
+		3\\
+		3
+		\end{pmatrix}\right\}$$
+		es $\alpha = 2\beta$
+\end{solucion}
 \end{preguntas}
 \end{document}
