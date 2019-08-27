@@ -1236,6 +1236,43 @@ Diremos que $b = \begin{pmatrix}
 	1
 	\end{pmatrix}\right\}$$
 \end{solucion}
+\item Determinar las condiciones en $a$ para que la matriz
+	$$A = \begin{bmatrix}
+	a & 2a & 0 & 0 \\
+	0 & 1 & 0 & 3a-1\\
+	0 & 1 & a-1 & 2a-1\\
+	a & 2a & 0 & a
+	\end{bmatrix}$$
+	sea invertible
+\begin{solucion}
+Recordemos que el que una matriz sea invertible es equivalente a que esta tenga solución única.\\\\En primer lugar, debemos pivotear $A$ para dejarla en su forma escalonada:
+		$$\begin{bmatrix}
+		a & 2a & 0 & 0 \\
+		0 & 1 & 0 & 3a-1\\
+		0 & 1 & a-1 & 2a-1\\
+		a & 2a & 0 & a
+		\end{bmatrix} \widesim{F_4-F_1}
+		\begin{bmatrix}
+		a & 2a & 0 & 0 \\
+		0 & 1 & 0 & 3a-1\\
+		0 & 1 & a-1 & 2a-1\\
+		0 & 0 & 0 & a
+		\end{bmatrix} \widesim{F_3-F_2}
+		\begin{bmatrix}
+		a & 2a & 0 & 0 \\
+		0 & 1 & 0 & 3a-1\\
+		0 & 0 & a-1 & -a\\
+		0 & 0 & 0 & a
+		\end{bmatrix}$$
+		Notemos que la última fila nos puede dar problemas. Si $a=0$, el sistema va a tener solo 3 pivotes por lo que, en caso de ser consistente, tendría infinitas soluciones. Dicho esto, una restricción es $a\neq 0$
+		
+		En la tercera fila, debemos fijarnos que $a-1 \neq 0$, ya que de lo contrario, esta fila sería un múltiplo de la cuarta fila, por lo que habrían 3 pivotes y tendríamos soluciones infinitas. Dicho esto, tenemos que $a \neq 1$.
+		
+		De esta forma, el sistema siempre tendrá 4 pivotes y por lo tanto, tendrá solución única.
+		
+		En resumen, las condiciones son
+		$$a \neq 0, \quad a \neq 1$$
+\end{solucion}
 \item Sean los vectores 
 	$$
 	v_1 = \begin{pmatrix}
