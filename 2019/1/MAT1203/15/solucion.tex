@@ -2570,6 +2570,71 @@ La tercera fila de $A^{-1}$ es la tercera columna transpuesta de $(A^T)^{-1}$, e
 			$$det(A) = 2$$
 \end{enumerate}
 \end{solucion}
+\item Sea $P$ el paralelepípedo con un vertice en el origen y vertices adyacentes en $(1,4,0)$, $(-2,-5,2)$, $(-1,2,-1)$
+\begin{enumerate}[a)]
+\item Determinar el volumen de $P$.
+\item Se define $T: \R^3 \ra \R^3$ como la transformación lineal definida por $$T(x,y,z)=(x+y,y+z,x-z)$$
+		Calcule el volumen de $T(P)$.
+\end{enumerate}
+\begin{solucion}
+
+\begin{enumerate}[a)]
+\item Determinar el volumen de $P$.\\
+			\\
+			Los vectores de las aristas son 
+			$$v_1 = \begin{pmatrix}
+			1 \\ 4 \\ 0
+			\end{pmatrix}, \quad
+			v_2 = \begin{pmatrix}
+			-2 \\ -5 \\ 2
+			\end{pmatrix}, \quad
+			v_3 = \begin{pmatrix}
+			-1 \\ 2 \\ -1
+			\end{pmatrix}$$
+			Podemos representar a $P$ en forma matricial de la siguiente forma:
+			$$A_P = \begin{bmatrix}
+			1 & -2 & -1 \\
+			4 & -5 & 2 \\
+			0 & 2 & -1
+			\end{bmatrix}$$
+			Luego, el volumen de $P$ se calcula como $|det(A_P)|$, esto es
+			$$\left| det \left(\begin{bmatrix}
+			1 & -2 & -1 \\
+			4 & -5 & 2 \\
+			0 & 2 & -1
+			\end{bmatrix}\right)\right| =| 0 -2(2+4) - 1(-5+8)| = |-12 - 3| =| -15| = 15$$
+			Por lo que el volumen de $P$ es $15$.
+\item Se define $T: \R^3 \ra \R^3$ como la transformación lineal definida por $$T(x,y,z)=(x+y,y+z,x-z)$$
+			Calcule el volumen de $T(P)$.\\
+			\\
+			En primer lugar, encontremos la matriz de la transformación lineal
+			$$T(x,y,z)=(x+y,y+z,x-z) = \begin{pmatrix}
+			x+y \\ 
+			y+z \\ 
+			x-z
+			\end{pmatrix} = \begin{bmatrix}
+			1 & 1 & 0 \\
+			0 & 1 & 1 \\
+			1 & 0 & -1 
+			\end{bmatrix} \begin{pmatrix}
+			x \\ y \\ z
+			\end{pmatrix}$$
+			Por lo que
+			$$A_T = \begin{bmatrix}
+			1 & 1 & 0 \\
+			0 & 1 & 1 \\
+			1 & 0 & -1 
+			\end{bmatrix}$$
+			Luego, el volumen de $T(P)$ será $|det(A_P)| \cdot |det(A_T)|$
+			$$|det(A_T)| = \left| det \left(\begin{bmatrix}
+			1 & 1 & 0 \\
+			0 & 1 & 1 \\
+			1 & 0 & -1 
+			\end{bmatrix}\right)\right| = |1(-1-0) - (0 - 1)| = |1-1| = 0$$
+			Finalmente,
+			$$V(T(P)) = |det(A_P)| \cdot |det(A_T)| = 15 \cdot 0 = 0$$
+\end{enumerate}
+\end{solucion}
 \item Sea $A$ una matriz de $n \times n$ definida por
 	$$a_{i,j} = 
 	\begin{cases}
@@ -2698,6 +2763,76 @@ $$
 Que corresponde a una solución no trivial, por lo que las columnas de $A$ son $LD$.\\
 
 En conclusión, el determinante de $A$ es 0.
+\end{solucion}
+\item Determine la segunda columna de la inversa de $A = \left[ \begin{array}{rrr} 2&1&0\\ 0&1&2\\ 1&2&0 \end{array} \right]$ utilizando el metodo de cramer.
+\begin{solucion}
+El metodo de cramer dice que para resolver un sistema $Ax = b$, se puede hacer lo siguiente:\\
+
+Sea $A_1$ la matriz $A$ con la columna $i$ reemplazada por el vector $b$, se cumple que
+$$x_i = \dfrac{|A_i|}{|A|}$$
+Como lo que queremos obtener es la segunda columna de la inversa de $A$, el sistema que debemos resolver es
+$$Ax = e_2$$
+Para aplicar cramer, en primer lugar calculemos el determinante de $A$, esto es
+$$|A| = \left|  \left[ \begin{array}{rrr} 2&1&0\\ 0&1&2\\ 1&2&0 \end{array} \right] \right| = 2\cdot (-4) - (-2) = -6$$
+Luego,
+$$x_1 = 
+\dfrac{\left|  \left[ \begin{array}{rrr} 0&1&0\\ 1&1&2\\ 0&2&0 \end{array} \right] \right|}{|A|} = 
+\dfrac{0}{-6} = 0$$
+$$x_2 = 
+\dfrac{\left|  \left[ \begin{array}{rrr} 2&0&0\\ 0&1&2\\ 1&0&0 \end{array} \right] \right|}{|A|} = 
+\dfrac{0}{-6} = 0$$
+$$x_3 = 
+\dfrac{\left|  \left[ \begin{array}{rrr} 2&1&0\\ 0&1&1\\ 1&2&0 \end{array} \right] \right|}{|A|} = 
+\dfrac{2\cdot 1 - (-1)}{-6} = \dfrac{1}{2}$$
+Finalmente,
+$$x = \begin{pmatrix}
+0 \\ 0 \\ \frac{1}{2}
+\end{pmatrix}$$
+Que corresponde a la segunda columna de la inversa de $A$.
+\end{solucion}
+\item Sea $V = \mathbb{P}_2$ el espacio vectorial de los polinomios con coeficientes reales de grado menor o igual a 2. Demuestre que el conjunto
+	$$U=\{p(x) \in V : p(1) + p(0) = p(-1)\}$$
+	Demuestre que $U$ es subespacio de $V$.
+\begin{solucion}
+Para demostrar que $U$ es un subespacio vectorial, debemos ver que sea no vacío, cerrado en la suma y cerrado en la multiplicación.
+		
+		No vacío:
+		
+		Sea el polinomio $p(x) = 0$, vemos que
+		$$p(1) + p(0) =p(-1)$$
+		$$0 = 0$$
+		Por lo que $p(x) \in U$, asi que no es vacío.
+		
+		Suma:
+		
+		Sean $p, q \in U$,
+		
+		P.D.
+		$$ \begin{array}{rcl}
+		(p+q)(1) + (p+q)(0) &= &(p+q)(-1)\\
+		p(1) + q(1)+ p(0)+q(0) &= &(p+q)(-1)\\
+		p(1) + p(0)+ q(1) + q(0) &= &(p+q)(-1)\\
+		p(-1)+ q(-1) &= &(p+q)(-1)\\
+		(p+q)(-1) &= &(p+q)(-1)
+		\end{array}$$
+		Por lo que es cerrado en la suma
+		
+		Multiplicación:
+		
+		Sea $p \in U$ y $\alpha \in \R$,
+		P.D.
+		$$ \begin{array}{rcl}
+		(\alpha p)(1) + (\alpha p)(0) = (\alpha p)(-1) \\
+		\alpha p(1) + \alpha p(0) = (\alpha p)(-1) \\
+		\alpha ( p(1) +  p(0)) = (\alpha p)(-1) \\
+		\alpha p(-1) = (\alpha p)(-1)\\
+		(\alpha  p)(-1) = (\alpha p)(-1)
+		\end{array}$$
+		 
+		Por lo que es cerrado en la multiplicación
+		
+		Entonces, tenemos que $U$ es un subespacio de $V$.
+		$$\blacksquare$$
 \end{solucion}
 \end{preguntas}
 \end{document}
