@@ -4748,5 +4748,201 @@ La matriz aumentada asociada es
 		1
 		\end{pmatrix}\right\}$$
 \end{solucion}
+\item En las siguientes matrices aumentadas, determinar los valores de $h$ para que el sistema sea consistente.
+\begin{tasks}(2)
+\task $
+		\begin{bmatrix}
+		1 & h & 4\\
+		3 & 6 & 8
+		\end{bmatrix}
+		$
+\task $
+		\begin{bmatrix}
+		-4 & 12 & h\\
+		2 & -6 & -3
+		\end{bmatrix}
+		$
+\end{tasks}
+\begin{solucion}
+
+\begin{enumerate}[a)]
+\item $
+			\begin{bmatrix}
+			1 & h & 4\\
+			3 & 6 & 8
+			\end{bmatrix}
+			\wsim
+			\begin{bmatrix}
+			1 & h & 4\\
+			0 & 6-3h & -4
+			\end{bmatrix}
+			$\\\\
+		    Para que el sistema sea consistente, $6 - 3h$ no puede ser $0$, es decir
+			$$6 - 3h \neq 0 \ra h \neq 2$$
+\item $
+			\begin{bmatrix}
+			-4 & 12 & h\\
+			2 & -6 & -3
+			\end{bmatrix}
+			\wsim
+			\begin{bmatrix}
+			-4 & 12 & h\\
+			0 & 0 & -3 - \frac{h}{2}
+			\end{bmatrix}
+			$\\\\
+			En este caso, el último coeficiente debe ser 0, para que el sistema sea consistente,
+			$$-3 - \dfrac{h}{2} = 0 \ra 3 = -\dfrac{h}{2} \ra 6 = -h \ra h = -6$$
+\end{enumerate}
+\end{solucion}
+\item Dadas las siguientes matrices aumentadas, escribir el sistema de ecuaciones asociado.
+\begin{tasks}(2)
+\task $
+		\begin{bmatrix}
+		-4 & 2 & 1 &  0\\
+		2  & 1 & 2 & -1\\
+		-3 & 5 &-6& -2
+		\end{bmatrix}
+		$
+\task $
+		\begin{bmatrix}
+		2 & 1 & -3 & 0\\
+		1  & -2 & 0 & 12\\
+		4 & 2 &1& 8
+		\end{bmatrix}
+		$
+\end{tasks}
+\begin{solucion}
+
+\begin{enumerate}[a)]
+\item $
+			\begin{bmatrix}
+			-4 & 2 & 1 &  0\\
+			2  & 1 & 2 & -1\\
+			-3 & 5 &-6& -2
+			\end{bmatrix}
+			\Longrightarrow
+			\begin{array}{rcr}
+			-4x_1 + 2x_2 + x_3& = & 0\\
+			2x_1 + x_2 + 2x_3& = & -1\\
+			-3x_1 + 5x_2 - 6x_3 & = & -2
+			\end{array}
+			$
+\item $
+			\begin{bmatrix}
+			2 & 1 & -3 & 0\\
+			1  & -2 & 0 & 12\\
+			4 & 2 &1& 8
+			\end{bmatrix}
+			\Longrightarrow
+			\begin{array}{rcr}
+			2x_1 + x_2 - 3x_3& = & 0\\
+			x_1-2x_2& = & 12\\
+			4x_1+2x_2+x_3 & = & 8
+			\end{array}
+			$
+\end{enumerate}
+\end{solucion}
+\item Escribe los siguientes sistemas de ecuaciones en notación matricial.
+\begin{tasks}(2)
+\task $
+		\begin{array}{rcr}
+		x_1 -x_2 + 3x_3 & = & 2\\
+		3x_2 - 2x_3 & = & 0\\
+		4x_1 +2x_2 & = & -1
+		\end{array}
+		$
+\task $
+		\begin{array}{rcr}
+		3x_1 & = & 1\\
+		x_1-x_2& = & 3\\
+		-2x_1+x_2 & = & -8\\
+		x_2 & = & 0
+		\end{array}
+		$
+\task $
+		\begin{array}{rcr}
+		2x_2 -x_3 +2x_4& = & 5\\
+		x_1+x_2 - x_3 & = & 2\\
+		-4x_1 +x_3-x_4& = & -4
+		\end{array}
+		$
+\task $
+		\begin{array}{rcr}
+		x_1 +x_2-3x_3& = & 0\\
+		x_2+4x_4& = & -1\\
+		x_1-2x_2+x_3-5x_4 & = & 2\\
+		x_3-x_4 & = & 5
+		\end{array}
+		$
+\end{tasks}
+\begin{solucion}
+
+\begin{enumerate}[a)]
+\item $
+			\begin{array}{rcr}
+			x_1 -x_2 + 3x_3 & = & 2\\
+			3x_2 - 2x_3 & = & 0\\
+			4x_1 +2x_2 & = & -1
+			\end{array}
+			\Longrightarrow 
+			\left[
+			\begin{array}{ccc|c}
+				1 & -1 & 3 & 2\\
+				0 & 3 & -2 & 0\\
+				4 & 2 & 0 & 1
+			\end{array}
+			\right]
+			$
+\item $
+			\begin{array}{rcr}
+			3x_1 & = & 1\\
+			x_1-x_2& = & 3\\
+			-2x_1+x_2 & = & -8\\
+			x_2 & = & 0
+			\end{array}
+			\Longrightarrow 
+			\left[
+			\begin{array}{cc|c}
+			3 & 0 & 1\\
+			1 &-1 & 3\\
+			-2 & 1 & -8\\
+			0 & 1 & 0
+			\end{array}
+			\right]
+			$
+\item $
+			\begin{array}{rcr}
+			2x_2 -x_3 +2x_4& = & 5\\
+			x_1+x_2 - x_3 & = & 2\\
+			-4x_1 +x_3-x_4& = & -4
+			\end{array}
+			\Longrightarrow 
+			\left[
+			\begin{array}{cccc|c}
+			0 &2 &-1&2&5\\
+			1 &1 & -1 & 0 &2\\
+			-4 &0 & 1 & -1 &-4
+			\end{array}
+			\right]
+			$
+\item $
+			\begin{array}{rcr}
+			x_1 +x_2-3x_3& = & 0\\
+			x_2+4x_4& = & -1\\
+			x_1-2x_2+x_3-5x_4 & = & 2\\
+			x_3-x_4 & = & 5
+			\end{array}
+			\Longrightarrow 
+			\left[
+			\begin{array}{cccc|c}
+			1 & 1 & -3 & 0 & 0\\
+			0 & 1 & 0 & 4 & -1\\
+			1 & -2 & 1 & -5 & 2\\
+			0 & 0 & 1 & -1 & 5
+			\end{array}
+			\right]
+			$
+\end{enumerate}
+\end{solucion}
 \end{preguntas}
 \end{document}
