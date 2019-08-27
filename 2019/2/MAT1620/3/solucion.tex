@@ -202,7 +202,16 @@ $$\blacksquare$$
 \item Sea $a_n$ una sucesión tal que $a_n \neq 0,\ \forall n \in \N$.\\
 	Demuestre que si $\sum\limits_{n=1}^{\infty}a_n$ converge, entonces $\sum\limits_{n=1}^{\infty}\dfrac{1}{a_n}$ diverge.
 \begin{solucion}
+Como $\sum\limits_{n=1}^{\infty}a_n$ es convergente, entonces debe ocurrir que
+$\lim\limits_{x \ra \infty} a_n = 0$.\\
 
+Luego,
+$$\lim\limits_{x \ra \infty} \dfrac{1}{a_n}
+= \dfrac{1}{\lim\limits_{x \ra \infty} a_n}
+= \dfrac{1}{0}
+= \infty
+\neq 0$$
+Entonces, por la prueba de la divergencia, $\sum\limits_{n=1}^{\infty}\dfrac{1}{a_n}$ diverge.
 \end{solucion}
 \item Considere una función $f$ continua en $\R$, decreciente y no negativa tal que
 	$$\lim_{x\ra\infty}\dfrac{f(x)}{e^{-x}}=5$$
@@ -224,7 +233,14 @@ Sabemos que
 $$0,d_1d_2d_3... = \dfrac{d_1}{10} + \dfrac{d_2}{10^2} + \dfrac{d_3}{10^3}$$
 donde $d_i$ es alguno de los dígitos entre 0 y 9. Pruebe que la serie anterior es convergente.
 \begin{solucion}
-
+Del enunciado, podemos ver que esta serie se puede escribir como
+$$\sum\limits_{1}^{\infty} \dfrac{d_n}{10^n}$$
+Notemos que el valor máximo que tomara cualquier $d_n$ es 9, por lo que podemos encontrar una serie que acote superiormente a esta simplemente reemplazando $d_n$ con 10, es decir
+$$\sum\limits_{1}^{\infty} \dfrac{d_n}{10^n} < \sum\limits_{1}^{\infty} \dfrac{10}{10^n}$$
+Notemos que esta última corresponde a la serie geométrica
+$$\sum\limits_{1}^{\infty} 10\left(\dfrac{1}{10}\right)^n$$
+La cual es convergente, dado que $r = \dfrac{1}{10} < 1$.
+Por último, por criterio de comparación simple, concluimos que la serie pedida también converge.
 \end{solucion}
 \end{preguntas}
 \end{document}
