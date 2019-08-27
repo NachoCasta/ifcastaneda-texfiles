@@ -751,5 +751,591 @@ $$0 = 0$$
 $$\blacksquare$$
 \end{enumerate}
 \end{solucion}
+\item Determinar si el siguiente sistema es consistente o no
+	$$
+	\begin{array}{rcr}
+	x_1 -6x_2& = & 5\\
+	x_2-4x_3+x_4& = & 0\\
+	-x_1+6x_2+x_3+5x_4& = & 3\\
+	-x_2+5x_3+4x_4 & = & 0
+	\end{array}
+	$$
+\begin{solucion}
+En primer lugar, escribiremos el sistema en notación matricial
+		$$
+		\left[
+		\begin{array}{cccc|c}
+		1 & -6 & 0 & 0 & 5\\
+		0 & 1 & -4 & 1 & 0\\
+		-1& 6 & 1 & 5 & 3 \\
+		0 & -1 & 5 & 4 &0
+		\end{array}
+		\right]$$
+		A continuación, utilizando operaciones de fila, llevaremos esta matriz a su forma escalonada
+		$$\left[
+		\begin{array}{cccc|c}
+			1 & -6 & 0 & 0 & 5\\
+			0 & 1 & -4 & 1 & 0\\
+			-1& 6 & 1 & 5 & 3 \\
+			0 & -1 & 5 & 4 &0
+		\end{array}
+		\right] \stackbin[F_4+F_2]{F_3 +F_1}{\wsim}
+		\left[
+		\begin{array}{cccc|c}
+		1 & -6 & 0 & 0 & 5\\
+		0 & 1 & -4 & 1 & 0\\
+		0 & 0 & 1 & 5 & 8 \\
+		0 & 0 & 1 & 5 & 0
+		\end{array}
+		\right] \stackbin[]{F_4-F_3}{\wsim}
+		\left[
+		\begin{array}{cccc|c}
+		1 & -6 & 0 & 0 & 5\\
+		0 & 1 & -4 & 1 & 0\\
+		0 & 0 & 1 & 5 & 8 \\
+		0 & 0 & 0 & 0 & -8
+		\end{array}
+		\right] $$
+		Aqui podemos apreciar que en el la última fila, todas las variables tienen coeficiente cero y la columna de coeficientes aumentados tiene valor, lo que no es posible, ya que esto significaría que se cumple la igualdad $0 = -8$, lo que no es cierto. Dicho esto, el sistema no es consistente.
+\end{solucion}
+\item Lleve las siguientes matrices ampliadas a su forma escalonada reducida y determine la existencia y unicidad de las soluciones del sistema.
+\begin{tasks}(2)
+\task $
+		\begin{bmatrix}
+		1 & 2 & 4 & 8\\
+		2 & 4 & 6 & 8\\
+		3 & 6 & 9 & 12
+		\end{bmatrix}
+		$
+\task $
+		\begin{bmatrix}
+		1 & 2 & 4 & 5\\
+		2 & 4 & 5& 4\\
+		4 & 5 & 4 & 2
+		\end{bmatrix}
+		$
+\end{tasks}
+\begin{solucion}
+
+\begin{enumerate}[a)]
+\item $
+			\begin{bmatrix}
+			1 & 2 & 4 & 8\\
+			2 & 4 & 6 & 8\\
+			3 & 6 & 9 & 12
+			\end{bmatrix}
+			\stackbin[F_3 - 3F_1]{F_2-2F_1}{\wsim}
+			\begin{bmatrix}
+			1 & 2 & 4 & 8\\
+			0 & 0 & -2 & -8\\
+			0 & 0 & -3 & -12
+			\end{bmatrix}
+			\stackbin[F_3 \leftarrow -\frac{1}{3}F_3]{F_2 \leftarrow -\frac{1}{2}F_2}{\wsim}
+			\begin{bmatrix}
+			1 & 2 & 4 & 8\\
+			0 & 0 & 1 & 4\\
+			0 & 0 & 1 & 4
+			\end{bmatrix}$\\\\
+			$
+			\stackbin[]{F_3- F_2}{\wsim}
+			\begin{bmatrix}
+			1 & 2 & 4 & 8\\
+			0 & 0 & 1 & 4\\
+			0 & 0 & 0 & 0
+			\end{bmatrix}
+			\stackbin[]{F_1- 4F_2}{\wsim}
+			\begin{bmatrix}
+			1 & 2 & 0 & -8\\
+			0 & 0 & 1 & 4\\
+			0 & 0 & 0 & 0
+			\end{bmatrix}
+			$\\\\
+			Como hay una variable libre (2 pivotes y 3 filas), existen infinitas soluciones.
+\item $
+			\begin{bmatrix}
+			1 & 2 & 4 & 5\\
+			2 & 4 & 5& 4\\
+			4 & 5 & 4 & 2
+			\end{bmatrix}
+			\stackbin[F_3 - 4F_1]{F_2 - 2F_1}{\wsim}
+			\begin{bmatrix}
+			1 & 2 & 4 & 5\\
+			0 & 0 & -3& -6\\
+			0 & -3 & -12 & -18
+			\end{bmatrix}
+			\stackbin[F_3 \leftarrow -\frac{1}{3} F_2]{F_2 \leftarrow -\frac{1}{3}F_3}{\wsim}
+			\begin{bmatrix}
+			1 & 2 & 4 & 5\\
+			0 & 1 & 4& 6\\
+			0 & 0 & 1 & 2
+			\end{bmatrix}
+			$\\\\
+			$
+			\stackbin[F_2 - 4F_3]{F_1 - 4F_3}{\wsim}
+			\begin{bmatrix}
+			1 & 2 & 0 & -3\\
+			0 & 1 & 0& -2\\
+			0 & 0 & 1 & 2
+			\end{bmatrix}
+			\stackbin[]{F_1 - 2F_2}{\wsim}
+			\begin{bmatrix}
+			1 & 0 & 0 & 1\\
+			0 & 1 & 0& -2\\
+			0 & 0 & 1 & 2
+			\end{bmatrix}$\\\\
+			Como tiene 3 pivotes y 3 filas, el sistema posee solución única
+\end{enumerate}
+\end{solucion}
+\item Sea la matriz $A=
+	\begin{bmatrix}
+	3 & 5 & -4\\
+	-3 & -2 & 4\\
+	6 & 1 & -8
+	\end{bmatrix}$
+\begin{enumerate}[a)]
+\item Determinar el conjunto solución de su sistema homogeneo.
+\item Describir todas las soluciones de $Ax=b$ con $b=
+		\begin{pmatrix}
+		7\\
+		-1\\
+		-4
+		\end{pmatrix}$ 
+\end{enumerate}
+\begin{solucion}
+
+\begin{enumerate}[a)]
+\item Determinar el conjunto solución de su sistema homogeneo.\\\\
+			El sistema homogeneo corresponde a la ecuación $Ax=\vec{0}$, por lo que nuestra matriz aumentada sería
+			$$\left[
+			\begin{array}{ccc|c}
+			3 & 5 & -4 & 0\\
+			-3 & -2 & 4 & 0\\
+			6 & 1 & -8 & 0
+			\end{array}
+			\right] \sim \left[
+			\begin{array}{ccc|c}
+			3 & 5 & -4 & 0\\
+			0 & 3 & 0 & 0\\
+			0 & -9 & 0 & 0
+			\end{array}
+			\right] \sim \left[
+			\begin{array}{ccc|c}
+			3 & 5 & -4 & 0\\
+			0 & 3 & 0 & 0\\
+			0 & 0 & 0 & 0
+			\end{array}
+			\right]$$
+			$$\sim \left[
+			\begin{array}{ccc|c}
+			1 & \frac{5}{3} & -\frac{4}{3} & 0\\
+			0 & 1 & 0 & 0\\
+			0 & 0 & 0 & 0
+			\end{array}
+			\right] \sim \left[
+			\begin{array}{ccc|c}
+			1 & 0 & -\frac{4}{3} & 0\\
+			0 & 1 & 0 & 0\\
+			0 & 0 & 0 & 0
+			\end{array}
+			\right]$$
+			Esto corresponde al sistema
+			$$\begin{array}{rcl}
+			x_1 - \frac{4}{3}x_3 & = & 0\\
+			x_2 & = & 0\\
+			0 & = & 0
+			\end{array} \ra \begin{array}{rcl}
+			x_1 & = & \frac{4}{3}x_3\\
+			x_2 & = & 0\\
+			x_3 & = & x_3
+			\end{array} \ra x = \begin{pmatrix}
+			\frac{4}{3}x_3\\
+			0\\
+			x_3
+			\end{pmatrix} = x_3\begin{pmatrix}
+			\frac{4}{3}\\
+			0\\
+			1
+			\end{pmatrix}$$
+			Luego, la solución del sistema homogeneo es
+			$$S = Gen\left\{\begin{pmatrix}
+			\frac{4}{3}\\
+			0\\
+			1
+			\end{pmatrix}\right\}$$
+\item Describir todas las soluciones de $Ax=b$ con $b=
+			\begin{pmatrix}
+			7\\
+			-1\\
+			-4
+			\end{pmatrix}$ \\\\
+			Para esto, hacemos lo mismo que en la parte a), pero aumentando la matriz por el vector $b$, es decir
+			$$\left[
+			\begin{array}{ccc|c}
+			3 & 5 & -4 & 7\\
+			-3 & -2 & 4 & -1\\
+			6 & 1 & -8 & -4
+			\end{array}
+			\right] \sim \left[
+			\begin{array}{ccc|c}
+			3 & 5 & -4 & 7\\
+			0 & 3 & 0 & 6\\
+			0 & -9 & 0 & -18
+			\end{array}
+			\right] \sim \left[
+			\begin{array}{ccc|c}
+			3 & 5 & -4 & 7\\
+			0 & 3 & 0 & 6\\
+			0 & 0 & 0 & 0
+			\end{array}
+			\right]$$
+			$$\sim \left[
+			\begin{array}{ccc|c}
+			1 & \frac{5}{3} & -\frac{4}{3} & \frac{7}{3}\\
+			0 & 1 & 0 & 2\\
+			0 & 0 & 0 & 0
+			\end{array}
+			\right] \sim \left[
+			\begin{array}{ccc|c}
+			1 & 0 & -\frac{4}{3} & -1\\
+			0 & 1 & 0 & 2\\
+			0 & 0 & 0 & 0
+			\end{array}
+			\right]$$
+			Esto corresponde al sistema
+			$$\begin{array}{rcl}
+			x_1 - \frac{4}{3}x_3 & = & -1\\
+			x_2 & = & 2\\
+			0 & = & 0
+			\end{array} \ra \begin{array}{rcl}
+			x_1 & = & -1 + \frac{4}{3}x_3\\
+			x_2 & = & 2\\
+			x_3 & = & x_3
+			\end{array}$$
+			$$ x = \begin{pmatrix}
+			-1 + \frac{4}{3}x_3\\
+			2\\
+			x_3
+			\end{pmatrix} = \begin{pmatrix}
+			-1\\2\\0
+			\end{pmatrix} + x_3\begin{pmatrix}
+			\frac{4}{3}\\
+			0\\
+			1
+			\end{pmatrix}$$
+			Luego, la solución del sistema $Ax = b$ es
+			$$S = \begin{pmatrix}
+			-1\\2\\0
+			\end{pmatrix} + Gen\left\{\begin{pmatrix}
+			\frac{4}{3}\\
+			0\\
+			1
+			\end{pmatrix}\right\}$$
+			Finalmente, podriamos amplificar el vector del generado por 3, para que quede más bonito, con lo que
+			$$S = \begin{pmatrix}
+			-1\\2\\0
+			\end{pmatrix} + Gen\left\{\begin{pmatrix}
+			4\\
+			0\\
+			3
+			\end{pmatrix}\right\}$$
+\end{enumerate}
+\end{solucion}
+\item Considere el siguiente sistema de ecuaciones, donde $a$ es una constante.
+  $$\begin{array}{llll}
+   x_1&+x_2&+x_3&=1 \\
+    x_1&+x_2&+ax_3&=1 \\
+     ax_1&+ax_2&+x_3&=a\\
+      x_1&-ax_2&+ax_3&=0  
+  \end{array}$$
+\begin{enumerate}[a)]
+\item Determine valores de $a$ para los cuales el sistema es inconsistente.
+\item Determine valores de $a$ para los cuales el sistema es consistente, y encuentre la solución.
+\end{enumerate}
+\begin{solucion}
+En primer lugar, escribamos el sistema en su forma matricial, esto es
+	$$\begin{bmatrix}
+	1 & 1 & 1 & 1\\
+	1 & 1 & a & 1\\
+	a & a & 1 & a\\
+	1 &-a & a & 0
+	\end{bmatrix}$$
+	Ahora, lo que debemos hacer es pivotear la matriz intentando evitar dividir por $a$. En el caso de que sea estrictamente necesario hacerlo, debemos ver el caso donde $a=0$ por separado y luego continuar.
+	$$\begin{bmatrix}
+	1 & 1 & 1 & 1\\
+	1 & 1 & a & 1\\
+	a & a & 1 & a\\
+	1 &-a & a & 0
+	\end{bmatrix} 
+	\stackbin[F_4 - F_1]{F_2 - F_1}{\stackbin[]{F_3 - aF_1}{\wsim}}
+	\begin{bmatrix}
+	1 & 1 & 1 & 1\\
+	0 & 0 & a-1 & 0\\
+	0 & 0 & 1-a & 0\\
+	0 &-1-a & a-1 & -1
+	\end{bmatrix} 
+	\stackbin[]{F_2 \lra F_4}{\wsim}
+	\begin{bmatrix}
+	1 & 1 & 1 & 1\\
+	0 &-1-a & a-1 & -1\\
+	0 & 0 & 1-a & 0\\
+	0 & 0 & a-1 & 0
+	\end{bmatrix}$$
+	$
+	\stackbin[]{F_4 + F_3}{\wsim}
+	\begin{bmatrix}
+	1 & 1 & 1 & 1\\
+	0 &-1-a & a-1 & -1\\
+	0 & 0 & 1-a & 0\\
+	0 & 0 & 0 & 0
+	\end{bmatrix}
+	\stackbin[]{F_2 + F_3}{\wsim}
+	\begin{bmatrix}
+	1 & 1 & 1 & 1\\
+	0 &-1-a & 0 & -1\\
+	0 & 0 & 1-a & 0\\
+	0 & 0 & 0 & 0
+	\end{bmatrix}$
+\begin{enumerate}[a)]
+\item 
+En la tercera fila no existe ningún valor de $a$ para el cual el sistema es inconsistente, por lo que esta no nos restringe $a$.
+Sin embargo, en la segunda fila, si podemos elegir un valor de $a$ para que el sistema sea inconsistente. Esto es,
+$$-1-a = 0 \ra a = -1$$
+\item Para el resto de valores de $a$, el sistema es consistente, es decir, para
+$$a \neq -1$$
+Luego, teniendo la matriz en su forma escalonada, obtener la solución del sistema es sencillo.\\
+Veamos primero el caso donde $a=1$,
+$$\begin{bmatrix}
+1 & 1 & 1 & 1\\
+0 &-2 & 0 & -1\\
+0 & 0 & 0 & 0\\
+0 & 0 & 0 & 0
+\end{bmatrix} \sim
+\begin{bmatrix}
+1 & 1 & 1 & 1\\
+0 & 1 & 0 & \frac{1}{2}\\
+0 & 0 & 0 & 0\\
+0 & 0 & 0 & 0
+\end{bmatrix} \sim
+\begin{bmatrix}
+1 & 0 & 1 & \frac{1}{2}\\
+0 & 1 & 0 & \frac{1}{2}\\
+0 & 0 & 0 & 0\\
+0 & 0 & 0 & 0
+\end{bmatrix} $$
+Luego,
+$$\begin{array}{rcl}
+x_1 & = & -x_3 + \dfrac{1}{2}\\
+x_2 & = & \dfrac{1}{2}\\
+x_3 & = & 0 
+\end{array} \ra 
+x = \begin{pmatrix}
+\frac{1}{2} \\
+\frac{1}{2} \\
+0
+\end{pmatrix} + \left<\begin{pmatrix}
+-1\\0\\1
+\end{pmatrix}\right>$$
+Si es que $a \neq 1$, entonces
+$$\begin{bmatrix}
+1 & 1 & 1 & 1\\
+0 &-1-a & 0 & -1\\
+0 & 0 & 1-a & 0\\
+0 & 0 & 0 & 0
+\end{bmatrix}
+\stackbin[F_3 \leftarrow \frac{1}{1-a}F_3]{F_2 \leftarrow \frac{1}{-1-a}F_2}{\wsim}
+\begin{bmatrix}
+1 & 1 & 1 & 1\\
+0 & 1 & 0 & \frac{1}{1+a}\\
+0 & 0 & 1 & 0\\
+0 & 0 & 0 & 0
+\end{bmatrix}
+\stackbin[F_1-F_3]{F_1 - F_2}{\wsim}
+\begin{bmatrix}
+1 & 0 & 0 & \frac{a}{1+a}\\
+0 & 1 & 0 & \frac{1}{1+a}\\
+0 & 0 & 1 & 0\\
+0 & 0 & 0 & 0
+\end{bmatrix}$$
+Luego,
+$$\begin{array}{rcl}
+x_1 & = & \dfrac{a}{1+a}\\
+x_2 & = & \dfrac{1}{1+a}\\
+x_3 & = & 0 
+\end{array} \ra 
+x = \begin{pmatrix}
+\frac{a}{1+a} \\
+\frac{1}{1+a} \\
+0
+\end{pmatrix}$$
+Notemos que esta última corresponde siempre a una solución única pero que depende de $a$.
+\end{enumerate}
+\end{solucion}
+\item Sea la matriz $A=
+	\begin{bmatrix}
+	1 & 3 & 4\\
+	-4 & 2 & -6\\
+	-3 & -2 & -7
+	\end{bmatrix}
+	$ y $b$ un vector en $R^3$. ¿La ecuación $Ax=b$ es consistente para todo $b$?
+\begin{solucion}
+Diremos que $b = \begin{pmatrix}
+	b_1 \\ b_2 \\ b_3
+	\end{pmatrix}$. Luego, el sistema $Ax = b$ se puede representar como
+	$$\left[
+	\begin{array}{ccc|c}
+	1 & 3 & 4 &b_1\\
+	-4 & 2 & -6 & b_2\\
+	-3 & -2 & -7 & b_3
+	\end{array}
+	\right] \sim \left[
+	\begin{array}{ccc|c}
+	1 & 3 & 4 &b_1\\
+	0 & 14 & 10 & b_2 + 4b_1\\
+	0 & 7 & 5 & b_3 + 3b_1
+	\end{array}
+	\right]$$
+	$$ \sim \left[
+	\begin{array}{ccc|c}
+	1 & 3 & 4 &b_1\\
+	0 & 14 & 10 & b_2 + 4b_1\\
+	0 & 0 & 0 & b_3 + 3b_1 - \frac{1}{2}(b_2+4b_1)
+	\end{array}
+	\right] \sim \left[
+	\begin{array}{ccc|c}
+	1 & 3 & 4 &b_1\\
+	0 & 14 & 10 & b_2 + 4b_1\\
+	0 & 0 & 0 & b_1 - \frac{1}{2}b_2 + 4b_3
+	\end{array}
+	\right] $$
+	Luego, el sistema será consistente para $b_1 - \dfrac{1}{2}b_2 + b_3 = 0$. Esto se puede representar como
+	$$\begin{array}{rcl}
+	b_1 & = & \frac{1}{2}b_2 - b_3\\
+	b_2 & = & b_2 \\
+	b_3 & = & b_3
+	\end{array} \ra b = \begin{pmatrix}
+	\frac{1}{2}b_2 - b_3 \\
+	b_2\\
+	b_3 
+	\end{pmatrix} = b_2\begin{pmatrix}
+	\frac{1}{2} \\
+	1\\
+	0 
+	\end{pmatrix} +  b_3\begin{pmatrix}
+	-1 \\
+	0\\
+	1 
+	\end{pmatrix} $$
+	Finalmente,
+	$$b = Gen \left\{ \begin{pmatrix}
+	\frac{1}{2} \\
+	1\\
+	0 
+	\end{pmatrix}, \begin{pmatrix}
+	-1 \\
+	0\\
+	1
+	\end{pmatrix}\right\}$$
+\end{solucion}
+\item Sean los vectores 
+	$$
+	v_1 = \begin{pmatrix}
+	1\\
+	1\\
+	2
+	\end{pmatrix};\qquad
+	v_2 = \begin{pmatrix}
+	2\\
+	2\\
+	-3
+	\end{pmatrix}; \qquad
+	v_3 = \begin{pmatrix}
+	0\\
+	1\\
+	3
+	\end{pmatrix}$$
+	determinar si $Gen\{v_1, v_2, v_3\} = R^3$.
+\begin{solucion}
+Para ver si estos tres vectores generan $\R^3$, tiene que pasar que todos sean L.I. entre si. Una forma de ver esto, es formar una matriz con los vectores y ver la cantidad de pivotes que hay, es decir
+		$$\begin{bmatrix}
+			\\
+			v_1 & v_2 & v_3\\
+			&&
+		\end{bmatrix} \sim 
+		\begin{bmatrix}
+		1 & 2 & 0\\
+		1 & 2 & 1\\
+		2 & -3 & 3
+		\end{bmatrix} \sim
+		\begin{bmatrix}
+		1 & 2 & 0\\
+		0 & 0 & 1\\
+		0 & -7 & 3
+		\end{bmatrix} \sim
+		\begin{bmatrix}
+		1 & 2 & 0\\
+		0 & -7 & 3\\
+		0 & 0 & 1
+		\end{bmatrix}$$
+		Como la matriz tiene 3 pivotes, quiere decir que hay 3 vectores L.I., es decir, todos son linealmente independientes entre si, formando asi $\R^3$
+\end{solucion}
+\item Sean 
+$$v_1=\left(\begin{array}{r}
+  1\\0\\-2
+\end{array}\right), \quad v_2=\left(\begin{array}{r}
+  -2\\1\\7
+\end{array}\right) \quad y \quad v_3=\left(\begin{array}{r}
+  h\\0\\-2
+\end{array}\right)$$
+¿Para qué valor(es) de $h$ $Gen\{v_1, v_2, v_3\}=Gen\{v_1,v_2\}$ ?
+\begin{solucion}
+Para que $Gen\{v_1, v_2, v_3\}=Gen\{v_1,v_2\}$, debe ocurrir que estos generados tengan la misma cantidad de vectores L.I. o dicho de otra forma, al poner estos vectores en una matriz y escalonarla, las matrices deben tener la misma cantidad de pivotes.\\
+	\\
+	Comencemos por $Gen\{v_1,v_2\}$, dado que $h$ no influye en este generado.
+	$$\begin{bmatrix}
+	\\
+	v_1 & v_2\\
+	&&
+	\end{bmatrix} \sim 
+	\begin{bmatrix}
+	1 & -2\\
+	0 & 1\\
+	-2 & 7
+	\end{bmatrix} \sim 
+	\begin{bmatrix}
+	1 & -2\\
+	0 & 1\\
+	0 & 3
+	\end{bmatrix} \sim 
+	\begin{bmatrix}
+	1 & -2\\
+	0 & 1\\
+	0 & 0
+	\end{bmatrix}$$
+	Notemos que esta matriz tiene 2 pivotes, por lo que debemos elegir $h$, de tal manera que $Gen\{v_1, v_2, v_3\}$ también tenga 2 pivotes.\\
+	\\
+	Procedamos ahora con $Gen\{v_1, v_2, v_3\}$,
+	$$\begin{bmatrix}
+	\\
+	v_1 & v_2 & v_3\\
+	&&
+	\end{bmatrix} \sim 
+	\begin{bmatrix}
+	1 & -2 & h\\
+	0 & 1 & 0\\
+	-2 & 7 & -2
+	\end{bmatrix} \sim 
+	\begin{bmatrix}
+	1 & -2 & h\\
+	0 & 1 & 0\\
+	0 & 3 & 2h-2
+	\end{bmatrix} \sim 
+	\begin{bmatrix}
+	1 & -2 & h\\
+	0 & 1 & 0\\
+	0 & 0 & 2h-2
+	\end{bmatrix}$$
+	Luego, para que la matriz tenga 2 pivotes, debe ocurrir que
+	$$2h-2 = 0 \ra h = 1$$
+\end{solucion}
 \end{preguntas}
 \end{document}
