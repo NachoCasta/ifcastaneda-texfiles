@@ -2790,6 +2790,39 @@ $$x = \begin{pmatrix}
 \end{pmatrix}$$
 Que corresponde a la segunda columna de la inversa de $A$.
 \end{solucion}
+\item Sea $A$ un matriz tal que
+$$A^3 = 
+\begin{bmatrix}
+2 & 0 & 2\\
+-1 & 1 & 2\\
+2 & -1 & -1
+\end{bmatrix}$$
+\begin{enumerate}[a)]
+\item Calcule el determinante de la matriz $A^3$ mediante desarrollo por cofactores.
+\item Demuestre que $A$ no es invertible.
+\end{enumerate}
+\begin{solucion}
+
+\begin{enumerate}[a)]
+\item Calcule el determinante de la matriz $A^3$ mediante desarrollo por cofactores.\\
+\\
+$$|A^3| = \left|\begin{bmatrix}
+2 & 0 & 2\\
+-1 & 1 & 2\\
+2 & -1 & -1
+\end{bmatrix}\right| = 2\left|\begin{bmatrix}
+1 & 2\\
+-1 & -1
+\end{bmatrix}\right| + 2\left|\begin{bmatrix}
+1 & 2\\
+-1 & -1
+\end{bmatrix}\right| = 2 - 2 = 0$$
+\item Demuestre que $A$ no es invertible.\\
+\\
+$$|A^3| = 0 \ra |A|^3 = 0 \ra |A| = 0$$
+Por lo que la matriz no es invertible.
+\end{enumerate}
+\end{solucion}
 \item Sea $V = \mathbb{P}_2$ el espacio vectorial de los polinomios con coeficientes reales de grado menor o igual a 2. Demuestre que el conjunto
 	$$U=\{p(x) \in V : p(1) + p(0) = p(-1)\}$$
 	Demuestre que $U$ es subespacio de $V$.
