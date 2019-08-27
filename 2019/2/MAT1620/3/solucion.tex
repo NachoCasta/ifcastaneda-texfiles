@@ -146,9 +146,18 @@ $$\sum\limits_{n=1}^{\infty}2^{2n}3^{1-3n}
 = \sum\limits_{n=1}^{\infty}4^n \dfrac{3}{27^n}
 = \sum\limits_{n=1}^{\infty} 3 \left(\dfrac{4}{27}\right)^n$$
 			Como $r = \dfrac{4}{27} <1$, la serie converge.
-\item $\sum\limits_{n=1}^{\infty}\dfrac{1}{n^4}$\\
+\item $\sum\limits_{n=1}^{\infty}\dfrac{1 + n + \sin(n)}{3n^4 + \ln(n)}$\\
 			\\
-			Notemos que esta es una $serie-p$ con $p=4>1$, por lo que la serie es convergente.
+En primer lugar, notemos que
+$$\lim\limits_{n\ra \infty} \dfrac{1 + n + \sin(n)}{3n^4 + \ln(n)}
+= \lim\limits_{n\ra \infty} \dfrac{n\left(\cancelto{0}{\frac{1}{n}} + 1 + \cancelto{0}{\frac{\sin(n)}{n}}\right)}{n^4\left(3 + \cancelto{0}{\frac{\ln(n)}{n^4}}\right)}
+= \lim\limits_{n\ra \infty} \dfrac{n}{3n^4}
+= \lim\limits_{n\ra \infty} \dfrac{1}{3n^3} = 0$$
+Luego, usando $b_n = \dfrac{1}{3n^3}$, se cumple que
+$$\lim\limits_{n\ra \infty} \dfrac{\dfrac{1 + n + \sin(n)}{3n^4 + \ln(n)}}{\dfrac{1}{3n^3}}
+= \lim\limits_{n\ra \infty} \dfrac{\dfrac{1}{3n^3}}{\dfrac{1}{3n^3}} 
+= 1 \neq 0$$
+Notemos que $\sum\limits_{n=1}^{\infty} \dfrac{1}{3n^3}$ es es una $serie-p$ con $p=3>1$, por lo que la serie es convergente. Luego, por criterio de comparación al límite, $\sum\limits_{n=1}^{\infty}\dfrac{1 + n + \sin(n)}{3n^4 + \ln(n)}$ también converge.
 \item $\sum\limits_{n=20}^{\infty}\dfrac{1}{nln(n)ln(ln(n))}$\\
 			\\
 			Sea
