@@ -1456,6 +1456,51 @@ Como nos dicen si y solo si, debemos demostrar en ambas direcciones
 		Luego, $\{u, v, w\}$ es L.I.
 		$$q.e.d$$
 \end{solucion}
+\item Sea $A$ una matriz de $4 \times 4$ tal que $A=\begin{bmatrix}a_1 & 2a_1 & a_2 & a_1-a_2\end{bmatrix}$ con $a_1, a_2 \in \R^4$ vectores linealmente independientes, y sea $B$ una matriz inyectiva de $4 \times 2$ tal que $A \cdot B = 0$. Determine una matriz con las características de $B$.
+\begin{solucion}
+Del enunciado sabemos que $B$ es inyectiva, por lo que todas sus columnas deben ser $L.I.$\\
+
+Además, sabemos que $A\cdot B= 0$. En otras palabras, esto significa que ambas columnas de $B$ deben combinar linealmente las columnas de $A$ de tal forma que se anulen entre si y a la vez ambas columnas de $B$ deben ser $L.I.$\\
+
+Busquemos en primer lugar, un vector que anule las columnas de $A$. Sea
+$$b = \begin{pmatrix}
+b_1 \\ b_2 \\ b_3 \\ b_4
+\end{pmatrix}$$
+Debemos encontrar
+$$Ab = 0$$
+Esto es,
+$$a_1b_1 + 2a_1 b_2 + a_2b_3 + (a_1-a_2)b_4 = 0$$
+Reordenando,
+$$(b_1 + 2b_2 + b_4)a_1 + (b_3 - b_4)a_2 = 0$$
+Como $a_1$ y $a_2$ son $L.I.$, la única forma de solucionar esto es
+$$\begin{array}{rcl}
+b_1 + 2b_2 + b_4 & = & 0\\
+b_3 - b_4 & = & 0
+\end{array} 
+\Longrightarrow
+\begin{array}{rcl}
+b_1 & = & -2b_2 - b_3\\
+b_2 & = & b_2\\
+b_3 & = & b_3\\
+b_4 & = & b_3
+\end{array}
+\Longrightarrow
+b = b_2\begin{pmatrix}
+-2 \\ 1 \\ 0 \\ 0
+\end{pmatrix} 
++
+b_3\begin{pmatrix}
+-1 \\ 0 \\ 1 \\ 1
+\end{pmatrix}
+$$
+Luego, todos los vectores de esta forma cumplirán con $Ab = 0$. Como necesitamos dos vectores $L.I.$ que cumplan con esto, basta con tomar los dos vectores generadores de $b$ como las columnas de $B$, es decir
+$$B = \begin{bmatrix}
+-2 & -1\\
+1 & 0\\
+0 & 1 \\
+0 & 1
+\end{bmatrix}$$
+\end{solucion}
 \item Sea $L: P_2(\R) \ra \R^2$ una transformación lineal tal que
 	$$L(1+x) = \begin{pmatrix}
 	1\\
