@@ -4637,5 +4637,34 @@ Lo que debemos ver es para que valores de $\alpha$ y $\beta$, existe una combina
 		\end{pmatrix}\right\}$$
 		es $\alpha = 2\beta$
 \end{solucion}
+\item Determine si el siguiente sistema de ecuaciones posee solución única, infinitas soluciones o no tiene solución
+	$$
+	\begin{array}{rcr}
+	x+y-z& = & 1\\
+	3x+2y+z& = & 1\\
+	5x+3y+4z& = & 2\\
+	-2x -y +5z & = & 6
+	\end{array}$$
+\begin{solucion}
+Busquemos la forma escalonada de la matriz aumentada correspondiente al sistema
+		$$
+		\left[
+		\begin{array}{ccc|c}
+		1 & 1 & -1 & 1\\
+		3 & 2 & 1 & 1\\
+		5 & 3 & 4 & 2\\
+		-2 & -1 & 5 & 6
+		\end{array}
+		\right] \wsim 
+		\left[
+		\begin{array}{ccc|c}
+		1 & 1 & -1 & 1\\
+		0 & -1 & 4 & 2\\
+		0 & 0 & 1 & 1\\
+		0 & 0 & 0 & -1
+		\end{array}
+		\right]$$
+		Podemos ver que la última linea equivale a $0 = -1$, por lo que el sistema es inconsistente, es decir, no tiene solución.
+\end{solucion}
 \end{preguntas}
 \end{document}
