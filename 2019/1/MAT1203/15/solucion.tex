@@ -4449,5 +4449,29 @@ $$A = U\Sigma V^T =
 \end{bmatrix}
 $$
 \end{solucion}
+\item Sea $A$ una matriz de $5 \times 3$ tal que existe una matriz $C$ de $3 \times 5$ tal que $CA = I_3$ y sea $b \in R^5$ tal que la ecuación $Ax = b$ tiene solución.\\
+Demuestra que $Ax = b$ tiene solución única.
+\begin{solucion}
+Digamos que $x_1$ y $x_2$ son dos soluciones de la ecuación $Ax = b$, es decir,
+$$Ax_1 = b \qquad y \qquad Ax_2 = b$$
+Por lo tanto,
+$$Ax_1 = Ax_2$$
+Multiplicando por C por la izquierda a ambos lados,
+$$CAx_1 = CAx_2$$
+$$Ix_1 = Ix_2$$
+$$x_1 = x_2$$
+Es decir, ambas soluciones son iguales. En otras palabras, $Ax = b$ tiene solución única.
+\end{solucion}
+\item Sea $A$ y $B$ dos matrices de $m\times n$ y $n \times p$, respectivamente. Demuestre que si las columnas de $B$ son linealmente dependientes, entonces también lo son las columnas de $AB$.
+\begin{solucion}
+P.D. que si $B$ es $L.D.$, $AB$ también lo es\\
+		\\
+		Si las columnas de $B$ son $L.D.$, entonces
+		$$\exists u \neq \vec{0}\ ( Bu = \vec{0})$$
+		Luego,
+		$$(AB)u = A(Bu) = A\vec{0} = \vec{0}$$
+		$$(AB)u = \vec{0}$$
+		Recordemos que $u \neq \vec{0}$, por lo que hay una combinación lineal no trivial de las columnas de $AB$ que da $\vec{0}$. Entonces, las columnas de $AB$ son $L.D.$
+\end{solucion}
 \end{preguntas}
 \end{document}
