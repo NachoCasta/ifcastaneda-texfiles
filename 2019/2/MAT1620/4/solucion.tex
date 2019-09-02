@@ -175,6 +175,25 @@
 			Por criterio de la razón, la serie es convergente.
 \end{enumerate}
 \end{solucion}
+\item Considere una función $f$ continua en $\R$, decreciente y no negativa tal que
+	$$\lim_{x\ra\infty}\dfrac{f(x)}{e^{-x}}=5$$
+	Analice la convergencia de la serie $\sum\limits_{n=1}^{\infty}f(n)$
+\begin{solucion}
+Sabemos que
+		$$\lim_{x\ra\infty}\dfrac{f(x)}{e^{-x}}=5 \neq 0$$
+		Por lo tanto, por el criterio de comparación al límite, $\sum\limits_{n=1}^{\infty}f(n)$ se comporta igual que $\sum\limits_{n=1}^{\infty}e^{-n}$\\
+		\\
+		Veamos la convergencia de 
+		$$\sum\limits_{n=1}^{\infty}e^{-n}$$
+		Usando el criterio de la razón,
+		$$\lim\limits_{n \ra \infty} \dfrac{a_{n+1}}{a_n}
+		= \lim\limits_{n \ra \infty} \dfrac{e^{-n-1}}{e^{-n}}
+		= e^{-1} < 1$$
+		Por lo tanto, es convergente. De la misma forma, la serie $\sum\limits_{n=1}^{\infty}f(n)$ también lo es.
+\\
+\\
+Otra forma de determinar la convergencia es notando que esta es una serie geométrica con $r = \dfrac{1}{e} < 1$.
+\end{solucion}
 \item Determine si las siguientes series convergen condicionalmente, absolutamente o divergen.
 \begin{tasks}(3)
 \task $\sum\limits_{n=1}^{\infty}\dfrac{(-1)^{n+1}}{\sqrt[]{n}}$
@@ -213,6 +232,20 @@
 			Veamos el límite de la sucesión,
 			$$\lim_{n\ra\infty} |a_n| = \lim_{n\ra\infty}\dfrac{(n+1)}{n} = 1 \neq 0$$
 			Por la prueba de la divergencia, la serie es divergente.
+\end{enumerate}
+\end{solucion}
+\item Determine el radio y los intervalos de convergencia de las siguientes series
+\begin{tasks}(3)
+\task $\sum\limits_{n=1}^{\infty}\dfrac{(-1)^{n-1}(x+3)}{3n}$
+\task $\sum\limits_{n=2}^{\infty}\dfrac{2(x-4)^n}{n}$
+\task $\sum\limits_{n=2}^{\infty}\dfrac{(x-2)^n}{2^{n+1}}$
+\end{tasks}
+\begin{solucion}
+
+\begin{enumerate}[a)]
+\item 
+\item 
+\item 
 \end{enumerate}
 \end{solucion}
 \end{preguntas}
