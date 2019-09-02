@@ -115,19 +115,25 @@
 \end{center}
 
 \begin{preguntas}
-\item Determina si las siguientes series convergen o divergen
-\begin{tasks}(3)
-\task 
-\task 
-\task 
-\end{tasks}
+\item Determina si la siguiente serie converge o diverge
+$$\sum\limits_{n=1}^{\infty}\dfrac{n!}{n^n}$$
 \begin{solucion}
-
-\begin{enumerate}[a)]
-\item 
-\item 
-\item 
-\end{enumerate}
+$\sum\limits_{n=1}^{\infty}\dfrac{n!}{n^n}$\\
+			\\
+			Recordemos que en el infinito,
+			$$n^n > n! > a^n > n^a > ln(n)$$
+			El límite de la sucesión es
+			$$\lim\limits_{n\ra\infty}\dfrac{n!}{n^n} = 0$$
+			Usando el criterio de la razón,
+			$$\lim\limits_{n \ra \infty} \dfrac{a_{n+1}}{a_n}
+			= \lim\limits_{n \ra \infty} \dfrac{\dfrac{(n+1)!}{(n+1)^{n+1}}}{\dfrac{n!}{n^n}}
+			= \lim\limits_{n \ra \infty} \dfrac{(n+1)!}{n!}\dfrac{n^n}{(n+1)^{n+1}}$$
+			$$= \lim\limits_{n \ra \infty} \dfrac{(n+1)}{1}\dfrac{n^n}{(n+1)^{n+1}}
+			= \lim\limits_{n \ra \infty} \dfrac{n^n}{(n+1)^{n}}
+			= \lim\limits_{n \ra \infty} \left(\dfrac{n}{n+1}\right)^n$$
+			$$= \lim\limits_{n \ra \infty} \dfrac{1}{\left(\dfrac{n+1}{n}\right)^n}
+			= \dfrac{1}{e} < 1$$
+			Por criterio de la razón, la serie es convergente.
 \end{solucion}
 \item Estudiar, según el valor de $\lambda \in \R$, la convergencia de la serie
 	$$\sum\limits_{n=1}^{\infty}ln(1+n^{-\lambda})$$
