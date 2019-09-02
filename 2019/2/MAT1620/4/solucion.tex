@@ -175,24 +175,10 @@
 			Por criterio de la razón, la serie es convergente.
 \end{enumerate}
 \end{solucion}
-\item Considere una función $f$ continua en $\R$, decreciente y no negativa tal que
-	$$\lim_{x\ra\infty}\dfrac{f(x)}{e^{-x}}=5$$
-	Analice la convergencia de la serie $\sum\limits_{n=1}^{\infty}f(n)$
+\item Estudiar, según el valor de $\lambda \in \R$, la convergencia de la serie
+	$$\sum\limits_{n=1}^{\infty}ln(1+n^{-\lambda})$$
 \begin{solucion}
-Sabemos que
-		$$\lim_{x\ra\infty}\dfrac{f(x)}{e^{-x}}=5 \neq 0$$
-		Por lo tanto, por el criterio de comparación al límite, $\sum\limits_{n=1}^{\infty}f(n)$ se comporta igual que $\sum\limits_{n=1}^{\infty}e^{-n}$\\
-		\\
-		Veamos la convergencia de 
-		$$\sum\limits_{n=1}^{\infty}e^{-n}$$
-		Usando el criterio de la razón,
-		$$\lim\limits_{n \ra \infty} \dfrac{a_{n+1}}{a_n}
-		= \lim\limits_{n \ra \infty} \dfrac{e^{-n-1}}{e^{-n}}
-		= e^{-1} < 1$$
-		Por lo tanto, es convergente. De la misma forma, la serie $\sum\limits_{n=1}^{\infty}f(n)$ también lo es.
-\\
-\\
-Otra forma de determinar la convergencia es notando que esta es una serie geométrica con $r = \dfrac{1}{e} < 1$.
+
 \end{solucion}
 \item Determine si las siguientes series convergen condicionalmente, absolutamente o divergen.
 \begin{tasks}(3)
