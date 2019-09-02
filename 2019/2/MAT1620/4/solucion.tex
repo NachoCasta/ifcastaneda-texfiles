@@ -115,64 +115,18 @@
 \end{center}
 
 \begin{preguntas}
-\item Determine si las siguientes series convergen o divergen.
-\begin{tasks}(3)
-\task $\sum\limits_{n=1}^{\infty}\dfrac{n}{n^4+1}$
-\task $\sum\limits_{n=2}^{\infty}\dfrac{n}{(n+1)^2ln(n)}$
-\task $\sum\limits_{n=1}^{\infty}\dfrac{n!}{n^n}$
-\end{tasks}
+\item Determina si las siguientes series convergen o divergen
+\begin{enumerate}[a)]
+\item 
+\item 
+\item 
+\end{enumerate}
 \begin{solucion}
 
 \begin{enumerate}[a)]
-\item $\sum\limits_{n=1}^{\infty}\dfrac{n}{n^4+1}$\\
-			\\
-			En primer lugar, veamos cual es el límite de la sucesión, fijandonos bien en el término que se genera antes de evaluar
-			$$\lim\limits_{n \ra \infty} a_n
-			= \lim\limits_{n \ra \infty} \dfrac{n}{n^4+1}
-			= \lim\limits_{n \ra \infty} \dfrac{n}{n^4\left(1+\dfrac{1}{n^4}\right)}
-			= \lim\limits_{n \ra \infty} \dfrac{1}{n^3} = 0$$
-			Tomemos ese último termino y usemoslo como $b_n$. Sea $b_n = \dfrac{1}{n^3}$,
-			$$\lim\limits_{n \ra \infty} \dfrac{a_n}{b_n}
-			= \lim\limits_{n \ra \infty} \dfrac{\dfrac{n}{n^4+1}}{\dfrac{1}{n^3}}
-			= \lim\limits_{n \ra \infty} \dfrac{\dfrac{1}{n^3}}{\dfrac{1}{n^3}} = 1 \neq 0$$
-			Por lo tanto, $\sum\limits^{\infty} a_n$ se comporta igual que $\sum\limits^{\infty} b_n$.\\
-			\\
-			Como $\sum\limits^{\infty} \dfrac{1}{n^3}$ es una serie-$p$ con $p=3>1$, la serie converge. Luego, por criterio de comparación al límite, la serie $\lim\limits_{n \ra \infty} \dfrac{n}{n^4+1}$ también converge.
-\item $\sum\limits_{n=2}^{\infty}\dfrac{n}{(n+1)^2ln(n)}$\\
-			\\
-			Igual que antes, veamos el límite de la sucesión,
-			$$\lim\limits_{n \ra \infty} a_n
-			= \lim\limits_{n \ra \infty} \dfrac{n}{(n+1)^2ln(n)}
-			= \lim\limits_{n \ra \infty} \dfrac{n}{\left(n\left(1+\dfrac{1}{n}\right)\right)^2ln(n)}
-			= \lim\limits_{n \ra \infty} \dfrac{n}{n^2ln(n)}$$
-			$$= \lim\limits_{n \ra \infty} \dfrac{1}{nln(n)} = 0$$
-			Sea $b_n = \dfrac{1}{nln(n)}$,
-			$$\lim\limits_{n \ra \infty} \dfrac{a_n}{b_n}
-			=\lim\limits_{n \ra \infty} \dfrac{\dfrac{n}{(n+1)^2ln(n)}}{\dfrac{1}{nln(n)}}
-			=\lim\limits_{n \ra \infty} \dfrac{\dfrac{1}{nln(n)}}{\dfrac{1}{nln(n)}} = 1 \neq 0$$
-			Por lo tanto, $\sum\limits^{\infty} a_n$ se comporta igual que $\sum\limits^{\infty} b_n$.\\
-			\\
-			Veamos ahora que pasa con $\sum\limits_{n=2}^{\infty} \dfrac{1}{nln(n)}$. Usando el criterio de la integral, tenemos que la serie se comportara igual a $\displaystyle\int_2^{\infty} \dfrac{1}{xln(x)}$. \\
-			\\
-			Calculemos entonces esta integral impropia,
-			$$\displaystyle\int_2^{\infty} \dfrac{1}{xln(x)} =  ln(ln(x)) \ev_2^{\infty} = \infty$$
-			Luego, $\displaystyle\int_2^{\infty} \dfrac{1}{xln(x)}$ diverge, por lo que por criterio de la integral, $\sum\limits_{n=2}^{\infty} \dfrac{1}{nln(n)}$ tambiém diverge. Finalmente, por el criterio de comparación al limite, la serie $\sum\limits_{n=2}^{\infty}\dfrac{n}{(n+1)^2ln(n)}$ es divergente.
-\item $\sum\limits_{n=1}^{\infty}\dfrac{n!}{n^n}$\\
-			\\
-			Recordemos que en el infinito,
-			$$n^n > n! > a^n > n > ln(n)$$
-			El límite de la sucesión es
-			$$\lim\limits_{n\ra\infty}\dfrac{n!}{n^n} = 0$$
-			Usando el criterio de la razón,
-			$$\lim\limits_{n \ra \infty} \dfrac{a_{n+1}}{a_n}
-			= \lim\limits_{n \ra \infty} \dfrac{\dfrac{(n+1)!}{(n+1)^{n+1}}}{\dfrac{n!}{n^n}}
-			= \lim\limits_{n \ra \infty} \dfrac{(n+1)!}{n!}\dfrac{n^n}{(n+1)^{n+1}}$$
-			$$= \lim\limits_{n \ra \infty} \dfrac{(n+1)}{1}\dfrac{n^n}{(n+1)^{n+1}}
-			= \lim\limits_{n \ra \infty} \dfrac{n^n}{(n+1)^{n}}
-			= \lim\limits_{n \ra \infty} \left(\dfrac{n}{n+1}\right)^n$$
-			$$= \lim\limits_{n \ra \infty} \dfrac{1}{\left(\dfrac{n+1}{n}\right)^n}
-			= \dfrac{1}{e} < 1$$
-			Por criterio de la razón, la serie es convergente.
+\item 
+\item 
+\item 
 \end{enumerate}
 \end{solucion}
 \item Estudiar, según el valor de $\lambda \in \R$, la convergencia de la serie
