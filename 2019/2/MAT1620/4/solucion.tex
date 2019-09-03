@@ -182,16 +182,88 @@ $\sum\limits_{n=1}^{\infty}\dfrac{n!}{n^n}$\\
 \end{solucion}
 \item Determine el radio y los intervalos de convergencia de las siguientes series
 \begin{tasks}(3)
-\task $\sum\limits_{n=1}^{\infty}\dfrac{(-1)^{n-1}(x+3)}{3n}$
+\task $\sum\limits_{n=1}^{\infty}\dfrac{(-1)^{n-1}(x+3)^n}{3n}$
 \task $\sum\limits_{n=2}^{\infty}\dfrac{2(x-4)^n}{n}$
 \task $\sum\limits_{n=2}^{\infty}\dfrac{(x-2)^n}{2^{n+1}}$
 \end{tasks}
 \begin{solucion}
+Sea $\sum\limits_{n=1}^{\infty} a_n (x-c)^n$ una serie de potencias, existen dos métodos para obtener el intervalo y radio de convergencia.\\
 
+El primer método para obtener el intervalo es notando que la serie sera convergente siempre que
+$$\lim\limits_{n \ra \infty} \left|\dfrac{a_{n+1}}{a_n}\right| < 1$$
+Los bordes debemos evaluarlos de manera individual y el radio será la mitad del largo del intervalo.\\
+Notemos que en este caso debemos incluir $(x-c)^n$ en el término general.\\
+\\
+El segundo método (en mi opinión más facil) consiste en notar que el centro del intervalo siempre será $c$ y que el radio cumple con
+$$\dfrac{1}{R} = \lim\limits_{n \ra \infty} \dfrac{a_{n+1}}{a_n}$$
+Luego, igual que antes, se evaluan los bordes de manera indiviual. Estos serán $c-R$ y $c+R$.
 \begin{enumerate}[a)]
-\item 
-\item 
-\item 
+\item $\sum\limits_{n=1}^{\infty}\dfrac{(-1)^{n-1}(x+3)^n}{3n}$\\
+\\
+Para que la serie converga, debe ocurrir que
+$$\lim\limits_{n \ra \infty} \left|\dfrac{a_{n+1}}{a_n}\right| < 1$$
+$$\lim\limits_{n \ra \infty} \left|\dfrac{(x+3)^{n+1}}{3n+3}\dfrac{3n}{(x+3)^n}\right| < 1$$
+$$|x+3| < 1$$
+$$-1 < x+3 < 1$$
+$$-4 < x < -2$$
+De aqui podemos ver que el radio de convergencia es 1. Para determinar el intervalo de convergencia debemos ver que ocurre en los bordes.
+
+\begin{itemize}
+	\item $x = -4$\\
+	\\
+	$\sum\limits_{n=1}^{\infty}(-1)^{n-1}\dfrac{(-1)^n}{3n}
+	= \sum\limits_{n=1}^{\infty}-\dfrac{1}{3n} 
+	= -\dfrac{1}{3n} \sum\limits_{n=1}^{\infty}\dfrac{1}{n} 
+	\ra \text{diverge}
+	$
+	\item $x = -2$\\
+	\\
+	$\sum\limits_{n=1}^{\infty}(-1)^{n-1}\dfrac{1}{3n}
+	= \dfrac{1}{3} \sum\limits_{n=1}^{\infty}(-1)^{n-1}\dfrac{1}{n}
+	\ra \text{converge por Leibniz}
+	$
+\end{itemize}
+Finalmente, el intervalo de convergencia es $]-4, 2]$ y su radio de convergencia es 1.
+\item $\sum\limits_{n=2}^{\infty}\dfrac{2(x-4)^n}{n}$\\
+\\
+$$\dfrac{1}{R} = \lim\limits_{n \ra \infty} \dfrac{a_{n+1}}{a_n}
+= \lim\limits_{n \ra \infty} \dfrac{2}{n+1}\dfrac{n}{2} = 1 \ra R = 1$$
+Notemos que el centro es $4$, por lo que debemos evaluar en $x=3$ y $x=5$.
+\begin{itemize}
+	\item $x=3$\\
+	\\
+	$\sum\limits_{n=2}^{\infty}(-1)^n\dfrac{2}{n} \ra \text{converge por Leibniz}$	\item $x=5$\\
+	\\
+	$\sum\limits_{n=2}^{\infty}\dfrac{2}{n} \ra \text{diverge}$
+\end{itemize}
+Finalmente, el intervalo es $[3,5[$
+\item $\sum\limits_{n=2}^{\infty}\dfrac{2(x-4)^n}{n}$\\
+\\
+$$\dfrac{1}{R} = \lim\limits_{n \ra \infty} \dfrac{a_{n+1}}{a_n}
+= \lim\limits_{n \ra \infty} \dfrac{2}{n+1}\dfrac{n}{2} = 1 \ra R = 1$$
+Notemos que el centro es $4$, por lo que debemos evaluar en $x=3$ y $x=5$.
+\begin{itemize}
+	\item $x=3$\\
+	\\
+	$\sum\limits_{n=2}^{\infty}(-1)^n\dfrac{2}{n} \ra \text{converge por Leibniz}$	\item $x=5$\\
+	\\
+	$\sum\limits_{n=2}^{\infty}\dfrac{2}{n} \ra \text{diverge}$
+\end{itemize}
+Finalmente, el intervalo es $[3,5[$
+\item $\sum\limits_{n=2}^{\infty}\dfrac{(x-2)^n}{2^{n+1}}$\\
+\\
+$$\dfrac{1}{R} = \lim\limits_{n \ra \infty} \dfrac{a_{n+1}}{a_n}
+= \lim\limits_{n \ra \infty} \dfrac{1}{2^{n+2}}\dfrac{2^{n+1}}{1} = \dfrac{1}{2} \ra R = 2$$
+Notemos que el centro es $2$, por lo que debemos evaluar en $x=0$ y $x=4$.
+\begin{itemize}
+	\item $x=0$\\
+	\\
+	$\sum\limits_{n=2}^{\infty}\dfrac{(-2)^n}{2^{n+1}} = \sum\limits_{n=2}^{\infty}(-1)^n\dfrac{2^n}{2^{n+1}} = \sum\limits_{n=2}^{\infty}(-1)^n\dfrac{1}{2} \ra \text{divergente}$
+	\item $x=4$\\
+	\\
+	$\sum\limits_{n=2}^{\infty}\dfrac{2^n}{2^{n+1}} = \sum\limits_{n=2}^{\infty}\dfrac{1}{2} \ra \text{divergente}$
+\end{itemize}
+Finalmente, el intervalo de convergencia corresponde a $]0, 4[$.
 \end{enumerate}
 \end{solucion}
 \end{preguntas}
