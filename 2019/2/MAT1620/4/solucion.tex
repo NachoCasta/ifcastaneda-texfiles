@@ -138,7 +138,18 @@ $\sum\limits_{n=1}^{\infty}\dfrac{n!}{n^n}$\\
 \item Estudiar, según el valor de $\lambda \in \R$, la convergencia de la serie
 	$$\sum\limits_{n=1}^{\infty}ln(1+n^{-\lambda})$$
 \begin{solucion}
+Notemos que la serie se puede escribir como
+$$\sum\limits_{n=1}^{\infty}ln\left(1+\dfrac{1}{n^{\lambda}}\right)$$
+Sea $b_n = \dfrac{1}{n^{\lambda}}$
+$$\lim\limits_{n \ra \infty} \dfrac{a_n}{b_n}
+= \lim\limits_{n \ra \infty} ln(1+\dfrac{1}{n^{\lambda}})n^{\lambda}
+= \lim\limits_{n \ra \infty} ln\left(\left(1+\dfrac{1}{n^{\lambda}}\right)^{n^{\lambda}}\right)
+= ln(e) = 1 \neq 0$$
+Luego, por CCL, $\sum\limits_{n=1}^{\infty}ln\left(1+\dfrac{1}{n^{\lambda}}\right)$ se comportará igual a $\sum\limits_{n=1}^{\infty} \dfrac{1}{n^{\lambda}}$.\\
 
+Notemos que esta última es una serie-p, por lo que convergerá para $\lambda > 1$ y divergerá para $\lambda \leq 1$.\\
+
+Finalmente, $\sum\limits_{n=1}^{\infty}ln(1+n^{-\lambda})$ converge para $\lambda > 1$ y diverge para $\lambda \leq 1$
 \end{solucion}
 \item Determine si las siguientes series convergen condicionalmente, absolutamente o divergen.
 \begin{tasks}(3)
