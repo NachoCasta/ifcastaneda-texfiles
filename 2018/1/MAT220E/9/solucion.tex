@@ -58,7 +58,7 @@
 
 \newcommand{\ayudantia}{{\sc Ayudantía 9}}
 \newcommand{\tituloayu}{Series de Taylor y repaso vectores}
-\newcommand{\fecha}{10 de septiembre de 2019}
+\newcommand{\fecha}{4 de junio de 2018}
 \newcommand{\sigla}{MAT220E}
 \newcommand{\nombre}{Cálculo II}
 \newcommand{\profesor}{Vania Ramirez}
@@ -115,5 +115,201 @@
 \end{center}
 
 \begin{preguntas}
+\item Para cada función, encontrar la serie de Maclaurin que la representa
+\begin{tasks}(2)
+\task $f(x) = cos(x)$
+\task $f(x) = \dfrac{1}{1-x}$
+\end{tasks}
+\begin{solucion}
+
+\begin{enumerate}[a)]
+\item 
+\item 
+\end{enumerate}
+\end{solucion}
+\item Sea la función
+	$$f(x) = ln(1+x)$$
+	Exprese $f(x)$ como una serie de potencias
+\begin{solucion}
+Es evidente que no podemos convertir la función directamente a una serie, por lo que probaremos derivandola antes.
+		$$f'(x) = \dfrac{1}{1+x}$$
+		Esta función si podemos convertirla en una serie usando $\dfrac{1}{1-x} = \sum\limits_{n=0}^{\infty} x^n$. Entonces,
+		$$f'(x) = \dfrac{1}{1-(-x)} 
+		= \sum\limits_{n=0}^{\infty} (-x)^n
+		= \sum\limits_{n=0}^{\infty} (-1)^n x^n$$
+		Lo único que nos queda por hacer es integrar esto. Recordemos que para integrar una serie de potencias, basta con integrar su termino general.
+		
+		Finalmente, 
+		$$f(x) 
+		= \int f'(x) dx
+		= \int \sum\limits_{n=0}^{\infty} (-1)^n x^n dx
+		= \sum\limits_{n=0}^{\infty} \int (-1)^n x^n dx
+		= \sum\limits_{n=0}^{\infty} (-1)^n \dfrac{x^{n+1}}{n+1}$$
+\end{solucion}
+\item Expresar la siguiente serie de potencias como una función
+	$$\sum\limits_{n=1}^\infty \dfrac{(2x-3)^n}{n2^n}$$
+\begin{solucion}
+Sea 
+		$$f(x) = \sum\limits_{n=1}^\infty \dfrac{(2x-3)^n}{n2^n}$$
+		En este caso, lo que nos molesta es el $n$ del denominador, por lo que intentaremos derivando la serie. De manera análoga, para hacer esto solo tenemos que derivar el término general de esta, esto es,
+		$$f'(x) 
+		= \sum\limits_{n=1}^\infty \dfrac{n(2x-3)^{n-1}\cdot 2}{n2^n}
+		= \sum\limits_{n=1}^\infty \dfrac{(2x-3)^{n-1}}{2^{n-1}}
+		= \sum\limits_{n=1}^\infty \left(x-\dfrac{3}{2}\right)^{n-1}
+		= \sum\limits_{n=0}^\infty \left(x-\dfrac{3}{2}\right)^{n}$$
+		Ahora que no tenemos problema,
+		$$f'(x) 
+		= \dfrac{1}{1-\left(x-\dfrac{3}{2}\right)}
+		= \dfrac{1}{1-x+\dfrac{3}{2}}
+		= \dfrac{1}{\dfrac{5}{2}-x}
+		= \dfrac{1}{\dfrac{5-2x}{2}}
+		= \dfrac{2}{5-2x}$$
+		Integrando,
+		$$f(x) 
+		= \int \dfrac{2}{5-2x} dx
+		= -ln (5-2x) + c$$
+		Para encontrar la constante, debemos evaluar la función en un punto donde conozcamos el valor de la serie que representa. La opción trivial es evaluarla donde el termino general se hacer cero, esto sería en $x = \dfrac{3}{2}$. Aquí,
+		$$f\left(\dfrac{3}{2}\right) = \sum\limits_{n=1}^\infty 0 = 0$$
+		Luego,
+		$$f\left(\dfrac{3}{2}\right) = -ln(5-3) + c = 0 \ra c = ln(2)$$
+		Finalmente,
+		$$f(x) = -ln(5-2x) + ln(2) = ln\left(\dfrac{2}{5-2x}\right)$$
+\end{solucion}
+\item Sean los vectores
+		$$
+	v_1 = \begin{pmatrix}
+	2\\
+	1\\
+	5
+\end{pmatrix};\qquad
+	v_2 = \begin{pmatrix}
+	-1\\
+	-3\\
+	0
+\end{pmatrix}$$
+\begin{enumerate}[a)]
+\item Buscar un vector $v_3$ que sea perpendicular a $v_1$ y $v_2$ y verificar que efectivamente sea perpendicular a ambos.
+\item Buscar un vector paralelo a $(v_2-v_3)$ y verificar que lo sea
+\item Encontrar un vector perpendicular a $(v_3 + 3v_1)$
+\end{enumerate}
+\begin{solucion}
+
+\begin{enumerate}[a)]
+\item Para que sea perpendicular a ambos, basta definir $v_3 = v_1 \times v_2$, es decir
+			$$v_3 = \begin{pmatrix}
+			2\\
+			1\\
+			5
+			\end{pmatrix} \times \begin{pmatrix}
+			-1\\
+			-3\\
+			0
+			\end{pmatrix} = i (0 + 15) - j (0 + 5) + k(-6 + 1) =\begin{pmatrix}
+			15\\
+			-5\\
+			-5
+			\end{pmatrix} $$
+			Para verificar basta utilizar el producto punto, donde obtendremos que
+			$$v_3 \cdot v_1 = 0$$
+			$$v_3 \cdot v_2 = 0$$
+\item En primer lugar, calculemos el vector $v_2 - v_3$
+			$$v_4 = v_2 - v_3 = \begin{pmatrix}
+			-1\\
+			-3\\
+			0
+			\end{pmatrix} - \begin{pmatrix}
+			15\\
+			-5\\
+			-5
+			\end{pmatrix} = \begin{pmatrix}
+			-16\\
+			2\\
+			5
+			\end{pmatrix}$$
+			Para obtener un vector paralelo, podemos simplemente ponderar el vector por un escalar, como por ejemplo, 2
+			$$v_5 = 2 v_4 = 2 \begin{pmatrix}
+			-16\\
+			2\\
+			5
+			\end{pmatrix} = \begin{pmatrix}
+			-32\\
+			4\\
+			10
+			\end{pmatrix}$$
+			Para verificar utilizaremos el producto cruz, donde obtendremos que
+			$$v_5 \times v_4 = 0$$
+\item Primero calculemos el vector $v_3 + 3v_1$
+			$$v_6 = v_3 + 3v_1 = \begin{pmatrix}
+			15\\
+			-5\\
+			-5
+			\end{pmatrix}  + 3 \begin{pmatrix}
+			2\\
+			1\\
+			5
+			\end{pmatrix} = \begin{pmatrix}
+			21\\
+			-2\\
+			10
+			\end{pmatrix} $$
+			Para obtener un vector perpendicular, podemos hacer producto cruz con cualquier otro vector arbitrario. Para hacer los calculos simples, utilizaremos
+			$$v_7 = \begin{pmatrix}
+			1\\
+			0\\
+			0
+			\end{pmatrix} $$
+			Luego, 
+			$$v_8 = v_6 \times v_7 = \begin{pmatrix}
+			21\\
+			-2\\
+			10
+			\end{pmatrix} \times \begin{pmatrix}
+			1\\
+			0\\
+			0
+			\end{pmatrix} = 10j + 2k = \begin{pmatrix}
+			0\\
+			10\\
+			2
+			\end{pmatrix}$$
+\end{enumerate}
+\end{solucion}
+\item Determinar el plano que pasa por los puntos $P_1(4,-1,-2)$, $P_2(0,0,1)$ y $P_3(2,-3,0)$.
+\begin{solucion}
+Sabemos que un plano se define de la forma
+		$$Ax +By + Cz = D$$
+		Reemplazando esto con los tres puntos que tenemos, obtendremos el siguiente sistema de ecuaciones
+		$$
+		\begin{array}{rcrr}
+		4A-B-2C & = & D& \vline\\
+		C & = & D & \vline\\
+		2A-3B & = & D &\vline\\
+		\hline
+		\end{array}
+		$$
+		$$
+		\begin{array}{rcrr}
+		4A-B-2C & = & C& \vline\\
+		2A-3B & = & C &\vline\\
+		\hline
+		\end{array}
+		$$
+		$$
+		\begin{array}{rcrr}
+		4A-B-3C & = & 0& \vline\\
+		2A-3B -C& = & 0 &\vline\\
+		\hline
+		\end{array}
+		$$
+		$$(1) - 2(2)$$
+		$$5B - C = 0 \ra 5B = C$$
+		Como hay 4 variables y teníamos 3 ecuaciones, debemos elegir el valor de una de ellas de manera arbitraria.
+		$$C = 5$$
+		$$\ra D = 5$$
+		$$\ra B = 1$$
+		$$4A -1 -15 = 0 \ra 4A=16 \ra A=4$$
+		Finalmente, el plano es
+		$$\Pi:4x + y + 5z = 5$$
+\end{solucion}
 \end{preguntas}
 \end{document}
