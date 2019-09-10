@@ -115,5 +115,89 @@
 \end{center}
 
 \begin{preguntas}
+\item Para cada función, encontrar la serie de Maclaurin que la representa
+\begin{tasks}(2)
+\task $f(x) = cos(x)$
+\task $f(x) = \dfrac{1}{1-x}$
+\end{tasks}
+\begin{solucion}
+
+\begin{enumerate}[a)]
+\item 
+\item 
+\end{enumerate}
+\end{solucion}
+\item Determinar, utilizando series de potencias, el valor de
+	$$\sum\limits_{n=1}^\infty \frac{1}{3^n}$$
+\begin{solucion}
+Recordemos que $$\dfrac{1}{1-x} = \sum\limits_0^{\infty} x^n$$
+		Luego, debemos buscar una serie de potencias que se asemeje a lo que estamos buscando, esta sería
+		$$f(x) = \sum\limits_{n=1}^\infty x^{n}$$
+		Entonces, debemos encontrar $f\left(\dfrac{1}{3}\right)$
+		
+		Tenemos que
+		$$f(x) 
+		= \sum\limits_{n=1}^\infty x^{n} 
+		= \sum\limits_{n=0}^\infty x^{n+1}
+		= x\sum\limits_{n=0}^\infty x^{n}
+		= x \dfrac{1}{1-x}
+		= \dfrac{x}{1-x}$$
+		Como $x = \dfrac{1}{3}$ esta dentro del radio de convergencia de la serie, podremos evaluar la seríe ahí. Finalmente,
+		$$\sum\limits_{n=1}^\infty \frac{1}{3^n} = f\left(\dfrac{1}{3}\right) = \dfrac{\dfrac{1}{3}}{1-\dfrac{1}{3}}
+		= \dfrac{\dfrac{1}{3}}{\dfrac{2}{3}} = \dfrac{1}{2}$$
+\end{solucion}
+\item Sea la función
+	$$f(x) = ln(1+x)$$
+	Exprese $f(x)$ como una serie de potencias
+\begin{solucion}
+Es evidente que no podemos convertir la función directamente a una serie, por lo que probaremos derivandola antes.
+		$$f'(x) = \dfrac{1}{1+x}$$
+		Esta función si podemos convertirla en una serie usando $\dfrac{1}{1-x} = \sum\limits_{n=0}^{\infty} x^n$. Entonces,
+		$$f'(x) = \dfrac{1}{1-(-x)} 
+		= \sum\limits_{n=0}^{\infty} (-x)^n
+		= \sum\limits_{n=0}^{\infty} (-1)^n x^n$$
+		Lo único que nos queda por hacer es integrar esto. Recordemos que para integrar una serie de potencias, basta con integrar su termino general.
+		
+		Finalmente, 
+		$$f(x) 
+		= \int f'(x) dx
+		= \int \sum\limits_{n=0}^{\infty} (-1)^n x^n dx
+		= \sum\limits_{n=0}^{\infty} \int (-1)^n x^n dx
+		= \sum\limits_{n=0}^{\infty} (-1)^n \dfrac{x^{n+1}}{n+1}$$
+\end{solucion}
+\item Expresar la siguiente serie de potencias como una función
+	$$\sum\limits_{n=1}^\infty \dfrac{(2x-3)^n}{n2^n}$$
+\begin{solucion}
+Sea 
+		$$f(x) = \sum\limits_{n=1}^\infty \dfrac{(2x-3)^n}{n2^n}$$
+		En este caso, lo que nos molesta es el $n$ del denominador, por lo que intentaremos derivando la serie. De manera análoga, para hacer esto solo tenemos que derivar el término general de esta, esto es,
+		$$f'(x) 
+		= \sum\limits_{n=1}^\infty \dfrac{n(2x-3)^{n-1}\cdot 2}{n2^n}
+		= \sum\limits_{n=1}^\infty \dfrac{(2x-3)^{n-1}}{2^{n-1}}
+		= \sum\limits_{n=1}^\infty \left(x-\dfrac{3}{2}\right)^{n-1}
+		= \sum\limits_{n=0}^\infty \left(x-\dfrac{3}{2}\right)^{n}$$
+		Ahora que no tenemos problema,
+		$$f'(x) 
+		= \dfrac{1}{1-\left(x-\dfrac{3}{2}\right)}
+		= \dfrac{1}{1-x+\dfrac{3}{2}}
+		= \dfrac{1}{\dfrac{5}{2}-x}
+		= \dfrac{1}{\dfrac{5-2x}{2}}
+		= \dfrac{2}{5-2x}$$
+		Integrando,
+		$$f(x) 
+		= \int \dfrac{2}{5-2x} dx
+		= -ln (5-2x) + c$$
+		Para encontrar la constante, debemos evaluar la función en un punto donde conozcamos el valor de la serie que representa. La opción trivial es evaluarla donde el termino general se hacer cero, esto sería en $x = \dfrac{3}{2}$. Aquí,
+		$$f\left(\dfrac{3}{2}\right) = \sum\limits_{n=1}^\infty 0 = 0$$
+		Luego,
+		$$f\left(\dfrac{3}{2}\right) = -ln(5-3) + c = 0 \ra c = ln(2)$$
+		Finalmente,
+		$$f(x) = -ln(5-2x) + ln(2) = ln\left(\dfrac{2}{5-2x}\right)$$
+\end{solucion}
+\item Calcule el valor de 
+	$$\sum\limits_{n=1}^{\infty}\dfrac{(-1)^n(n+1)}{n^2(n+2)^2}$$
+\begin{solucion}
+
+\end{solucion}
 \end{preguntas}
 \end{document}
