@@ -1,0 +1,269 @@
+\documentclass[12pt]{article}
+
+\usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[none]{hyphenat}
+\usepackage{parskip}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\usepackage{tasks}
+\usepackage{mdframed}
+\usepackage{xcolor}
+\usepackage{pgfplots}
+\usepackage[makeroom]{cancel}
+\usepackage{multicol}
+\usepackage[shortlabels]{enumitem}
+\usepackage{stackrel}
+\usepackage{tkz-tab}
+\usepackage{xpatch}
+\usepackage{tkz-euclide}
+\usetkzobj{all}
+\xpatchcmd{\tkzTabLine}{$0$}{$\bullet$}{}{}
+
+\setlength{\headheight}{10pt}
+\setlength{\headsep}{10pt}
+\pagestyle{fancy}
+\rhead{\ayudantia \ - \alumno}
+\tikzset{t style/.style={style=solid}}
+
+\newcommand*{\mybox}[2]{\colorbox{#1!30}{\parbox{.98\linewidth}{#2}}}
+
+\newenvironment{solucion}
+{\begin{mdframed}[backgroundcolor=black!10]
+		{\bf Solución:}\\
+	}
+	{
+	\end{mdframed}
+}
+
+\newenvironment{alternativas}[1]
+{\begin{multicols}{#1}
+		\begin{enumerate}[a)]
+		}
+		{
+		\end{enumerate}
+	\end{multicols}
+}
+
+\newenvironment{preguntas}
+{\begin{enumerate}\itemsep12pt
+	}
+	{
+	\end{enumerate}
+}
+
+\newcommand{\ayudantia}{{\sc Ayudantía 10}}
+\newcommand{\tituloayu}{Límites de varias variables, derivadas parciales y regla de la cadena}
+\newcommand{\fecha}{11 de junio de 2018}
+\newcommand{\sigla}{MAT220E}
+\newcommand{\nombre}{Cálculo II}
+\newcommand{\profesor}{Vania Ramirez}
+\newcommand{\ano}{2018}
+\newcommand{\semestre}{1}
+\newcommand{\mail}{mat220e@ifcastaneda.cl}
+\newcommand{\alumno}{Ignacio Castañeda - \mail}
+
+\newcommand{\ev}{\Big|}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lra}{\leftrightarrow}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Exp}[1]{\mathcal{E}_{#1}}
+\newcommand{\List}[1]{\mathcal{L}_{#1}}
+\newcommand{\EN}{\Exp{\N}}
+\newcommand{\LN}{\List{\N}}
+\newcommand{\comment}[1]{}
+\newcommand{\lb}{\\~\\}
+\newcommand{\eop}{_{\square}}
+\newcommand{\hsig}{\hat{\sigma}}
+\newcommand{\widesim}[2][1.5]{
+	\mathrel{\overset{#2}{\scalebox{#1}[1]{$\sim$}}}
+}
+\newcommand{\wsim}{\widesim{}}
+\newcommand{\lh}{\stackrel{L'H}{=}}
+
+\begin{document}
+\thispagestyle{empty}
+
+\begin{minipage}{2cm}
+	\includegraphics[width=2cm]{../../../../img/logo.pdf}
+	\vspace{0.5cm}
+\end{minipage}
+\begin{minipage}{\linewidth}
+	\begin{tabular}{lrl}
+		{\scriptsize\sc Pontificia Universidad Catolica de Chile} & \hspace*{0.7in}Curso: &
+		\sigla  - \nombre\\
+		{\sc Facultad de Matemáticas}&
+		Profesor: & \profesor \\
+		{\sc Semestre \ano-\semestre} & Ayudante: & {Ignacio Castañeda}\\
+		& {Mail:} & \texttt{\mail}
+	\end{tabular}
+\end{minipage}
+
+\vspace{-10mm}
+\begin{center}
+	{\LARGE\bf \ayudantia}\\
+	\vspace{0.1cm}
+	{\tituloayu}\\
+	\vspace{0.1cm}
+	\fecha\\
+	\vspace{0.4cm}
+\end{center}
+
+\begin{preguntas}
+\item Grafique las curvas de nivel de la función 
+	$$ f(x,y) = \sqrt[]{9-x^2-y^2}$$
+	para $k=0,1,2,3$
+\begin{solucion}
+
+		Las curvas de nivel de la función corresponden a
+		$$\sqrt[]{9-x^2-y^2} = k \ra 9-x^2-y^2 = k^2 \ra x^2+y^2 = 9-k^2$$
+		Notemos que esto corresponde a circunferencias de radio $\sqrt[]{9-k^2}$.
+		
+		Reemplazando con los valores de $k$ indicados, las curvas de nivel a graficar son
+		$$k = 0 \ra x^2+y^2 = 9$$
+		$$k = 1 \ra x^2+y^2 = 8$$
+		$$k = 2 \ra x^2+y^2 = 5$$
+		$$k = 3 \ra x^2+y^2 = 0$$
+		Graficando,
+		
+		\begin{center}
+			\includegraphics[scale=0.4]{../../../../img/curvasdenivel}			
+		\end{center}
+\end{solucion}
+\item Determinar si los siguientes limites existen o no. En caso de que existan, calcule su valor
+\begin{tasks}(4)
+\task $\lim\limits_{(x,y) \to (0,0)} \dfrac{x^2}{x^2+y^2}$
+\task $\lim\limits_{(x,y) \to (0,0)} \dfrac{5x^2y}{x^2+y^2}$
+\task $\lim\limits_{(x,y) \to (0,0)} \dfrac{xy}{x^2+y^2}$
+\task $\lim\limits_{(x,y) \to (0,0)} \dfrac{x^2ye^y}{x^4+y^2}$
+\end{tasks}
+\begin{solucion}
+
+\begin{enumerate}[a)]
+\item $\lim\limits_{(x,y) \to (0,0)} \dfrac{x^2}{x^2+y^2}$\\
+			\\
+			Notemos que a simple vista el grado del numerador y el denominador son iguales, por lo que es de esperarse que el límite no exista.
+			
+			Probemos desde distintas direcciones
+			$$x = 0 \ra \lim\limits_{(0,y) \to (0,0)} \dfrac{0^2}{0^2+y^2}
+			= 0$$
+			$$y = 0 \ra \lim\limits_{(x,0) \to (0,0)} \dfrac{x^2}{x^2+0^2}
+			= 1$$
+			Como $0 \neq 1$, concluimos que el límite no existe.
+\item $\lim\limits_{(x,y) \to (0,0)} \dfrac{5x^2y}{x^2+y^2}$\\
+			\\
+			En este caso, el grado del numerador es 3 y el del denominador es 2 por lo que, siendo el numerador mayor al denominador, es de esperarse que el límite exista (y probablemente sea igual a 0).
+			
+			Probemos desde distintas direcciones.
+			$$x = 0 \ra \lim\limits_{(0,y) \to (0,0)} \dfrac{5\cdot0^2y}{0^2+y^2} = 0$$
+			$$y = 0 \ra \lim\limits_{(x,0) \to (0,0)} \dfrac{5x^2\cdot 0}{x^2+0^2} = 0$$
+			$$y = mx \ra \lim\limits_{(x,mx) \to (0,0)} \dfrac{5x^2 mx}{x^2+(mx)^2}
+			= \lim\limits_{(x,mx) \to (0,0)} \dfrac{5mx^3}{x^2+m^2x^2}$$
+			$$\qquad \quad = \lim\limits_{(x,mx) \to (0,0)} \dfrac{5mx^3}{x^2(1+m^2)}
+			= \lim\limits_{(x,mx) \to (0,0)} \dfrac{5mx}{1+m^2}$$
+			$$= \dfrac{0}{1+m^2} = 0$$
+			Hasta el momento todo indica que el límite existe, sin embargo, para estar seguros es necesario comprobar con coordenadas polares, por lo que haremos el cambio de variables
+			$$x = rcos(\theta), \quad y = rsen(\theta)$$
+			Notemos que con este cambio,
+			$$x^2+y^2 = r^2, \quad (x,y)\ra 0 \Longrightarrow r \ra 0$$
+			Luego, debemos resolver el límite
+			$$\lim\limits_{r\ra 0} \dfrac{5r^2cos^2(\theta)rsen(\theta)}{r^2}
+			= \lim\limits_{r\ra 0} 5rcos^2(\theta)sen(\theta) = 0$$
+			Como las funciones $sen$ y $cos$ son funciones acotadas, por teorema del sandwich concluimos que el límite existe y es cero.
+\item $\lim\limits_{(x,y) \to (0,0)} \dfrac{xy}{x^2+y^2}$\\
+			\\
+			En este caso, el grado del numerador y el denominador son iguales, por lo que es de esperarse que el límite no exista.
+			
+			Probemos desde distintas direcciones.
+			$$x = 0 \ra \lim\limits_{(0,y) \to (0,0)} \dfrac{0\cdot y}{0^2+y^2} = 0$$
+			$$y = 0 \ra \lim\limits_{(x,0) \to (0,0)} \dfrac{x\cdot 0}{x^2+0^2} = 0$$
+			$$y = mx \ra \lim\limits_{(x,mx) \to (0,0)} \dfrac{x mx}{x^2+(mx)^2}
+			= \lim\limits_{(x,mx) \to (0,0)} \dfrac{mx^2}{x^2+m^2x^2}$$
+			$$ = \lim\limits_{(x,mx) \to (0,0)} \dfrac{mx^2}{x^2(1+m^2)}
+			= \dfrac{m}{1+m^2}$$
+			Como el resultado depende de $m$, para distintos valores de $m$ el valor será distinto, por lo que concluimos que el límite no existe.
+\item $\lim\limits_{(x,y) \to (0,0)} \dfrac{x^2ye^y}{x^4+y^2}$\\
+			\\
+			A simple vista, el grado del numerador es 3 y el del denominador es 4 por lo que, dado que el numerador es menor que el denominador, es de esperarse que el límite no exista.
+			
+			Probemos desde distintas direcciones.
+			$$x = 0 \ra \lim\limits_{(0,y) \to (0,0)} \dfrac{0^2ye^y}{0^4+y^2} = 0$$
+			$$y = 0 \ra \lim\limits_{(x,0) \to (0,0)} \dfrac{x^2\cdot \cdot e^0}{x^4+0^2} = 0$$
+			$$y = mx \ra \lim\limits_{(x,mx) \to (0,0)} \dfrac{mx^3e^{mx}}{x^4+m^2x^2} = 
+			\lim\limits_{(x,mx) \to (0,0)} \dfrac{mxe^{mx}}{x^2+m^2} = 0$$
+			Hasta el momento todo indica que el límite si existe y es cero, sin embargo, como intuitivamente dijimos que no debía existir, busquemos otro acercamiento al límite. Notemos que el exponente del $x$ y el $y$ en el denominador son $4$ y $2$, respectivamente, por lo que probaremos con una función que iguale estos exponente. Esta puede ser, cualquiera de la forma $y = mx^2$.
+			$$y = mx^2 \ra \lim\limits_{(x,mx^2) \to (0,0)} \dfrac{mx^4e^{mx^2}}{x^4+m^2x^4} = 
+			\lim\limits_{(x,mx) \to (0,0)} \dfrac{me^{mx^2}}{1+m^2} = \dfrac{m}{1+m^2} \neq 0$$
+			Finalmente, concluimos que el límite no existe.
+\end{enumerate}
+\end{solucion}
+\item Determine la derivada por definición en $x$ de la función
+	$$f(x,y) = 2xy + x^2y + x + y$$
+\begin{solucion}
+Para determinar la derivada en $x$ debemos resolver el siguiente límite
+		$$f_x = \lim\limits_{h \ra 0} \dfrac{f(x+h,y) - f(x,y)}{h}$$
+		En nuestro caso,
+		$$f_x = \lim\limits_{h \ra 0} \dfrac{2(x+h)y + (x+h)^2y + (x+h) + y - (2xy + x^2y + x + y)}{h}$$
+		$$= \lim\limits_{h \ra 0} \dfrac{2xy+2hy + x^2y+2xhy + yh^2 + x+h + y - 2xy - x^2y - x - y}{h}$$
+		$$= \lim\limits_{h \ra 0} \dfrac{2hy+2xhy + h^2 +h}{h}
+		= \lim\limits_{h \ra 0} \dfrac{h(2y+2xy + hy +1)}{h}$$
+		$$= \lim\limits_{h \ra 0} 2y+2xy + hy +1
+		= 2y+2xy+1$$
+\end{solucion}
+\item Para las siguientes funciones, calcular $f_x$ y $f_y$
+\begin{enumerate}[a)]
+\item $f(x,y) = \dfrac{xy}{x-y}$
+\item $f(x,y) = (x^2+y^2)sen\left(\dfrac{1}{x^2+y^2}\right)$
+\end{enumerate}
+\begin{solucion}
+
+\begin{enumerate}[a)]
+\item $f(x,y) = \dfrac{xy}{x-y}$\\
+			\\
+			$$f_x = \dfrac{y(x-y)-xy}{(x-y)^2} = -\dfrac{y^2}{(x-y)^2}$$
+			$$f_y = \dfrac{x(x-y)+xy}{(x-y)^2} = \dfrac{x^2}{(x-y)^2}$$
+\item $f(x,y) = (x^2+y^2)sen\left(\dfrac{1}{x^2+y^2}\right)$
+			$$f_x = 2x\ sen\left(\dfrac{1}{x^2+y^2}\right) + cos\left(\dfrac{1}{x^2+y^2}\right) \cdot \dfrac{-1}{(x^2+y^2)^2} \cdot 2x \cdot (x^2+y^2)$$
+			$$ = 2x\ sen\left(\dfrac{1}{x^2+y^2}\right) - cos\left(\dfrac{1}{x^2+y^2}\right) \cdot \dfrac{2x}{x^2+y^2}$$
+			$$f_y = 2x\ sen\left(\dfrac{1}{x^2+y^2}\right) + cos\left(\dfrac{1}{x^2+y^2}\right) \cdot \dfrac{-1}{(x^2+y^2)^2} \cdot 2y \cdot (x^2+y^2)$$
+			$$ = 2x\ sen\left(\dfrac{1}{x^2+y^2}\right) - cos\left(\dfrac{1}{x^2+y^2}\right) \cdot \dfrac{2y}{x^2+y^2}$$
+			Notemos que ambas derivadas son practicamente iguales, pero se cambiando de lugar las variables. Esto es porque la función cumple que $f(x,y) = f(y,x)$
+\end{enumerate}
+\end{solucion}
+\item Una función armónica es aquella que cumple con $f_{xx} + f_{yy} = 0$. Determina si la siguiente funcion es armónica
+	$$f(x,y) = xy + 3x^2 -y^3$$
+\begin{solucion}
+Derivando,
+		$$f_x = y + 6x \ra f_{xx} = 6$$
+		$$f_y = x -3y^2 \ra f_{yy} = -6y$$
+		Como $f_{xx} + f_{yy} = 6 - 6y \neq 0$, concluimos que la función no es armónica.
+\end{solucion}
+\item Busque $\dfrac{\delta z}{\delta t}$ o $\dfrac{\delta w}{\delta t}$, según corresponda.
+\begin{enumerate}[a)]
+\item $z = x^2+y^2+xy$\tab$x=sen(t), y=e^t$
+\item $w=xe^{y/z}$\tab$x=t^2, y=1-t, z=1+2t$
+\item $w=ln(\sqrt[]{x^2+y^2+z^2})$\tab$x=sen(t), y=cos(t), z=tan(t)$
+\end{enumerate}
+\begin{solucion}
+
+\begin{enumerate}[a)]
+\item $z = x^2+y^2+xy$\tab$x=sen(t), y=e^t$\\
+			\\
+			$z_t = z_x x_t + z_y y_z = (2x+y)cos(t) + (2y+x)e^t$
+\item $w=xe^{y/z}$\tab$x=t^2, y=1-t, z=1+2t$\\
+			\\
+			{\small$w_t = w_x x_t + w_y y_t + w_z z_t = e^{y/z} 2t + xe^{y/z}\dfrac{1}{z}\cdot(-1) + xe^{y/z} \cdot \dfrac{-1}{z^2}\cdot 2 = e^{y/z}\left(2t - \dfrac{x}{z} - \dfrac{2x}{z^2}\right)$}
+\item $w=ln(\sqrt[]{x^2+y^2+z^2})$\tab$x=sen(t), y=cos(t), z=tan(t)$\\
+			\\
+			$w_t = w_x x_t + w_y y_t + w_z z_t$
+			$$ = \dfrac{1}{\sqrt[]{x^2+y^2+z^2}}\cdot \dfrac{1}{2\ \sqrt[]{x^2+y^2+z^2}} (2x\ cos(t) - 2y\ sen(t) + 2z\ sec^2(t))$$
+			$$ = \dfrac{1}{x^2+y^2+z^2} (x\ cos(t) - y\ sen(t) + z\ sec^2(t)) \qquad \qquad \qquad \qquad \qquad$$
+\end{enumerate}
+\end{solucion}
+\end{preguntas}
+\end{document}
