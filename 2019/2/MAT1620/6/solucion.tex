@@ -126,10 +126,30 @@
 \begin{solucion}
 
 \begin{enumerate}[a)]
-\item 
-\item 
-\item 
-\item 
+\item $f(x, y) = \sqrt[]{x+y} + \ln(x^2+y^2)$\\
+\\
+Notemos que hay dos restricciones que se deben cumplir. La raiz no debe tener argumento negativo y el logaritmo debe tener argumento positivo. Luego, el dominio de la función es
+$$Dom(f) = \{(x,y) \in \R^2 | x + y \geq 0 \wedge x^2 + y^2 > 0\}
+\item $f(x,y) = \dfrac{x+y}{x^2-y^2}$\\
+\\
+En este caso nuestra unica restricción es que el denominador sea distinto de 0, por lo que debe ocurrir que
+$$x^2 - y^2 \neq 0 \ra x \neq y \wedge x \neq -y$$
+Por lo que el dominio será
+$$Dom(f) = \{(x,y) \in \R^2 | x \neq y \wedge x \neq -y\}$$
+\item $f(x,y,z) = ln(z+y) - \dfrac{1}{x^2 +z^2}$\\
+\\
+Nuevamente debemos hacer que el logaritmo sea positivo y el denominador distinto de 0. Para el logaritmo es trivial pero notemos que el denominador solo podrá ser 0 si $x$ y $z$ son 0. \\
+
+Luego,
+$$Dom(f) = \{(x,y,z) \in \R^3 | z + y > 0 \wedge (x,y,z) \neq (0,y,0) \forall y \in \R \}$$
+\item $f(x,y,z) = \sqrt[]{\ln(x+y+z)}$\\
+\\
+En este caso, notemos que no solamente el argumento del logaritmo debe ser positivo, sino que tambien el resultado de este debe ser no negativo, ya que esto irá dentro de la raiz.\\
+
+Esto es,
+$$\ln(x+y+z) \geq 0 \ra x + y + z \geq 1$$
+Finalmente,
+$$Dom(f) = \{(x,y,z) \in \R^3 | x + y + z \geq 1 \}$$
 \end{enumerate}
 \end{solucion}
 \item Determina el recorrido de las siguientes funciones
@@ -140,8 +160,18 @@
 \begin{solucion}
 
 \begin{enumerate}[a)]
-\item 
-\item 
+\item $f(x,y) = x^2 + y^2 + 3$\\
+\\
+Notemos que los primeros dos terminos será siempre positivos y el menor valor que pueden tomar es 0.\\
+
+Luego, el recorrido será
+$$Rec(f) = [3, \infty)$$
+\item $f(x,y,z) = \ln(\sqrt[]{x^2+y^2+4}) + z^2$\\
+\\
+El valor de la raiz que se encuentra dentro del logaritmo será a lo menos 2, ya que los primeros dos terminos pueden tomar mínimo 0 y luego quedará el 4. Luego, el mínimo valor del logaritmo será $\ln(2)$.\\
+\\
+Por otro lado, $z^2$ será a lo menos 0, con lo que el recorrido que nos queda es
+$$Rec(f) = [\ln(2), \infty)$$
 \end{enumerate}
 \end{solucion}
 \item Grafique las curvas de nivel de la función 
