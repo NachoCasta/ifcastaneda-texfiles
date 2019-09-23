@@ -116,5 +116,97 @@
 \end{center}
 
 \begin{preguntas}
+\item Determinar si los siguientes limites existen o no. En caso de que existan, calcule su valor
+\begin{tasks}(6)
+\task $\lim\limits_{(x,y) \to (0,0)} \dfrac{x^2}{x^2+y^2}$
+\task $\lim\limits_{(x,y) \to (0,0)} \dfrac{5x^2y}{x^2+y^2}$
+\task $\lim\limits_{(x,y) \to (0,0)} \dfrac{xy}{x^2+y^2}$
+\task $\lim\limits_{(x,y) \to (0,0)} \dfrac{x^2ye^y}{x^4+y^2}$
+\task $\lim\limits_{(x,y) \to (0,0)} \dfrac{x^2y}{x^4+y^2}$
+\task $\lim\limits_{(x,y) \to (0,0)} \dfrac{sen(x^2+y^2)}{x^2+y^2}$
+\end{tasks}
+\begin{solucion}
+
+\begin{enumerate}[a)]
+\item $\lim\limits_{(x,y) \to (0,0)} \dfrac{x^2}{x^2+y^2}$\\
+			\\
+			Notemos que a simple vista el grado del numerador y el denominador son iguales, por lo que es de esperarse que el límite no exista.
+			
+			Probemos desde distintas direcciones
+			$$x = 0 \ra \lim\limits_{(0,y) \to (0,0)} \dfrac{0^2}{0^2+y^2}
+			= 0$$
+			$$y = 0 \ra \lim\limits_{(x,0) \to (0,0)} \dfrac{x^2}{x^2+0^2}
+			= 1$$
+			Como $0 \neq 1$, concluimos que el límite no existe.
+\item $\lim\limits_{(x,y) \to (0,0)} \dfrac{5x^2y}{x^2+y^2}$\\
+			\\
+			En este caso, el grado del numerador es 3 y el del denominador es 2 por lo que, siendo el numerador mayor al denominador, es de esperarse que el límite exista (y probablemente sea igual a 0).
+			
+			Probemos desde distintas direcciones.
+			$$x = 0 \ra \lim\limits_{(0,y) \to (0,0)} \dfrac{5\cdot0^2y}{0^2+y^2} = 0$$
+			$$y = 0 \ra \lim\limits_{(x,0) \to (0,0)} \dfrac{5x^2\cdot 0}{x^2+0^2} = 0$$
+			$$y = mx \ra \lim\limits_{(x,mx) \to (0,0)} \dfrac{5x^2 mx}{x^2+(mx)^2}
+			= \lim\limits_{(x,mx) \to (0,0)} \dfrac{5mx^3}{x^2+m^2x^2}$$
+			$$\qquad \quad = \lim\limits_{(x,mx) \to (0,0)} \dfrac{5mx^3}{x^2(1+m^2)}
+			= \lim\limits_{(x,mx) \to (0,0)} \dfrac{5mx}{1+m^2}$$
+			$$= \dfrac{0}{1+m^2} = 0$$
+			Hasta el momento todo indica que el límite existe, sin embargo, para estar seguros es necesario comprobar con coordenadas polares, por lo que haremos el cambio de variables
+			$$x = rcos(\theta), \quad y = rsen(\theta)$$
+			Notemos que con este cambio,
+			$$x^2+y^2 = r^2, \quad (x,y)\ra 0 \Longrightarrow r \ra 0$$
+			Luego, debemos resolver el límite
+			$$\lim\limits_{r\ra 0} \dfrac{5r^2cos^2(\theta)rsen(\theta)}{r^2}
+			= \lim\limits_{r\ra 0} 5rcos^2(\theta)sen(\theta) = 0$$
+			Como las funciones $sen$ y $cos$ son funciones acotadas, por teorema del sandwich concluimos que el límite existe y es cero.
+\item $\lim\limits_{(x,y) \to (0,0)} \dfrac{xy}{x^2+y^2}$\\
+			\\
+			En este caso, el grado del numerador y el denominador son iguales, por lo que es de esperarse que el límite no exista.
+			
+			Probemos desde distintas direcciones.
+			$$x = 0 \ra \lim\limits_{(0,y) \to (0,0)} \dfrac{0\cdot y}{0^2+y^2} = 0$$
+			$$y = 0 \ra \lim\limits_{(x,0) \to (0,0)} \dfrac{x\cdot 0}{x^2+0^2} = 0$$
+			$$y = mx \ra \lim\limits_{(x,mx) \to (0,0)} \dfrac{x mx}{x^2+(mx)^2}
+			= \lim\limits_{(x,mx) \to (0,0)} \dfrac{mx^2}{x^2+m^2x^2}$$
+			$$ = \lim\limits_{(x,mx) \to (0,0)} \dfrac{mx^2}{x^2(1+m^2)}
+			= \dfrac{m}{1+m^2}$$
+			Como el resultado depende de $m$, para distintos valores de $m$ el valor será distinto, por lo que concluimos que el límite no existe.
+\item $\lim\limits_{(x,y) \to (0,0)} \dfrac{x^2ye^y}{x^4+y^2}$\\
+			\\
+			A simple vista, el grado del numerador es 3 y el del denominador es 4 por lo que, dado que el numerador es menor que el denominador, es de esperarse que el límite no exista.
+			
+			Probemos desde distintas direcciones.
+			$$x = 0 \ra \lim\limits_{(0,y) \to (0,0)} \dfrac{0^2ye^y}{0^4+y^2} = 0$$
+			$$y = 0 \ra \lim\limits_{(x,0) \to (0,0)} \dfrac{x^2\cdot \cdot e^0}{x^4+0^2} = 0$$
+			$$y = mx \ra \lim\limits_{(x,mx) \to (0,0)} \dfrac{mx^3e^{mx}}{x^4+m^2x^2} = 
+			\lim\limits_{(x,mx) \to (0,0)} \dfrac{mxe^{mx}}{x^2+m^2} = 0$$
+			Hasta el momento todo indica que el límite si existe y es cero, sin embargo, como intuitivamente dijimos que no debía existir, busquemos otro acercamiento al límite. Notemos que el exponente del $x$ y el $y$ en el denominador son $4$ y $2$, respectivamente, por lo que probaremos con una función que iguale estos exponente. Esta puede ser, cualquiera de la forma $y = mx^2$.
+			$$y = mx^2 \ra \lim\limits_{(x,mx^2) \to (0,0)} \dfrac{mx^4e^{mx^2}}{x^4+m^2x^4} = 
+			\lim\limits_{(x,mx) \to (0,0)} \dfrac{me^{mx^2}}{1+m^2} = \dfrac{m}{1+m^2} \neq 0$$
+			Finalmente, concluimos que el límite no existe.
+\item 
+\item 
+\end{enumerate}
+\end{solucion}
+\item Dada la función 
+	$$ f(x) = 
+	\begin{cases}
+	\dfrac{x^4y^3}{3x^2+2y^2} & si\ (x,y) \neq (0,0) \\
+	0 & si\ (x,y) = (0,0)
+	\end{cases}
+	$$
+	determinar si es continua en todo $\R^2$ o no.
+\begin{solucion}
+
+\end{solucion}
+\item Determine el conjunto de puntos en los cuales la función es continua
+	$$f(x,y) = 
+	\begin{cases}
+	\dfrac{x^3y^2}{x^2+2y^2} & (x,y) \neq (0,0)\\
+	1 & (x,y) = (0,0)
+	\end{cases}
+	$$
+\begin{solucion}
+
+\end{solucion}
 \end{preguntas}
 \end{document}
