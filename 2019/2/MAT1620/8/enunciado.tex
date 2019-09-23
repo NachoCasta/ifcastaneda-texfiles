@@ -1,0 +1,142 @@
+\documentclass[12pt]{article}
+
+\usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[none]{hyphenat}
+\usepackage{parskip}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\usepackage{tasks}
+\usepackage{mdframed}
+\usepackage{xcolor}
+\usepackage{pgfplots}
+\usepackage[makeroom]{cancel}
+\usepackage{multicol}
+\usepackage[shortlabels]{enumitem}
+\usepackage{stackrel}
+\usepackage{tkz-tab}
+\usepackage{xpatch}
+\usepackage{tkz-euclide}
+\usetkzobj{all}
+\usepackage{tabto}
+\xpatchcmd{\tkzTabLine}{$0$}{$\bullet$}{}{}
+
+\setlength{\headheight}{10pt}
+\setlength{\headsep}{10pt}
+\pagestyle{fancy}
+\rhead{\ayudantia \ - \alumno}
+\tikzset{t style/.style={style=solid}}
+
+\newcommand*{\mybox}[2]{\colorbox{#1!30}{\parbox{.98\linewidth}{#2}}}
+
+\newenvironment{solucion}
+{\begin{mdframed}[backgroundcolor=black!10]
+		{\bf Solución:}\\
+	}
+	{
+	\end{mdframed}
+}
+
+\newenvironment{alternativas}[1]
+{\begin{multicols}{#1}
+		\begin{enumerate}[a)]
+		}
+		{
+		\end{enumerate}
+	\end{multicols}
+}
+
+\newenvironment{preguntas}
+{\begin{enumerate}\itemsep12pt
+	}
+	{
+	\end{enumerate}
+}
+
+\newcommand{\ayudantia}{{\sc Ayudantía 8}}
+\newcommand{\tituloayu}{Derivadas parciales y regla de la cadena}
+\newcommand{\fecha}{1 de noviembre de 2019}
+\newcommand{\sigla}{MAT1620}
+\newcommand{\nombre}{Cálculo II}
+\newcommand{\profesor}{Wolfgang Rivera}
+\newcommand{\ano}{2019}
+\newcommand{\semestre}{2}
+\newcommand{\mail}{mat1620@ifcastaneda.cl}
+\newcommand{\alumno}{Ignacio Castañeda - \mail}
+
+\newcommand{\ev}{\Big|}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lra}{\leftrightarrow}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Exp}[1]{\mathcal{E}_{#1}}
+\newcommand{\List}[1]{\mathcal{L}_{#1}}
+\newcommand{\EN}{\Exp{\N}}
+\newcommand{\LN}{\List{\N}}
+\newcommand{\comment}[1]{}
+\newcommand{\lb}{\\~\\}
+\newcommand{\eop}{_{\square}}
+\newcommand{\hsig}{\hat{\sigma}}
+\newcommand{\widesim}[2][1.5]{
+	\mathrel{\overset{#2}{\scalebox{#1}[1]{$\sim$}}}
+}
+\newcommand{\wsim}{\widesim{}}
+\newcommand{\lh}{\stackrel{L'H}{=}}
+
+\begin{document}
+\thispagestyle{empty}
+
+\begin{minipage}{2cm}
+	\includegraphics[width=2cm]{../../../../img/logo.pdf}
+	\vspace{0.5cm}
+\end{minipage}
+\begin{minipage}{\linewidth}
+	\begin{tabular}{lrl}
+		{\scriptsize\sc Pontificia Universidad Catolica de Chile} & \hspace*{0.7in}Curso: &
+		\sigla  - \nombre\\
+		{\sc Facultad de Matemáticas}&
+		Profesor: & \profesor \\
+		{\sc Semestre \ano-\semestre} & Ayudante: & {Ignacio Castañeda}\\
+		& {Mail:} & \texttt{\mail}
+	\end{tabular}
+\end{minipage}
+
+\vspace{-10mm}
+\begin{center}
+	{\LARGE\bf \ayudantia}\\
+	\vspace{0.1cm}
+	{\tituloayu}\\
+	\vspace{0.1cm}
+	\fecha\\
+	\vspace{0.4cm}
+\end{center}
+
+\begin{preguntas}
+\item Determinar si los siguientes limites existen o no. En caso de que existan, calcule su valor
+\begin{tasks}(4)
+\task $\lim\limits_{(x,y) \to (0,0)} \dfrac{x^2}{x^2+y^2}$
+\task $\lim\limits_{(x,y) \to (0,0)} \dfrac{5x^2y}{x^2+y^2}$
+\task $\lim\limits_{(x,y) \to (0,0)} \dfrac{xy}{x^2+y^2}$
+\task $\lim\limits_{(x,y) \to (0,0)} \dfrac{x^2ye^y}{x^4+y^2}$
+\end{tasks}
+\item Determine la derivada por definición en $x$ de la función
+	$$f(x,y) = 2xy + x^2y + x + y$$
+\item Para las siguientes funciones, calcular $f_x$ y $f_y$
+\begin{enumerate}[a)]
+\item $f(x,y) = \dfrac{xy}{x-y}$
+\item $f(x,y) = (x^2+y^2)sen\left(\dfrac{1}{x^2+y^2}\right)$
+\end{enumerate}
+\item Una función armónica es aquella que cumple con $f_{xx} + f_{yy} = 0$. Determina si la siguiente funcion es armónica
+	$$f(x,y) = xy + 3x^2 -y^3$$
+\item Busque $\dfrac{\delta z}{\delta t}$ o $\dfrac{\delta w}{\delta t}$, según corresponda.
+\begin{enumerate}[a)]
+\item $z = x^2+y^2+xy$\tab$x=sen(t), y=e^t$
+\item $w=xe^{y/z}$\tab$x=t^2, y=1-t, z=1+2t$
+\item $w=ln(\sqrt[]{x^2+y^2+z^2})$\tab$x=sen(t), y=cos(t), z=tan(t)$
+\end{enumerate}
+\end{preguntas}
+\end{document}
