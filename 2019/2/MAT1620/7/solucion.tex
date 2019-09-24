@@ -183,8 +183,34 @@
 			$$y = mx^2 \ra \lim\limits_{(x,mx^2) \to (0,0)} \dfrac{mx^4e^{mx^2}}{x^4+m^2x^4} = 
 			\lim\limits_{(x,mx) \to (0,0)} \dfrac{me^{mx^2}}{1+m^2} = \dfrac{m}{1+m^2} \neq 0$$
 			Finalmente, concluimos que el límite no existe.
-\item 
-\item 
+\item $\lim\limits_{(x,y) \to (0,0)} \dfrac{sen(x^2+y^2)}{x^2+y^2}$\\
+\\
+Probemos desde distintas direcciones.
+$$x = 0 \ra \lim\limits_{(0,y) \to (0,0)} \dfrac{sen(0^2+y^2)}{0^2+y^2} 
+= \lim\limits_{y \to 0} \dfrac{sen(y^2)}{y^2}
+= 1$$
+$$y = 0 \ra \lim\limits_{(x,0) \to (0,0)} \dfrac{sen(x^2+0^2)}{x^2+0^2} 
+= \lim\limits_{x \to 0} \dfrac{sen(x^2)}{x^2}
+= 1$$
+$$y = mx \ra \lim\limits_{(x,mx) \to (0,0)} \dfrac{sen(x^2+(mx)^2)}{x^2+(mx)^2} 
+= \lim\limits_{x \to 0} \dfrac{sen(x^2(1+m^2))}{x^2(1+m^2)}
+= 1$$
+Ahora, comprobamos en polares
+$$x = rcos(\theta), \quad y = rsen(\theta)$$
+$$x^2 + y^2 = r^2$$
+Con esto, el límite queda
+$$\lim\limits_{r\ra 0} \dfrac{sen(r^2)}{r^2} = 1$$
+\item $\lim\limits_{(x,y) \to (0,0)} \dfrac{sen(xy)}{xy}$\\
+\\
+Probemos directamente con polares,
+$$x = rcos(\theta), \quad y = rsen(\theta)$$
+Con esto, el límite queda
+$$\lim\limits_{r\ra 0} \dfrac{sen(rcos(\theta) rsen(\theta))}{rcos(\theta) rsen(\theta)}$$
+Uno tendería a pensar que esto es 1, sin embargo, si evaluamos con $\theta = 0$ antes de evaluar $r$, nos queda $\dfrac{0}{0}$, lo que es indefinido. Ojo que esto no es lo mismo que un límite que al evaluarlo nos queda $\dfrac{0}{0}$, ya que eso sería $\dfrac{casi\ 0}{casi\ 0}$. Aquí lo que ocurre es un real $\dfrac{0}{0}$, cosa que es imposible.\\
+
+Por lo tanto, el límite no existe.\\
+
+Como conclusión, para que el límite exista, este debe ser igual para cualquier valor de $\theta$, incluso antes de evaluar el límite.
 \end{enumerate}
 \end{solucion}
 \item Dada la función 
@@ -196,7 +222,29 @@
 	$$
 	determinar si es continua en todo $\R^2$ o no.
 \begin{solucion}
+Para que la función sea continua debe ocurrir que 
+$$\lim\limits_{(x,y) \to (0,0)} f(x,y) = f(0,0) = 0$$
 
+$\lim\limits_{(x,y) \to (0,0)} \dfrac{5x^2y}{x^2+y^2}$\\
+			\\
+			En este caso, el grado del numerador es 3 y el del denominador es 2 por lo que, siendo el numerador mayor al denominador, es de esperarse que el límite exista (y probablemente sea igual a 0).
+			
+			Probemos desde distintas direcciones.
+$$x = 0 \ra \lim\limits_{(0,y) \to (0,0)} \dfrac{0^4y^3}{3\cdot0^2+2y^2} = 0$$
+$$y = 0 \ra \lim\limits_{(x,0) \to (0,0)} \dfrac{x^40^3}{3x^2+2\cdot 0^2} = 0$$
+$$y = mx \ra \lim\limits_{(x,mx) \to (0,0)} \dfrac{x^4 (mx)^3}{3x^2+2m^2x^2}
+= \lim\limits_{(x,mx) \to (0,0)} \dfrac{m^3x^7}{x^2(3+2m^2)}
+= \lim\limits_{(x,mx) \to (0,0)} \dfrac{m^3x^5}{3+2m^2} = 0$$
+			Hasta el momento todo indica que el límite existe, sin embargo, para estar seguros es necesario comprobar con coordenadas polares, por lo que haremos el cambio de variables
+$$x = \sqrt[]{2}rcos(\theta), \quad y = \sqrt[]{3}rsen(\theta)$$
+Notemos que con este cambio,
+$$3x^2+2y^2 = 6r^2, \quad (x,y)\ra 0 \Longrightarrow r \ra 0$$
+Luego, debemos resolver el límite
+$$\lim\limits_{r\ra 0} \dfrac{r^4cos^4(\theta)r^3sen^3(\theta)}{6r^2}
+			= \lim\limits_{r\ra 0} \dfrac{1}{6}r^5cos^4(\theta)sen^3(\theta) = 0$$
+			Como las funciones $sen$ y $cos$ son funciones acotadas, por teorema del sandwich concluimos que el límite existe y es cero.\\
+\\
+Finalmente, la función es continua.
 \end{solucion}
 \item Determine el conjunto de puntos en los cuales la función es continua
 	$$f(x,y) = 
@@ -206,7 +254,29 @@
 	\end{cases}
 	$$
 \begin{solucion}
+Notemos que para todo $(x,y) \neq (0,0)$, $f(x,y)$ es continua por ser composición de funciones continuas.\\
 
+Luego, solo nos queda ver que ocurre en $(0,0)$.\\
+
+Para que la función sea continua en $(0,0)$ debe ocurrir que 
+$$\lim\limits_{(x,y) \to (0,0)} f(x,y) = f(0,0) = 1$$
+			
+			Probemos desde distintas direcciones.
+$$x = 0 \ra \lim\limits_{(0,y) \to (0,0)} \dfrac{0^3y^2}{0^2+2y^2} = 0$$
+$$y = 0 \ra \lim\limits_{(x,0) \to (0,0)} \dfrac{x^30^2}{x^2+2\cdot 0^2} = 0$$
+$$y = mx \ra \lim\limits_{(x,mx) \to (0,0)} \dfrac{x^3 (mx)^2}{x^2+2m^2x^2}
+= \lim\limits_{(x,mx) \to (0,0)} \dfrac{m^2x^5}{x^2(1+2m^2)}
+= \lim\limits_{(x,mx) \to (0,0)} \dfrac{m^2x^3}{1+2m^2} = 0$$
+			Hasta el momento todo indica que el límite existe, sin embargo, para estar seguros es necesario comprobar con coordenadas polares, por lo que haremos el cambio de variables
+$$x = rcos(\theta), \quad y = \sqrt[]{2}rsen(\theta)$$
+Notemos que con este cambio,
+$$2x^2+y^2 = 2r^2, \quad (x,y)\ra 0 \Longrightarrow r \ra 0$$
+Luego, debemos resolver el límite
+$$\lim\limits_{r\ra 0} \dfrac{r^3cos^3(\theta)r^2sen^2(\theta)}{2r^2}
+			= \lim\limits_{r\ra 0} \dfrac{1}{2}r^3cos^3(\theta)sen^2(\theta) = 0$$
+			Como las funciones $sen$ y $cos$ son funciones acotadas, por teorema del sandwich concluimos que el límite existe y es cero.\\
+\\
+Por lo tanto, la función es continua en $\R^2 - (0,0)$.
 \end{solucion}
 \end{preguntas}
 \end{document}
