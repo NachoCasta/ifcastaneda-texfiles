@@ -22,6 +22,7 @@
 \usepackage{xpatch}
 \usepackage{tkz-euclide}
 \usetkzobj{all}
+\usepackage{tabto}
 \xpatchcmd{\tkzTabLine}{$0$}{$\bullet$}{}{}
 
 \setlength{\headheight}{10pt}
@@ -307,7 +308,20 @@ $$ \sum\limits_{n=2}^{\infty}\dfrac{n(n+1)}{3^{n-1}}
 \end{solucion}
 \item Encontrar una aproximación de $\sqrt[]{101}$ con un error máximo de $10^{-3}$
 \begin{solucion}
+En primer lugar, debemos definir una función que nos permita llegar al valor que queremos aproximar.\\
 
+Sea
+$$f(x) = \sqrt[]{x}$$
+Debemos encontrar una aproximación de $f(101)$.\\
+
+Luego, debemos definir un centro en torno al cual haremos una serie de Taylor. Este centro debe ser un valor que podamos evaluar en la función facilmente y que este lo màs cercano posible al valor que buscamos ($x = 101$). \\
+
+Ese valor será $x_0=100$, ya que $f(100) = 10$.\\
+
+Recordemos que
+$$f(x) = f(x_0) + \dfrac{f'(x_0)}{1!}(x-x_0) + \dfrac{f''(x_0)}{2!}(x-x_0)^2 + \dfrac{f'''(x_0)}{3!}(x-x_0)^3 + \dots$$
+Para ver cuanto grados debemos encontrar, debemos guiarnos por la siguiente formula que acota el error de la aproximación
+$$R_n \leq \dfrac{f^{(n+1)}(x_0)}{(n+1)!}|x-x_0|^{n+1}$$
 \end{solucion}
 \end{preguntas}
 \end{document}
