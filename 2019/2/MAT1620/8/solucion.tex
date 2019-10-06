@@ -186,10 +186,58 @@ Derivando,
 		$$a\dfrac{\delta^2g}{\delta u^2} - b\dfrac{\delta^2 g}{\delta v^2} = u^2 + v^2$$
 \end{enumerate}
 \begin{solucion}
-
+Antes de comenzar, calculemos las derivadas parciales de $x$ e $y$, ya que las usaremos varias veces, esto es
+	$$x_u = v,\quad  x_v = u,\quad y_u = u, \quad y_v = -v$$
 \begin{enumerate}[a)]
-\item 
-\item 
+\item Calcule $\dfrac{\delta g}{\delta u}, \dfrac{\delta g}{\delta v}$ en terminos de las derivadas parciales de $f$.\\
+\\
+Notemos que lo que nos están pidiendo es equivalente a calcular $f_u$ y $f_v$.
+$$f_u = f_x x_u + f_y y_u = f_x v + f_y u $$
+$$f_v = f_x x_v + f_y y_v = f_x u - f_y v $$
+\item Si $f_{xx}(x,y) + f_{yy}(x,y) = 2$ para todo $(x,y) \in R^2$, determine las constantes $a,b \in \R$ tales que
+$$a\dfrac{\delta^2g}{\delta u^2} - b\dfrac{\delta^2 g}{\delta v^2} = u^2 + v^2$$\\
+\\
+En primer lugar, debemos calcular $f_{uu}$ y $f_{vv}$.\\
+
+Comencemos por $f_{uu}$, esto es
+$$f_{uu} = (f_u)_u = (f_x v + f_y u)_u =(f_x v)_u + (f_y u)_u$$
+Veamos estos terminos por separado.\\
+\\
+En primer lugar, $(f_x v)_u$. Como estamos derivando en $u$, la $v$ es una constante, por lo que
+$$(f_x v)_u = f_{xu}v$$
+Luego, debemos derivar $f_x$ en $u$. Como $f_x$ es una función que depende de $x$ e $y$, también debemos aplicar la regla de la cadena, esto es,
+$$v f_{xu} = (f_{xx} x_u + f_{xy} y_u)v = (f_{xx} v + f_{xy} u)v $$
+Ahora, veamos que ocurre con $(f_y u)_u$. En este caso, $f_y$ esta multiplicado por $u$. Como estamos derivando en la variable $u$, esto ya no es una constante, por lo que debemos aplicar la regla de la multiplicación. Luego,
+$$(f_y u)_u =  f_{yu}u + f_y = (f_{yx} x_u + f_{yy} y_u)u + f_y =  (f_{yx} v + f_{yy} u)u + f_y$$
+Por lo tanto,
+$$f_{uu} = (f_{xx} v + f_{xy} u)v + (f_{yx} v + f_{yy} u)u + f_y$$
+Además, por el Teorema de Clairaut, sabemos que $f_{xy} = f_{yx}$\\
+\\
+Simplificando,
+$$f_{uu} = f_{xx}v^2 + 2f_{xy}uv + f_{yy}u^2+ f_y$$
+De manera análoga, podemos ver que
+$$f_{vv} = (f_x u - f_y v)_v = (f_x u)_v - (f_y v)_v$$
+Luego,
+$$f_{vv} = (f_{xx}x_v + f_{xy} y_v)u + - (f_{yx} x_v + f_{yy} y_v)v - f_y$$
+Reemplazando,
+$$f_{vv} = (f_{xx}u + f_{xy} (-v))u + - (f_{yx} u + f_{yy} (-v))v - f_y$$
+Simplificando,
+$$f_{vv} = f_{xx}u^2 - 2f_{xy}uv + f_{yy}v^2 + f_y$$
+Ahora que tenemos $f_{uu}$ y $f_{vv}$, debemos buscar $a$ y $b$ tal que
+$$af_{uu} - bf_{vv} = u^2 + v^2$$
+Reemplazando,
+$$a((f_{xx} v + f_{xy} u)v + (f_{yx} v + f_{yy} u)u + f_y) - b (f_{xx}u^2 - 2f_{xy}uv + f_{yy}v^2 + f_y) = u^2 + v^2$$
+Reordenando, según las potencias de $u$ y $v$, tenemos
+$$u^2(af_{yy} - bf_{xx}) + v^2(af_{xx} - bf_{yy}) + (a+b)(2f_{xy}uv + f_y) = u^2 + v^2$$
+En primer lugar, notemos que el tercer termino debe desaparecer, por lo que necesariamente
+$$a + b = 0 \ra a = -b$$
+Reemplazando esto, tenemos
+$$u^2(af_{yy} +af_{xx}) + v^2(af_{xx} +af_{yy}) = u^2 + v^2$$
+$$u^2a(f_{yy} +f_{xx}) + v^2a(f_{xx} +f_{yy}) = u^2 + v^2$$
+Por el enunciado, sabemos que $f_{xx} + f_{yy} = 2$, por lo que
+$$u^22a + v^22a = u^2 + v^2$$
+Luego,
+$$2a = 1 \ra a = \dfrac{1}{2} \ra b = -\dfrac{1}{2}$$
 \end{enumerate}
 \end{solucion}
 \end{preguntas}
