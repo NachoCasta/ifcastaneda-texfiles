@@ -468,7 +468,25 @@ Ese valor será $x_0=100$, ya que $f(100) = 10$.\\
 Recordemos que
 $$f(x) = f(x_0) + \dfrac{f'(x_0)}{1!}(x-x_0) + \dfrac{f''(x_0)}{2!}(x-x_0)^2 + \dfrac{f'''(x_0)}{3!}(x-x_0)^3 + \dots$$
 Para ver cuanto grados debemos encontrar, debemos guiarnos por la siguiente formula que acota el error de la aproximación
-$$R_n \leq \dfrac{f^{(n+1)}(x_0)}{(n+1)!}|x-x_0|^{n+1}$$
+$$R_n \leq \left|\dfrac{f^{(n+1)}(x_0)}{(n+1)!}(x-x_0)^{n+1}\right|$$
+Para recordarlo noten que el error con $n$ grados corresponde al término $n+1$ de la Serie de Taylor.\\
+\\
+Derivando,
+$$f(x) = \sqrt[]{x} \qquad f(100) = 10$$
+$$f'(x) = \dfrac{1}{2\ \sqrt[]{x}} \qquad f'(100) = \dfrac{1}{20}$$
+$$f''(x) = -\dfrac{1}{4\ \sqrt[]{x^3}} \qquad f'(100) = -\dfrac{1}{4000}$$
+Veamos si con 1 grado la aproximación será lo suficientemente precisa,
+$$R_1 \leq \left|\dfrac{f''(100)}{2!}(101-100)^{2}\right| = \dfrac{1}{8000} \leq 10^{-3}$$
+Por lo tanto, con 1 grado es suficiente.\\
+\\
+Finalmente,
+$$f(101) \approx f(100) + \dfrac{f'(100)}{1!}(101-100) = 10 + \dfrac{1}{20} = 10.05$$
+Extra:\\
+\\
+Si agregamos un grado más a la aproximación, obtendríamos
+{\small $$f(101) \approx f(100) + \dfrac{f'(100)}{1!}(101-100) + \dfrac{f''(100)}{2!}(101-100)^2 = 10 + \dfrac{1}{20} - \dfrac{1}{8000} = 10,049875$$}
+Comparando con el valor exacto de la raíz, podemos ver que es muy cercano, esto es,
+$$\sqrt[]{101} = 10,0498756211...$$
 \end{solucion}
 \item Determina el dominio de las siguientes funciones
 \begin{tasks}(2)
