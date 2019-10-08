@@ -117,14 +117,14 @@
 
 \begin{preguntas}
 \item Calcular la siguiente suma
-	$$1 - ln(2) + \dfrac{(ln2)^2}{2!}-\dfrac{(ln2)^3}{3!}+\cdots$$
+	$$1 - ln(2) + \dfrac{(ln(2))^2}{2!}-\dfrac{(ln(2))^3}{3!}+\cdots$$
 \begin{solucion}
 En primer lugar, escribamos la suma como una serie, esto es
-$$\sum\limits_{0}^{\infty} \dfrac{(\ln(2))^n}{n!}$$
+$$\sum\limits_{0}^{\infty} \dfrac{(-\ln(2))^n}{n!}$$
 Recordemos que
 $$e^x = \sum\limits_{0}^{\infty} \dfrac{x^n}{n!}$$
 Luego,
-$$\sum\limits_{0}^{\infty} \dfrac{(\ln(2))^n}{n!} = e^{\ln(2)} = 2$$
+$$\sum\limits_{0}^{\infty} \dfrac{(-\ln(2))^n}{n!} = e^{-\ln(2)} = \dfrac{1}{2}$$
 \end{solucion}
 \item Evalúe la integral indefinida como una serie infinita
 	$$\int x\ \arctan(3x)dx$$
