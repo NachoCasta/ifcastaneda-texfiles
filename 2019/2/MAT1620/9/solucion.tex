@@ -127,9 +127,26 @@ Luego,
 $$\sum\limits_{0}^{\infty} \dfrac{(\ln(2))^n}{n!} = e^{\ln(2)} = 2$$
 \end{solucion}
 \item Evalúe la integral indefinida como una serie infinita
-	$$\int x\ arctan(3x)dx$$
+	$$\int x\ \arctan(3x)dx$$
 \begin{solucion}
-
+Lo que nos genera problemas en la integral es el $\arctan(3x)$, por lo que convertiremos eso en una serie.\\
+\\
+Sea
+$$f(x) = \arctan(3x)$$
+Derivando,
+$$f'(x) = \dfrac{3}{1+9x^2} = \dfrac{3}{1-(-9x^2)} = \sum\limits_0^{\infty}(-9x^2)^n = \sum\limits_0^{\infty}(-1)^n 9^n x^{2n}$$
+Integrando,
+$$f(x) = \sum\limits_0^{\infty}(-1)^n 9^n \int x^{2n} = \sum\limits_0^{\infty}(-1)^n \dfrac{9^n}{2n+1}x^{2n+1} + c$$
+Evaluando en 0 en la seria y la función original,
+$$f(0) = c = 0$$
+Luego,
+$$\int x\ \arctan(3x)dx
+= \int x\ \sum\limits_0^{\infty}(-1)^n \dfrac{9^n}{2n+1}x^{2n+1}dx
+= \int \sum\limits_0^{\infty}(-1)^n \dfrac{9^n}{2n+1}x^{2n+2}dx
+$$
+$$
+= \sum\limits_0^{\infty}(-1)^n \dfrac{9^n}{(2n+1)(2n+3)}x^{2n+3}dx
+$$
 \end{solucion}
 \item Sea la función
 	$$f(x,y)=
@@ -140,15 +157,46 @@ $$\sum\limits_{0}^{\infty} \dfrac{(\ln(2))^n}{n!} = e^{\ln(2)} = 2$$
 	$$
 \begin{enumerate}[a)]
 \item Determinar si $f$ es continua en $(0,0)$.
-\item Calcular sus derivadas parciales, en caso de que existan.
+\item Calcular sus derivadas parciales en $(0,0)$, en caso de que existan.
 \item Determinar si $f$ es diferenciable en $(0,0)$.
 \end{enumerate}
 \begin{solucion}
 
 \begin{enumerate}[a)]
-\item 
-\item 
-\item 
+\item Para que la función sea continua en $(0,0)$, debe cumplirse que
+$$\lim\limits_{(x,y) \ra (0,0)} \dfrac{xy}{\sqrt[]{x^2+y^2}} = f(0,0) = 0$$
+Analizando el límite, vemos que tiene grado 2 en el numerador y grado 1 en el denominador, por lo que "al ojo" sería razonable creer que existe. Por esto, intentaremos hacerlo con coordenadas polares de inmediato, esto es,
+$$x = r\cos(\theta) \quad y = r\cos(\theta) \ra x^2 + y^2 = r^2$$
+Luego, el límite queda
+$$\lim\limits_{r \ra 0} \dfrac{r^2\cos(\theta)\sin(\theta)}{\sqrt[]{r^2}}
+= \lim\limits_{r \ra 0}  r\cos(\theta)\sin(\theta) = 0$$
+Por lo tanto, la función es continua en $(0,0)$.
+\item Para obtener las derivadas parciales de $f$, debemos hacerlo por definición, ya que no sabemos si la función es diferenciable en $(0,0)$.
+$$f_x(x,y) = \lim\limits_{h \ra 0} \dfrac{f(x+h,y)-f(x,y)}{h}
+= \lim\limits_{h \ra 0} \dfrac{\dfrac{(x+h)y}{\sqrt[]{(x+h)^2+y^2}} - \dfrac{xy}{\sqrt[]{x^2+y^2}}}{h}$$
+$$= \lim\limits_{h \ra 0} \dfrac{\dfrac{xy}{\sqrt[]{(x+h)^2+y^2}} + \dfrac{hy}{\sqrt[]{(x+h)^2+y^2}} - \dfrac{xy}{\sqrt[]{x^2+y^2}}}{h} $$
+$$=\lim\limits_{h \ra 0} \dfrac{\dfrac{hy}{\sqrt[]{(x+h)^2+y^2}}}{h}
+=\lim\limits_{h \ra 0} \dfrac{y}{\sqrt[]{(x+h)^2+y^2}}
+=\dfrac{y}{\sqrt[]{x^2+y^2}}
+$$
+$$f_y(x,y) = \lim\limits_{h \ra 0} \dfrac{f(x,y+h)-f(x,y)}{h}
+= \lim\limits_{h \ra 0} \dfrac{\dfrac{x(y+h)}{\sqrt[]{x^2+(y+h)^2}} - \dfrac{xy}{\sqrt[]{x^2+y^2}}}{h}$$
+$$= \lim\limits_{h \ra 0} \dfrac{\dfrac{xy}{\sqrt[]{x^2+(y+h)^2}} + \dfrac{hx}{\sqrt[]{x^2+(y+h)^2}} - \dfrac{xy}{\sqrt[]{x^2+y^2}}}{h} $$
+$$=\lim\limits_{h \ra 0} \dfrac{\dfrac{hx}{\sqrt[]{x^2+(y+h)^2}}}{h}
+=\lim\limits_{h \ra 0} \dfrac{x}{\sqrt[]{x^2+(y+h)^2}}
+=\dfrac{x}{\sqrt[]{x^2+y^2}}
+$$
+\item Para que la función sea diferenciable en $(0,0)$, se debe cumplir que
+$$\lim\limits_{(h,k)\ra(0,0)} \dfrac{f(h,k)-f(0,0)-hf_x(0,0) - kf_y(0,0)}{\sqrt[]{h^2+k^2}} = 0$$
+De la parte b), tenemos que
+$$f_x(0,0) = 0 \quad f_y(0,0) = 0$$
+Luego,
+$$\lim\limits_{(h,k)\ra(0,0)} \dfrac{\dfrac{hk}{\sqrt[]{h^2+k^2}-0-0-0}{\sqrt[]{h^2+k^2}}}
+= \lim\limits_{(h,k)\ra(0,0)} \dfrac{hk}{h^2+k^2} $$
+$$h = r\cos(\theta) \quad k = r\sin(\theta)$$
+$$= \lim\limits_{r \ra 0} \dfrac{r^2\cos(\theta)\sin(\theta)}{r^2}
+= \cos(\theta)\sin(\theta) \neq 0 $$
+Por lo tanto, la función no es diferenciable.
 \end{enumerate}
 \end{solucion}
 \item Encontrar el plano tangente a la superficie $z = y\cos\left(\dfrac{x}{2}\right)$ en el punto $(\pi, 1, 0)$.
