@@ -149,7 +149,7 @@ $$
 $$
 \end{solucion}
 \item Demuestre que
-$$\int_0^1 \dfrac{1-cos(x)}{x^2} = \sum\limits_{n=1} \dfrac{(-1)^n}{(2n)!(2n-1)} $$
+$$\int_0^1 \dfrac{1-cos(x)}{x^2} = \sum\limits_{n=1} \dfrac{(-1)^{n+1}}{(2n)!(2n-1)} $$
 \begin{solucion}
 
 \end{solucion}
@@ -229,11 +229,18 @@ $$\vec{n} = \begin{pmatrix}2x \\ 4y\\ 6z\end{pmatrix}$$
 Para que este plano sea tangente al plano dado, su vector normal debe ser múltiplo del vector normal del plano dado, esto es,
 $$\begin{pmatrix}2x \\ 4y\\ 6z\end{pmatrix} = k \begin{pmatrix}1 \\ 4\\ 6\end{pmatrix}$$
 Luego,
-$$x = \dfrac{k}{2}, \qquad y = \dfrac{k}{4}, \qquad z = \dfrac{k}{2}$$
-Como es un plano paralelo a $x + 4y + 6z = 0$, será de la forma
+$$x_0 = \dfrac{k}{2}, \qquad y_0 = k, \qquad z_0 = k$$
+Estos puntos deben pertenecer a la curva dada, por lo que
+$$\left(\dfrac{k}{2}\right)^2 + 2k^2 + 3k^2 = 21\ra k^2 = 4 \ra k = \pm 2$$
+Por lo tanto, los planos tangentes paralelos al plano dado, estarán en los puntos
+$$(1,2,2) \qquad y \qquad (-1,-2,-2)$$
+También, como el plano resultante será paralelo a $x + 4y + 6z= 0$, debe ser de la forma
 $$x + 4y + 6z = D$$
-Reemplazamos con los valores de $x,y,z$
-$$\left(\dfrac{k}{2}\right)^2 + 4\left(\dfrac{k}{4}\right)^2 + 6\left(\dfrac{k}{2}\right)^2$$
+Reemplazando con ambos puntos,
+$$1 + 8 + 12 = D = 21$$
+$$-1 - 8 - 12 = D = -21$$
+Por lo que los planos buscados son
+$$\Pi_1 = x + 4y + 6z = 21, \qquad \Pi_2 = x + 4y + 6z = -21$$
 \end{solucion}
 \item El cambio de variables 
 	$\begin{cases}
