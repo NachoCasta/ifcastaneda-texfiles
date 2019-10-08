@@ -201,7 +201,14 @@ Por lo tanto, la función no es diferenciable.
 \end{solucion}
 \item Encontrar el plano tangente a la superficie $z = y\cos\left(\dfrac{x}{2}\right)$ en el punto $(\pi, 1, 0)$.
 \begin{solucion}
-
+Recordemos que el plano tangente viene dado por
+$$z - z_0 = f_x(x_0, y_0)(x-x_0) + f_y(x_0,y_0)(y-y_0)$$
+Notemos que
+$$f_x(x,y) = -\dfrac{1}{2}y\sin\left(\dfrac{x}{2}\right) \qquad f(\pi, 1) = -\dfrac{1}{2}$$
+$$f_y(x,y) = \cos\left(\dfrac{x}{2}\right) \qquad f(\pi, 1) = 0$$
+Luego,
+$$z = -\dfrac{1}{2}(x-\pi) \ra 2z + x = \pi$$
+Donde $\Pi: 2z + x = \pi$ corresponde al plano tangente.
 \end{solucion}
 \item Hallar las ecuaciones de los planos tangentes a la superficie $x^2 + 2y^2 + 3z^2 = 21$ que sean paralelos al plano $x + 4y + 6z = 0$.
 \begin{solucion}
