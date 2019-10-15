@@ -162,7 +162,31 @@ $$7x - 4y - z = 3 - f(1,1)$$
 \end{solucion}
 \item La temperatura en el punto $(x,y)$ de una lamina metálica viene dada por la función $T(x,y) = \dfrac{x}{x^2+y^2}$. Hallar la razón de crecimiento máximo de la temperatura en el punto $(3,4$) y la dirección en que ella ocurre.
 \begin{solucion}
+En primer lugar, debemos calcular la gradiente, esto es
+$$\nabla T = \left( 
+\dfrac{(x^2+y^2) - 2x\cdot x}{(x^2+y^2)^2}, 
+\dfrac{-x}{(x^2+y^2)^2}2y
+\right)$$
+$$\nabla T = \left( 
+\dfrac{y^2 - x^2}{(x^2+y^2)^2}, 
+\dfrac{-2xy}{(x^2+y^2)^2}
+\right)$$
+Luego, la dirección de máximo crecimiento viene dada por
+$$\nabla T(3,4) = \left( 
+\dfrac{7}{625}, 
+-\dfrac{24}{625}
+\right)$$
+Notese que la dirección podría ser cualquier múltiplo de este vector, por lo que $(7,-24)$ también sería válido.\\
+\\
+Ahora, la razón de máximo crecimiento, viene dada por
+$$||\nabla T(3,4)|| 
+= \sqrt[]{\dfrac{7^2 + 24^2}{625^2}}
+= \dfrac{\sqrt[]{7^2 + 24^2}}{625}
+= \dfrac{\sqrt[]{625}}{625}
+= \dfrac{1}{25}$$
+Ojo que en este caso debemos usar la gradiente exacta, no un múltiplo de esta, ya que eso alteraría el resultado.\\
 
+Si nos pidieran la razón de decrecimiento máximo, habría que cambiarle el signo al resultado.
 \end{solucion}
 \item Encuentre y clasifíque los puntos críticos de $f(x,y)=x^3+3xy^2-15x-12y$.
 \begin{solucion}
