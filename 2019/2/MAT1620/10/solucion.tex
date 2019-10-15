@@ -150,7 +150,65 @@
 \end{solucion}
 \item Encuentre y clasifíque los puntos críticos de $f(x,y)=x^3+3xy^2-15x-12y$.
 \begin{solucion}
+Para encontrar y clasificar los puntos críticos de una función, se debe hacer lo siguiente:\\
 
+Para clasificarlos, calculamos el gradiente de la función y lo igualamos a 0. Todos los puntos que cumplan con esta condición serán los puntos críticos.\\
+
+Para clasificarlos, debemos evaluarlos en el determinante de la matriz Hessiana, que en el caso de dos variables es
+$$H(x,y) = f_{xx}f_{yy} - f_{xy}^2$$
+Aqui se cumplirá lo siguiente:
+\begin{itemize}
+\item $H > 0$
+\begin{itemize}
+    \item $f_{xx} > 0 \ra$ Mínimo local
+    \item $f_{xx} < 0 \ra$ Máximo local
+\end{itemize}
+\item $H < 0 \ra$ Punto silla
+\end{itemize}
+Veamos ahora el ejercicio.\\
+
+Tenemos que
+$$f(x,y)=x^3+3xy^2-15x-12y$$
+Luego,
+$$\nabla f = \begin{pvector} 3x^2 + 3y^2 - 15 \\ 6xy - 12 \end{pvector} = \vec{0}$$
+Luego, tenemos que resolver
+$$3x^2 + 3y^2 - 15 = 0$$
+$$6xy - 12 = 0$$
+Simplificando,
+$$x^2 + y^2 = 5$$
+$$xy = 2$$
+Sumando dos veces la segunda a la primera ecuación, obtenemos
+$$x^2 + 2xy + y^2 = 9$$
+Luego,
+$$(x+y)^2 = 9 \ra x + y = \pm3$$
+Ahora, debemos ver cada uno de estos casos y despejar reemplazando en la otra ecuación.
+En primer lugar, veamos el caso donde $x+y = 3$, es decir, $y = 3 - x$.\\
+\\
+Reemplazando,
+$$x(3-x) = 2 \ra x^2-3x+2=0 \ra (x-1)(x-2) = 0$$
+De aqui tenemos que $x_1 = 1\ra y_1 = 2$ y $x_2 = 2 \ra y_2 = 1$, por lo que $P_1(1,2)$ y $P_2(2,1)$.\\
+\\
+Veamos ahora que pasa con $x+y = -3$, es decir $y = -3-x$\\
+\\
+Reemplazando,
+$$x(-3-x) = 2 \ra x^2+3x+2=0 \ra (x+1)(x+2) = 0$$
+De aqui tenemos que $x_3 = -1 \ra y_3 = -2$ y $x_4 = -2 \ra y_4 = -1$, por lo que $P_3(-1,-2)$ y $P_4(-2,-1)$.\\
+\\
+Entonces, los puntos críticos son
+$$P_1(1,2), \quad P_2(2,1), \quad P_3(-1,-2), \quad P_4(-2,-1)$$
+Calculemos ahora el determinante del Hessiano, es decir,
+$$H(x,y) = f_{xx}f_{yy} - f_{xy}^2$$
+Notemos que
+$$f_{xx} = 6x, \quad f_{yy} = 6x,\quad f_{xy} = 6y$$
+Luego,
+$$H(x,y) = 36(x^2-y^2)$$
+Finalmente,
+$$H(P_1) = H(1,2) = 36(1^2-2^2) < 0 \ra \text{Punto silla}$$
+$$H(P_2) = H(2,1) = 36(2^2-1^2) > 0$$
+$$f_{xx}(2,1) = 12 > 0 \ra \text{Mínimo local}$$
+$$H(P_3) = H(-1,-2) = 36((-1)^2-(-2)^2) < 0 \ra \text{Punto silla}$$
+$$H(P_4) = H(-2,-1) = 36((-2)^2-(-1)^2) > 0$$
+$$f_{xx}(2,1) = -12 < 0 \ra \text{Máximo local}$$
 \end{solucion}
 \item Sea la función
 	$$f(x,y)=ax^2y+bxy^2+\dfrac{a^2y^2}{2}+2y$$
