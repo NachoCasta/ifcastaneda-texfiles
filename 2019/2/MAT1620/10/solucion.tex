@@ -152,10 +152,71 @@ $$z_{xy}(-1,0,-1) = \dfrac{\dfrac{1}{4} - 6 \cdot (-1)\cdot \dfrac{1}{4} \cdot \
 \item $f(x,y) = \dfrac{y^2}{x}$\tab$P=(1,2), u=\left(2i + \sqrt[]{5}j\right)$
 \end{enumerate}
 \begin{solucion}
-
+Recordemos que la derivada direccional de $f$ en la dirección $u$ en el punto $P(x_0, y_0)$, corresponde a
+$$D_u(x_0, y_0) = \nabla f(x_0, y_0) \cdot \hat{u}$$
 \begin{enumerate}[a)]
-\item 
-\item 
+\item $f(x,y) = sen(2x+3y)$\tab$P=(-6,4), u=\left(\sqrt[]{3}i - j\right)$\\
+\\
+En primer lugar, calculemos el gradiente, esto es
+$$\nabla f = \begin{pmatrix}
+2\cos(2x + 3y) \\
+3\cos(3x + 3y)
+\end{pmatrix} \ra 
+\nabla f(-6,4) = \begin{pmatrix}
+2 \\
+3
+\end{pmatrix}
+$$
+Luego, normalicemos $u$, esto es
+$$\hat{u} = \dfrac{u}{|u|} = \dfrac{\begin{pmatrix}
+\sqrt[]{3} \\
+-1
+\end{pmatrix}}{2} = \begin{pmatrix}
+\sqrt[]{3}/2 \\
+-1/2
+\end{pmatrix}$$
+Finalmente,
+$$D_u = 
+\begin{pmatrix}
+2 \\
+3
+\end{pmatrix}
+\cdot 
+\begin{pmatrix}
+\sqrt[]{3}/2 \\
+-1/2
+\end{pmatrix} = \sqrt[]{3} - \dfrac{3}{2}$$
+\item $f(x,y) = \dfrac{y^2}{x}$\tab$P=(1,2), u=\left(2i + \sqrt[]{5}j\right)$\\
+\\
+En primer lugar, calculemos el gradiente, esto es
+$$\nabla f = \begin{pmatrix}
+-y^2/x^2 \\
+2y/x
+\end{pmatrix} \ra 
+\nabla f(1,2) = \begin{pmatrix}
+-4 \\
+4
+\end{pmatrix}
+$$
+Luego, normalicemos $u$, esto es
+$$\hat{u} = \dfrac{u}{|u|} = \dfrac{\begin{pmatrix}
+2 \\
+\sqrt[]{5}
+\end{pmatrix}}{3} = \begin{pmatrix}
+2/3 \\
+\sqrt[]{5}/3
+\end{pmatrix}$$
+Finalmente,
+$$D_u = 
+\begin{pmatrix}
+-4 \\
+4
+\end{pmatrix}
+\cdot 
+\begin{pmatrix}
+2/3 \\
+\sqrt[]{5}/3
+\end{pmatrix} = \dfrac{-8 + 4\ \sqrt[]{5}}{3}$$
 \end{enumerate}
 \end{solucion}
 \item Suponga que $f(x,y)$ es una función con derivadas parciales continuas en el punto $(1,1)$. Asumir que la derivada direccional en $(1,1)$ en la dirección $\langle3,4\rangle$ 			es 1 y en la dirección $\langle5,12\rangle$ es $-1$.
