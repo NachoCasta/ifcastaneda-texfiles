@@ -138,10 +138,26 @@
 \item Encontrar la derivada direccional de $f(x,y)$ en $(1,1)$ en dirección al origen.	
 \end{enumerate}
 \begin{solucion}
-
+Recordemos que 
+$$D_u(x,y) = \nabla f(x,y) \cdot \hat{u}$$
+Luego, como sabemos que $D_{(3,4)}(1,1) = 1$ donde $u = (3,4) \ra \hat{u} = (\frac{3}{5}, \frac{4}{5})$, tenemos que
+$$D_{(3,4)}(1,1) = \begin{pmatrix}f_x(1,1) \\ f_y(1,1)\end{pmatrix} \cdot \begin{pmatrix}\frac{3}{5} \\ \frac{4}{5}\end{pmatrix} = 1$$
+$$\dfrac{3}{5}f_x(1,1) + \dfrac{4}{5}f_y(1,1) = 1$$
+$$3f_x(1,1) + 4f_y(1,1) = 5$$
+Análogamente, como $D_{(5,12)}(1,1) = -1$, donde $u=(5,12) \ra \hat{u} = (\frac{5}{13}, \frac{12}{13})$, tenemos que
+$$D_{(5,12)}(1,1) = \begin{pmatrix}f_x(1,1) \\ f_y(1,1)\end{pmatrix} \cdot \begin{pmatrix}\frac{5}{13} \\ \frac{12}{13}\end{pmatrix} = 1$$
+$$\dfrac{5}{13}f_x(1,1) + \dfrac{12}{13}f_y(1,1) = 1$$
+$$5f_x(1,1) + 12f_y(1,1) = 13$$
+Resolviendo este sistema de ecuaciones, obtenemos que
+$$f_x(1,1) = 7 \qquad f_y(1,1) = -4$$
 \begin{enumerate}[a)]
-\item 
-\item 
+\item Para obtener el plano tangente, lo podemos hacer con la formula, esto es
+$$z - f(1,1) = f_x(1,1)(x-1) + f_y(1,1)(y-1)$$
+$$z - f(1,1) = 7(x-1) - 4(y-1)$$
+$$7x - 4y - z = 3 - f(1,1)$$
+\item $D_{(1,1)}(1,1) = \begin{pmatrix}f_x(1,1) \\ f_y(1,1)\end{pmatrix} \cdot \begin{pmatrix}-\frac{1}{\sqrt[]{2}} \\ -\frac{1}{\sqrt[]{2}}\end{pmatrix}
+= \begin{pmatrix}7 \\ -4\end{pmatrix} \cdot \begin{pmatrix}-\frac{1}{\sqrt[]{2}} \\ -\frac{1}{\sqrt[]{2}}\end{pmatrix}
+= -\frac{3}{\sqrt[]{2}}$
 \end{enumerate}
 \end{solucion}
 \item La temperatura en el punto $(x,y)$ de una lamina metálica viene dada por la función $T(x,y) = \dfrac{x}{x^2+y^2}$. Hallar la razón de crecimiento máximo de la temperatura en el punto $(3,4$) y la dirección en que ella ocurre.
@@ -214,7 +230,34 @@ $$f_{xx}(2,1) = -12 < 0 \ra \text{Máximo local}$$
 	$$f(x,y)=ax^2y+bxy^2+\dfrac{a^2y^2}{2}+2y$$
 	determine los valores de $a$ y $b$ para que la función posea un punto silla en $(1,1)$.
 \begin{solucion}
+Para que exista un punto silla en $(1,1)$, deben cumplirse dos cosas:
+$$\nabla f(1,1) = 0 \wedge H(1,1) < 0$$
+Tenemos que
+$$\nabla f = \begin{pmatrix} 2axy + by^2 \\ ax^2 + 2bxy + a^2y\end{pmatrix}$$
+Evaluando en $(1,1)$,
+$$\nabla f(1,1) = \begin{pmatrix} 2a + b \\ a + 2b + a^2\end{pmatrix} = 0$$
+Luego,
+$$2a + b = 0$$
+$$a + 2b + a^2= 0$$
+Reemplazando la primera ecuación ($b = -2a$) en la segunda obtenemos,
+$$a^2 - 3a +2 = 0 \ra (a-2)(a-1) = 0$$
+De aquí obtememos
+$$a = 1 \ra b = -2, \qquad a = 2 \ra b = -4$$
+Veamos ahora cuál de estos valores de $a$ y $b$ cumplen la restricción del Hessiano.
+$$f_{xx} = 2ay, \quad f_{yy} = 2bx + a^2, \quad f_{xy} = 2ax + 2by$$
+Luego,
+$$H(x,y) = 2ay(2bx+a^2) - (2ax +2by)^2$$
+Evaluamos,
+$$H(1,1) = 2a(2b+a^2) - (2a+2b)^2$$
+Probamos con $a=1$ y $b=-2$,
+$$H = $$2(-4+1)-(2-4)^2 = -6 - 4 = -10 < 0$$
+Por lo que si es un punto silla.\\
+\\
+Probemos ahora ocn $a = 2$ y $b = -4$
+$$H = $$4(-8-4)-(4-8)^2 = -16 - 16 = -32 < 0$$
+Por lo que si es un punto silla.\\
 
+Finalmente, los valores que puede tomar $a$ y $b$ son $(1, -2)$ y $(2, -4)$
 \end{solucion}
 \end{preguntas}
 \end{document}
