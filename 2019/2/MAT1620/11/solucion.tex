@@ -129,5 +129,335 @@
 \begin{solucion}
 
 \end{solucion}
+\item Resolver las siguientes integrales múltiples
+\begin{tasks}(2)
+\task $\displaystyle\int_2^4 \displaystyle\int_1^2 ye^{xy}dxdy$
+\task $\displaystyle\int_{-1}^1\displaystyle\int_{-1}^1 \dfrac{xy}{1+x^2+y^2}dxdy$
+\end{tasks}
+\begin{solucion}
+
+\begin{enumerate}[a)]
+\item $\displaystyle\int_2^4 \displaystyle\int_1^2 ye^{xy}dxdy = 
+			\displaystyle\int_2^4 e^{xy} \ev_1^2 dy = 
+			\displaystyle\int_2^4 e^{2y} - e^{y} dy =
+			\dfrac{1}{2}e^{2y}\ev_2^4 - e^{y}\ev_2^4$\\
+			$=\dfrac{1}{2}e^8 - \dfrac{1}{2}e^4 - e^4 + e^2 =
+			\dfrac{1}{2}e^8 - \dfrac{3}{2}e^4 + e^2$	
+\item $\displaystyle\int_{-1}^1\displaystyle\int_{-1}^1 \dfrac{xy}{1+x^2+y^2}dxdy = 
+			\displaystyle\int_{-1}^1 \dfrac{y}{2} \displaystyle\int_{-1}^1 \dfrac{2x}{1+x^2+y^2}dxdy$\\
+			$= \displaystyle\int_{-1}^1 \dfrac{y}{2} ln(1+x^2+y^2) \ev_{-1}^1 dy = 
+			\displaystyle\int_{-1}^1 \dfrac{y}{2}( ln(2+y^2) - ln(2+y^2) ) dy$\\
+			$=0$
+\end{enumerate}
+\end{solucion}
+\item Calcule
+	$$ \displaystyle\int_0^1 \dfrac{x^b - x^a}{log\ x}dx$$
+	sabiendo que $\displaystyle\int_a^b x^y dy = \dfrac{x^b - x^a}{log\ x}$.
+\begin{solucion}
+Reemplazando con la información dada, tenemos que:
+		$$ \displaystyle\int_0^1 \dfrac{x^b - x^a}{log\ x}dx = \displaystyle\int_0^1 \displaystyle\int_a^b x^y dydx $$
+		Cambiamos el orden de integración, dado que así es más facil integrar
+		$$ = \displaystyle\int_a^b \displaystyle\int_0^1 x^y dxdy $$
+		$$ = \displaystyle\int_a^b \dfrac{x^{y+1}}{y+1} \ev_0^1 dy $$
+		$$ = \displaystyle\int_a^b \dfrac{dy}{y+1} $$
+		$$ = ln|y+1|\ev_a^b $$
+		con lo que:
+		$$ \displaystyle\int_0^1 \dfrac{x^b - x^a}{log\ x}dx = ln\left|\dfrac{b+1}{a+1}\right| $$
+\end{solucion}
+\item Dibuje la región de integración de $\displaystyle\int_0^1 \displaystyle\int_x^{2x} dydx$ y luego cambie el orden de integración.
+\begin{solucion}
+\begin{center}
+		\begin{tikzpicture}
+		\begin{axis}[
+		axis lines = left,
+		xlabel = $x$,
+		ylabel = $y$,
+		]
+		\addplot [
+		domain=0:1,  
+		color=red,
+		]
+		{2*x};
+		\addplot [
+		domain=0:1, 
+		color=red,
+		]
+		{x};
+		\addplot [
+		domain=0.5:1, 
+		color=blue,
+		]
+		{1};
+		\addplot [
+		domain=0:1,  
+		color=green,
+		]
+		coordinates {(1,0) (1,2)};
+		
+		\end{axis}
+		\end{tikzpicture}
+		\end{center}
+		Como queremos cambiar el orden de integración, despejamos estas funciones en función de la otra variable, es decir:
+		$$ y = 2x \ra x = \dfrac{y}{2} \quad; \quad y=x \ra x=y$$
+		Luego, cambiamos el orden de integración, teniendo cuidado con los intervalos donde estamos abajo y arriba de la linea azul.
+		$$\displaystyle\int_0^1 \displaystyle\int_x^{2x} dydx = 
+		\displaystyle\int_0^1 \displaystyle\int_{y/2}^{y} dxdy + 
+		\displaystyle\int_1^2 \displaystyle\int_{y/2}^{1} dxdy$$
+\end{solucion}
+\item Evalúe la integral $\displaystyle\int_1^2 \displaystyle\int_x^{x^2} 12x dydx$ y luego dibuje la región de integración y exprese la integral en el orden $dxdy$. Integre nuevamente.
+\begin{solucion}
+$$\displaystyle\int_1^2 \displaystyle\int_x^{x^2} 12x dydx =
+		\displaystyle\int_1^2 12x(x^2-x)dx = \displaystyle\int_1^2 12(x^3-x^2)dx = 17$$
+		\begin{center}
+			\begin{tikzpicture}
+			\begin{axis}[
+			axis lines = left,
+			xlabel = $x$,
+			ylabel = $y$,
+			]
+			\addplot [
+			domain=0:2,  
+			color=red,
+			]
+			{x};
+			\addplot [
+			domain=0:2, 
+			color=red,
+			]
+			{x^2};
+			\addplot [
+			domain=0:2, 
+			color=blue,
+			]
+			{2};
+			\addplot [
+			domain=0:2,  
+			color=green,
+			]
+			coordinates {(2,0) (2,4)};
+			
+			\end{axis}
+			\end{tikzpicture}
+		\end{center}
+		Despejamos estas funciones en función de la otra variable
+		$$ y = x^2 \ra x = \sqrt[]{y} \quad; \quad y=x \ra x=y$$
+		y cambiamos el orden de integración
+		$$\displaystyle\int_1^2 \displaystyle\int_x^{x^2} 12x dydx = 
+		\displaystyle\int_1^2 \displaystyle\int_{\sqrt[]{y}}^{y} 12x dxdy + 
+		\displaystyle\int_2^4 \displaystyle\int_{\sqrt[]{y}}^{2} 12x dxdy$$
+		Resolvemos ahora esta integral y obtenemos que
+		$$\displaystyle\int_1^2 \displaystyle\int_{\sqrt[]{y}}^{y} 12x dxdy + 
+		\displaystyle\int_2^4 \displaystyle\int_{\sqrt[]{y}}^{2} 12x dxdy = 17$$
+\end{solucion}
+\item Calcule la integral doble $\displaystyle\iint\limits_R e^{x/y} dA$ donde $R$ es la región en $\R^2$ encerrada por las curvas $y=\sqrt[]{x}$ e $y=\sqrt[3]{x}$.
+\begin{solucion}
+Para tener más claro qué es lo que estamos integrando, vamos a graficar ambas curvas:
+		\begin{center}
+			\begin{tikzpicture}
+			\begin{axis}[
+			axis lines = left,
+			xlabel = $x$,
+			ylabel = $y$,
+			]
+			\addplot [
+			domain=0:1,  
+			color=red,
+			]
+			{x^(1/3)};
+			\addplot [
+			domain=0:1, 
+			color=blue,
+			]
+			{x^(1/2)};
+			\end{axis}
+			\end{tikzpicture}
+		\end{center}
+		Vemos claramente que se intersectan en $x=0$ y $x=1$. Además, podemos observar que $y=\sqrt[]{x}$ es menor a $y=\sqrt[3]{x}$ en ese intervalo. Por lo tanto, nos queda la integral siguiente:
+		$$\displaystyle\iint\limits_R e^{x/y} dA = 
+		\displaystyle\int_0^1 \displaystyle\int_{\sqrt[]{x}}^{\sqrt[3]{x}} e^{x/y} dydx$$
+		Sin embargo, esta integral no es sencilla de resolver, ya que para eso tendríamos que integrar $e^{1/y}$. Dado esto, vamos a cambiar el orden de integración, utilizando el grafico de arriba. Para esto, despejamos $x$ en ambas funciones, obteniendo
+		$$ y = \sqrt[]{x} \ra x = y^2 \quad; \quad y = \sqrt[3]{x} \ra x=y^3$$
+		Luego, podemos escribir la integral como 
+		$$\displaystyle\int_0^1 \displaystyle\int_{\sqrt[]{x}}^{\sqrt[3]{x}} e^{x/y} dydx = 
+		\displaystyle\int_0^1 \displaystyle\int_{y^3}^{y^2} e^{x/y} dxdy$$
+		Por último, resolvemos esta integral
+		$$= \displaystyle\int_0^1 y e^{x/y} \ev_{y^3}^{y^2} dy$$
+		$$= \displaystyle\int_0^1 y\left(e^{y^2/y} - e^{y^3/y}\right) dy$$
+		$$= \displaystyle\int_0^1 ye^y - ye^{y^2} dy$$
+		Para el primer termino se aplica integración por partes $(u=y, dv=e^y)$ y para el segundo termino se utiliza la sustitución $u=y^2$, obteniendo asi:
+		$$\displaystyle\iint\limits_R e^{x/y} dA = \dfrac{1}{2}(e+1)$$
+\end{solucion}
+\item Cambie el orden de integración y calcule cuando sea posible
+\begin{tasks}(2)
+\task $\displaystyle\int_0^1 \displaystyle\int_0^{\sqrt[]{x}} \dfrac{2xy}{1-y^4} dydx$
+\task $\displaystyle\int_0^1 \displaystyle\int_{z^2}^z ze^{-y^2} dydz$
+\task $\displaystyle\int_0^1 \displaystyle\int_{arcsen(y)}^{\pi/2} cos(x)\ \sqrt[]{1+cos^2(x)} dxdy$
+\task $\displaystyle\int_0^1 \displaystyle\int_{\sqrt[]{x}}^1 \dfrac{x}{\sqrt[]{x^2+y^2}} dydx$
+\end{tasks}
+\begin{solucion}
+
+\begin{enumerate}[a)]
+\item $\displaystyle\int_0^1 \displaystyle\int_0^{\sqrt[]{x}} \dfrac{2xy}{1-y^4} dydx$\\
+			\\
+			En primer lugar, vamos a graficar nuestra area de integración:
+			\begin{center}
+				\begin{tikzpicture}
+				\begin{axis}[
+				axis lines = left,
+				xlabel = $x$,
+				ylabel = $y$,
+				]
+				\addplot [
+				domain=0:1,  
+				color=red,
+				]
+				{x^(1/2)};
+				\addplot [
+				domain=0:1, 
+				color=red,
+				]
+				{0};
+				\addplot [
+				domain=0:1, 
+				color=green,
+				]
+				coordinates {(1,0) (1,1)};
+				\end{axis}
+				\end{tikzpicture}
+			\end{center}
+			Tenemos que $y=\sqrt[]{x} \ra x = y^2$ y podemos ver que la coordenada y se mueve entre $0$ y $1$, por lo tanto:
+			$$\displaystyle\int_0^1 \displaystyle\int_0^{\sqrt[]{x}} \dfrac{2xy}{1-y^4} dydx
+			= \displaystyle\int_0^1 \displaystyle\int_{y^2}^1 \dfrac{2xy}{1-y^4} dxdy$$
+			Ahora, la resolvemos:
+			$$= \displaystyle\int_0^1 \displaystyle\int_{y^2}^1 \dfrac{2xy}{1-y^4} dxdy$$
+			$$= \displaystyle\int_0^1 \dfrac{y}{1-y^4} \left(\displaystyle\int_{y^2}^1 2x dx \right) dy$$
+			$$= \displaystyle\int_0^1 \dfrac{y}{1-y^4} x^2 \ev_{y^2}^1 dy$$
+			$$= \displaystyle\int_0^1 \dfrac{y}{1-y^4} (1-y^4) dy$$
+			$$= \displaystyle\int_0^1 y dy$$
+			$$= \dfrac{1}{2}$$
+\item $\displaystyle\int_0^1 \displaystyle\int_{z^2}^z ze^{-y^2} dydz$\\
+			\\
+			Graficamos la región:
+			\begin{center}
+				\begin{tikzpicture}
+				\begin{axis}[
+				axis lines = left,
+				xlabel = $z$,
+				ylabel = $y$,
+				]
+				\addplot [
+				domain=0:1,  
+				color=red,
+				]
+				{x^2};
+				\addplot [
+				domain=0:1, 
+				color=red,
+				]
+				{x};
+				\end{axis}
+				\end{tikzpicture}
+			\end{center}
+			Tenemos que $ y = z^2 \ra z = \sqrt[]{y}$ y $y=z \ra z=y$. Viendo el gráfico podemos ver que al hacer el cambio del orden de integración, seguiremos teniendo una sola integral, con lo que
+			$$\displaystyle\int_0^1 \displaystyle\int_{z^2}^z ze^{-y^2} dydz = 
+			\displaystyle\int_0^1 \displaystyle\int_{y}^{\sqrt[]{y}} ze^{-y^2} dzdy$$
+			Evaluando esta integral, tenemos que
+			$$= \displaystyle\int_0^1 \displaystyle\int_{y}^{\sqrt[]{y}} ze^{-y^2} dzdy$$
+			$$= \displaystyle\int_0^1 e^{-y^2} \left(\displaystyle\int_{y}^{\sqrt[]{y}} z dz \right) dy$$
+			$$= \displaystyle\int_0^1 e^{-y^2} (y-y^2) dy$$
+			Podemos seguir desarrollando, pero eventualmente tendremos que calcular $\displaystyle\int_0^1 e^{-y^2}dy$, que no tiene primitiva (no se puede calcular).
+\item $\displaystyle\int_0^1 \displaystyle\int_{arcsen(y)}^{\pi/2} cos(x)\ \sqrt[]{1+cos^2(x)} dxdy$\\
+			\\
+			Partimos graficando la región. Notemos que para graficar con los ejes que estamos acostumbrados, debemos graficar la función $y=sen(x)$, la cual es equivalente a $x = arcsen(y)$
+			\begin{center}
+				\begin{tikzpicture}
+				\begin{axis}[
+				axis lines = left,
+				xlabel = $x$,
+				ylabel = $y$,
+				xtick={
+					0.78539, 1.5707
+				},
+				xticklabels={
+					$\frac{\pi}{4}$, $\frac{\pi}{2}$
+				}
+				]
+				\addplot [
+				domain=0:1.5707,  
+				color=blue,
+				]
+				{sin(deg(x))};
+				\addplot [
+				domain=0:1.5707, 
+				color=blue,
+				]
+				{0};
+				\addplot [
+				domain=0:1.5707, 
+				color=blue,
+				]
+				coordinates {(1.5707,0) (1.5707,1)};
+				\end{axis}
+				\end{tikzpicture}
+			\end{center}		
+			Podemos ver que $x$ va entre $0$ y $\dfrac{\pi}{2}$. Además, $y$ va entre $0$ y $sen(x)$. Dicho esto, tenemos que
+			$$\displaystyle\int_0^1 \displaystyle\int_{arcsen(y)}^{\pi/2} cos(x)\ \sqrt[]{1+cos^2(x)} dxdy=
+			\displaystyle\int_0^{\pi/2} \displaystyle\int_0^{sen(x)} cos(x)\ \sqrt[]{1+cos^2(x)} dydx$$
+			Resolviendo:
+			$$=\displaystyle\int_0^{\pi/2} \displaystyle\int_0^{sen(x)} cos(x)\ \sqrt[]{1+cos^2(x)} dydx$$
+			$$=\displaystyle\int_0^{\pi/2} cos(x)\ \sqrt[]{1+cos^2(x)} \left( \displaystyle\int_0^{sen(x)} dy \right) dx$$
+			$$=\displaystyle\int_0^{\pi/2} sen(x) cos(x)\ \sqrt[]{1+cos^2(x)} dx$$
+			Hacemos el cambio de variables
+			$$ u = cos^2(x) \ra du = -2cos(x)sen(x)dx $$
+			Con lo que nos queda:
+			$$=\dfrac{1}{2}\displaystyle\int_0^1 \sqrt[]{1+u} du$$
+			$$=\dfrac{1}{2} \cdot \dfrac{2}{3}(1+u)^{3/2} \ev_0^1$$
+			$$=\dfrac{1}{3} (2^{3/2}-1)$$
+\item $\displaystyle\int_0^1 \displaystyle\int_{\sqrt[]{x}}^1 \dfrac{x}{\sqrt[]{x^2+y^2}} dydx$\\
+			\\
+			Graficamos:
+			\begin{center}
+				\begin{tikzpicture}
+				\begin{axis}[
+				axis lines = left,
+				xlabel = $x$,
+				ylabel = $y$,
+				]
+				\addplot [
+				domain=0:1,  
+				color=green,
+				]
+				{x^(1/2)};
+				\addplot [
+				domain=0:1, 
+				color=green,
+				]
+				{1};
+				\addplot [
+				domain=0:1, 
+				color=green,
+				]
+				coordinates {(0,0) (0,1)};
+				\end{axis}
+				\end{tikzpicture}
+			\end{center}
+			Tenemos que $y=\sqrt[]{x} \ra x = y^2$. De esta forma,
+			$$\displaystyle\int_0^1 \displaystyle\int_{\sqrt[]{x}}^1 \dfrac{x}{\sqrt[]{x^2+y^2}} dydx =
+			\displaystyle\int_0^1 \displaystyle\int_0^{y^2} \dfrac{x}{\sqrt[]{x^2+y^2}} dxdy$$
+			Resolviendo esta integral, tenemos
+			$$= \displaystyle\int_0^1 \displaystyle\int_0^{y^2} \dfrac{x}{\sqrt[]{x^2+y^2}} dxdy$$
+			$$= \displaystyle\int_0^1 \left( \displaystyle\int_0^{y^2} \dfrac{1}{2} \dfrac{2x}{\sqrt[]{x^2+y^2}} dx \right) dy$$
+			Haciendo el cambio de variable $u=x^2 \ra du = 2xdx$ en la integral de más adentro
+			$$= \displaystyle\int_0^1 \left( \displaystyle\int_0^{y^4} \dfrac{du}{2\ \sqrt[]{u+y^2}} \right) dy$$
+			$$= \displaystyle\int_0^1\sqrt[]{u+y^2} \ev_0^{y^4} dy$$
+			$$= \displaystyle\int_0^1\sqrt[]{y^4+y^2} -|y| dy$$
+			Como el intervalo de integración es positivo, sabemos que $|y| = y$
+			$$= \displaystyle\int_0^1 y\ \sqrt[]{y^2+1} -y dy$$
+			Haciendo $u=y^2 \ra du = 2ydy$
+			$$= \dfrac{1}{2}\displaystyle\int_0^1 y\ \sqrt[]{u+1} du - \dfrac{1}{2}$$
+			$$= \dfrac{1}{2} \cdot \dfrac{2}{3} (2^{3/2}-1) - \dfrac{1}{2}$$
+			$$= \dfrac{2\ \sqrt[]{2}}{3} - \dfrac{5}{6}$$
+\end{enumerate}
+\end{solucion}
 \end{preguntas}
 \end{document}
