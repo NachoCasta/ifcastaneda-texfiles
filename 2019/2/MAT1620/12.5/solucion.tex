@@ -116,5 +116,259 @@
 \end{center}
 
 \begin{preguntas}
+\item Si $z^3 - xz - y = -2$, encuentre $\dfrac{\delta^2z}{\delta y \delta x}$ cuando $(x,y,z) = (-1, 0, -1)$.
+\begin{solucion}
+En primer lugar, notemos que lo que nos estan pidiendo es equivalente a $z_{xy}$ (mucho ojo con la notación).\\
+\\
+Tenemos que
+$$z^3 -xz -y = -2$$
+Derivamos en $x$,
+$$3z^2z_x - z - xz_x = 0$$
+Despejando,
+$$z_x = \dfrac{z}{3z^2 - x}$$
+Para obtener $z_{yx}$, derivamos la ecuación anterior (no la despejada) en $y$, es decir
+$$3z^2z_x - z - xz_x = 0$$
+Derivando,
+$$6zz_yz_x + 3z^2z_{xy} - z_y - xz_{xy} = 0$$
+Despejando,
+$$z_{xy} = \dfrac{z_y - 6zz_yz_x}{3z^2 -x}$$
+Notemos que para calcular el valor de $z_{xy}$, necesitamos también saber $z_y$, por lo que tomamos
+$$z^3 -xz -y = -2$$
+y derivamos en $y$,
+$$3z^2z_y - xz_y - 1 = 0$$
+Despejando,
+$$z_y = \dfrac{1}{3z^2 - x}$$
+Reemplazando con $(-1,0,1)$, tenemos que
+$$z_x(-1,0,-1) = \dfrac{-1}{3+1} = -\dfrac{1}{4}$$
+$$z_y(-1,0,-1) = \dfrac{1}{3+1} = \dfrac{1}{4}$$
+Luego, reemplazando con los valores obtenidos de $z_x$ y $z_y$,
+$$z_{xy}(-1,0,-1) = \dfrac{\dfrac{1}{4} - 6 \cdot (-1)\cdot \dfrac{1}{4} \cdot \left(-\dfrac{1}{4}\right)}{3\cdot (-1)^2 + 1} = -\dfrac{1}{32}$$
+
+
+\end{solucion}
+\item Determine la gradiente de $f$, evalúela en el punto $P$ y encuentre la razón de cambio de $f$ en $P$ en la dirección del vector $u$.
+\begin{enumerate}[a)]
+\item $f(x,y) = sen(2x+3y)$\tab$P=(-6,4), u=\left(\sqrt[]{3}i - j\right)$
+\item $f(x,y) = \dfrac{y^2}{x}$\tab$P=(1,2), u=\left(2i + \sqrt[]{5}j\right)$
+\end{enumerate}
+\begin{solucion}
+Recordemos que la derivada direccional de $f$ en la dirección $u$ en el punto $P(x_0, y_0)$, corresponde a
+$$D_u(x_0, y_0) = \nabla f(x_0, y_0) \cdot \hat{u}$$
+\begin{enumerate}[a)]
+\item $f(x,y) = sen(2x+3y)$\tab$P=(-6,4), u=\left(\sqrt[]{3}i - j\right)$\\
+\\
+En primer lugar, calculemos el gradiente, esto es
+$$\nabla f = \begin{pmatrix}
+2\cos(2x + 3y) \\
+3\cos(3x + 3y)
+\end{pmatrix} \ra 
+\nabla f(-6,4) = \begin{pmatrix}
+2 \\
+3
+\end{pmatrix}
+$$
+Luego, normalicemos $u$, esto es
+$$\hat{u} = \dfrac{u}{|u|} = \dfrac{\begin{pmatrix}
+\sqrt[]{3} \\
+-1
+\end{pmatrix}}{2} = \begin{pmatrix}
+\sqrt[]{3}/2 \\
+-1/2
+\end{pmatrix}$$
+Finalmente,
+$$D_u = 
+\begin{pmatrix}
+2 \\
+3
+\end{pmatrix}
+\cdot 
+\begin{pmatrix}
+\sqrt[]{3}/2 \\
+-1/2
+\end{pmatrix} = \sqrt[]{3} - \dfrac{3}{2}$$
+\item $f(x,y) = \dfrac{y^2}{x}$\tab$P=(1,2), u=\left(2i + \sqrt[]{5}j\right)$\\
+\\
+En primer lugar, calculemos el gradiente, esto es
+$$\nabla f = \begin{pmatrix}
+-y^2/x^2 \\
+2y/x
+\end{pmatrix} \ra 
+\nabla f(1,2) = \begin{pmatrix}
+-4 \\
+4
+\end{pmatrix}
+$$
+Luego, normalicemos $u$, esto es
+$$\hat{u} = \dfrac{u}{|u|} = \dfrac{\begin{pmatrix}
+2 \\
+\sqrt[]{5}
+\end{pmatrix}}{3} = \begin{pmatrix}
+2/3 \\
+\sqrt[]{5}/3
+\end{pmatrix}$$
+Finalmente,
+$$D_u = 
+\begin{pmatrix}
+-4 \\
+4
+\end{pmatrix}
+\cdot 
+\begin{pmatrix}
+2/3 \\
+\sqrt[]{5}/3
+\end{pmatrix} = \dfrac{-8 + 4\ \sqrt[]{5}}{3}$$
+\end{enumerate}
+\end{solucion}
+\item Suponga que $f(x,y)$ es una función con derivadas parciales continuas en el punto $(1,1)$. Asumir que la derivada direccional en $(1,1)$ en la dirección $\langle3,4\rangle$ 			es 1 y en la dirección $\langle5,12\rangle$ es $-1$.
+\begin{enumerate}[a)]
+\item Encontrar la ecuación cartesiana del plano tangente en $(1,1,f(1,1))$.
+\item Encontrar la derivada direccional de $f(x,y)$ en $(1,1)$ en dirección al origen.	
+\end{enumerate}
+\begin{solucion}
+Recordemos que 
+$$D_u(x,y) = \nabla f(x,y) \cdot \hat{u}$$
+Luego, como sabemos que $D_{(3,4)}(1,1) = 1$ donde $u = (3,4) \ra \hat{u} = (\frac{3}{5}, \frac{4}{5})$, tenemos que
+$$D_{(3,4)}(1,1) = \begin{pmatrix}f_x(1,1) \\ f_y(1,1)\end{pmatrix} \cdot \begin{pmatrix}\frac{3}{5} \\ \frac{4}{5}\end{pmatrix} = 1$$
+$$\dfrac{3}{5}f_x(1,1) + \dfrac{4}{5}f_y(1,1) = 1$$
+$$3f_x(1,1) + 4f_y(1,1) = 5$$
+Análogamente, como $D_{(5,12)}(1,1) = -1$, donde $u=(5,12) \ra \hat{u} = (\frac{5}{13}, \frac{12}{13})$, tenemos que
+$$D_{(5,12)}(1,1) = \begin{pmatrix}f_x(1,1) \\ f_y(1,1)\end{pmatrix} \cdot \begin{pmatrix}\frac{5}{13} \\ \frac{12}{13}\end{pmatrix} = -1$$
+$$\dfrac{5}{13}f_x(1,1) + \dfrac{12}{13}f_y(1,1) = -1$$
+$$5f_x(1,1) + 12f_y(1,1) = -13$$
+Resolviendo este sistema de ecuaciones, obtenemos que
+$$f_x(1,1) = 7 \qquad f_y(1,1) = -4$$
+\begin{enumerate}[a)]
+\item Para obtener el plano tangente, lo podemos hacer con la formula, esto es
+$$z - f(1,1) = f_x(1,1)(x-1) + f_y(1,1)(y-1)$$
+$$z - f(1,1) = 7(x-1) - 4(y-1)$$
+$$7x - 4y - z = 3 - f(1,1)$$
+\item $D_{(1,1)}(1,1) = \begin{pmatrix}f_x(1,1) \\ f_y(1,1)\end{pmatrix} \cdot \begin{pmatrix}-\frac{1}{\sqrt[]{2}} \\ -\frac{1}{\sqrt[]{2}}\end{pmatrix}
+= \begin{pmatrix}7 \\ -4\end{pmatrix} \cdot \begin{pmatrix}-\frac{1}{\sqrt[]{2}} \\ -\frac{1}{\sqrt[]{2}}\end{pmatrix}
+= -\frac{3}{\sqrt[]{2}}$
+\end{enumerate}
+\end{solucion}
+\item La temperatura en el punto $(x,y)$ de una lamina metálica viene dada por la función $T(x,y) = \dfrac{x}{x^2+y^2}$. Hallar la razón de crecimiento máximo de la temperatura en el punto $(3,4$) y la dirección en que ella ocurre.
+\begin{solucion}
+En primer lugar, debemos calcular la gradiente, esto es
+$$\nabla T = \left( 
+\dfrac{(x^2+y^2) - 2x\cdot x}{(x^2+y^2)^2}, 
+\dfrac{-x}{(x^2+y^2)^2}2y
+\right)$$
+$$\nabla T = \left( 
+\dfrac{y^2 - x^2}{(x^2+y^2)^2}, 
+\dfrac{-2xy}{(x^2+y^2)^2}
+\right)$$
+Luego, la dirección de máximo crecimiento viene dada por
+$$\nabla T(3,4) = \left( 
+\dfrac{7}{625}, 
+-\dfrac{24}{625}
+\right)$$
+Notese que la dirección podría ser cualquier múltiplo de este vector, por lo que $(7,-24)$ también sería válido.\\
+\\
+Ahora, la razón de máximo crecimiento, viene dada por
+$$||\nabla T(3,4)|| 
+= \sqrt[]{\dfrac{7^2 + 24^2}{625^2}}
+= \dfrac{\sqrt[]{7^2 + 24^2}}{625}
+= \dfrac{\sqrt[]{625}}{625}
+= \dfrac{1}{25}$$
+Ojo que en este caso debemos usar la gradiente exacta, no un múltiplo de esta, ya que eso alteraría el resultado.\\
+
+Si nos pidieran la razón de decrecimiento máximo, habría que cambiarle el signo al resultado.
+\end{solucion}
+\item Encuentre y clasifíque los puntos críticos de $f(x,y)=x^3+3xy^2-15x-12y$.
+\begin{solucion}
+Para encontrar y clasificar los puntos críticos de una función, se debe hacer lo siguiente:\\
+
+Para clasificarlos, calculamos el gradiente de la función y lo igualamos a 0. Todos los puntos que cumplan con esta condición serán los puntos críticos.\\
+
+Para clasificarlos, debemos evaluarlos en el determinante de la matriz Hessiana, que en el caso de dos variables es
+$$H(x,y) = f_{xx}f_{yy} - f_{xy}^2$$
+Aqui se cumplirá lo siguiente:
+\begin{itemize}
+\item $H > 0$
+\begin{itemize}
+    \item $f_{xx} > 0 \ra$ Mínimo local
+    \item $f_{xx} < 0 \ra$ Máximo local
+\end{itemize}
+\item $H < 0 \ra$ Punto silla
+\end{itemize}
+Veamos ahora el ejercicio.\\
+
+Tenemos que
+$$f(x,y)=x^3+3xy^2-15x-12y$$
+Luego,
+$$\nabla f = \begin{pmatrix} 3x^2 + 3y^2 - 15 \\ 6xy - 12 \end{pmatrix} = \vec{0}$$
+Luego, tenemos que resolver
+$$3x^2 + 3y^2 - 15 = 0$$
+$$6xy - 12 = 0$$
+Simplificando,
+$$x^2 + y^2 = 5$$
+$$xy = 2$$
+Sumando dos veces la segunda a la primera ecuación, obtenemos
+$$x^2 + 2xy + y^2 = 9$$
+Luego,
+$$(x+y)^2 = 9 \ra x + y = \pm3$$
+Ahora, debemos ver cada uno de estos casos y despejar reemplazando en la otra ecuación.
+En primer lugar, veamos el caso donde $x+y = 3$, es decir, $y = 3 - x$.\\
+\\
+Reemplazando,
+$$x(3-x) = 2 \ra x^2-3x+2=0 \ra (x-1)(x-2) = 0$$
+De aqui tenemos que $x_1 = 1\ra y_1 = 2$ y $x_2 = 2 \ra y_2 = 1$, por lo que $P_1(1,2)$ y $P_2(2,1)$.\\
+\\
+Veamos ahora que pasa con $x+y = -3$, es decir $y = -3-x$\\
+\\
+Reemplazando,
+$$x(-3-x) = 2 \ra x^2+3x+2=0 \ra (x+1)(x+2) = 0$$
+De aqui tenemos que $x_3 = -1 \ra y_3 = -2$ y $x_4 = -2 \ra y_4 = -1$, por lo que $P_3(-1,-2)$ y $P_4(-2,-1)$.\\
+\\
+Entonces, los puntos críticos son
+$$P_1(1,2) \quad P_2(2,1) \quad P_3(-1,-2) \quad P_4(-2,-1)$$
+Calculemos ahora el determinante del Hessiano, es decir,
+$$H(x,y) = f_{xx}f_{yy} - f_{xy}^2$$
+Notemos que
+$$f_{xx} = 6x \quad f_{yy} = 6x \quad f_{xy} = 6y$$
+Luego,
+$$H(x,y) = 36(x^2-y^2)$$
+Finalmente,
+$$H(P_1) = H(1,2) = 36(1^2-2^2) < 0 \ra \text{Punto silla}$$
+$$H(P_2) = H(2,1) = 36(2^2-1^2) > 0$$
+$$f_{xx}(2,1) = 12 > 0 \ra \text{Mínimo local}$$
+$$H(P_3) = H(-1,-2) = 36((-1)^2-(-2)^2) < 0 \ra \text{Punto silla}$$
+$$H(P_4) = H(-2,-1) = 36((-2)^2-(-1)^2) > 0$$
+$$f_{xx}(2,1) = -12 < 0 \ra \text{Máximo local}$$
+\end{solucion}
+\item Sea la función
+	$$f(x,y)=ax^2y+bxy^2+\dfrac{a^2y^2}{2}+2y$$
+	determine los valores de $a$ y $b$ para que la función posea un punto silla en $(1,1)$.
+\begin{solucion}
+Para que exista un punto silla en $(1,1)$, deben cumplirse dos cosas:
+$$\nabla f(1,1) = 0 \wedge H(1,1) < 0$$
+Tenemos que
+$$\nabla f = \begin{pmatrix} 2axy + by^2 \\ ax^2 + 2bxy + a^2y\end{pmatrix}$$
+Evaluando en $(1,1)$,
+$$\nabla f(1,1) = \begin{pmatrix} 2a + b \\ a + 2b + a^2\end{pmatrix} = 0$$
+Luego,
+$$2a + b = 0$$
+$$a + 2b + a^2= 0$$
+Reemplazando la primera ecuación ($b = -2a$) en la segunda obtenemos,
+$$a^2 - 3a +2 = 0 \ra (a-2)(a-1) = 0$$
+De aquí obtememos
+$$a = 1 \ra b = -2, \qquad a = 2 \ra b = -4$$
+Veamos ahora cuál de estos valores de $a$ y $b$ cumplen la restricción del Hessiano.
+$$f_{xx} = 2ay, \quad f_{yy} = 2bx + a^2, \quad f_{xy} = 2ax + 2by$$
+Luego,
+$$H(x,y) = 2ay(2bx+a^2) - (2ax +2by)^2$$
+Evaluamos,
+$$H(1,1) = 2a(2b+a^2) - (2a+2b)^2$$
+Probamos con $a=1$ y $b=-2$,
+$$H = 2(-4+1)-(2-4)^2 = -6 - 4 = -10 < 0$$
+Por lo que si es un punto silla.\\
+\\
+Probemos ahora ocn $a = 2$ y $b = -4$
+$$H = 4(-8-4)-(4-8)^2 = -16 - 16 = -32 < 0$$
+Por lo que si es un punto silla.\\
+
+Finalmente, los valores que puede tomar $a$ y $b$ son $(1, -2)$ y $(2, -4)$
+\end{solucion}
 \end{preguntas}
 \end{document}
