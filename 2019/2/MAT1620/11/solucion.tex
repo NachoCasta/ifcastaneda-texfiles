@@ -152,9 +152,28 @@ x^2+y^2 & = & 10
 \end{array}$$
 Para resolver este sistema, sería tentador pasar el $y$ diviviendo en la segunda ecuación, sin embargo, recordemos que este podría ser cero, por lo que no podemos hacerlo directamente. Si queremos dividir por algun termino que podría ser cero, debemos ver todos los casos posibles (en esta caso son dos, $y = 0$, $y \neq 0$).
 \begin{itemize}
-\item $y = 0$
-\item $y \neq 0$
+\item $y = 0$\\
+En este caso, de la últma ecuación obtenemos
+$$x^2 = 10 \ra x = \pm \ \sqrt[]{10}$$
+De aquí se desprende
+$$P_2(\sqrt[]{10}, 0), \quad P_3(-\ \sqrt[]{10}, 0)$$
+\item $y \neq 0$\\
+De la segunda ecuación,
+$$4 = 2\lambda \ra \lambda = 2$$
+Reemplazando esto en la primera,
+$$2x - 2 = 4x \ra x = -1$$
+Por último, de la última ecuación tenemos que
+$$1 + y^2 = 10 \ra y^2 = 9 \ra y_1 = 3, \quad y_2 = -3$$
+Por lo tanto, los puntos obtenidos son
+$$P_4(-1,3), \quad P_5(-1,-3)$$
 \end{itemize}
+Finalmente, evaluamos los puntos críticos obtenidos en la función original, esto es
+$$f(P_1) = f(1,0) = 1-2+3 =2$$
+$$f(P_2) = f(\sqrt[]{10},0) = 10 - 2\ \sqrt[]{10} + 3 = 13 - 2\ \sqrt[]{10}$$
+$$f(P_3) = f(-\ \sqrt[]{10},0) = 10 + 2\ \sqrt[]{10} + 3 = 13 + 2\ \sqrt[]{10}$$
+$$f(P_4) = f(-1,3) = 1+18+2+3=24$$
+$$f(P_5) = f(-1,-3) = 1+18+2+3=24$$
+Por lo tanto, concluimos que el máximo es $24$ ($P_4$ y $P_5$) y el mínimo es 2 ($P_1$).
 \end{solucion}
 \item Determine el máximo y el mínimo valor que alcanza la expresión $z=x^2-4xy-y^2+2y$, para $x\geq0;\quad y\geq0;\quad x+y\leq2$.
 \begin{solucion}
