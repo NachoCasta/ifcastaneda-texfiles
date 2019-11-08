@@ -1,0 +1,120 @@
+\documentclass[12pt]{article}
+
+\usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[none]{hyphenat}
+\usepackage{parskip}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\usepackage{tasks}
+\usepackage{mdframed}
+\usepackage{xcolor}
+\usepackage{pgfplots}
+\usepackage[makeroom]{cancel}
+\usepackage{multicol}
+\usepackage[shortlabels]{enumitem}
+\usepackage{stackrel}
+\usepackage{tkz-tab}
+\usepackage{xpatch}
+\usepackage{tkz-euclide}
+\usetkzobj{all}
+\usepackage{tabto}
+\xpatchcmd{\tkzTabLine}{$0$}{$\bullet$}{}{}
+
+\setlength{\headheight}{10pt}
+\setlength{\headsep}{10pt}
+\pagestyle{fancy}
+\rhead{\ayudantia \ - \alumno}
+\tikzset{t style/.style={style=solid}}
+
+\newcommand*{\mybox}[2]{\colorbox{#1!30}{\parbox{.98\linewidth}{#2}}}
+
+\newenvironment{solucion}
+{\begin{mdframed}[backgroundcolor=black!10]
+		{\bf Solución:}\\
+	}
+	{
+	\end{mdframed}
+}
+
+\newenvironment{alternativas}[1]
+{\begin{multicols}{#1}
+		\begin{enumerate}[a)]
+		}
+		{
+		\end{enumerate}
+	\end{multicols}
+}
+
+\newenvironment{preguntas}
+{\begin{enumerate}\itemsep12pt
+	}
+	{
+	\end{enumerate}
+}
+
+\newcommand{\ayudantia}{{\sc Ayudantía 12.5}}
+\newcommand{\tituloayu}{Compilado I3}
+\newcommand{\fecha}{13 de diciembre de 2019}
+\newcommand{\sigla}{MAT1620}
+\newcommand{\nombre}{Cálculo II}
+\newcommand{\profesor}{Wolfgang Rivera}
+\newcommand{\ano}{2019}
+\newcommand{\semestre}{2}
+\newcommand{\mail}{mat1620@ifcastaneda.cl}
+\newcommand{\alumno}{Ignacio Castañeda - \mail}
+
+\newcommand{\ev}{\Big|}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lra}{\leftrightarrow}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Exp}[1]{\mathcal{E}_{#1}}
+\newcommand{\List}[1]{\mathcal{L}_{#1}}
+\newcommand{\EN}{\Exp{\N}}
+\newcommand{\LN}{\List{\N}}
+\newcommand{\comment}[1]{}
+\newcommand{\lb}{\\~\\}
+\newcommand{\eop}{_{\square}}
+\newcommand{\hsig}{\hat{\sigma}}
+\newcommand{\widesim}[2][1.5]{
+	\mathrel{\overset{#2}{\scalebox{#1}[1]{$\sim$}}}
+}
+\newcommand{\wsim}{\widesim{}}
+\newcommand{\lh}{\stackrel{L'H}{=}}
+
+\begin{document}
+\thispagestyle{empty}
+
+\begin{minipage}{2cm}
+	\includegraphics[width=2cm]{../../../../img/logo.pdf}
+	\vspace{0.5cm}
+\end{minipage}
+\begin{minipage}{\linewidth}
+	\begin{tabular}{lrl}
+		{\scriptsize\sc Pontificia Universidad Catolica de Chile} & \hspace*{0.7in}Curso: &
+		\sigla  - \nombre\\
+		{\sc Facultad de Matemáticas}&
+		Profesor: & \profesor \\
+		{\sc Semestre \ano-\semestre} & Ayudante: & {Ignacio Castañeda}\\
+		& {Mail:} & \texttt{\mail}
+	\end{tabular}
+\end{minipage}
+
+\vspace{-10mm}
+\begin{center}
+	{\LARGE\bf \ayudantia}\\
+	\vspace{0.1cm}
+	{\tituloayu}\\
+	\vspace{0.1cm}
+	\fecha\\
+	\vspace{0.4cm}
+\end{center}
+
+\begin{preguntas}
+\end{preguntas}
+\end{document}
