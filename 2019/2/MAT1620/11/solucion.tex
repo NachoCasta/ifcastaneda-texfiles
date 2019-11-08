@@ -177,7 +177,62 @@ Por lo tanto, concluimos que el máximo es $24$ ($P_4$ y $P_5$) y el mínimo es 
 \end{solucion}
 \item Determine el máximo y el mínimo valor que alcanza la expresión $z=x^2-4xy-y^2+2y$, para $x\geq0;\quad y\geq0;\quad x+y\leq2$.
 \begin{solucion}
+En primer lugar, tenemos que
+$$\nabla f = \begin{pmatrix} 2x - 4y \\ -4x-2y+2 \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \end{pmatrix}$$
+Esto se traduce en el sistema
+$$\begin{array}{rcl} 2x-4y & = & 0 \\ -4x+2y+2 & = & 0 \end{array}
+\ra 
+x = \dfrac{2}{5}, \quad y = \dfrac{1}{5}$$
+Por lo que nuestro primer punto es $P_1\left(\dfrac{2}{5}, \dfrac{1}{5}\right)$. Notemos que este punto si cumple con las restricción, ya que $\dfrac{2}{5} + \dfrac{1}{5} \leq 2$ y ambos son positivos, por lo que si es un punto crítico.\\
+\\
+Veamos ahora que sucede con los bordes. \\
+\\
+Recordemos para que nos sirve Lagrange. Al armar el sistema de ecuaciones\\ correspondiente, con las restricciones que elijamos, Lagrange nos indicará los puntos críticos que se encuentran cumpliendo \textbf{todas} las restricciones que hayamos agregado al sistema. \\
+\\
+Al tener múltiples restricciones, debemos hacer Lagrange múltiples veces, con todas las restricciones por separado y combinandolas también con las que tengan sentido, esto es, combinando las restricciones que se intersectan entre si.\\
+\\
+Recordemos también que en Lagrange, las inecuaciones se convierten en igualdades, ya que estamos analizando solamente el borde y no su contenido.\\
 
+Notemos que las restricciones de este ejercicio corresponden a un triangulo hecho por los ejes coordenados y la recta $y = 2-x$. Luego, los casos que tenemos que analizar son cada uno de los bordes del triangulo y todas las intersecciones de estos, es decir, las esquinas del triangulo. Estos casos corresponden a los siguientes:
+\begin{itemize}
+	\item $x = 0$
+	\item $y = 0$
+	\item $x + y = 2$
+	\item $x = 0 \wedge y = 0 \ra P_2(0,0)$
+	\item $y = 0 \wedge x + y = 2 \ra P_3(0,2)$
+	\item $x + y = 2 \wedge x = 0 \ra P_4(2,0)$
+\end{itemize}
+Como pueden ver, varios casos se resolvieron de manera inmediata, sin embargo, seguimos teniendo 3 casos que analizar. No obstante, dado que las restricciones son bastante sencillas y tenemos solo dos variables, podemos evitar el uso de Lagrange y simplemente reemplazar cada uno de los casos en la función original y encontrar los puntos críticos derivando la ecuación que obtengamos (que será de una variable).\\
+\\
+Veamos entonces el resto de los casos:
+\begin{itemize}
+	\item $x = 0$\\
+	Al reemplazar en $f(x,y)$, tenemos que
+	$$f(x,y) = -y^2 + 2y = f(y)$$
+	Derivando,
+	$$f'(y) = -2y + 2 = 0 \ra y = 1$$
+	Por lo tanto, tenemos $P_5(0,1)$
+	\item $y = 0$
+	Al reemplazar en $f(x,y)$, tenemos que
+	$$f(x,y) = x^2 = f(x)$$
+	Derivando,
+	$$f'(x) = 2x = 0 \ra x = 0$$
+	Sin embargo, este punto ya lo tenemos ($P_2(0,0)$).
+	\item $x + y = 2$
+	Al reemplazar $y = 2 - x$ en $f(x,y)$, tenemos que
+	$$f(x,y) = x^2 - 4x(2-x) - (2-x)^2 + 2(2-x) = 4x^2 - 6x = f(x)$$
+	Derivando,
+	$$f'(x) = 8x - 6 = 0 \ra x = \dfrac{3}{4}, \quad y = \dfrac{5}{4}$$
+	Por lo que $P_6\left(\dfrac{3}{4},\dfrac{5}{4}\right)$.
+\end{itemize}
+Finalmente, evaluamos todos los puntos en la función dada, esto es
+$$f(P_1) = f\left(\dfrac{2}{5}, \dfrac{1}{5}\right) = \dfrac{1}{5}$$
+$$f(P_2) = f(0,0) = 0$$
+$$f(P_3) = f(0,2) = 0$$
+$$f(P_4) = f(2,0) = 4$$
+$$f(P_5) = f(0,1) = 1$$
+$$f(P_6) = f\left(\dfrac{3}{4}, \dfrac{5}{4}\right) = -\dfrac{9}{4}$$
+Entonces, concluimos que el mínimo es $-\dfrac{9}{4}$ y el máximo es $4$.
 \end{solucion}
 \item Hallar el punto más cercano al origen de la curva definida por las siguientes ecuaciones
 	$$x^2-xy+y^2-z^2=1,\qquad x^2+y^2=1$$
